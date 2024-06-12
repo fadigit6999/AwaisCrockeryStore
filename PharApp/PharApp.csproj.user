@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>G:\pharAppGit\PharApp\PharApp\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Update="Audit\AuditLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Backup\frmManualBackup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Customer\frmCustomers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Customer\frmRegisterCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Inventory\frmMedicine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Inventory\frmRegisterCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Inventory\frmRegisterMedicine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Inventory\frmRegisterType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Inventory\frmRegisterUnit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Inventory\frmStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Main\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Purchase\frmManufacturer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Purchase\frmPurchase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Purchase\frmRegisterManufacturer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="RdlcReports\Purchase\rptPurchase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="RdlcReports\Sale\rptSale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Sale\Area\frmArea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Sale\Area\frmRegisterArea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Sale\frmSale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Settings\frmCompany.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Settings\frmDbConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Settings\frmPyament.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Users\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Users\frmManageUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Users\frmRegisterRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Users\frmRegisterUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="RdlcReports\Purchase\DSPurchase.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="RdlcReports\Purchase\DSPurchaseReturn.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="RdlcReports\Sale\DSSale.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="RdlcReports\Sale\DSSaleReturn.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+</Project>

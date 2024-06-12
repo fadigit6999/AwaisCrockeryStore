@@ -1,0 +1,12 @@
+G:\pharAppGit\PharApp\BML\bin\Debug\net8.0-windows\BML.deps.json
+G:\pharAppGit\PharApp\BML\bin\Debug\net8.0-windows\BML.dll
+G:\pharAppGit\PharApp\BML\bin\Debug\net8.0-windows\BML.pdb
+G:\pharAppGit\PharApp\BML\obj\Debug\net8.0-windows\BML.GeneratedMSBuildEditorConfig.editorconfig
+G:\pharAppGit\PharApp\BML\obj\Debug\net8.0-windows\BML.AssemblyInfoInputs.cache
+G:\pharAppGit\PharApp\BML\obj\Debug\net8.0-windows\BML.AssemblyInfo.cs
+G:\pharAppGit\PharApp\BML\obj\Debug\net8.0-windows\BML.csproj.CoreCompileInputs.cache
+G:\pharAppGit\PharApp\BML\obj\Debug\net8.0-windows\BML.sourcelink.json
+G:\pharAppGit\PharApp\BML\obj\Debug\net8.0-windows\BML.dll
+G:\pharAppGit\PharApp\BML\obj\Debug\net8.0-windows\refint\BML.dll
+G:\pharAppGit\PharApp\BML\obj\Debug\net8.0-windows\BML.pdb
+G:\pharAppGit\PharApp\BML\obj\Debug\net8.0-windows\ref\BML.dll

@@ -1,0 +1,124 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>AMSoft.ico</ApplicationIcon>
+    
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="RdlcReports\Purchase\rptPurchase.rdlc" />
+    <None Remove="RdlcReports\Purchase\rptPurchaseReturn.rdlc" />
+    <None Remove="RdlcReports\Sale\rptSale.rdlc" />
+    <None Remove="RdlcReports\Sale\rptSaleReturn.rdlc" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="AMSoft.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="RdlcReports\Purchase\rptPurchaseReturn.rdlc" />
+    <EmbeddedResource Include="RdlcReports\Purchase\rptPurchase.rdlc" />
+    <EmbeddedResource Include="RdlcReports\Sale\rptSaleReturn.rdlc" />
+    <EmbeddedResource Include="RdlcReports\Sale\rptSale.rdlc" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ReportViewerCore.WinForms" Version="15.1.20" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BAL\BAL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Inventory\frmExpiryStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Update="Purchase\frmPurchaseReturn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="RdlcReports\Purchase\DSPurchase.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DSPurchase.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="RdlcReports\Purchase\DSPurchaseReturn.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DSPurchaseReturn.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="RdlcReports\Purchase\rptPurchaseReturn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="RdlcReports\Sale\DSSale.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DSSale.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="RdlcReports\Sale\DSSaleReturn.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DSSaleReturn.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="RdlcReports\Sale\rptSaleReturn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Sale\Area\frmRegisterSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Sale\Area\frmRegisterBooker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Sale\frmSaleReturn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="RdlcReports\Purchase\DSPurchase.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSPurchase.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="RdlcReports\Purchase\DSPurchaseReturn.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSPurchaseReturn.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="RdlcReports\Sale\DSSale.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSSale.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="RdlcReports\Sale\DSSaleReturn.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSSaleReturn.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>

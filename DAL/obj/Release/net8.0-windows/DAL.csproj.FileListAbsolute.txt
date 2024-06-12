@@ -1,0 +1,16 @@
+G:\pharAppGit\PharApp\DAL\bin\Release\net8.0-windows\DAL.deps.json
+G:\pharAppGit\PharApp\DAL\bin\Release\net8.0-windows\DAL.dll
+G:\pharAppGit\PharApp\DAL\bin\Release\net8.0-windows\DAL.pdb
+G:\pharAppGit\PharApp\DAL\bin\Release\net8.0-windows\BML.dll
+G:\pharAppGit\PharApp\DAL\bin\Release\net8.0-windows\BML.pdb
+G:\pharAppGit\PharApp\DAL\obj\Release\net8.0-windows\DAL.csproj.AssemblyReference.cache
+G:\pharAppGit\PharApp\DAL\obj\Release\net8.0-windows\DAL.GeneratedMSBuildEditorConfig.editorconfig
+G:\pharAppGit\PharApp\DAL\obj\Release\net8.0-windows\DAL.AssemblyInfoInputs.cache
+G:\pharAppGit\PharApp\DAL\obj\Release\net8.0-windows\DAL.AssemblyInfo.cs
+G:\pharAppGit\PharApp\DAL\obj\Release\net8.0-windows\DAL.csproj.CoreCompileInputs.cache
+G:\pharAppGit\PharApp\DAL\obj\Release\net8.0-windows\DAL.sourcelink.json
+G:\pharAppGit\PharApp\DAL\obj\Release\net8.0-windows\DAL.csproj.CopyComplete
+G:\pharAppGit\PharApp\DAL\obj\Release\net8.0-windows\DAL.dll
+G:\pharAppGit\PharApp\DAL\obj\Release\net8.0-windows\refint\DAL.dll
+G:\pharAppGit\PharApp\DAL\obj\Release\net8.0-windows\DAL.pdb
+G:\pharAppGit\PharApp\DAL\obj\Release\net8.0-windows\ref\DAL.dll

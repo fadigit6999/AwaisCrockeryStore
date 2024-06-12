@@ -1,0 +1,114 @@
+﻿using PharApp.WinHelper;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace PharApp.Inventory
+{
+    public partial class frmRegisterCategory : Form
+    {
+        public frmMedicine _frmMedicine = null;
+        private List<BML.Category> _categoryList;
+
+        public IReadOnlyList<BML.Category> CategoryList => _categoryList.AsReadOnly();
+        public frmRegisterCategory(Form frm)
+        {
+            InitializeComponent();
+            _frmMedicine = frm as frmMedicine;
+            _categoryList = new List<BML.Category>();
+        }
+
+        private async void btnRegister_Click(object sender, EventArgs e)
+        {
+            string Name = txtName.Text;
+
+
+            if (ValidateInput())
+            {
+                var unitBAL = new BAL.Category(Helper.GetConnectionStringFromSettings());
+                int result = await unitBAL.CreateCategoryAsync(Name);
+                if (result == 1)
+                {
+                    Helper.Log($"Category Created:Name {Name}");
+                    ReLoadGridDataCategory();
+                    MessageBox.Show("Category registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to register Category. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private bool ValidateInput()
+        {
+            // Check if the Name, Strength, and Generic Name fields are empty
+            if (string.IsNullOrWhiteSpace(txtName.Text))
+            {
+                MessageBox.Show("Please enter the Category", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            // Validation passed
+            return true;
+        }
+
+        private async void btnRegisterAddOther_Click(object sender, EventArgs e)
+        {
+            string Name = txtName.Text;
+
+
+            if (ValidateInput())
+            {
+                var unitBAL = new BAL.Category(Helper.GetConnectionStringFromSettings());
+                int result = await unitBAL.CreateCategoryAsync(Name);
+                if (result == 1)
+                {
+                    Helper.Log($"Category Created:Name {Name}");
+                    ReLoadGridDataCategory();
+                    MessageBox.Show("Category registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Hide();
+
+                    var frmCategory = new frmRegisterCategory(_frmMedicine);
+                    frmCategory.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to register Category. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private async void ReLoadGridDataCategory()
+        {
+            try
+            {
+                var cmbCategoryBal = new BAL.Category(Helper.GetConnectionStringFromSettings());
+                _categoryList = await cmbCategoryBal.GetCategoriesAsync();
+                _frmMedicine.dataGridViewMedicineCategory.DataSource = null;
+                // Bind the data to the grid
+                _frmMedicine.dataGridViewMedicineCategory.DataSource = _categoryList;
+                _frmMedicine.dataGridViewMedicineCategory.Columns["CategoryId"].HeaderText = "Category Id";
+                _frmMedicine.dataGridViewMedicineCategory.Columns["CategoryName"].HeaderText = "Medicine Category";
+
+                _frmMedicine.dataGridViewMedicineCategory.Refresh();
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions
+                MessageBox.Show($"Error loading grid data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+    }
+}
