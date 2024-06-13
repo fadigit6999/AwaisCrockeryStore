@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\pharAppGit\\PharApp\\BML\\BML.csproj",
+      "projectUniqueName": "G:\\AwaisCrockeryStoreGit\\AwaisCrockeryStore\\BML\\BML.csproj",
       "projectName": "BML",
-      "projectPath": "G:\\pharAppGit\\PharApp\\BML\\BML.csproj",
+      "projectPath": "G:\\AwaisCrockeryStoreGit\\AwaisCrockeryStore\\BML\\BML.csproj",
       "packagesPath": "C:\\Users\\Fahad Masood Ahmad\\.nuget\\packages\\",
-      "outputPath": "G:\\pharAppGit\\PharApp\\BML\\obj\\",
+      "outputPath": "G:\\AwaisCrockeryStoreGit\\AwaisCrockeryStore\\BML\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Rhkf/ckR85kjv3e2g5RVIO20/A7//VszTu5jbpZsE7wh/ptJ2WOG2mM2NUlguDDptSNZDUWFXfmylo1MUnoOfg==",
+  "dgSpecHash": "JkqoToLN9izkQgF27/c9VG3egiatO4/n+vUAdQtrhwCC6o/ca3FKYTADoQuiJ7v4F5T3fXgY2KZ3lZQJ9FA5fg==",
   "success": true,
-  "projectFilePath": "G:\\pharAppGit\\PharApp\\BAL\\BAL.csproj",
+  "projectFilePath": "G:\\AwaisCrockeryStoreGit\\AwaisCrockeryStore\\BAL\\BAL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Fahad Masood Ahmad\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Fahad Masood Ahmad\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

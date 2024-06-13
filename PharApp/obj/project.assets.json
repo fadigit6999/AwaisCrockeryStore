@@ -1846,11 +1846,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\pharAppGit\\PharApp\\PharApp\\PharApp.csproj",
+      "projectUniqueName": "G:\\AwaisCrockeryStoreGit\\AwaisCrockeryStore\\PharApp\\PharApp.csproj",
       "projectName": "PharApp",
-      "projectPath": "G:\\pharAppGit\\PharApp\\PharApp\\PharApp.csproj",
+      "projectPath": "G:\\AwaisCrockeryStoreGit\\AwaisCrockeryStore\\PharApp\\PharApp.csproj",
       "packagesPath": "C:\\Users\\Fahad Masood Ahmad\\.nuget\\packages\\",
-      "outputPath": "G:\\pharAppGit\\PharApp\\PharApp\\obj\\",
+      "outputPath": "G:\\AwaisCrockeryStoreGit\\AwaisCrockeryStore\\PharApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1872,8 +1872,8 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
-            "G:\\pharAppGit\\PharApp\\BAL\\BAL.csproj": {
-              "projectPath": "G:\\pharAppGit\\PharApp\\BAL\\BAL.csproj"
+            "G:\\AwaisCrockeryStoreGit\\AwaisCrockeryStore\\BAL\\BAL.csproj": {
+              "projectPath": "G:\\AwaisCrockeryStoreGit\\AwaisCrockeryStore\\BAL\\BAL.csproj"
             }
           }
         }

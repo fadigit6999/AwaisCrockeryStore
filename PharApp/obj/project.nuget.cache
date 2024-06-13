@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BWMSQsQZ19s2lQmYOl5cVeoJkdao4ZBMq5AvKtot3xN5nhK345MBDGB7e7Cdy87IcEZPLH15HvTTbctddJm5Fw==",
+  "dgSpecHash": "DN+hqD4OQRzoRHcDF7pAaPFKwB7k61IyKoe4G56xzwbjFw7Cu9F2FlPtGb+6oSBzZOQ1UvswTiCNa491juNtdg==",
   "success": true,
-  "projectFilePath": "G:\\pharAppGit\\PharApp\\PharApp\\PharApp.csproj",
+  "projectFilePath": "G:\\AwaisCrockeryStoreGit\\AwaisCrockeryStore\\PharApp\\PharApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Fahad Masood Ahmad\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.3.4\\microsoft.codeanalysis.analyzers.3.3.4.nupkg.sha512",
     "C:\\Users\\Fahad Masood Ahmad\\.nuget\\packages\\microsoft.codeanalysis.common\\4.8.0-3.final\\microsoft.codeanalysis.common.4.8.0-3.final.nupkg.sha512",
