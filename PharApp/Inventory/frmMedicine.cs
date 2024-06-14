@@ -149,8 +149,9 @@ namespace PharApp.Inventory
                 //dataGridViewMedicine.DataSource = _medicinList;
                 dataGridViewMedicine.Columns["MedicineId"].HeaderText = "Id";
                 dataGridViewMedicine.Columns["Name"].HeaderText = "Name";
-                dataGridViewMedicine.Columns["Strength"].HeaderText = "Strength";
-                dataGridViewMedicine.Columns["GenericName"].HeaderText = "Gen. Name";
+                dataGridViewMedicine.Columns["Name_Urdu"].HeaderText = "Name Urdu";
+                dataGridViewMedicine.Columns["Strength"].HeaderText = "Color";
+                dataGridViewMedicine.Columns["GenericName"].HeaderText = "Material";
                 dataGridViewMedicine.Columns["BoxSize"].HeaderText = "Box Size";
                 dataGridViewMedicine.Columns["Unit"].HeaderText = "Unit";
                 dataGridViewMedicine.Columns["MedicineShelf"].HeaderText = "Med. Shelf";
@@ -160,10 +161,8 @@ namespace PharApp.Inventory
                 dataGridViewMedicine.Columns["SellPrice"].HeaderText = "Sell Price";
                 dataGridViewMedicine.Columns["ManufacturerId"].HeaderText = "Man.";
                 dataGridViewMedicine.Columns["ManufacturerPrice"].HeaderText = "Man. Price";
-
                 dataGridViewMedicine.Columns["Barcode"].Visible = false;
                 dataGridViewMedicine.Columns["Image"].Visible = false;
-
                 dataGridViewMedicine.Refresh();
             }
             catch (Exception ex)
@@ -399,6 +398,7 @@ namespace PharApp.Inventory
                 var filteredList = originalMedicineList.Where(medicine =>
                     medicine.MedicineId.ToString().ToLower().Contains(filterText) ||
                     medicine.Name.ToLower().Contains(filterText) ||
+                    medicine.Name_Urdu.ToLower().Contains(filterText) ||
                     medicine.Strength.ToLower().Contains(filterText) ||
                     medicine.GenericName.ToLower().Contains(filterText) ||
                     medicine.BoxSize.ToString().ToLower().Contains(filterText) ||

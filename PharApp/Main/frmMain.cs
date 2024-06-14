@@ -51,7 +51,7 @@ namespace PharApp.Main
         {
             await LoadMetrics();
             await LoadExpiryStock();
-            toolStripStatuslblVersion.Text = "AM Parm 1.0.0";
+            toolStripStatuslblVersion.Text = "Awais Plastic Store 1.0.0";
         }
 
         private async Task LoadMetrics()

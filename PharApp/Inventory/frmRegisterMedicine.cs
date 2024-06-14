@@ -76,64 +76,64 @@ namespace PharApp.Inventory
             // Check if the Name, Strength, and Generic Name fields are empty
             if (string.IsNullOrEmpty(txtName.Text))
             {
-                MessageBox.Show("Please enter the medicine name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please enter the Item name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             if (string.IsNullOrEmpty(txtStrength.Text))
             {
-                MessageBox.Show("Please enter the strength of the medicine.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please enter the Color of the Item.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             if (string.IsNullOrEmpty(txtGenericName.Text))
             {
-                MessageBox.Show("Please enter the generic name of the medicine.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please enter the material of the item.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             if (string.IsNullOrEmpty(txtBoxSize.Text))
             {
-                MessageBox.Show("Please enter the Box Size of the medicine.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please enter the Box Size of the item.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             // Check if the Manufacturer, Mnf Price, and Sell Price fields are valid
             if (string.IsNullOrEmpty(cmbUnit.Text) || cmbUnit.Text == "Choose Unit" || cmbUnit.SelectedIndex == -1)
             {
-                MessageBox.Show("Please select the Unit of the medicine.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please select the Unit of the item.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             if (string.IsNullOrEmpty(cmbCategory.Text) || cmbCategory.Text == "Choose Category" || cmbCategory.SelectedIndex == -1)
             {
-                MessageBox.Show("Please select the Category of the medicine.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please select the Category of the item.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             if (string.IsNullOrEmpty(cmbType.Text) || cmbType.Text == "Choose Type" || cmbType.SelectedIndex == -1)
             {
-                MessageBox.Show("Please select the Type of the medicine.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please select the Type of the item.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             if (string.IsNullOrEmpty(cmbManufacturer.Text) || cmbManufacturer.Text == "Choose Manufacturer" || cmbManufacturer.SelectedIndex == -1)
             {
-                MessageBox.Show("Please select the manufacturer of the medicine.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please select the manufacturer of the item.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             decimal mnfPrice;
             if (!decimal.TryParse(txtMnfPrice.Text, out mnfPrice) || mnfPrice <= 0)
             {
-                MessageBox.Show("Please enter a valid manufacturer price for the medicine.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please enter a valid manufacturer price for the item.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             decimal sellPrice;
             if (!decimal.TryParse(txtSellPrice.Text, out sellPrice) || sellPrice <= 0)
             {
-                MessageBox.Show("Please enter a valid selling price for the medicine.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please enter a valid selling price for the item.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
@@ -165,7 +165,7 @@ namespace PharApp.Inventory
             catch (Exception ex)
             {
                 // Handle exceptions, log, or show error message
-                MessageBox.Show($"Error while populating categories: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error while populating Unit: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -222,7 +222,7 @@ namespace PharApp.Inventory
             catch (Exception ex)
             {
                 // Handle exceptions, log, or show error message
-                MessageBox.Show($"Error while populating units: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error while populating Type: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -253,14 +253,14 @@ namespace PharApp.Inventory
                 catch (Exception ex)
                 {
                     // Handle exceptions, log, or show error message
-                    MessageBox.Show($"Error while populating units: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Error while populating Manufacturer: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
             }
             catch (Exception ex)
             {
                 // Handle exceptions, log, or show error message
-                MessageBox.Show($"Error while populating units: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error while populating Manufacturer: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -276,6 +276,7 @@ namespace PharApp.Inventory
                 var medBAL = new BAL.Medicine(Helper.GetConnectionStringFromSettings());
                 var medics = await medBAL.GetMedicinesAsync(_medId);
                 txtName.Text = medics.Name;
+                txtNameUrdu.Text = medics.Name_Urdu;
                 txtStrength.Text = medics.Strength;
                 txtGenericName.Text = medics.GenericName;
                 txtBoxSize.Text = medics.BoxSize;
@@ -324,10 +325,10 @@ namespace PharApp.Inventory
                 int result = await medinceBal.CreateMedicineAsync("", Name, Strength, GenericName, BoxSize, Unit, medicine_shelf, Details, MedicineTypeId, "", CategoryId, SellPrice, ManufacturerId, ManufacturerPrice,NameUrdu);
                 if (result == 1)
                 {
-                    Helper.Log($"Medicine Created:Name {Name}, Manu. Price {ManufacturerPrice},Sale Price {SellPrice}");
+                    Helper.Log($"Item Created:Name {Name}, Manu. Price {ManufacturerPrice},Sale Price {SellPrice}");
                     ReLoadGridDataMedicine();
 
-                    MessageBox.Show("Medicine registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Item registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     this.Hide();
 
@@ -336,7 +337,7 @@ namespace PharApp.Inventory
                 }
                 else
                 {
-                    MessageBox.Show("Failed to register medicine. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Failed to register Item. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -437,6 +438,7 @@ namespace PharApp.Inventory
 
             dgv.Columns["MedicineId"].HeaderText = "Medicine Id";
             dgv.Columns["Name"].HeaderText = "Name";
+            dgv.Columns["Name_Urdu"].HeaderText = "Name Urdu";
             dgv.Columns["Strength"].HeaderText = "Strength";
             dgv.Columns["GenericName"].HeaderText = "Generic Name";
             dgv.Columns["BoxSize"].HeaderText = "Box Size";
@@ -459,6 +461,7 @@ namespace PharApp.Inventory
             if (ValidateInput())
             {
                 string Name = txtName.Text;
+                string NameUrdu = txtNameUrdu.Text;
                 string Strength = txtStrength.Text;
                 string GenericName = txtGenericName.Text;
                 string medicine_shelf = txtMedicineShelf.Text;
@@ -472,18 +475,18 @@ namespace PharApp.Inventory
                 string Details = rtxtDetails.Text;
 
                 var medinceBal = new BAL.Medicine(Helper.GetConnectionStringFromSettings());
-                int result = await medinceBal.UpdateMedicineAsync(_medId,"",Name,Strength,GenericName,BoxSize,Unit,medicine_shelf,Details,MedicineTypeId,"",CategoryId,SellPrice,ManufacturerId,ManufacturerPrice);
+                int result = await medinceBal.UpdateMedicineAsync(_medId,"",Name,Strength,GenericName,BoxSize,Unit,medicine_shelf,Details,MedicineTypeId,"",CategoryId,SellPrice,ManufacturerId,ManufacturerPrice,NameUrdu);
 
                 if (result == 1)
                 {
-                    Helper.Log($"Medicine Updated:Name {Name}, Manu. Price {ManufacturerPrice},Sale Price {SellPrice}");
+                    Helper.Log($"Item Updated:Name {Name}, Manu. Price {ManufacturerPrice},Sale Price {SellPrice}");
                     ReLoadGridDataMedicine();
-                    MessageBox.Show($"Medicine ## {Name} ## updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"Item ## {Name} ## updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Failed to update medicine. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Failed to update Item. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

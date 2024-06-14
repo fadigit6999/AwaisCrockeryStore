@@ -28,11 +28,11 @@ namespace BAL
             }
         }
 
-        public async Task<int> UpdateMedicineAsync(string medicineId, string barcode, string name, string strength, string genericName, string boxSize, string unit, string medicineShelf, string details, string medicineTypeId, string image, string categoryId, decimal sellPrice, string manufacturerId, decimal manufacturerPrice)
+        public async Task<int> UpdateMedicineAsync(string medicineId, string barcode, string name, string strength, string genericName, string boxSize, string unit, string medicineShelf, string details, string medicineTypeId, string image, string categoryId, decimal sellPrice, string manufacturerId, decimal manufacturerPrice,string nameUrdu)
         {
             try
             {
-                return await _medicineDAL.UpdateMedicineAsync(medicineId, barcode, name, strength, genericName, boxSize, unit, medicineShelf, details, medicineTypeId, image, categoryId, sellPrice, manufacturerId, manufacturerPrice);
+                return await _medicineDAL.UpdateMedicineAsync(medicineId, barcode, name, strength, genericName, boxSize, unit, medicineShelf, details, medicineTypeId, image, categoryId, sellPrice, manufacturerId, manufacturerPrice,nameUrdu);
             }
             catch (Exception ex)
             {

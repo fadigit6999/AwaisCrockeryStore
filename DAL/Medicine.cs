@@ -50,7 +50,7 @@ namespace DAL
             return result;
         }
 
-        public async Task<int> UpdateMedicineAsync(string medicineId, string barcode, string name, string strength, string genericName, string boxSize, string unit, string medicineShelf, string details, string medicineTypeId, string image, string categoryId, decimal sellPrice, string manufacturerId, decimal manufacturerPrice)
+        public async Task<int> UpdateMedicineAsync(string medicineId, string barcode, string name, string strength, string genericName, string boxSize, string unit, string medicineShelf, string details, string medicineTypeId, string image, string categoryId, decimal sellPrice, string manufacturerId, decimal manufacturerPrice,string nameUrdu)
         {
             int result = 0;
 
@@ -74,7 +74,7 @@ namespace DAL
                 command.Parameters.AddWithValue("@SellPrice", sellPrice);
                 command.Parameters.AddWithValue("@ManufacturerId", manufacturerId);
                 command.Parameters.AddWithValue("@ManufacturerPrice", manufacturerPrice);
-
+                command.Parameters.AddWithValue("@Name_Urdu", nameUrdu);
                 await connection.OpenAsync();
                 result = await command.ExecuteNonQueryAsync();
             }
@@ -121,6 +121,7 @@ namespace DAL
                             MedicineId = reader["MedicineId"].ToString(),
                             Barcode = reader["Barcode"].ToString(),
                             Name = reader["Name"].ToString(),
+                            Name_Urdu = reader["Name_Urdu"].ToString(),
                             Strength = reader["Strength"].ToString(),
                             GenericName = reader["GenericName"].ToString(),
                             BoxSize = reader["BoxSizes"].ToString(),
@@ -165,6 +166,7 @@ namespace DAL
                                 MedicineId = reader["MedicineId"].ToString(),
                                 Barcode = reader["Barcode"].ToString(),
                                 Name = reader["Name"].ToString(),
+                                Name_Urdu = reader["Name_Urdu"].ToString(),
                                 Strength = reader["Strength"].ToString(),
                                 GenericName = reader["GenericName"].ToString(),
                                 BoxSize = reader["BoxSizes"].ToString(),
@@ -214,6 +216,7 @@ namespace DAL
                                 MedicineId = reader["MedicineId"].ToString(),
                                 Barcode = reader["Barcode"].ToString(),
                                 Name = reader["Name"].ToString(),
+                                Name_Urdu = reader["Name_Urdu"].ToString(),
                                 Strength = reader["Strength"].ToString(),
                                 GenericName = reader["GenericName"].ToString(),
                                 BoxSize = reader["BoxSizes"].ToString(),
@@ -263,6 +266,7 @@ namespace DAL
                                 MedicineId = reader["MedicineId"].ToString(),
                                 Barcode = reader["Barcode"].ToString(),
                                 Name = reader["Name"].ToString(),
+                                Name_Urdu = reader["Name_Urdu"].ToString(),
                                 Strength = reader["Strength"].ToString(),
                                 GenericName = reader["GenericName"].ToString(),
                                 BoxSize = reader["BoxSizes"].ToString(),

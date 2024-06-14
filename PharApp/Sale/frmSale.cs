@@ -120,11 +120,14 @@ namespace PharApp.Sale
 
                     Dictionary<string, string> pTypeDictionary = new Dictionary<string, string>();
                     pTypeDictionary.Add("Choose Payment Type", Guid.NewGuid().ToString());
-
-                    foreach (var pt in cmbPaymentTypeList)
+                    if (cmbPaymentTypeList != null && cmbPaymentTypeList.Count > 0)
                     {
-                        pTypeDictionary.Add(pt.TypeName, pt.PaymentTypeId);
+                        foreach (var pt in cmbPaymentTypeList)
+                        {
+                            pTypeDictionary.Add(pt.TypeName, pt.PaymentTypeId);
+                        }
                     }
+                
 
                     cmbPaymentType.DataSource = new BindingSource(pTypeDictionary, null);
                     cmbPaymentType.DisplayMember = "Key";
