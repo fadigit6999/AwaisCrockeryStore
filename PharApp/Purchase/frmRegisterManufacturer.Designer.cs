@@ -45,9 +45,10 @@
             // 
             // btnRegisterAddOther
             // 
-            btnRegisterAddOther.Location = new Point(137, 219);
+            btnRegisterAddOther.Location = new Point(120, 167);
+            btnRegisterAddOther.Margin = new Padding(3, 2, 3, 2);
             btnRegisterAddOther.Name = "btnRegisterAddOther";
-            btnRegisterAddOther.Size = new Size(213, 29);
+            btnRegisterAddOther.Size = new Size(186, 22);
             btnRegisterAddOther.TabIndex = 6;
             btnRegisterAddOther.Text = "Register and Add Other";
             btnRegisterAddOther.UseVisualStyleBackColor = true;
@@ -55,9 +56,10 @@
             // 
             // btnRegister
             // 
-            btnRegister.Location = new Point(29, 219);
+            btnRegister.Location = new Point(25, 167);
+            btnRegister.Margin = new Padding(3, 2, 3, 2);
             btnRegister.Name = "btnRegister";
-            btnRegister.Size = new Size(94, 29);
+            btnRegister.Size = new Size(82, 22);
             btnRegister.TabIndex = 5;
             btnRegister.Text = "Register";
             btnRegister.UseVisualStyleBackColor = true;
@@ -65,51 +67,53 @@
             // 
             // txtMobile
             // 
-            txtMobile.Location = new Point(205, 90);
+            txtMobile.Location = new Point(179, 68);
+            txtMobile.Margin = new Padding(3, 2, 3, 2);
             txtMobile.Name = "txtMobile";
-            txtMobile.Size = new Size(148, 27);
+            txtMobile.Size = new Size(130, 23);
             txtMobile.TabIndex = 2;
             // 
             // txtName
             // 
-            txtName.Location = new Point(32, 90);
+            txtName.Location = new Point(28, 68);
+            txtName.Margin = new Padding(3, 2, 3, 2);
             txtName.Name = "txtName";
-            txtName.Size = new Size(145, 27);
+            txtName.Size = new Size(127, 23);
             txtName.TabIndex = 1;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(205, 120);
+            label5.Location = new Point(179, 90);
             label5.Name = "label5";
-            label5.Size = new Size(55, 20);
+            label5.Size = new Size(42, 15);
             label5.TabIndex = 9;
             label5.Text = "Details";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(205, 67);
+            label4.Location = new Point(179, 50);
             label4.Name = "label4";
-            label4.Size = new Size(56, 20);
+            label4.Size = new Size(44, 15);
             label4.TabIndex = 8;
             label4.Text = "Mobile";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(32, 120);
+            label3.Location = new Point(28, 90);
             label3.Name = "label3";
-            label3.Size = new Size(62, 20);
+            label3.Size = new Size(49, 15);
             label3.TabIndex = 7;
             label3.Text = "Address";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(29, 70);
+            label2.Location = new Point(25, 52);
             label2.Name = "label2";
-            label2.Size = new Size(49, 20);
+            label2.Size = new Size(39, 15);
             label2.TabIndex = 18;
             label2.Text = "Name";
             // 
@@ -117,33 +121,36 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14F);
-            label1.Location = new Point(29, 20);
+            label1.Location = new Point(25, 15);
             label1.Name = "label1";
-            label1.Size = new Size(250, 32);
+            label1.Size = new Size(199, 25);
             label1.TabIndex = 6;
             label1.Text = "Register Manufacturer";
             // 
             // richTxtAddress
             // 
-            richTxtAddress.Location = new Point(32, 143);
+            richTxtAddress.Location = new Point(28, 107);
+            richTxtAddress.Margin = new Padding(3, 2, 3, 2);
             richTxtAddress.Name = "richTxtAddress";
-            richTxtAddress.Size = new Size(145, 70);
+            richTxtAddress.Size = new Size(127, 54);
             richTxtAddress.TabIndex = 3;
             richTxtAddress.Text = "";
             // 
             // richTextDetail
             // 
-            richTextDetail.Location = new Point(205, 143);
+            richTextDetail.Location = new Point(179, 107);
+            richTextDetail.Margin = new Padding(3, 2, 3, 2);
             richTextDetail.Name = "richTextDetail";
-            richTextDetail.Size = new Size(145, 70);
+            richTextDetail.Size = new Size(127, 54);
             richTextDetail.TabIndex = 4;
             richTextDetail.Text = "";
             // 
             // btnClose
             // 
-            btnClose.Location = new Point(29, 254);
+            btnClose.Location = new Point(25, 193);
+            btnClose.Margin = new Padding(3, 2, 3, 2);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(94, 29);
+            btnClose.Size = new Size(82, 22);
             btnClose.TabIndex = 7;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = true;
@@ -151,9 +158,9 @@
             // 
             // frmRegisterManufacturer
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(387, 304);
+            ClientSize = new Size(339, 228);
             Controls.Add(richTextDetail);
             Controls.Add(richTxtAddress);
             Controls.Add(btnRegisterAddOther);
@@ -168,6 +175,7 @@
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 2, 3, 2);
             Name = "frmRegisterManufacturer";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Register Manufacturer";

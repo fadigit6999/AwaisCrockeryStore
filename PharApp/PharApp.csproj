@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <ApplicationIcon>AMSoft.ico</ApplicationIcon>
+    <ApplicationIcon>23af8142ca1d397e25b34ad0379bc345.ico</ApplicationIcon>
     
   </PropertyGroup>
 
@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="AMSoft.ico" />
+    <Content Include="23af8142ca1d397e25b34ad0379bc345.ico" />
   </ItemGroup>
 
   <ItemGroup>

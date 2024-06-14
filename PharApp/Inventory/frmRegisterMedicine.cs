@@ -35,6 +35,7 @@ namespace PharApp.Inventory
             if (ValidateInput())
             {
                 string Name = txtName.Text;
+                string NameUrdu = txtNameUrdu.Text;
                 string Strength = txtStrength.Text;
                 string GenericName = txtGenericName.Text;
                 string medicine_shelf = txtMedicineShelf.Text;
@@ -48,7 +49,7 @@ namespace PharApp.Inventory
                 string Details = rtxtDetails.Text;
 
                 var medinceBal = new BAL.Medicine(Helper.GetConnectionStringFromSettings());
-                int result = await medinceBal.CreateMedicineAsync("", Name, Strength, GenericName, BoxSize, Unit, medicine_shelf, Details, MedicineTypeId, "", CategoryId, SellPrice, ManufacturerId, ManufacturerPrice);
+                int result = await medinceBal.CreateMedicineAsync("", Name, Strength, GenericName, BoxSize, Unit, medicine_shelf, Details, MedicineTypeId, "", CategoryId, SellPrice, ManufacturerId, ManufacturerPrice,NameUrdu);
 
                 if (result == 1)
                 {
@@ -306,6 +307,7 @@ namespace PharApp.Inventory
             {
 
                 string Name = txtName.Text;
+                string NameUrdu = txtNameUrdu.Text;
                 string Strength = txtStrength.Text;
                 string GenericName = txtGenericName.Text;
                 string medicine_shelf = txtMedicineShelf.Text;
@@ -319,7 +321,7 @@ namespace PharApp.Inventory
                 string Details = rtxtDetails.Text;
 
                 var medinceBal = new BAL.Medicine(Helper.GetConnectionStringFromSettings());
-                int result = await medinceBal.CreateMedicineAsync("", Name, Strength, GenericName, BoxSize, Unit, medicine_shelf, Details, MedicineTypeId, "", CategoryId, SellPrice, ManufacturerId, ManufacturerPrice);
+                int result = await medinceBal.CreateMedicineAsync("", Name, Strength, GenericName, BoxSize, Unit, medicine_shelf, Details, MedicineTypeId, "", CategoryId, SellPrice, ManufacturerId, ManufacturerPrice,NameUrdu);
                 if (result == 1)
                 {
                     Helper.Log($"Medicine Created:Name {Name}, Manu. Price {ManufacturerPrice},Sale Price {SellPrice}");

@@ -17,7 +17,7 @@ namespace DAL
             _connectionString = connectionString;
         }
 
-        public async Task<int> CreateMedicineAsync(string barcode, string name, string strength, string genericName, string boxSize, string unit, string medicineShelf, string details, string medicineTypeId, string image, string categoryId, decimal sellPrice, string manufacturerId, decimal manufacturerPrice)
+        public async Task<int> CreateMedicineAsync(string barcode, string name, string strength, string genericName, string boxSize, string unit, string medicineShelf, string details, string medicineTypeId, string image, string categoryId, decimal sellPrice, string manufacturerId, decimal manufacturerPrice,string nameUrdu)
         {
             int result = 0;
 
@@ -40,6 +40,8 @@ namespace DAL
                 command.Parameters.AddWithValue("@SellPrice", sellPrice);
                 command.Parameters.AddWithValue("@ManufacturerId", manufacturerId);
                 command.Parameters.AddWithValue("@ManufacturerPrice", manufacturerPrice);
+                command.Parameters.AddWithValue("@Name_Urdu", nameUrdu);
+
 
                 await connection.OpenAsync();
                 result = await command.ExecuteNonQueryAsync();

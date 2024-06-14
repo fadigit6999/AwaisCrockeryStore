@@ -39,9 +39,10 @@
             // 
             // btnRegisterAddOther
             // 
-            btnRegisterAddOther.Location = new Point(141, 129);
+            btnRegisterAddOther.Location = new Point(123, 100);
+            btnRegisterAddOther.Margin = new Padding(3, 2, 3, 2);
             btnRegisterAddOther.Name = "btnRegisterAddOther";
-            btnRegisterAddOther.Size = new Size(197, 29);
+            btnRegisterAddOther.Size = new Size(172, 22);
             btnRegisterAddOther.TabIndex = 3;
             btnRegisterAddOther.Text = "Register and Add Other";
             btnRegisterAddOther.UseVisualStyleBackColor = true;
@@ -49,9 +50,10 @@
             // 
             // btnRegister
             // 
-            btnRegister.Location = new Point(42, 129);
+            btnRegister.Location = new Point(37, 100);
+            btnRegister.Margin = new Padding(3, 2, 3, 2);
             btnRegister.Name = "btnRegister";
-            btnRegister.Size = new Size(94, 29);
+            btnRegister.Size = new Size(82, 22);
             btnRegister.TabIndex = 2;
             btnRegister.Text = "Register";
             btnRegister.UseVisualStyleBackColor = true;
@@ -59,17 +61,18 @@
             // 
             // txtName
             // 
-            txtName.Location = new Point(42, 95);
+            txtName.Location = new Point(37, 71);
+            txtName.Margin = new Padding(3, 2, 3, 2);
             txtName.Name = "txtName";
-            txtName.Size = new Size(296, 27);
+            txtName.Size = new Size(260, 23);
             txtName.TabIndex = 1;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(39, 75);
+            label2.Location = new Point(34, 56);
             label2.Name = "label2";
-            label2.Size = new Size(113, 20);
+            label2.Size = new Size(90, 15);
             label2.TabIndex = 14;
             label2.Text = "Category Name";
             // 
@@ -77,17 +80,18 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14F);
-            label1.Location = new Point(30, 25);
+            label1.Location = new Point(26, 19);
             label1.Name = "label1";
-            label1.Size = new Size(308, 32);
+            label1.Size = new Size(243, 25);
             label1.TabIndex = 13;
             label1.Text = "Register Medicine Category";
             // 
             // btnClose
             // 
-            btnClose.Location = new Point(42, 176);
+            btnClose.Location = new Point(37, 126);
+            btnClose.Margin = new Padding(3, 2, 3, 2);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(94, 29);
+            btnClose.Size = new Size(82, 22);
             btnClose.TabIndex = 4;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = true;
@@ -95,9 +99,9 @@
             // 
             // frmRegisterCategory
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(384, 226);
+            ClientSize = new Size(336, 162);
             Controls.Add(btnRegisterAddOther);
             Controls.Add(btnClose);
             Controls.Add(btnRegister);
@@ -106,6 +110,7 @@
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 2, 3, 2);
             Name = "frmRegisterCategory";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Register Category";

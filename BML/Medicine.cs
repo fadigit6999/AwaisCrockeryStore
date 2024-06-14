@@ -11,6 +11,7 @@ namespace BML
         public string? MedicineId { get; set; }
         public string? Barcode { get; set; }
         public string? Name { get; set; }
+        public string? Name_Urdu { get; set; }
         public string? Strength { get; set; }
         public string? GenericName { get; set; }
         public string? BoxSize { get; set; }
