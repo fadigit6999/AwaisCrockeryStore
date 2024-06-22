@@ -34,25 +34,25 @@
             tabUserControl = new TabControl();
             tabPageUserRegistration = new TabPage();
             registeredUserGrid = new DataGridView();
+            contextMenuStripUsers = new ContextMenuStrip(components);
+            deleteUserToolStripMenuItem = new ToolStripMenuItem();
+            enableUserToolStripMenuItem = new ToolStripMenuItem();
+            disableUserToolStripMenuItem = new ToolStripMenuItem();
             label1 = new Label();
             txtSearch = new TextBox();
             btnAssignUserRole = new Button();
             btnUserRegistration = new Button();
             tabPageUserRoles = new TabPage();
             userRolesGrid = new DataGridView();
-            btnRegisterRoles = new Button();
-            contextMenuStripUsers = new ContextMenuStrip(components);
-            deleteUserToolStripMenuItem = new ToolStripMenuItem();
-            enableUserToolStripMenuItem = new ToolStripMenuItem();
-            disableUserToolStripMenuItem = new ToolStripMenuItem();
             contextMenuStripRole = new ContextMenuStrip(components);
             deleteRoleToolStripMenuItem = new ToolStripMenuItem();
+            btnRegisterRoles = new Button();
             tabUserControl.SuspendLayout();
             tabPageUserRegistration.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)registeredUserGrid).BeginInit();
+            contextMenuStripUsers.SuspendLayout();
             tabPageUserRoles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)userRolesGrid).BeginInit();
-            contextMenuStripUsers.SuspendLayout();
             contextMenuStripRole.SuspendLayout();
             SuspendLayout();
             // 
@@ -95,6 +95,31 @@
             registeredUserGrid.RowHeadersWidth = 51;
             registeredUserGrid.Size = new Size(940, 477);
             registeredUserGrid.TabIndex = 0;
+            // 
+            // contextMenuStripUsers
+            // 
+            contextMenuStripUsers.ImageScalingSize = new Size(20, 20);
+            contextMenuStripUsers.Items.AddRange(new ToolStripItem[] { deleteUserToolStripMenuItem, enableUserToolStripMenuItem, disableUserToolStripMenuItem });
+            contextMenuStripUsers.Name = "contextMenuStripUsers";
+            contextMenuStripUsers.Size = new Size(162, 76);
+            // 
+            // deleteUserToolStripMenuItem
+            // 
+            deleteUserToolStripMenuItem.Name = "deleteUserToolStripMenuItem";
+            deleteUserToolStripMenuItem.Size = new Size(161, 24);
+            deleteUserToolStripMenuItem.Text = "Delete User";
+            // 
+            // enableUserToolStripMenuItem
+            // 
+            enableUserToolStripMenuItem.Name = "enableUserToolStripMenuItem";
+            enableUserToolStripMenuItem.Size = new Size(161, 24);
+            enableUserToolStripMenuItem.Text = "Enable User";
+            // 
+            // disableUserToolStripMenuItem
+            // 
+            disableUserToolStripMenuItem.Name = "disableUserToolStripMenuItem";
+            disableUserToolStripMenuItem.Size = new Size(161, 24);
+            disableUserToolStripMenuItem.Text = "Disable User";
             // 
             // label1
             // 
@@ -159,41 +184,6 @@
             userRolesGrid.Size = new Size(944, 484);
             userRolesGrid.TabIndex = 0;
             // 
-            // btnRegisterRoles
-            // 
-            btnRegisterRoles.Location = new Point(9, 20);
-            btnRegisterRoles.Name = "btnRegisterRoles";
-            btnRegisterRoles.Size = new Size(143, 29);
-            btnRegisterRoles.TabIndex = 0;
-            btnRegisterRoles.Text = "Register Roles";
-            btnRegisterRoles.UseVisualStyleBackColor = true;
-            btnRegisterRoles.Click += btnRegisterRoles_Click;
-            // 
-            // contextMenuStripUsers
-            // 
-            contextMenuStripUsers.ImageScalingSize = new Size(20, 20);
-            contextMenuStripUsers.Items.AddRange(new ToolStripItem[] { deleteUserToolStripMenuItem, enableUserToolStripMenuItem, disableUserToolStripMenuItem });
-            contextMenuStripUsers.Name = "contextMenuStripUsers";
-            contextMenuStripUsers.Size = new Size(211, 104);
-            // 
-            // deleteUserToolStripMenuItem
-            // 
-            deleteUserToolStripMenuItem.Name = "deleteUserToolStripMenuItem";
-            deleteUserToolStripMenuItem.Size = new Size(210, 24);
-            deleteUserToolStripMenuItem.Text = "Delete User";
-            // 
-            // enableUserToolStripMenuItem
-            // 
-            enableUserToolStripMenuItem.Name = "enableUserToolStripMenuItem";
-            enableUserToolStripMenuItem.Size = new Size(210, 24);
-            enableUserToolStripMenuItem.Text = "Enable User";
-            // 
-            // disableUserToolStripMenuItem
-            // 
-            disableUserToolStripMenuItem.Name = "disableUserToolStripMenuItem";
-            disableUserToolStripMenuItem.Size = new Size(210, 24);
-            disableUserToolStripMenuItem.Text = "Disable User";
-            // 
             // contextMenuStripRole
             // 
             contextMenuStripRole.ImageScalingSize = new Size(20, 20);
@@ -206,6 +196,16 @@
             deleteRoleToolStripMenuItem.Name = "deleteRoleToolStripMenuItem";
             deleteRoleToolStripMenuItem.Size = new Size(156, 24);
             deleteRoleToolStripMenuItem.Text = "Delete Role";
+            // 
+            // btnRegisterRoles
+            // 
+            btnRegisterRoles.Location = new Point(9, 20);
+            btnRegisterRoles.Name = "btnRegisterRoles";
+            btnRegisterRoles.Size = new Size(143, 29);
+            btnRegisterRoles.TabIndex = 0;
+            btnRegisterRoles.Text = "Register Roles";
+            btnRegisterRoles.UseVisualStyleBackColor = true;
+            btnRegisterRoles.Click += btnRegisterRoles_Click;
             // 
             // frmManageUsers
             // 
@@ -224,9 +224,9 @@
             tabPageUserRegistration.ResumeLayout(false);
             tabPageUserRegistration.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)registeredUserGrid).EndInit();
+            contextMenuStripUsers.ResumeLayout(false);
             tabPageUserRoles.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)userRolesGrid).EndInit();
-            contextMenuStripUsers.ResumeLayout(false);
             contextMenuStripRole.ResumeLayout(false);
             ResumeLayout(false);
         }

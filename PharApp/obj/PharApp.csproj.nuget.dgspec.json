@@ -252,6 +252,10 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
+            "ClosedXML": {
+              "target": "Package",
+              "version": "[0.102.2, )"
+            },
             "ReportViewerCore.WinForms": {
               "target": "Package",
               "version": "[15.1.20, )"

@@ -119,7 +119,7 @@ namespace PharApp.Users
         {
             if (string.IsNullOrEmpty(Properties.Settings.Default.Lisence))
             {
-                Properties.Settings.Default.Lisence = DateTime.Now.AddDays(3).ToString();
+                Properties.Settings.Default.Lisence = DateTime.Now.AddDays(40).ToString();
             }
             CheckAndOpenFormBasedOnDatabaseConnection();
             var userBal = new BAL.User(Helper.GetConnectionStringFromSettings());

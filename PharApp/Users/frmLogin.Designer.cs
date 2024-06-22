@@ -46,7 +46,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 16F);
-            label1.Location = new Point(105, 60);
+            label1.Location = new Point(203, 57);
             label1.Name = "label1";
             label1.Size = new Size(174, 37);
             label1.TabIndex = 0;
@@ -54,14 +54,14 @@
             // 
             // txtUsername
             // 
-            txtUsername.Location = new Point(40, 127);
+            txtUsername.Location = new Point(81, 170);
             txtUsername.Name = "txtUsername";
             txtUsername.Size = new Size(380, 27);
             txtUsername.TabIndex = 1;
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(40, 184);
+            txtPassword.Location = new Point(81, 227);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
             txtPassword.Size = new Size(380, 27);
@@ -70,7 +70,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(40, 104);
+            label2.Location = new Point(82, 146);
             label2.Name = "label2";
             label2.Size = new Size(75, 20);
             label2.TabIndex = 2;
@@ -79,7 +79,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(40, 160);
+            label3.Location = new Point(81, 203);
             label3.Name = "label3";
             label3.Size = new Size(70, 20);
             label3.TabIndex = 3;
@@ -87,7 +87,7 @@
             // 
             // btnLogin
             // 
-            btnLogin.Location = new Point(40, 218);
+            btnLogin.Location = new Point(81, 261);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(128, 29);
             btnLogin.TabIndex = 3;
@@ -97,7 +97,7 @@
             // 
             // btnClose
             // 
-            btnClose.Location = new Point(410, 12);
+            btnClose.Location = new Point(489, 12);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(34, 29);
             btnClose.TabIndex = 3;
@@ -110,14 +110,14 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(12, 12);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(87, 85);
+            pictureBox1.Size = new Size(129, 120);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
             // 
             // btnDatabaseCheck
             // 
-            btnDatabaseCheck.Location = new Point(370, 12);
+            btnDatabaseCheck.Location = new Point(449, 12);
             btnDatabaseCheck.Name = "btnDatabaseCheck";
             btnDatabaseCheck.Size = new Size(34, 29);
             btnDatabaseCheck.TabIndex = 3;
@@ -128,7 +128,7 @@
             // checkBoxSavePassword
             // 
             checkBoxSavePassword.AutoSize = true;
-            checkBoxSavePassword.Location = new Point(202, 220);
+            checkBoxSavePassword.Location = new Point(243, 263);
             checkBoxSavePassword.Name = "checkBoxSavePassword";
             checkBoxSavePassword.Size = new Size(213, 24);
             checkBoxSavePassword.TabIndex = 5;
@@ -139,7 +139,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(456, 281);
+            ClientSize = new Size(535, 339);
             Controls.Add(checkBoxSavePassword);
             Controls.Add(pictureBox1);
             Controls.Add(btnDatabaseCheck);

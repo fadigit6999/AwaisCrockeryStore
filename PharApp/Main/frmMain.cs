@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Media;
@@ -10,6 +11,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PharApp.About;
 using PharApp.Audit;
 using PharApp.Backup;
 using PharApp.Customer;
@@ -30,7 +32,7 @@ namespace PharApp.Main
         {
             InitializeComponent();
             _dashboardService = new BAL.DashBoard(Helper.GetConnectionStringFromSettings());
-            
+
         }
 
         private void OpenUserManagerForm()
@@ -273,6 +275,33 @@ namespace PharApp.Main
         private void manualBackupToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var frm = new frmManualBackup();
+            frm.ShowDialog();
+        }
+
+        private void pictureBoxExpiry_Click(object sender, EventArgs e)
+        {
+            var frm = new frmExpiryStock();
+            frm.ShowDialog();
+        }
+
+        private void calculatorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("calc.exe");
+        }
+
+        private void notePadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("notepad.exe");
+        }
+
+        private void stickyNotesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("ms-sticky-notes://");
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new frmAbout();
             frm.ShowDialog();
         }
     }

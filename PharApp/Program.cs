@@ -9,6 +9,7 @@ using PharApp.RdlcReports.Purchase;
 using PharApp.RdlcReports.Sale;
 using PharApp.Audit;
 using PharApp.Backup;
+using PharApp.About;
 
 namespace PharApp
 {

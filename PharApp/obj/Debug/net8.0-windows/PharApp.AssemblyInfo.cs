@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PharApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+473feea1f0274788bd5ece95cf12e02951b2b344")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dd0afc1a42cbfae04f546ed473b05dd91f4de187")]
 [assembly: System.Reflection.AssemblyProductAttribute("PharApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PharApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

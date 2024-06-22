@@ -1,4 +1,5 @@
 ﻿using BML;
+using ClosedXML.Excel;
 using PharApp.WinHelper;
 using System;
 using System.Collections.Generic;
@@ -435,7 +436,7 @@ namespace PharApp.Inventory
 
 
                     var medinceBal = new BAL.Medicine(Helper.GetConnectionStringFromSettings());
-                    var frm = new frmRegisterMedicine(this,medicineId);
+                    var frm = new frmRegisterMedicine(this, medicineId);
                     frm.ShowDialog();
                 }
             }
@@ -444,5 +445,65 @@ namespace PharApp.Inventory
                 MessageBox.Show("Please select a medicine to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnExportInventory_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                Filter = "Excel Files|*.xlsx",
+                Title = "Save an Excel File"
+            };
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                ExportToExcel(dataGridViewMedicine, saveFileDialog.FileName);
+            }
+        }
+
+        private void ExportToExcel(DataGridView dataGridView, string filePath)
+        {
+            // Check if the DataGridView is empty
+            if (dataGridView.Rows.Count == 0)
+            {
+                MessageBox.Show("No data to export.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                // Create a new workbook
+                var workbook = new XLWorkbook();
+                var worksheet = workbook.Worksheets.Add("Sheet1");
+
+                // Column headers
+                for (int i = 0; i < dataGridView.Columns.Count; i++)
+                {
+                    worksheet.Cell(1, i + 1).Value = dataGridView.Columns[i].HeaderText;
+                }
+
+                // Rows
+                for (int i = 0; i < dataGridView.Rows.Count; i++)
+                {
+                    for (int j = 0; j < dataGridView.Columns.Count; j++)
+                    {
+                        worksheet.Cell(i + 2, j + 1).Value = dataGridView.Rows[i].Cells[j].Value?.ToString();
+                    }
+                }
+
+                // Auto-fit columns
+                worksheet.Columns().AdjustToContents();
+
+                // Save the Excel file
+                workbook.SaveAs(filePath);
+
+                MessageBox.Show("Exported successfully.", "Export to Excel", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
     }
 }

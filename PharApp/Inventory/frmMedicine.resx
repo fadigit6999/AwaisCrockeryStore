@@ -117,6 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnExportInventory.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABYAAAAUCAMAAAC+oj0CAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAABOUExURRxsQB9zRTR+Vezz7////4SxmNro4SB2Rx1vQh5xQ/j7+m6kh1KRb463oWCbe0CGXyh4
+        TEeLZnmqj5i+qaPFs77XyeTu6bHOvsTazsrd01takl4AAADMSURBVChTdZHpbsQwCIQxxFd8H8mm7/+i
+        xYk3TbXtSP7BJ4sBBhbWSmrr1WMYxSlQR5exYLYAUNUUAWZhjbXGGAAvpyJorYUQgwNIopVYq/uFc0q9
+        plQvbI2wMDCW0msp8sQixYyysKUP8niF8LpwpCj3xNhYEyJAvHDeNhXOSVr7un9r61aFH71PnC78mETk
+        49mktWnpyLc/LL3TqXPJAwa+kHxb2nGW0dv7Lr2flj/LIzaHOJe/cd13In6M/zks5/IZw36H1h6hLcs3
+        XoIPCGRJGKwAAAAASUVORK5CYII=
+</value>
+  </data>
   <metadata name="contextMenuStripMedGrid.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
@@ -129,7 +141,6 @@
   <metadata name="contextMenuStripUnitGrid.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>252, 17</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAYAAAAAAAEAIABaWQAAZgAAAICAAAABACAAKAgBAMBZAABAQAAAAQAgAChCAADoYQEAMDAAAAEA

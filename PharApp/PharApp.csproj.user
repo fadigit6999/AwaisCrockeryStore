@@ -4,6 +4,9 @@
     <_LastSelectedProfileId>G:\pharAppGit\PharApp\PharApp\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Update="About\frmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Audit\AuditLog.cs">
       <SubType>Form</SubType>
     </Compile>
