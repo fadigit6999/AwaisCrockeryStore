@@ -131,7 +131,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(749, 370);
+            ClientSize = new Size(746, 370);
             Controls.Add(btnClose);
             Controls.Add(btnRegisterPaymentType);
             Controls.Add(dataGridViewPaymentType);

@@ -602,17 +602,14 @@ namespace PharApp.Sale
 
                 dataGridViewSale.Columns["OrderID"].HeaderText = "Id";
                 dataGridViewSale.Columns["InvoiceNo"].HeaderText = "Invoice";
-                dataGridViewSale.Columns["MedName"].HeaderText = "Medicine";
+                dataGridViewSale.Columns["MedName"].HeaderText = "Item";
                 dataGridViewSale.Columns["Customer"].HeaderText = "Customer";
                 dataGridViewSale.Columns["Quantity"].HeaderText = "Quantity";
                 dataGridViewSale.Columns["Total"].HeaderText = "Gr. Total";
                 dataGridViewSale.Columns["TypeName"].HeaderText = "Payment";
                 dataGridViewSale.Columns["ExpiryDate"].HeaderText = "Ex. Date";
-                dataGridViewSale.Columns["BatchId"].HeaderText = "Batch";
+                dataGridViewSale.Columns["BatchId"].HeaderText = "Item Code";
                 dataGridViewSale.Columns["InvType"].HeaderText = "Invoice Type";
-                dataGridViewSale.Columns["AreaName"].HeaderText = "Area";
-                dataGridViewSale.Columns["BookerName"].HeaderText = "Booker";
-                dataGridViewSale.Columns["SupplierName"].HeaderText = "Supplier";
 
                 dataGridViewSale.Columns["OrderID"].DisplayIndex = 0;
                 dataGridViewSale.Columns["InvoiceNo"].DisplayIndex = 1;
@@ -627,6 +624,12 @@ namespace PharApp.Sale
                 dataGridViewSale.Columns["ExpiryDate"].DisplayIndex = 5;
                 dataGridViewSale.Columns["BatchId"].DisplayIndex = 3;
                 dataGridViewSale.Columns["InvType"].DisplayIndex = 2;
+
+
+                dataGridViewSale.Columns["AreaName"].Visible = false;
+                dataGridViewSale.Columns["BookerName"].Visible = false;
+                dataGridViewSale.Columns["SupplierName"].Visible= false;
+                dataGridViewSale.Columns["InvType"].Visible= false;
 
                 dataGridViewSale.Refresh();
             }

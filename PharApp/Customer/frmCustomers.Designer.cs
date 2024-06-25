@@ -47,7 +47,8 @@
             dataGridViewCustomer.BackgroundColor = Color.White;
             dataGridViewCustomer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCustomer.ContextMenuStrip = contextMenuStripCustomer;
-            dataGridViewCustomer.Location = new Point(5, 49);
+            dataGridViewCustomer.Location = new Point(4, 37);
+            dataGridViewCustomer.Margin = new Padding(3, 2, 3, 2);
             dataGridViewCustomer.Name = "dataGridViewCustomer";
             dataGridViewCustomer.ReadOnly = true;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -59,7 +60,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridViewCustomer.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCustomer.RowHeadersWidth = 51;
-            dataGridViewCustomer.Size = new Size(790, 397);
+            dataGridViewCustomer.Size = new Size(691, 298);
             dataGridViewCustomer.TabIndex = 0;
             dataGridViewCustomer.MouseClick += dataGridViewCustomer_MouseClick;
             // 
@@ -68,26 +69,27 @@
             contextMenuStripCustomer.ImageScalingSize = new Size(20, 20);
             contextMenuStripCustomer.Items.AddRange(new ToolStripItem[] { updateCustomerToolStripMenuItem, deleteCustomerToolStripMenuItem });
             contextMenuStripCustomer.Name = "contextMenuStripCustomer";
-            contextMenuStripCustomer.Size = new Size(195, 52);
+            contextMenuStripCustomer.Size = new Size(168, 48);
             // 
             // updateCustomerToolStripMenuItem
             // 
             updateCustomerToolStripMenuItem.Name = "updateCustomerToolStripMenuItem";
-            updateCustomerToolStripMenuItem.Size = new Size(194, 24);
+            updateCustomerToolStripMenuItem.Size = new Size(167, 22);
             updateCustomerToolStripMenuItem.Text = "Update Customer";
             // 
             // deleteCustomerToolStripMenuItem
             // 
             deleteCustomerToolStripMenuItem.Name = "deleteCustomerToolStripMenuItem";
-            deleteCustomerToolStripMenuItem.Size = new Size(194, 24);
+            deleteCustomerToolStripMenuItem.Size = new Size(167, 22);
             deleteCustomerToolStripMenuItem.Text = "Delete Customer";
             deleteCustomerToolStripMenuItem.Click += deleteCustomerToolStripMenuItem_Click;
             // 
             // btnRegister
             // 
-            btnRegister.Location = new Point(5, 12);
+            btnRegister.Location = new Point(6, 9);
+            btnRegister.Margin = new Padding(3, 2, 3, 2);
             btnRegister.Name = "btnRegister";
-            btnRegister.Size = new Size(94, 29);
+            btnRegister.Size = new Size(82, 22);
             btnRegister.TabIndex = 1;
             btnRegister.Text = "Register";
             btnRegister.UseVisualStyleBackColor = true;
@@ -95,13 +97,14 @@
             // 
             // frmCustomers
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(700, 338);
             Controls.Add(btnRegister);
             Controls.Add(dataGridViewCustomer);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 2, 3, 2);
             Name = "frmCustomers";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Customers";

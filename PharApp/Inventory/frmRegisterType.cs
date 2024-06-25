@@ -49,9 +49,9 @@ namespace PharApp.Inventory
                 int result = await typeBAL.CreateMedicineTypeAsync(Name);
                 if (result == 1)
                 {
-                    Helper.Log($"Type Created:Name {Name}");
+                    Helper.Log($"Item Type Created:Name {Name}");
                     LoadGridDataType();
-                    MessageBox.Show("Teype registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Item Type registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
                 else
@@ -102,7 +102,7 @@ namespace PharApp.Inventory
                 // Bind the data to the grid
                 _frmMedicine.dataGridViewMedicineType.DataSource = _typeList;
                 _frmMedicine.dataGridViewMedicineType.Columns["MedicineTypeId"].HeaderText = "Type Id";
-                _frmMedicine.dataGridViewMedicineType.Columns["TypeName"].HeaderText = "Medicine Type";
+                _frmMedicine.dataGridViewMedicineType.Columns["TypeName"].HeaderText = "Item Type";
 
                 _frmMedicine.dataGridViewMedicineType.Refresh();
             }

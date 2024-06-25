@@ -443,8 +443,8 @@ namespace PharApp.Purchase
             dataGridViewPurchaseDetails.Columns.Clear();
             dataGridViewPurchaseDetails.Columns.Add("OrderDetailIdColumn", "DetailId");
             dataGridViewPurchaseDetails.Columns.Add("MedIdColumn", "Id");
-            dataGridViewPurchaseDetails.Columns.Add("MedInformationColumn", "Med. Info");
-            dataGridViewPurchaseDetails.Columns.Add("BatchedColumn", "BatchId");
+            dataGridViewPurchaseDetails.Columns.Add("MedInformationColumn", "Item");
+            dataGridViewPurchaseDetails.Columns.Add("BatchedColumn", "Item Code");
             dataGridViewPurchaseDetails.Columns.Add("GstTaxColumn", "GSTTx.");
             dataGridViewPurchaseDetails.Columns.Add("DsicColumn", "Disc");
             dataGridViewPurchaseDetails.Columns.Add("BonusColumn", "Bonus");
@@ -567,13 +567,13 @@ namespace PharApp.Purchase
 
                 dataGridViewPurchase.Columns["OrderID"].HeaderText = "Id";
                 dataGridViewPurchase.Columns["InvoiceNo"].HeaderText = "Invoice";
-                dataGridViewPurchase.Columns["MedName"].HeaderText = "Medicine";
-                dataGridViewPurchase.Columns["ManufacturerName"].HeaderText = "Manuf.";
+                dataGridViewPurchase.Columns["MedName"].HeaderText = "Item";
+                dataGridViewPurchase.Columns["ManufacturerName"].HeaderText = "Mfg.";
                 dataGridViewPurchase.Columns["Quantity"].HeaderText = "Quantity";
                 dataGridViewPurchase.Columns["Total"].HeaderText = "Gr. Total";
                 dataGridViewPurchase.Columns["TypeName"].HeaderText = "Payment";
                 dataGridViewPurchase.Columns["ExpiryDate"].HeaderText = "Ex. Date";
-                dataGridViewPurchase.Columns["BatchId"].HeaderText = "Batch";
+                dataGridViewPurchase.Columns["BatchId"].HeaderText = "Item Code";
 
                 dataGridViewPurchase.Columns["OrderID"].DisplayIndex = 0;
                 dataGridViewPurchase.Columns["InvoiceNo"].DisplayIndex = 1;

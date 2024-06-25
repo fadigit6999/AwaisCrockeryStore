@@ -40,9 +40,9 @@ namespace PharApp.Inventory
 
                 // Bind the data to the grid
                 //dataGridViewMedicine.DataSource = _medicinList;
-                dataGridViewStock.Columns["SL"].HeaderText = "SL";
-                dataGridViewStock.Columns["MedName"].HeaderText = "Med. Name";
-                dataGridViewStock.Columns["ManufacturerName"].HeaderText = "Manufacturer";
+                dataGridViewStock.Columns["SL"].HeaderText = "SL.";
+                dataGridViewStock.Columns["MedName"].HeaderText = "Item Name";
+                dataGridViewStock.Columns["ManufacturerName"].HeaderText = "Mfg.";
                 dataGridViewStock.Columns["SalePrice"].HeaderText = "Sale Price";
                 dataGridViewStock.Columns["PurchasePrice"].HeaderText = "Purchase Price";
                 dataGridViewStock.Columns["InQuantity"].HeaderText = "In Quantity";

@@ -96,8 +96,8 @@ namespace PharApp.Inventory
                 _unitList = await cmbUnitBal.GetUnitsAsync();
                 // Bind the data to the grid
                 _frmMedicine.dataGridViewMedicineUnit.DataSource = _unitList;
-                _frmMedicine.dataGridViewMedicineUnit.Columns["UnitId"].HeaderText = "Medicine Id";
-                _frmMedicine.dataGridViewMedicineUnit.Columns["UnitName"].HeaderText = "Medicine Unit";
+                _frmMedicine.dataGridViewMedicineUnit.Columns["UnitId"].HeaderText = "Unit Id";
+                _frmMedicine.dataGridViewMedicineUnit.Columns["UnitName"].HeaderText = "Item Unit";
 
                 _frmMedicine.dataGridViewMedicineUnit.Refresh();
             }

@@ -79,11 +79,11 @@
             tabControlMedicine.Controls.Add(tabMedicineType);
             tabControlMedicine.Controls.Add(tabCategory);
             tabControlMedicine.Controls.Add(tabMedicineUnit);
-            tabControlMedicine.Location = new Point(3, -2);
+            tabControlMedicine.Location = new Point(2, 1);
             tabControlMedicine.Margin = new Padding(3, 2, 3, 2);
             tabControlMedicine.Name = "tabControlMedicine";
             tabControlMedicine.SelectedIndex = 0;
-            tabControlMedicine.Size = new Size(1399, 660);
+            tabControlMedicine.Size = new Size(1198, 494);
             tabControlMedicine.TabIndex = 0;
             // 
             // tabMedicine
@@ -93,11 +93,11 @@
             tabMedicine.Controls.Add(label18);
             tabMedicine.Controls.Add(dataGridViewMedicine);
             tabMedicine.Controls.Add(btnRegisterMedicine);
-            tabMedicine.Location = new Point(4, 29);
+            tabMedicine.Location = new Point(4, 24);
             tabMedicine.Margin = new Padding(3, 2, 3, 2);
             tabMedicine.Name = "tabMedicine";
             tabMedicine.Padding = new Padding(3, 2, 3, 2);
-            tabMedicine.Size = new Size(1391, 627);
+            tabMedicine.Size = new Size(1190, 466);
             tabMedicine.TabIndex = 0;
             tabMedicine.Text = "Item";
             tabMedicine.UseVisualStyleBackColor = true;
@@ -106,9 +106,10 @@
             // 
             btnExportInventory.Image = (Image)resources.GetObject("btnExportInventory.Image");
             btnExportInventory.ImageAlign = ContentAlignment.MiddleLeft;
-            btnExportInventory.Location = new Point(1266, 21);
+            btnExportInventory.Location = new Point(1078, 13);
+            btnExportInventory.Margin = new Padding(3, 2, 3, 2);
             btnExportInventory.Name = "btnExportInventory";
-            btnExportInventory.Size = new Size(116, 29);
+            btnExportInventory.Size = new Size(102, 22);
             btnExportInventory.TabIndex = 7;
             btnExportInventory.Text = "Export";
             btnExportInventory.UseVisualStyleBackColor = true;
@@ -116,19 +117,19 @@
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(1008, 22);
+            txtSearch.Location = new Point(852, 13);
             txtSearch.Margin = new Padding(3, 2, 3, 2);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(252, 27);
+            txtSearch.Size = new Size(221, 23);
             txtSearch.TabIndex = 6;
             txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // label18
             // 
             label18.AutoSize = true;
-            label18.Location = new Point(949, 24);
+            label18.Location = new Point(800, 17);
             label18.Name = "label18";
-            label18.Size = new Size(53, 20);
+            label18.Size = new Size(42, 15);
             label18.TabIndex = 5;
             label18.Text = "Search";
             // 
@@ -141,12 +142,12 @@
             dataGridViewMedicine.BackgroundColor = Color.White;
             dataGridViewMedicine.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewMedicine.ContextMenuStrip = contextMenuStripMedGrid;
-            dataGridViewMedicine.Location = new Point(6, 60);
+            dataGridViewMedicine.Location = new Point(0, 45);
             dataGridViewMedicine.Margin = new Padding(3, 2, 3, 2);
             dataGridViewMedicine.Name = "dataGridViewMedicine";
             dataGridViewMedicine.ReadOnly = true;
             dataGridViewMedicine.RowHeadersWidth = 51;
-            dataGridViewMedicine.Size = new Size(1376, 562);
+            dataGridViewMedicine.Size = new Size(1190, 422);
             dataGridViewMedicine.TabIndex = 0;
             dataGridViewMedicine.CellMouseClick += dataGridViewMedicine_CellMouseClick;
             dataGridViewMedicine.MouseClick += dataGridViewMedicine_MouseClick;
@@ -156,28 +157,28 @@
             contextMenuStripMedGrid.ImageScalingSize = new Size(20, 20);
             contextMenuStripMedGrid.Items.AddRange(new ToolStripItem[] { deleteToolStripMenuItem, deleteToolStripMenuItem1 });
             contextMenuStripMedGrid.Name = "contextMenuStripMedGrid";
-            contextMenuStripMedGrid.Size = new Size(193, 52);
+            contextMenuStripMedGrid.Size = new Size(165, 48);
             // 
             // deleteToolStripMenuItem
             // 
             deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            deleteToolStripMenuItem.Size = new Size(192, 24);
+            deleteToolStripMenuItem.Size = new Size(164, 22);
             deleteToolStripMenuItem.Text = "Update Medicine";
             deleteToolStripMenuItem.Click += deleteToolStripMenuItem_Click;
             // 
             // deleteToolStripMenuItem1
             // 
             deleteToolStripMenuItem1.Name = "deleteToolStripMenuItem1";
-            deleteToolStripMenuItem1.Size = new Size(192, 24);
+            deleteToolStripMenuItem1.Size = new Size(164, 22);
             deleteToolStripMenuItem1.Text = "Delete Medicine";
             deleteToolStripMenuItem1.Click += deleteToolStripMenuItem1_Click;
             // 
             // btnRegisterMedicine
             // 
-            btnRegisterMedicine.Location = new Point(6, 18);
+            btnRegisterMedicine.Location = new Point(11, 14);
             btnRegisterMedicine.Margin = new Padding(3, 2, 3, 2);
             btnRegisterMedicine.Name = "btnRegisterMedicine";
-            btnRegisterMedicine.Size = new Size(121, 30);
+            btnRegisterMedicine.Size = new Size(106, 22);
             btnRegisterMedicine.TabIndex = 1;
             btnRegisterMedicine.Text = "Register";
             btnRegisterMedicine.UseVisualStyleBackColor = true;
@@ -187,11 +188,11 @@
             // 
             tabMedicineType.Controls.Add(dataGridViewMedicineType);
             tabMedicineType.Controls.Add(btnRegisterType);
-            tabMedicineType.Location = new Point(4, 29);
+            tabMedicineType.Location = new Point(4, 24);
             tabMedicineType.Margin = new Padding(3, 2, 3, 2);
             tabMedicineType.Name = "tabMedicineType";
             tabMedicineType.Padding = new Padding(3, 2, 3, 2);
-            tabMedicineType.Size = new Size(1391, 627);
+            tabMedicineType.Size = new Size(1190, 466);
             tabMedicineType.TabIndex = 1;
             tabMedicineType.Text = "Type";
             tabMedicineType.UseVisualStyleBackColor = true;
@@ -205,12 +206,12 @@
             dataGridViewMedicineType.BackgroundColor = Color.White;
             dataGridViewMedicineType.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewMedicineType.ContextMenuStrip = contextMenuStripType;
-            dataGridViewMedicineType.Location = new Point(6, 56);
+            dataGridViewMedicineType.Location = new Point(5, 42);
             dataGridViewMedicineType.Margin = new Padding(3, 2, 3, 2);
             dataGridViewMedicineType.Name = "dataGridViewMedicineType";
             dataGridViewMedicineType.ReadOnly = true;
             dataGridViewMedicineType.RowHeadersWidth = 51;
-            dataGridViewMedicineType.Size = new Size(1376, 568);
+            dataGridViewMedicineType.Size = new Size(1185, 426);
             dataGridViewMedicineType.TabIndex = 0;
             dataGridViewMedicineType.MouseClick += dataGridViewMedicineType_MouseClick;
             // 
@@ -219,27 +220,27 @@
             contextMenuStripType.ImageScalingSize = new Size(20, 20);
             contextMenuStripType.Items.AddRange(new ToolStripItem[] { updateTypeToolStripMenuItem, deleteTypeToolStripMenuItem });
             contextMenuStripType.Name = "contextMenuStripType";
-            contextMenuStripType.Size = new Size(163, 52);
+            contextMenuStripType.Size = new Size(140, 48);
             // 
             // updateTypeToolStripMenuItem
             // 
             updateTypeToolStripMenuItem.Name = "updateTypeToolStripMenuItem";
-            updateTypeToolStripMenuItem.Size = new Size(162, 24);
+            updateTypeToolStripMenuItem.Size = new Size(139, 22);
             updateTypeToolStripMenuItem.Text = "Update Type";
             // 
             // deleteTypeToolStripMenuItem
             // 
             deleteTypeToolStripMenuItem.Name = "deleteTypeToolStripMenuItem";
-            deleteTypeToolStripMenuItem.Size = new Size(162, 24);
+            deleteTypeToolStripMenuItem.Size = new Size(139, 22);
             deleteTypeToolStripMenuItem.Text = "Delete Type";
             deleteTypeToolStripMenuItem.Click += deleteTypeToolStripMenuItem_Click;
             // 
             // btnRegisterType
             // 
-            btnRegisterType.Location = new Point(16, 14);
+            btnRegisterType.Location = new Point(14, 10);
             btnRegisterType.Margin = new Padding(3, 2, 3, 2);
             btnRegisterType.Name = "btnRegisterType";
-            btnRegisterType.Size = new Size(121, 30);
+            btnRegisterType.Size = new Size(106, 22);
             btnRegisterType.TabIndex = 2;
             btnRegisterType.Text = "Register";
             btnRegisterType.UseVisualStyleBackColor = true;
@@ -249,11 +250,11 @@
             // 
             tabCategory.Controls.Add(dataGridViewMedicineCategory);
             tabCategory.Controls.Add(btnRegisterCategory);
-            tabCategory.Location = new Point(4, 29);
+            tabCategory.Location = new Point(4, 24);
             tabCategory.Margin = new Padding(3, 2, 3, 2);
             tabCategory.Name = "tabCategory";
             tabCategory.Padding = new Padding(3, 2, 3, 2);
-            tabCategory.Size = new Size(1391, 627);
+            tabCategory.Size = new Size(1190, 466);
             tabCategory.TabIndex = 2;
             tabCategory.Text = "Category";
             tabCategory.UseVisualStyleBackColor = true;
@@ -268,12 +269,12 @@
             dataGridViewMedicineCategory.BackgroundColor = Color.White;
             dataGridViewMedicineCategory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewMedicineCategory.ContextMenuStrip = contextMenuStripCategory;
-            dataGridViewMedicineCategory.Location = new Point(6, 62);
+            dataGridViewMedicineCategory.Location = new Point(2, 46);
             dataGridViewMedicineCategory.Margin = new Padding(3, 2, 3, 2);
             dataGridViewMedicineCategory.Name = "dataGridViewMedicineCategory";
             dataGridViewMedicineCategory.ReadOnly = true;
             dataGridViewMedicineCategory.RowHeadersWidth = 51;
-            dataGridViewMedicineCategory.Size = new Size(1382, 560);
+            dataGridViewMedicineCategory.Size = new Size(1185, 420);
             dataGridViewMedicineCategory.TabIndex = 0;
             dataGridViewMedicineCategory.MouseClick += dataGridViewMedicineCategory_MouseClick;
             // 
@@ -282,27 +283,27 @@
             contextMenuStripCategory.ImageScalingSize = new Size(20, 20);
             contextMenuStripCategory.Items.AddRange(new ToolStripItem[] { updateCategoryToolStripMenuItem, deleteCategoryToolStripMenuItem });
             contextMenuStripCategory.Name = "contextMenuStripCategory";
-            contextMenuStripCategory.Size = new Size(192, 52);
+            contextMenuStripCategory.Size = new Size(164, 48);
             // 
             // updateCategoryToolStripMenuItem
             // 
             updateCategoryToolStripMenuItem.Name = "updateCategoryToolStripMenuItem";
-            updateCategoryToolStripMenuItem.Size = new Size(191, 24);
+            updateCategoryToolStripMenuItem.Size = new Size(163, 22);
             updateCategoryToolStripMenuItem.Text = "Update Category";
             // 
             // deleteCategoryToolStripMenuItem
             // 
             deleteCategoryToolStripMenuItem.Name = "deleteCategoryToolStripMenuItem";
-            deleteCategoryToolStripMenuItem.Size = new Size(191, 24);
+            deleteCategoryToolStripMenuItem.Size = new Size(163, 22);
             deleteCategoryToolStripMenuItem.Text = "Delete Category";
             deleteCategoryToolStripMenuItem.Click += deleteCategoryToolStripMenuItem_Click;
             // 
             // btnRegisterCategory
             // 
-            btnRegisterCategory.Location = new Point(9, 22);
+            btnRegisterCategory.Location = new Point(8, 14);
             btnRegisterCategory.Margin = new Padding(3, 2, 3, 2);
             btnRegisterCategory.Name = "btnRegisterCategory";
-            btnRegisterCategory.Size = new Size(121, 30);
+            btnRegisterCategory.Size = new Size(106, 22);
             btnRegisterCategory.TabIndex = 2;
             btnRegisterCategory.Text = "Register";
             btnRegisterCategory.UseVisualStyleBackColor = true;
@@ -312,11 +313,11 @@
             // 
             tabMedicineUnit.Controls.Add(dataGridViewMedicineUnit);
             tabMedicineUnit.Controls.Add(btnRegisterUnit);
-            tabMedicineUnit.Location = new Point(4, 29);
+            tabMedicineUnit.Location = new Point(4, 24);
             tabMedicineUnit.Margin = new Padding(3, 2, 3, 2);
             tabMedicineUnit.Name = "tabMedicineUnit";
             tabMedicineUnit.Padding = new Padding(3, 2, 3, 2);
-            tabMedicineUnit.Size = new Size(1391, 627);
+            tabMedicineUnit.Size = new Size(1190, 466);
             tabMedicineUnit.TabIndex = 3;
             tabMedicineUnit.Text = "Unit";
             tabMedicineUnit.UseVisualStyleBackColor = true;
@@ -330,12 +331,12 @@
             dataGridViewMedicineUnit.BackgroundColor = Color.White;
             dataGridViewMedicineUnit.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewMedicineUnit.ContextMenuStrip = contextMenuStripUnitGrid;
-            dataGridViewMedicineUnit.Location = new Point(9, 50);
+            dataGridViewMedicineUnit.Location = new Point(0, 37);
             dataGridViewMedicineUnit.Margin = new Padding(3, 2, 3, 2);
             dataGridViewMedicineUnit.Name = "dataGridViewMedicineUnit";
             dataGridViewMedicineUnit.ReadOnly = true;
             dataGridViewMedicineUnit.RowHeadersWidth = 51;
-            dataGridViewMedicineUnit.Size = new Size(1373, 570);
+            dataGridViewMedicineUnit.Size = new Size(1190, 429);
             dataGridViewMedicineUnit.TabIndex = 0;
             dataGridViewMedicineUnit.CellMouseClick += dataGridViewMedicineUnit_CellMouseClick;
             dataGridViewMedicineUnit.MouseClick += dataGridViewMedicineUnit_MouseClick;
@@ -345,27 +346,27 @@
             contextMenuStripUnitGrid.ImageScalingSize = new Size(20, 20);
             contextMenuStripUnitGrid.Items.AddRange(new ToolStripItem[] { updateMedicineToolStripMenuItem, deleteMedicineToolStripMenuItem });
             contextMenuStripUnitGrid.Name = "contextMenuStripUnitGrid";
-            contextMenuStripUnitGrid.Size = new Size(159, 52);
+            contextMenuStripUnitGrid.Size = new Size(138, 48);
             // 
             // updateMedicineToolStripMenuItem
             // 
             updateMedicineToolStripMenuItem.Name = "updateMedicineToolStripMenuItem";
-            updateMedicineToolStripMenuItem.Size = new Size(158, 24);
+            updateMedicineToolStripMenuItem.Size = new Size(137, 22);
             updateMedicineToolStripMenuItem.Text = "Update Unit";
             // 
             // deleteMedicineToolStripMenuItem
             // 
             deleteMedicineToolStripMenuItem.Name = "deleteMedicineToolStripMenuItem";
-            deleteMedicineToolStripMenuItem.Size = new Size(158, 24);
+            deleteMedicineToolStripMenuItem.Size = new Size(137, 22);
             deleteMedicineToolStripMenuItem.Text = "Delete Unit";
             deleteMedicineToolStripMenuItem.Click += deleteMedicineToolStripMenuItem_Click;
             // 
             // btnRegisterUnit
             // 
-            btnRegisterUnit.Location = new Point(9, 16);
+            btnRegisterUnit.Location = new Point(8, 9);
             btnRegisterUnit.Margin = new Padding(3, 2, 3, 2);
             btnRegisterUnit.Name = "btnRegisterUnit";
-            btnRegisterUnit.Size = new Size(121, 30);
+            btnRegisterUnit.Size = new Size(106, 22);
             btnRegisterUnit.TabIndex = 3;
             btnRegisterUnit.Text = "Register";
             btnRegisterUnit.UseVisualStyleBackColor = true;
@@ -373,9 +374,9 @@
             // 
             // frmMedicine
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1405, 662);
+            ClientSize = new Size(1199, 496);
             Controls.Add(tabControlMedicine);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Icon = (Icon)resources.GetObject("$this.Icon");

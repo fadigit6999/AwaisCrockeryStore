@@ -82,7 +82,7 @@ namespace PharApp.Inventory
                 // Bind the data to the grid
                 dataGridViewMedicineType.DataSource = _typeList;
                 dataGridViewMedicineType.Columns["MedicineTypeId"].HeaderText = "Type Id";
-                dataGridViewMedicineType.Columns["TypeName"].HeaderText = "Medicine Type";
+                dataGridViewMedicineType.Columns["TypeName"].HeaderText = "Item Type";
 
                 dataGridViewMedicineType.Refresh();
             }
@@ -103,7 +103,7 @@ namespace PharApp.Inventory
                 // Bind the data to the grid
                 dataGridViewMedicineCategory.DataSource = _categoryList;
                 dataGridViewMedicineCategory.Columns["CategoryId"].HeaderText = "Category Id";
-                dataGridViewMedicineCategory.Columns["CategoryName"].HeaderText = "Medicine Category";
+                dataGridViewMedicineCategory.Columns["CategoryName"].HeaderText = "Item Category";
 
                 dataGridViewMedicineCategory.Refresh();
             }
@@ -124,7 +124,7 @@ namespace PharApp.Inventory
                 // Bind the data to the grid
                 dataGridViewMedicineUnit.DataSource = _unitList;
                 dataGridViewMedicineUnit.Columns["UnitId"].HeaderText = "Id";
-                dataGridViewMedicineUnit.Columns["UnitName"].HeaderText = "Medicine Unit";
+                dataGridViewMedicineUnit.Columns["UnitName"].HeaderText = "Item Unit";
 
                 dataGridViewMedicineUnit.Refresh();
             }
@@ -155,13 +155,13 @@ namespace PharApp.Inventory
                 dataGridViewMedicine.Columns["GenericName"].HeaderText = "Material";
                 dataGridViewMedicine.Columns["BoxSize"].HeaderText = "Box Size";
                 dataGridViewMedicine.Columns["Unit"].HeaderText = "Unit";
-                dataGridViewMedicine.Columns["MedicineShelf"].HeaderText = "Med. Shelf";
+                dataGridViewMedicine.Columns["MedicineShelf"].HeaderText = "Item Shelf";
                 dataGridViewMedicine.Columns["Details"].HeaderText = "Details";
                 dataGridViewMedicine.Columns["MedicineTypeId"].HeaderText = "Type";
                 dataGridViewMedicine.Columns["CategoryId"].HeaderText = "Category";
                 dataGridViewMedicine.Columns["SellPrice"].HeaderText = "Sell Price";
-                dataGridViewMedicine.Columns["ManufacturerId"].HeaderText = "Man.";
-                dataGridViewMedicine.Columns["ManufacturerPrice"].HeaderText = "Man. Price";
+                dataGridViewMedicine.Columns["ManufacturerId"].HeaderText = "Mfg.";
+                dataGridViewMedicine.Columns["ManufacturerPrice"].HeaderText = "Mfg. Price";
                 dataGridViewMedicine.Columns["Barcode"].Visible = false;
                 dataGridViewMedicine.Columns["Image"].Visible = false;
                 dataGridViewMedicine.Refresh();

@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "G:\\AwaisCrockeryStoreGit\\AwaisCrockeryStore\\DAL\\DAL.csproj": {}
+    "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\DAL\\DAL.csproj": {}
   },
   "projects": {
-    "G:\\AwaisCrockeryStoreGit\\AwaisCrockeryStore\\BML\\BML.csproj": {
+    "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\BML\\BML.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\AwaisCrockeryStoreGit\\AwaisCrockeryStore\\BML\\BML.csproj",
+        "projectUniqueName": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\BML\\BML.csproj",
         "projectName": "BML",
-        "projectPath": "G:\\AwaisCrockeryStoreGit\\AwaisCrockeryStore\\BML\\BML.csproj",
-        "packagesPath": "C:\\Users\\Fahad Masood Ahmad\\.nuget\\packages\\",
-        "outputPath": "G:\\AwaisCrockeryStoreGit\\AwaisCrockeryStore\\BML\\obj\\",
+        "projectPath": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\BML\\BML.csproj",
+        "packagesPath": "C:\\Users\\FadiG6999\\.nuget\\packages\\",
+        "outputPath": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\BML\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Fahad Masood Ahmad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\FadiG6999\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -39,6 +39,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -63,24 +68,24 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "G:\\AwaisCrockeryStoreGit\\AwaisCrockeryStore\\DAL\\DAL.csproj": {
+    "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\AwaisCrockeryStoreGit\\AwaisCrockeryStore\\DAL\\DAL.csproj",
+        "projectUniqueName": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "G:\\AwaisCrockeryStoreGit\\AwaisCrockeryStore\\DAL\\DAL.csproj",
-        "packagesPath": "C:\\Users\\Fahad Masood Ahmad\\.nuget\\packages\\",
-        "outputPath": "G:\\AwaisCrockeryStoreGit\\AwaisCrockeryStore\\DAL\\obj\\",
+        "projectPath": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\DAL\\DAL.csproj",
+        "packagesPath": "C:\\Users\\FadiG6999\\.nuget\\packages\\",
+        "outputPath": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Fahad Masood Ahmad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\FadiG6999\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -96,8 +101,8 @@
           "net8.0-windows7.0": {
             "targetAlias": "net8.0-windows",
             "projectReferences": {
-              "G:\\AwaisCrockeryStoreGit\\AwaisCrockeryStore\\BML\\BML.csproj": {
-                "projectPath": "G:\\AwaisCrockeryStoreGit\\AwaisCrockeryStore\\BML\\BML.csproj"
+              "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\BML\\BML.csproj": {
+                "projectPath": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\BML\\BML.csproj"
               }
             }
           }
@@ -106,6 +111,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -136,7 +146,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

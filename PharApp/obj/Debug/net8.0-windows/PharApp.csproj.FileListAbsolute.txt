@@ -296,3 +296,10 @@ G:\AwaisCrockeryStoreGit\AwaisCrockeryStore\PharApp\bin\Debug\net8.0-windows\Iro
 G:\AwaisCrockeryStoreGit\AwaisCrockeryStore\PharApp\bin\Debug\net8.0-windows\SixLabors.Fonts.dll
 G:\AwaisCrockeryStoreGit\AwaisCrockeryStore\PharApp\bin\Debug\net8.0-windows\XLParser.dll
 G:\AwaisCrockeryStoreGit\AwaisCrockeryStore\PharApp\obj\Debug\net8.0-windows\PharApp.About.frmAbout.resources
+D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\bin\Debug\net8.0-windows\ClosedXML.dll
+D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\bin\Debug\net8.0-windows\DocumentFormat.OpenXml.dll
+D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\bin\Debug\net8.0-windows\ExcelNumberFormat.dll
+D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\bin\Debug\net8.0-windows\Irony.dll
+D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\bin\Debug\net8.0-windows\SixLabors.Fonts.dll
+D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\bin\Debug\net8.0-windows\XLParser.dll
+D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\obj\Debug\net8.0-windows\PharApp.About.frmAbout.resources

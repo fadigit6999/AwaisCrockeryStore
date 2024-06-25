@@ -436,20 +436,20 @@ namespace PharApp.Inventory
         {
             var dgv = _frmMedicine.dataGridViewMedicine;
 
-            dgv.Columns["MedicineId"].HeaderText = "Medicine Id";
+            dgv.Columns["MedicineId"].HeaderText = "Id";
             dgv.Columns["Name"].HeaderText = "Name";
             dgv.Columns["Name_Urdu"].HeaderText = "Name Urdu";
-            dgv.Columns["Strength"].HeaderText = "Strength";
-            dgv.Columns["GenericName"].HeaderText = "Generic Name";
+            dgv.Columns["Strength"].HeaderText = "Color";
+            dgv.Columns["GenericName"].HeaderText = "Material";
             dgv.Columns["BoxSize"].HeaderText = "Box Size";
             dgv.Columns["Unit"].HeaderText = "Unit";
-            dgv.Columns["MedicineShelf"].HeaderText = "Medicine Shelf";
+            dgv.Columns["MedicineShelf"].HeaderText = "Item Shelf";
             dgv.Columns["Details"].HeaderText = "Details";
             dgv.Columns["MedicineTypeId"].HeaderText = "Type";
             dgv.Columns["CategoryId"].HeaderText = "Category";
             dgv.Columns["SellPrice"].HeaderText = "Sell Price";
-            dgv.Columns["ManufacturerId"].HeaderText = "Manufacturer";
-            dgv.Columns["ManufacturerPrice"].HeaderText = "Manufacturer Price";
+            dgv.Columns["ManufacturerId"].HeaderText = "Mfg.";
+            dgv.Columns["ManufacturerPrice"].HeaderText = "Mfg. Price";
 
             // Hide unnecessary columns
             dgv.Columns["Barcode"].Visible = false;
@@ -479,7 +479,7 @@ namespace PharApp.Inventory
 
                 if (result == 1)
                 {
-                    Helper.Log($"Item Updated:Name {Name}, Manu. Price {ManufacturerPrice},Sale Price {SellPrice}");
+                    Helper.Log($"Item Updated:Name {Name}, Mfg. Price {ManufacturerPrice},Sale Price {SellPrice}");
                     ReLoadGridDataMedicine();
                     MessageBox.Show($"Item ## {Name} ## updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
