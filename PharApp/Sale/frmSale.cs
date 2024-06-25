@@ -127,7 +127,7 @@ namespace PharApp.Sale
                             pTypeDictionary.Add(pt.TypeName, pt.PaymentTypeId);
                         }
                     }
-                
+
 
                     cmbPaymentType.DataSource = new BindingSource(pTypeDictionary, null);
                     cmbPaymentType.DisplayMember = "Key";
@@ -580,14 +580,7 @@ namespace PharApp.Sale
                     string Area = string.Empty;
                     string Booker = string.Empty;
                     string Supplier = string.Empty;
-                    if (checkBoxWarranty.Checked == true)
-                    {
-                        warrantry = "no warranty";
-                    }
-                    else
-                    {
-                        warrantry = "warranty";
-                    }
+                    warrantry = "warranty";
 
                     if (string.IsNullOrEmpty(txtAdvTax.Text))
                     {
@@ -607,8 +600,8 @@ namespace PharApp.Sale
 
                     //Order Process
                     var saleOrderBAL = new BAL.SaleOrder(Helper.GetConnectionStringFromSettings());
-                    int result = await saleOrderBAL.CreateSaleOrderAsync(orderId, customer, Convert.ToDateTime(saleDate.Value), paymentType, invoice, totalDecimal, grandTotalDecimal, advTaxDecimal, warrantry, Area, Booker, Supplier);
-                    Helper.Log("Sale Order Created: " + " ," + orderId + " ," + customer + " ," + Convert.ToDateTime(saleDate.Value) + " ," + paymentType + " ," + invoice + " ," + totalDecimal + " ," + grandTotalDecimal + " ," + advTaxDecimal + " ," + warrantry + " ," + Area + " ," + Booker + " ," + Supplier);
+                    int result = await saleOrderBAL.CreateSaleOrderAsync(orderId, customer, Convert.ToDateTime(saleDate.Value), paymentType, invoice, totalDecimal, grandTotalDecimal, advTaxDecimal, warrantry, "", "", "");
+                    Helper.Log("Sale Order Created: " + " ," + orderId + " ," + customer + " ," + Convert.ToDateTime(saleDate.Value) + " ," + paymentType + " ," + invoice + " ," + totalDecimal + " ," + grandTotalDecimal + " ," + advTaxDecimal);
                     if (result >= 1)
                     {
                         foreach (DataGridViewRow row in dataGridViewSaleDetails.Rows)
@@ -629,7 +622,7 @@ namespace PharApp.Sale
                                 bool isWarranty = warrantry.Equals("warranty", StringComparison.OrdinalIgnoreCase);
                                 var saleOrderDetailsBAL = new BAL.SaleDetail(Helper.GetConnectionStringFromSettings());
                                 result = await saleOrderDetailsBAL.CreateSaleOrderDetailAsync(purchaseOrderId, medicineId, Helper.ProcessString(batchId), expiryDate, quantity, total, gstTax, bonus, salePrice, distDisc, DateTime.UtcNow, isWarranty);
-                                Helper.Log("Sale details Created: " + purchaseOrderId + " ," + medicineId + " ," + batchId + " ," + expiryDate + " ," + quantity + " ," + total + " ," + gstTax + " ," + bonus + " ," + salePrice + " ," + distDisc + " ," + DateTime.UtcNow + isWarranty);
+                                Helper.Log("Sale details Created: " + purchaseOrderId + " ," + medicineId + " ," + batchId + " ," + expiryDate + " ," + quantity + " ," + total + " ," + gstTax + " ," + bonus + " ," + salePrice + " ," + distDisc);
                                 if (result >= 1)
                                 {
                                     var stockBAL = new BAL.Stock(Helper.GetConnectionStringFromSettings());
@@ -678,23 +671,23 @@ namespace PharApp.Sale
                 return false;
             }
 
-            if (string.IsNullOrEmpty(cmbArea.Text) || cmbArea.Text == "Choose Area" || cmbArea.SelectedIndex == -1)
-            {
-                MessageBox.Show("Please select the Area", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
+            //if (string.IsNullOrEmpty(cmbArea.Text) || cmbArea.Text == "Choose Area" || cmbArea.SelectedIndex == -1)
+            //{
+            //    MessageBox.Show("Please select the Area", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return false;
+            //}
 
-            if (string.IsNullOrEmpty(cmbBooker.Text) || cmbBooker.Text == "Choose Booker" || cmbBooker.SelectedIndex == -1)
-            {
-                MessageBox.Show("Please select the Booker", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
+            //if (string.IsNullOrEmpty(cmbBooker.Text) || cmbBooker.Text == "Choose Booker" || cmbBooker.SelectedIndex == -1)
+            //{
+            //    MessageBox.Show("Please select the Booker", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return false;
+            //}
 
-            if (string.IsNullOrEmpty(cmbSupplier.Text) || cmbSupplier.Text == "Choose Supplier" || cmbSupplier.SelectedIndex == -1)
-            {
-                MessageBox.Show("Please select the Supplier", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
+            //if (string.IsNullOrEmpty(cmbSupplier.Text) || cmbSupplier.Text == "Choose Supplier" || cmbSupplier.SelectedIndex == -1)
+            //{
+            //    MessageBox.Show("Please select the Supplier", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return false;
+            //}
 
             return true;
         }
@@ -1066,5 +1059,6 @@ namespace PharApp.Sale
         {
             LoadGridDataViewSale();
         }
+
     }
 }

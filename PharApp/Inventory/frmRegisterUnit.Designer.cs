@@ -79,9 +79,9 @@
             label1.Font = new Font("Segoe UI", 14F);
             label1.Location = new Point(28, 25);
             label1.Name = "label1";
-            label1.Size = new Size(256, 32);
+            label1.Size = new Size(150, 32);
             label1.TabIndex = 8;
-            label1.Text = "Register Medicine Unit";
+            label1.Text = "Register Unit";
             // 
             // btnClose
             // 

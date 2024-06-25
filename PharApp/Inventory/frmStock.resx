@@ -118,6 +118,17 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnExportInventory.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABYAAAAUCAMAAAC+oj0CAAAABGdBTUEAALGPC/xhBQAAAE5QTFRFHGxA
+        H3NFNH5V7PPv////hLGY2ujhIHZHHW9CHnFD+Pv6bqSHUpFvjrehYJt7QIZfKHhMR4tmeaqPmL6po8Wz
+        vtfJ5O7psc6+xNrOyt3TW1qSXgAAAMxJREFUKFN1keluxDAIhDHEV3wfyabv/6LFiTdNte1I/sEniwEG
+        FtZKauvVYxjFKVBHl7FgtgBQ1RQBZmGNtcYYAC+nImithRCDA0iilVir+4VzSr2mVC9sjbAwMJbSayny
+        xCLFjLKwpQ/yeIXwunCkKPfE2FgTIkC8cN42Fc5JWvu6f2vrVoUfvU+cLvyYROTj2aS1aenItz8svdOp
+        c8kDBr6QfFvacZbR2/suvZ+WP8sjNoc4l79x3Xcifoz/OSzn8hnDfofWHqEtyzdegg8IZEkYrAAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAYAAAAAAAEAIABaWQAAZgAAAICAAAABACAAKAgBAMBZAABAQAAAAQAgAChCAADoYQEAMDAAAAEA

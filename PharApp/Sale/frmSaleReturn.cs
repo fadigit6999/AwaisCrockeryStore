@@ -479,9 +479,9 @@ namespace PharApp.Sale
 
             // Add columns
             dataGridViewSaleDetails.Columns.Add("OrderDetailIdColumn", "DetailId");
-            dataGridViewSaleDetails.Columns.Add("MedIdColumn", "MedId");
-            dataGridViewSaleDetails.Columns.Add("MedInformationColumn", "Med. Info");
-            dataGridViewSaleDetails.Columns.Add("BatchedColumn", "BatchId");
+            dataGridViewSaleDetails.Columns.Add("MedIdColumn", "Id");
+            dataGridViewSaleDetails.Columns.Add("MedInformationColumn", "Item");
+            dataGridViewSaleDetails.Columns.Add("BatchedColumn", "Item Code");
             dataGridViewSaleDetails.Columns.Add("GstTaxColumn", "GSTTx.");
             dataGridViewSaleDetails.Columns.Add("DsicColumn", "Disc");
             dataGridViewSaleDetails.Columns.Add("BonusColumn", "Bonus");

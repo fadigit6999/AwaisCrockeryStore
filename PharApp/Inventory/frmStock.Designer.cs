@@ -32,6 +32,7 @@
             dataGridViewStock = new DataGridView();
             txtSearch = new TextBox();
             label18 = new Label();
+            btnExportInventory = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewStock).BeginInit();
             SuspendLayout();
             // 
@@ -68,10 +69,24 @@
             label18.TabIndex = 7;
             label18.Text = "Search";
             // 
+            // btnExportInventory
+            // 
+            btnExportInventory.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnExportInventory.Image = (Image)resources.GetObject("btnExportInventory.Image");
+            btnExportInventory.ImageAlign = ContentAlignment.MiddleLeft;
+            btnExportInventory.Location = new Point(998, 11);
+            btnExportInventory.Name = "btnExportInventory";
+            btnExportInventory.Size = new Size(116, 29);
+            btnExportInventory.TabIndex = 9;
+            btnExportInventory.Text = "Export";
+            btnExportInventory.UseVisualStyleBackColor = true;
+            btnExportInventory.Click += btnExportInventory_Click;
+            // 
             // frmStock
             // 
             AutoScaleMode = AutoScaleMode.Inherit;
             ClientSize = new Size(1126, 639);
+            Controls.Add(btnExportInventory);
             Controls.Add(txtSearch);
             Controls.Add(label18);
             Controls.Add(dataGridViewStock);
@@ -90,5 +105,6 @@
         public DataGridView dataGridViewStock;
         private TextBox txtSearch;
         private Label label18;
+        private Button btnExportInventory;
     }
 }

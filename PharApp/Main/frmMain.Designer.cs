@@ -134,14 +134,14 @@
             // medicineToolStripMedicine
             // 
             medicineToolStripMedicine.Name = "medicineToolStripMedicine";
-            medicineToolStripMedicine.Size = new Size(153, 26);
-            medicineToolStripMedicine.Text = "Medicine";
+            medicineToolStripMedicine.Size = new Size(224, 26);
+            medicineToolStripMedicine.Text = "Item Inventory";
             medicineToolStripMedicine.Click += medicineToolStripMedicine_Click;
             // 
             // stockToolStripMenuItem
             // 
             stockToolStripMenuItem.Name = "stockToolStripMenuItem";
-            stockToolStripMenuItem.Size = new Size(153, 26);
+            stockToolStripMenuItem.Size = new Size(224, 26);
             stockToolStripMenuItem.Text = "Stock";
             stockToolStripMenuItem.Click += stockToolStripMenuItem_Click;
             // 
@@ -155,21 +155,21 @@
             // manufacturersToolStripMenuItem
             // 
             manufacturersToolStripMenuItem.Name = "manufacturersToolStripMenuItem";
-            manufacturersToolStripMenuItem.Size = new Size(223, 26);
+            manufacturersToolStripMenuItem.Size = new Size(224, 26);
             manufacturersToolStripMenuItem.Text = "Manufacturer";
             manufacturersToolStripMenuItem.Click += manufacturersToolStripMenuItem_Click;
             // 
             // procurementToolStripMenuItem
             // 
             procurementToolStripMenuItem.Name = "procurementToolStripMenuItem";
-            procurementToolStripMenuItem.Size = new Size(223, 26);
+            procurementToolStripMenuItem.Size = new Size(224, 26);
             procurementToolStripMenuItem.Text = "Procurement";
             procurementToolStripMenuItem.Click += procurementToolStripMenuItem_Click;
             // 
             // procurementReturnToolStripMenuItem
             // 
             procurementReturnToolStripMenuItem.Name = "procurementReturnToolStripMenuItem";
-            procurementReturnToolStripMenuItem.Size = new Size(223, 26);
+            procurementReturnToolStripMenuItem.Size = new Size(224, 26);
             procurementReturnToolStripMenuItem.Text = "Procurement Return";
             procurementReturnToolStripMenuItem.Click += procurementReturnToolStripMenuItem_Click;
             // 

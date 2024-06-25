@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMedicine));
             tabControlMedicine = new TabControl();
             tabMedicine = new TabPage();
+            btnExportInventory = new Button();
             txtSearch = new TextBox();
             label18 = new Label();
             dataGridViewMedicine = new DataGridView();
@@ -57,7 +58,6 @@
             updateMedicineToolStripMenuItem = new ToolStripMenuItem();
             deleteMedicineToolStripMenuItem = new ToolStripMenuItem();
             btnRegisterUnit = new Button();
-            btnExportInventory = new Button();
             tabControlMedicine.SuspendLayout();
             tabMedicine.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewMedicine).BeginInit();
@@ -99,8 +99,20 @@
             tabMedicine.Padding = new Padding(3, 2, 3, 2);
             tabMedicine.Size = new Size(1391, 627);
             tabMedicine.TabIndex = 0;
-            tabMedicine.Text = "Medicine";
+            tabMedicine.Text = "Item";
             tabMedicine.UseVisualStyleBackColor = true;
+            // 
+            // btnExportInventory
+            // 
+            btnExportInventory.Image = (Image)resources.GetObject("btnExportInventory.Image");
+            btnExportInventory.ImageAlign = ContentAlignment.MiddleLeft;
+            btnExportInventory.Location = new Point(1266, 21);
+            btnExportInventory.Name = "btnExportInventory";
+            btnExportInventory.Size = new Size(116, 29);
+            btnExportInventory.TabIndex = 7;
+            btnExportInventory.Text = "Export";
+            btnExportInventory.UseVisualStyleBackColor = true;
+            btnExportInventory.Click += btnExportInventory_Click;
             // 
             // txtSearch
             // 
@@ -359,18 +371,6 @@
             btnRegisterUnit.UseVisualStyleBackColor = true;
             btnRegisterUnit.Click += btnRegisterUnit_Click;
             // 
-            // btnExportInventory
-            // 
-            btnExportInventory.Image = (Image)resources.GetObject("btnExportInventory.Image");
-            btnExportInventory.ImageAlign = ContentAlignment.MiddleLeft;
-            btnExportInventory.Location = new Point(1266, 21);
-            btnExportInventory.Name = "btnExportInventory";
-            btnExportInventory.Size = new Size(116, 29);
-            btnExportInventory.TabIndex = 7;
-            btnExportInventory.Text = "Export";
-            btnExportInventory.UseVisualStyleBackColor = true;
-            btnExportInventory.Click += btnExportInventory_Click;
-            // 
             // frmMedicine
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -382,7 +382,7 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "frmMedicine";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Medicines";
+            Text = "Inventory";
             Load += frmMedicine_Load;
             tabControlMedicine.ResumeLayout(false);
             tabMedicine.ResumeLayout(false);
