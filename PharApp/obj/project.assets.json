@@ -6521,23 +6521,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\FadiG6999\\.nuget\\packages\\": {},
+    "C:\\Users\\Fahad Masood Ahmad\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\PharApp\\PharApp.csproj",
+      "projectUniqueName": "G:\\AwaisCrockeryStoreGit\\AwaisCrockeryStore\\PharApp\\PharApp.csproj",
       "projectName": "PharApp",
-      "projectPath": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\PharApp\\PharApp.csproj",
-      "packagesPath": "C:\\Users\\FadiG6999\\.nuget\\packages\\",
-      "outputPath": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\PharApp\\obj\\",
+      "projectPath": "G:\\AwaisCrockeryStoreGit\\AwaisCrockeryStore\\PharApp\\PharApp.csproj",
+      "packagesPath": "C:\\Users\\Fahad Masood Ahmad\\.nuget\\packages\\",
+      "outputPath": "G:\\AwaisCrockeryStoreGit\\AwaisCrockeryStore\\PharApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\FadiG6999\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Fahad Masood Ahmad\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -6553,8 +6553,8 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
-            "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\BAL\\BAL.csproj": {
-              "projectPath": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\BAL\\BAL.csproj"
+            "G:\\AwaisCrockeryStoreGit\\AwaisCrockeryStore\\BAL\\BAL.csproj": {
+              "projectPath": "G:\\AwaisCrockeryStoreGit\\AwaisCrockeryStore\\BAL\\BAL.csproj"
             }
           }
         }
@@ -6563,11 +6563,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -6606,7 +6601,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

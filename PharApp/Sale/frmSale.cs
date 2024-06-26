@@ -83,7 +83,7 @@ namespace PharApp.Sale
 
 
                     Dictionary<string, string> MedicineDictionary = new Dictionary<string, string>();
-                    MedicineDictionary.Add("Choose Medicine", Guid.NewGuid().ToString());
+                    MedicineDictionary.Add("Choose Item", Guid.NewGuid().ToString());
 
                     foreach (var medicine in cmbMedicineList)
                     {
@@ -355,7 +355,7 @@ namespace PharApp.Sale
             if (selectedMedicine != null)
             {
                 Dictionary<string, string> StockDictionary = new Dictionary<string, string>();
-                StockDictionary.Add("Choose BatchId", Guid.NewGuid().ToString());
+                StockDictionary.Add("Item Code", Guid.NewGuid().ToString());
 
                 var addedBatchIds = new HashSet<string>();
 
@@ -410,7 +410,7 @@ namespace PharApp.Sale
                     decimal total = totalWithTax;
 
                     // Add a new row to the DataGridView
-                    dataGridViewSaleDetails.Rows.Add(medInformationId, medInformation, batchid, gstTax, discountPercentage, bonus, expiryDate, quantity, manufacturePrice, Math.Round(total, 2), "X");
+                    dataGridViewSaleDetails.Rows.Add(medInformationId, medInformation, batchid, gstTax, discountPercentage, expiryDate, quantity, manufacturePrice, Math.Round(total, 2), "X");
 
                     txtAdvTax.Text = "";
                 }
@@ -462,16 +462,16 @@ namespace PharApp.Sale
         }
         private bool ValidateDetails()
         {
-            if (string.IsNullOrEmpty(cmbMedInformation.Text) || cmbMedInformation.Text == "Choose Medicine" || cmbMedInformation.SelectedIndex == -1)
+            if (string.IsNullOrEmpty(cmbMedInformation.Text) || cmbMedInformation.Text == "Choose Item" || cmbMedInformation.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select the Medicine.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             // Batch ID validation
-            if (string.IsNullOrEmpty(cmbBatchId.Text) || cmbBatchId.Text == "Choose BatchId")
+            if (string.IsNullOrEmpty(cmbBatchId.Text) || cmbBatchId.Text == "Item Code")
             {
-                MessageBox.Show("Please enter Batch ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please enter Item Code.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
@@ -510,11 +510,11 @@ namespace PharApp.Sale
                 return false;
             }
 
-            if (!int.TryParse(txtBonus.Text, out int bonus) || bonus < 0)
-            {
-                MessageBox.Show("Please enter a valid Bonus (a non-negative integer).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
+            //if (!int.TryParse(txtBonus.Text, out int bonus) || bonus < 0)
+            //{
+            //    MessageBox.Show("Please enter a valid Bonus (a non-negative integer).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return false;
+            //}
 
             if (txtStockQuantity.Text == "0")
             {
@@ -530,7 +530,7 @@ namespace PharApp.Sale
         public void DefaultDetails()
         {
             // Set default values for the text boxes
-            cmbMedInformation.Text = "Choose Medicine";
+            cmbMedInformation.Text = "Choose Item";
             cmbBatchId.DataSource = null;
             txtExpiryDate.Text = "MM/DD/YYYY";
             txtStockQuantity.Text = "";
@@ -547,12 +547,12 @@ namespace PharApp.Sale
             dataGridViewSaleDetails.Columns.Clear();
 
             // Add columns
-            dataGridViewSaleDetails.Columns.Add("MedIdColumn", "MedId");
-            dataGridViewSaleDetails.Columns.Add("MedInformationColumn", "Med. Info");
-            dataGridViewSaleDetails.Columns.Add("BatchedColumn", "BatchId");
+            dataGridViewSaleDetails.Columns.Add("MedIdColumn", "Id");
+            dataGridViewSaleDetails.Columns.Add("MedInformationColumn", "Item");
+            dataGridViewSaleDetails.Columns.Add("BatchedColumn", "Item Code");
             dataGridViewSaleDetails.Columns.Add("GstTaxColumn", "GSTTx.");
             dataGridViewSaleDetails.Columns.Add("DsicColumn", "Disc");
-            dataGridViewSaleDetails.Columns.Add("BonusColumn", "Bonus");
+            //dataGridViewSaleDetails.Columns.Add("BonusColumn", "Bonus");
             dataGridViewSaleDetails.Columns.Add("ExpiryDateColumn", "Ex. Date");
             dataGridViewSaleDetails.Columns.Add("QuantityColumn", "Qnt.");
             dataGridViewSaleDetails.Columns.Add("ManfPriceColumn", "Sale Price");
@@ -617,12 +617,12 @@ namespace PharApp.Sale
                                 decimal total = decimal.TryParse(row.Cells["TotalColumn"].Value?.ToString(), out decimal tempTotal) ? tempTotal : 0;
                                 decimal gstTax = decimal.TryParse(row.Cells["GstTaxColumn"].Value?.ToString(), out decimal tempGstTax) ? tempGstTax : 0;
                                 decimal salePrice = decimal.TryParse(row.Cells["ManfPriceColumn"].Value?.ToString(), out decimal tempSalePrice) ? tempSalePrice : 0;
-                                int bonus = int.TryParse(row.Cells["BonusColumn"].Value?.ToString(), out int tempBonus) ? tempBonus : 0;
+                                //int bonus = int.TryParse(row.Cells["BonusColumn"].Value?.ToString(), out int tempBonus) ? tempBonus : 0;
                                 decimal distDisc = decimal.TryParse(row.Cells["DsicColumn"].Value?.ToString(), out decimal tempDistDisc) ? tempDistDisc : 0;
                                 bool isWarranty = warrantry.Equals("warranty", StringComparison.OrdinalIgnoreCase);
                                 var saleOrderDetailsBAL = new BAL.SaleDetail(Helper.GetConnectionStringFromSettings());
-                                result = await saleOrderDetailsBAL.CreateSaleOrderDetailAsync(purchaseOrderId, medicineId, Helper.ProcessString(batchId), expiryDate, quantity, total, gstTax, bonus, salePrice, distDisc, DateTime.UtcNow, isWarranty);
-                                Helper.Log("Sale details Created: " + purchaseOrderId + " ," + medicineId + " ," + batchId + " ," + expiryDate + " ," + quantity + " ," + total + " ," + gstTax + " ," + bonus + " ," + salePrice + " ," + distDisc);
+                                result = await saleOrderDetailsBAL.CreateSaleOrderDetailAsync(purchaseOrderId, medicineId, Helper.ProcessString(batchId), expiryDate, quantity, total, gstTax, 0, salePrice, distDisc, DateTime.UtcNow, isWarranty);
+                                Helper.Log("Sale details Created: " + purchaseOrderId + " ," + medicineId + " ," + batchId + " ," + expiryDate + " ," + quantity + " ," + total + " ," + gstTax + " ," + salePrice + " ," + distDisc);
                                 if (result >= 1)
                                 {
                                     var stockBAL = new BAL.Stock(Helper.GetConnectionStringFromSettings());
@@ -739,13 +739,13 @@ namespace PharApp.Sale
 
                 dataGridViewSale.Columns["OrderID"].HeaderText = "Id";
                 dataGridViewSale.Columns["InvoiceNo"].HeaderText = "Invoice";
-                dataGridViewSale.Columns["MedName"].HeaderText = "Medicine";
+                dataGridViewSale.Columns["MedName"].HeaderText = "Item";
                 dataGridViewSale.Columns["Customer"].HeaderText = "Customer";
                 dataGridViewSale.Columns["Quantity"].HeaderText = "Quantity";
                 dataGridViewSale.Columns["Total"].HeaderText = "Gr. Total";
                 dataGridViewSale.Columns["TypeName"].HeaderText = "Payment";
                 dataGridViewSale.Columns["ExpiryDate"].HeaderText = "Ex. Date";
-                dataGridViewSale.Columns["BatchId"].HeaderText = "Batch";
+                dataGridViewSale.Columns["BatchId"].HeaderText = "Item Code";
                 dataGridViewSale.Columns["InvType"].HeaderText = "Invoice Type";
                 dataGridViewSale.Columns["AreaName"].HeaderText = "Area";
                 dataGridViewSale.Columns["BookerName"].HeaderText = "Booker";
@@ -766,6 +766,10 @@ namespace PharApp.Sale
                 dataGridViewSale.Columns["ExpiryDate"].DisplayIndex = 5;
                 dataGridViewSale.Columns["BatchId"].DisplayIndex = 3;
                 dataGridViewSale.Columns["InvType"].DisplayIndex = 2;
+
+                dataGridViewSale.Columns["AreaName"].Visible = false;
+                dataGridViewSale.Columns["BookerName"].Visible= false;
+                dataGridViewSale.Columns["SupplierName"].Visible= false;
 
                 dataGridViewSale.Refresh();
             }
@@ -807,7 +811,7 @@ namespace PharApp.Sale
                     if (selectedStock.Quantity == 0)
                     {
                         txtStockQuantity.Text = selectedStock != null ? selectedStock.Quantity.ToString() : "0";
-                        MessageBox.Show($"Medicine ## {selectedMedicine.Name} ## with BatchId ## {selectedStockId} ## is out of stock", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"Medicine ## {selectedMedicine.Name} ## with Item Code ## {selectedStockId} ## is out of stock", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                     }
                     else

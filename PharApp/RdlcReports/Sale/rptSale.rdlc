@@ -183,7 +183,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Batch/Exp</Value>
+                              <Value>Item Code</Value>
                               <Style>
                                 <FontFamily>Verdana</FontFamily>
                                 <FontSize>8pt</FontSize>
@@ -681,7 +681,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!BatchId.Value &amp; "-" &amp; Fields!ExpiryDate.Value</Value>
+                              <Value>=Fields!BatchId.Value</Value>
                               <Style>
                                 <FontFamily>Verdana</FontFamily>
                                 <FontSize>6pt</FontSize>
@@ -1048,7 +1048,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
         <Top>0.77724in</Top>
-        <Left>3.43507in</Left>
+        <Left>4.06007in</Left>
         <Height>0.18302in</Height>
         <Width>0.67153in</Width>
         <ZIndex>12</ZIndex>
@@ -1119,12 +1119,6 @@
           <Paragraphs>
             <Paragraph>
               <TextRuns>
-                <TextRun>
-                  <Value>=IIf(Fields!InvoiceType.Value = "warranty", "Main Sialkot Road Muhallah Islam Colony Near Naeem Electronic Gujranwala", "")</Value>
-                  <Style>
-                    <FontFamily>Calibri</FontFamily>
-                  </Style>
-                </TextRun>
                 <TextRun>
                   <Value>Alam Chok Near Alam Masjid Hafizabad Road Gujranwala</Value>
                   <Style>

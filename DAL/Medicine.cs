@@ -266,7 +266,7 @@ namespace DAL
                                 MedicineId = reader["MedicineId"].ToString(),
                                 Barcode = reader["Barcode"].ToString(),
                                 Name = reader["Name"].ToString(),
-                                Name_Urdu = reader["Name_Urdu"].ToString(),
+                                //Name_Urdu = reader["Name_Urdu"].ToString(),
                                 Strength = reader["Strength"].ToString(),
                                 GenericName = reader["GenericName"].ToString(),
                                 BoxSize = reader["BoxSizes"].ToString(),
