@@ -421,7 +421,7 @@ namespace PharApp.Purchase
         {
             // Set default values for the text boxes
             cmbMedInformation.Text = "Choose Medicine";
-            txtBatchId.Text = "BatchId";
+            txtBatchId.Text = "ItemCode";
             dateTimeMedExpiry.Value = DateTime.Today.AddDays(1);
             txtPurchaseQnt.Text = "1";
             txtManfPrice.Text = "0.00";
@@ -607,18 +607,8 @@ namespace PharApp.Purchase
 
                 originalPurchaseList = new BindingList<ViewPurchase>(purchaseList);
                 filteredPurchaseList = new BindingList<ViewPurchase>(purchaseList);
-                dataGridViewPurchase.DataSource = filteredPurchaseList;
 
-                dataGridViewPurchase.Columns["OrderID"].HeaderText = "Id";
-                dataGridViewPurchase.Columns["InvoiceNo"].HeaderText = "Invoice";
-                dataGridViewPurchase.Columns["MedName"].HeaderText = "Medicine";
-                dataGridViewPurchase.Columns["ManufacturerName"].HeaderText = "Manuf.";
-                dataGridViewPurchase.Columns["Quantity"].HeaderText = "Quantity";
-                dataGridViewPurchase.Columns["Total"].HeaderText = "Gr. Total";
-                dataGridViewPurchase.Columns["TypeName"].HeaderText = "Payment";
-                dataGridViewPurchase.Columns["ExpiryDate"].HeaderText = "Ex. Date";
-                dataGridViewPurchase.Columns["BatchId"].HeaderText = "Batch";
-
+                dataGridViewPurchase.DataSource = originalPurchaseList;
                 dataGridViewPurchase.Columns["OrderID"].DisplayIndex = 0;
                 dataGridViewPurchase.Columns["InvoiceNo"].DisplayIndex = 1;
                 dataGridViewPurchase.Columns["MedName"].DisplayIndex = 2;
@@ -628,6 +618,16 @@ namespace PharApp.Purchase
                 dataGridViewPurchase.Columns["Total"].DisplayIndex = 8;
                 dataGridViewPurchase.Columns["ExpiryDate"].DisplayIndex = 5;
                 dataGridViewPurchase.Columns["BatchId"].DisplayIndex = 6;
+
+                dataGridViewPurchase.Columns["OrderID"].HeaderText = "Id";
+                dataGridViewPurchase.Columns["InvoiceNo"].HeaderText = "Invoice";
+                dataGridViewPurchase.Columns["MedName"].HeaderText = "Item";
+                dataGridViewPurchase.Columns["ManufacturerName"].HeaderText = "Mgf.";
+                dataGridViewPurchase.Columns["Quantity"].HeaderText = "Quantity";
+                dataGridViewPurchase.Columns["Total"].HeaderText = "Gr. Total";
+                dataGridViewPurchase.Columns["TypeName"].HeaderText = "Payment";
+                dataGridViewPurchase.Columns["ExpiryDate"].HeaderText = "Ex. Date";
+                dataGridViewPurchase.Columns["BatchId"].HeaderText = "Item Code";
 
                 dataGridViewPurchase.Refresh();
             }
@@ -663,6 +663,28 @@ namespace PharApp.Purchase
             }
 
             dataGridViewPurchase.DataSource = filteredPurchaseList;
+
+            dataGridViewPurchase.Columns["OrderID"].DisplayIndex = 0;
+            dataGridViewPurchase.Columns["InvoiceNo"].DisplayIndex = 1;
+            dataGridViewPurchase.Columns["MedName"].DisplayIndex = 2;
+            dataGridViewPurchase.Columns["ManufacturerName"].DisplayIndex = 3;
+            dataGridViewPurchase.Columns["TypeName"].DisplayIndex = 4;
+            dataGridViewPurchase.Columns["Quantity"].DisplayIndex = 7;
+            dataGridViewPurchase.Columns["Total"].DisplayIndex = 8;
+            dataGridViewPurchase.Columns["ExpiryDate"].DisplayIndex = 5;
+            dataGridViewPurchase.Columns["BatchId"].DisplayIndex = 6;
+
+            dataGridViewPurchase.Columns["OrderID"].HeaderText = "Id";
+            dataGridViewPurchase.Columns["InvoiceNo"].HeaderText = "Invoice";
+            dataGridViewPurchase.Columns["MedName"].HeaderText = "Item";
+            dataGridViewPurchase.Columns["ManufacturerName"].HeaderText = "Mgf.";
+            dataGridViewPurchase.Columns["Quantity"].HeaderText = "Quantity";
+            dataGridViewPurchase.Columns["Total"].HeaderText = "Gr. Total";
+            dataGridViewPurchase.Columns["TypeName"].HeaderText = "Payment";
+            dataGridViewPurchase.Columns["ExpiryDate"].HeaderText = "Ex. Date";
+            dataGridViewPurchase.Columns["BatchId"].HeaderText = "Item Code";
+
+            dataGridViewPurchase.Refresh();
         }
 
         private void txtPurchaseQnt_KeyPress(object sender, KeyPressEventArgs e)

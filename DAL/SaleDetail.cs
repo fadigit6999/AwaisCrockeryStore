@@ -182,7 +182,7 @@ namespace DAL
                             SaleDate = reader["SalesDate"] != DBNull.Value ? reader["SalesDate"].ToString() : null,
                             InvoiceNo = reader["InvoiceNo"] != DBNull.Value ? reader["InvoiceNo"].ToString() : null,
                             MedName = reader["MedName"] != DBNull.Value ? reader["MedName"].ToString() : null,
-                            ManufacturerPrice = reader["ManufacturerPrice"] != DBNull.Value ? reader["ManufacturerPrice"].ToString() : null,
+                            ManufacturerPrice = reader["price"] != DBNull.Value ? reader["price"].ToString() : null,
                             SalesOrderId = reader["SalesOrderId"] != DBNull.Value ? reader["SalesOrderId"].ToString() : null,
                             MedicineId = reader["MedicineId"] != DBNull.Value ? reader["MedicineId"].ToString() : null
                         };

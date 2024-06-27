@@ -735,7 +735,7 @@ namespace PharApp.Sale
 
                 originalBindingList = new BindingList<ViewSale>(saleList);
                 filteredBindingList = new BindingList<ViewSale>(saleList);
-                dataGridViewSale.DataSource = filteredBindingList;
+                dataGridViewSale.DataSource = originalBindingList;
 
                 dataGridViewSale.Columns["OrderID"].HeaderText = "Id";
                 dataGridViewSale.Columns["InvoiceNo"].HeaderText = "Invoice";
@@ -770,6 +770,7 @@ namespace PharApp.Sale
                 dataGridViewSale.Columns["AreaName"].Visible = false;
                 dataGridViewSale.Columns["BookerName"].Visible= false;
                 dataGridViewSale.Columns["SupplierName"].Visible= false;
+                dataGridViewSale.Columns["InvType"].Visible= false;
 
                 dataGridViewSale.Refresh();
             }

@@ -171,7 +171,7 @@ namespace DAL
                             InvoiceNo = reader["InvoiceNo"].ToString(),
                             Quantity = reader["Quantity"].ToString(),
                             TypeName = reader["TypeName"].ToString(),
-                            BatchId = reader["BatchId"].ToString(),
+                            BatchId = reader["BatchId"].ToString().ToUpper(),
                             ExpiryDate = Convert.ToDateTime(reader["ExpiryDate"].ToString()).ToString("dd/MM/yyyy") 
                         };
                         purchaseOrders.Add(purchaseOrder);

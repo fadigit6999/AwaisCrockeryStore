@@ -61,7 +61,7 @@ namespace PharApp.Sale
                 string total = details.Total;
 
                 // Add a new row to the DataGridView
-                dataGridViewSaleDetails.Rows.Add(_orderDetailId, medid, medInformation, batchid, gstTax, discountPercentage, bonus, expiryDate, quantity, manufacturePrice, total, "X");
+                dataGridViewSaleDetails.Rows.Add(_orderDetailId, medid, medInformation, batchid, gstTax, discountPercentage, expiryDate, quantity, manufacturePrice, total, "X");
 
                 //txtAdvTax.Text = "";
             }
@@ -484,7 +484,6 @@ namespace PharApp.Sale
             dataGridViewSaleDetails.Columns.Add("BatchedColumn", "Item Code");
             dataGridViewSaleDetails.Columns.Add("GstTaxColumn", "GSTTx.");
             dataGridViewSaleDetails.Columns.Add("DsicColumn", "Disc");
-            dataGridViewSaleDetails.Columns.Add("BonusColumn", "Bonus");
             dataGridViewSaleDetails.Columns.Add("ExpiryDateColumn", "Ex. Date");
             dataGridViewSaleDetails.Columns.Add("QuantityColumn", "Qnt.");
             dataGridViewSaleDetails.Columns.Add("ManfPriceColumn", "Sale Price");
