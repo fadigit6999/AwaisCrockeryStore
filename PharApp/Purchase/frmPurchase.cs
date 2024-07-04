@@ -87,7 +87,7 @@ namespace PharApp.Purchase
                     var popMedicineList = cmbMedicineList.Where(x => x.ManufacturerId == manufacturerid).ToList();
 
                     Dictionary<string, string> MedicineDictionary = new Dictionary<string, string>();
-                    MedicineDictionary.Add("Choose Medicine", Guid.NewGuid().ToString());
+                    MedicineDictionary.Add("Choose Item", Guid.NewGuid().ToString());
 
                     foreach (var medicine in popMedicineList)
                     {
@@ -302,7 +302,7 @@ namespace PharApp.Purchase
 
 
                 // Add a new row to the DataGridView
-                dataGridViewPurchaseDetails.Rows.Add(medInformationId, medInformation, batchid, gstTax, discountPercentage, bonus, expiryDate, quantity, manufacturePrice, Math.Round(total, 2), "X");
+                dataGridViewPurchaseDetails.Rows.Add(medInformationId, medInformation, batchid, gstTax, discountPercentage, expiryDate, quantity, manufacturePrice, Math.Round(total, 2), "X");
 
                 txtAdvTax.Text = "";
             }
@@ -357,7 +357,7 @@ namespace PharApp.Purchase
 
         private bool ValidateDetails()
         {
-            if (string.IsNullOrEmpty(cmbMedInformation.Text) || cmbMedInformation.Text == "Choose Medicine" || cmbMedInformation.SelectedIndex == -1)
+            if (string.IsNullOrEmpty(cmbMedInformation.Text) || cmbMedInformation.Text == "Choose Item" || cmbMedInformation.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select the Medicine.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -420,7 +420,7 @@ namespace PharApp.Purchase
         public void DefaultDetails()
         {
             // Set default values for the text boxes
-            cmbMedInformation.Text = "Choose Medicine";
+            cmbMedInformation.Text = "Choose Item";
             txtBatchId.Text = "ItemCode";
             dateTimeMedExpiry.Value = DateTime.Today.AddDays(1);
             txtPurchaseQnt.Text = "1";
@@ -437,15 +437,15 @@ namespace PharApp.Purchase
             dataGridViewPurchaseDetails.Columns.Clear();
 
             // Add columns
-            dataGridViewPurchaseDetails.Columns.Add("MedIdColumn", "MedId");
-            dataGridViewPurchaseDetails.Columns.Add("MedInformationColumn", "Med. Info");
-            dataGridViewPurchaseDetails.Columns.Add("BatchedColumn", "BatchId");
-            dataGridViewPurchaseDetails.Columns.Add("GstTaxColumn", "GSTTx.");
-            dataGridViewPurchaseDetails.Columns.Add("DsicColumn", "Disc");
-            dataGridViewPurchaseDetails.Columns.Add("BonusColumn", "Bonus");
+            dataGridViewPurchaseDetails.Columns.Add("MedIdColumn", "Id");
+            dataGridViewPurchaseDetails.Columns.Add("MedInformationColumn", "Item Info");
+            dataGridViewPurchaseDetails.Columns.Add("BatchedColumn", "Item Code");
+            dataGridViewPurchaseDetails.Columns.Add("GstTaxColumn", "GST%");
+            dataGridViewPurchaseDetails.Columns.Add("DsicColumn", "Disc%");
+            //dataGridViewPurchaseDetails.Columns.Add("BonusColumn", "Bonus");
             dataGridViewPurchaseDetails.Columns.Add("ExpiryDateColumn", "Ex. Date");
-            dataGridViewPurchaseDetails.Columns.Add("QuantityColumn", "Qnt.");
-            dataGridViewPurchaseDetails.Columns.Add("ManfPriceColumn", "Manuf. Price");
+            dataGridViewPurchaseDetails.Columns.Add("QuantityColumn", "Qty.");
+            dataGridViewPurchaseDetails.Columns.Add("ManfPriceColumn", "Mfg. Price");
             dataGridViewPurchaseDetails.Columns.Add("TotalColumn", "Total");
             dataGridViewPurchaseDetails.Columns.Add("RemoveColumn", "Remove");
         }
@@ -502,7 +502,7 @@ namespace PharApp.Purchase
                                 decimal? gstTax = row.Cells["GstTaxColumn"].Value as decimal?;
                                 decimal? purchaseprice = row.Cells["ManfPriceColumn"].Value as decimal?;
                                 //decimal? salePrice = row.Cells["GstTaxColumn"].Value as decimal?;
-                                int? bonus = Convert.ToInt32(row.Cells["BonusColumn"].Value);
+                                int? bonus = 0;
                                 decimal? distDisc = Convert.ToDecimal(row.Cells["DsicColumn"].Value) as decimal?;
 
                                 var purchaseOrderDetailsBAL = new BAL.PurchaseDetail(Helper.GetConnectionStringFromSettings());
