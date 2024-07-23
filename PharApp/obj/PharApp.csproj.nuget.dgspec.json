@@ -258,7 +258,7 @@
             },
             "ReportViewerCore.WinForms": {
               "target": "Package",
-              "version": "[15.1.20, )"
+              "version": "[15.1.21, )"
             },
             "System.Data.SqlClient": {
               "target": "Package",

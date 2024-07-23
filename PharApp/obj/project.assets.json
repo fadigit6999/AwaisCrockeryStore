@@ -323,7 +323,7 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "ReportViewerCore.WinForms/15.1.20": {
+      "ReportViewerCore.WinForms/15.1.21": {
         "type": "package",
         "dependencies": {
           "Microsoft.CodeAnalysis.VisualBasic": "4.8.0-3.final",
@@ -2826,10 +2826,10 @@
         "netstandard.library.nuspec"
       ]
     },
-    "ReportViewerCore.WinForms/15.1.20": {
-      "sha512": "Ydd70+GwTbYzN9gvVKca5YULUWNFaDogCwTJ7m42BqHcX596zHr4t66rGg1ldhKgvLk/CfuMSjg1rFniaK721Q==",
+    "ReportViewerCore.WinForms/15.1.21": {
+      "sha512": "WwHGwHDMUwFt2G2HT7wXJScPzOn/KQ/P6fi8u3vTM6c4Z1dNnhV6V6UiIv974X6vLs1WZ1IObymZJJzBIJyHYQ==",
       "type": "package",
-      "path": "reportviewercore.winforms/15.1.20",
+      "path": "reportviewercore.winforms/15.1.21",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2855,7 +2855,7 @@
         "lib/netcoreapp3.1/Microsoft.ReportViewer.DataVisualization.dll",
         "lib/netcoreapp3.1/Microsoft.ReportViewer.ProcessingObjectModel.dll",
         "lib/netcoreapp3.1/Microsoft.ReportViewer.WinForms.dll",
-        "reportviewercore.winforms.15.1.20.nupkg.sha512",
+        "reportviewercore.winforms.15.1.21.nupkg.sha512",
         "reportviewercore.winforms.nuspec"
       ]
     },
@@ -6516,7 +6516,7 @@
     "net8.0-windows7.0": [
       "BAL >= 1.0.0",
       "ClosedXML >= 0.102.2",
-      "ReportViewerCore.WinForms >= 15.1.20",
+      "ReportViewerCore.WinForms >= 15.1.21",
       "System.Data.SqlClient >= 4.8.6"
     ]
   },
@@ -6575,7 +6575,7 @@
           },
           "ReportViewerCore.WinForms": {
             "target": "Package",
-            "version": "[15.1.20, )"
+            "version": "[15.1.21, )"
           },
           "System.Data.SqlClient": {
             "target": "Package",

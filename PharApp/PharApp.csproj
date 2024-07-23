@@ -30,7 +30,7 @@
 
   <ItemGroup>
     <PackageReference Include="ClosedXML" Version="0.102.2" />
-    <PackageReference Include="ReportViewerCore.WinForms" Version="15.1.20" />
+    <PackageReference Include="ReportViewerCore.WinForms" Version="15.1.21" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
   </ItemGroup>
 
