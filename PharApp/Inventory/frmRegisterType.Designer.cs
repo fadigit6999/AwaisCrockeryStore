@@ -34,21 +34,23 @@
             btnRegisterAddOther = new Button();
             btnRegister = new Button();
             btnClose = new Button();
+            btnUpdate = new Button();
             SuspendLayout();
             // 
             // txtName
             // 
-            txtName.Location = new Point(45, 90);
+            txtName.Location = new Point(39, 68);
+            txtName.Margin = new Padding(3, 2, 3, 2);
             txtName.Name = "txtName";
-            txtName.Size = new Size(297, 27);
+            txtName.Size = new Size(260, 23);
             txtName.TabIndex = 1;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(42, 70);
+            label2.Location = new Point(37, 52);
             label2.Name = "label2";
-            label2.Size = new Size(84, 20);
+            label2.Size = new Size(66, 15);
             label2.TabIndex = 4;
             label2.Text = "Type Name";
             // 
@@ -56,17 +58,18 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14F);
-            label1.Location = new Point(42, 20);
+            label1.Location = new Point(37, 15);
             label1.Name = "label1";
-            label1.Size = new Size(157, 32);
+            label1.Size = new Size(123, 25);
             label1.TabIndex = 3;
             label1.Text = "Register Type";
             // 
             // btnRegisterAddOther
             // 
-            btnRegisterAddOther.Location = new Point(145, 124);
+            btnRegisterAddOther.Location = new Point(127, 93);
+            btnRegisterAddOther.Margin = new Padding(3, 2, 3, 2);
             btnRegisterAddOther.Name = "btnRegisterAddOther";
-            btnRegisterAddOther.Size = new Size(197, 29);
+            btnRegisterAddOther.Size = new Size(172, 22);
             btnRegisterAddOther.TabIndex = 3;
             btnRegisterAddOther.Text = "Register and Add Other";
             btnRegisterAddOther.UseVisualStyleBackColor = true;
@@ -74,9 +77,10 @@
             // 
             // btnRegister
             // 
-            btnRegister.Location = new Point(45, 124);
+            btnRegister.Location = new Point(39, 93);
+            btnRegister.Margin = new Padding(3, 2, 3, 2);
             btnRegister.Name = "btnRegister";
-            btnRegister.Size = new Size(94, 29);
+            btnRegister.Size = new Size(82, 22);
             btnRegister.TabIndex = 2;
             btnRegister.Text = "Register";
             btnRegister.UseVisualStyleBackColor = true;
@@ -84,29 +88,44 @@
             // 
             // btnClose
             // 
-            btnClose.Location = new Point(45, 169);
+            btnClose.Location = new Point(39, 127);
+            btnClose.Margin = new Padding(3, 2, 3, 2);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(94, 29);
+            btnClose.Size = new Size(82, 22);
             btnClose.TabIndex = 4;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = true;
             btnClose.Click += btnClose_Click;
             // 
+            // btnUpdate
+            // 
+            btnUpdate.Location = new Point(39, 93);
+            btnUpdate.Margin = new Padding(3, 2, 3, 2);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(82, 22);
+            btnUpdate.TabIndex = 2;
+            btnUpdate.Text = "Update";
+            btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
+            // 
             // frmRegisterType
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(400, 222);
+            ClientSize = new Size(350, 166);
             Controls.Add(btnRegisterAddOther);
             Controls.Add(btnClose);
+            Controls.Add(btnUpdate);
             Controls.Add(btnRegister);
             Controls.Add(txtName);
             Controls.Add(label2);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "frmRegisterType";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Register Type";
+            Load += frmRegisterType_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -119,5 +138,6 @@
         private Button btnRegisterAddOther;
         private Button btnRegister;
         private Button btnClose;
+        private Button btnUpdate;
     }
 }

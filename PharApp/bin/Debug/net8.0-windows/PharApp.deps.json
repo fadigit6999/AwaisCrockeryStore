@@ -10,7 +10,7 @@
         "dependencies": {
           "BAL": "1.0.0",
           "ClosedXML": "0.102.2",
-          "ReportViewerCore.WinForms": "15.1.20",
+          "ReportViewerCore.WinForms": "15.1.21",
           "System.Data.SqlClient": "4.8.6"
         },
         "runtime": {
@@ -245,7 +245,7 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "ReportViewerCore.WinForms/15.1.20": {
+      "ReportViewerCore.WinForms/15.1.21": {
         "dependencies": {
           "Microsoft.CodeAnalysis.VisualBasic": "4.8.0-3.final",
           "System.CodeDom": "4.7.0",
@@ -268,8 +268,8 @@
             "fileVersion": "15.0.1404.0"
           },
           "lib/net8.0-windows7/Microsoft.ReportViewer.WinForms.dll": {
-            "assemblyVersion": "15.1.20.0",
-            "fileVersion": "15.1.20.0"
+            "assemblyVersion": "15.1.21.0",
+            "fileVersion": "15.1.21.0"
           }
         }
       },
@@ -1112,12 +1112,12 @@
       "path": "netstandard.library/1.6.1",
       "hashPath": "netstandard.library.1.6.1.nupkg.sha512"
     },
-    "ReportViewerCore.WinForms/15.1.20": {
+    "ReportViewerCore.WinForms/15.1.21": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Ydd70+GwTbYzN9gvVKca5YULUWNFaDogCwTJ7m42BqHcX596zHr4t66rGg1ldhKgvLk/CfuMSjg1rFniaK721Q==",
-      "path": "reportviewercore.winforms/15.1.20",
-      "hashPath": "reportviewercore.winforms.15.1.20.nupkg.sha512"
+      "sha512": "sha512-WwHGwHDMUwFt2G2HT7wXJScPzOn/KQ/P6fi8u3vTM6c4Z1dNnhV6V6UiIv974X6vLs1WZ1IObymZJJzBIJyHYQ==",
+      "path": "reportviewercore.winforms/15.1.21",
+      "hashPath": "reportviewercore.winforms.15.1.21.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {
       "type": "package",

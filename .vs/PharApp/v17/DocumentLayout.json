@@ -1,12 +1,53 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9167DBF1-0067-4200-84A8-9D0D0750C132}|PharApp\\PharApp.csproj|d:\\awaisplasticstoregit\\awaiscrockerystore\\pharapp\\inventory\\frmmedicine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9167DBF1-0067-4200-84A8-9D0D0750C132}|PharApp\\PharApp.csproj|solutionrelative:pharapp\\inventory\\frmmedicine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9167DBF1-0067-4200-84A8-9D0D0750C132}|PharApp\\PharApp.csproj|d:\\awaisplasticstoregit\\awaiscrockerystore\\pharapp\\inventory\\frmmedicine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9167DBF1-0067-4200-84A8-9D0D0750C132}|PharApp\\PharApp.csproj|solutionrelative:pharapp\\inventory\\frmmedicine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmMedicine.cs",
+              "DocumentMoniker": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\PharApp\\Inventory\\frmMedicine.cs",
+              "RelativeDocumentMoniker": "PharApp\\Inventory\\frmMedicine.cs",
+              "ToolTip": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\PharApp\\Inventory\\frmMedicine.cs",
+              "RelativeToolTip": "PharApp\\Inventory\\frmMedicine.cs",
+              "ViewState": "AQIAALEAAAAAAAAAAAAUwAwBAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-24T02:14:27.446Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmMedicine.cs [Design]",
+              "DocumentMoniker": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\PharApp\\Inventory\\frmMedicine.cs",
+              "RelativeDocumentMoniker": "PharApp\\Inventory\\frmMedicine.cs",
+              "ToolTip": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\PharApp\\Inventory\\frmMedicine.cs [Design]",
+              "RelativeToolTip": "PharApp\\Inventory\\frmMedicine.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-24T02:14:21.82Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -55,7 +55,7 @@
             tabMedicineUnit = new TabPage();
             dataGridViewMedicineUnit = new DataGridView();
             contextMenuStripUnitGrid = new ContextMenuStrip(components);
-            updateMedicineToolStripMenuItem = new ToolStripMenuItem();
+            updateUnitToolStripMenuItem = new ToolStripMenuItem();
             deleteMedicineToolStripMenuItem = new ToolStripMenuItem();
             btnRegisterUnit = new Button();
             tabControlMedicine.SuspendLayout();
@@ -220,18 +220,19 @@
             contextMenuStripType.ImageScalingSize = new Size(20, 20);
             contextMenuStripType.Items.AddRange(new ToolStripItem[] { updateTypeToolStripMenuItem, deleteTypeToolStripMenuItem });
             contextMenuStripType.Name = "contextMenuStripType";
-            contextMenuStripType.Size = new Size(140, 48);
+            contextMenuStripType.Size = new Size(181, 70);
             // 
             // updateTypeToolStripMenuItem
             // 
             updateTypeToolStripMenuItem.Name = "updateTypeToolStripMenuItem";
-            updateTypeToolStripMenuItem.Size = new Size(139, 22);
+            updateTypeToolStripMenuItem.Size = new Size(180, 22);
             updateTypeToolStripMenuItem.Text = "Update Type";
+            updateTypeToolStripMenuItem.Click += updateTypeToolStripMenuItem_Click;
             // 
             // deleteTypeToolStripMenuItem
             // 
             deleteTypeToolStripMenuItem.Name = "deleteTypeToolStripMenuItem";
-            deleteTypeToolStripMenuItem.Size = new Size(139, 22);
+            deleteTypeToolStripMenuItem.Size = new Size(180, 22);
             deleteTypeToolStripMenuItem.Text = "Delete Type";
             deleteTypeToolStripMenuItem.Click += deleteTypeToolStripMenuItem_Click;
             // 
@@ -290,6 +291,7 @@
             updateCategoryToolStripMenuItem.Name = "updateCategoryToolStripMenuItem";
             updateCategoryToolStripMenuItem.Size = new Size(163, 22);
             updateCategoryToolStripMenuItem.Text = "Update Category";
+            updateCategoryToolStripMenuItem.Click += updateCategoryToolStripMenuItem_Click;
             // 
             // deleteCategoryToolStripMenuItem
             // 
@@ -344,15 +346,16 @@
             // contextMenuStripUnitGrid
             // 
             contextMenuStripUnitGrid.ImageScalingSize = new Size(20, 20);
-            contextMenuStripUnitGrid.Items.AddRange(new ToolStripItem[] { updateMedicineToolStripMenuItem, deleteMedicineToolStripMenuItem });
+            contextMenuStripUnitGrid.Items.AddRange(new ToolStripItem[] { updateUnitToolStripMenuItem, deleteMedicineToolStripMenuItem });
             contextMenuStripUnitGrid.Name = "contextMenuStripUnitGrid";
             contextMenuStripUnitGrid.Size = new Size(138, 48);
             // 
-            // updateMedicineToolStripMenuItem
+            // updateUnitToolStripMenuItem
             // 
-            updateMedicineToolStripMenuItem.Name = "updateMedicineToolStripMenuItem";
-            updateMedicineToolStripMenuItem.Size = new Size(137, 22);
-            updateMedicineToolStripMenuItem.Text = "Update Unit";
+            updateUnitToolStripMenuItem.Name = "updateUnitToolStripMenuItem";
+            updateUnitToolStripMenuItem.Size = new Size(137, 22);
+            updateUnitToolStripMenuItem.Text = "Update Unit";
+            updateUnitToolStripMenuItem.Click += updateUnitToolStripMenuItem_Click;
             // 
             // deleteMedicineToolStripMenuItem
             // 
@@ -421,7 +424,7 @@
         private ToolStripMenuItem deleteToolStripMenuItem;
         private ToolStripMenuItem deleteToolStripMenuItem1;
         private ContextMenuStrip contextMenuStripUnitGrid;
-        private ToolStripMenuItem updateMedicineToolStripMenuItem;
+        private ToolStripMenuItem updateUnitToolStripMenuItem;
         private ToolStripMenuItem deleteMedicineToolStripMenuItem;
         private ContextMenuStrip contextMenuStripCategory;
         private ToolStripMenuItem updateCategoryToolStripMenuItem;

@@ -19,11 +19,16 @@ namespace PharApp.Inventory
 
         public frmMedicine _frmMedicine = null;
 
-        public frmRegisterType(Form frm)
+
+        private readonly string _typeId = null;
+
+
+        public frmRegisterType(Form frm, string typeId = null)
         {
             InitializeComponent();
             _frmMedicine = frm as frmMedicine;
             _typeList = new List<BML.MedType>();
+            _typeId = typeId;
         }
 
         private bool ValidateInput()
@@ -110,6 +115,46 @@ namespace PharApp.Inventory
             {
                 // Handle exceptions
                 MessageBox.Show($"Error loading grid data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void frmRegisterType_Load(object sender, EventArgs e)
+        {
+            if (_typeId is not null)
+            {
+                var typeBAL = new BAL.MedType(Helper.GetConnectionStringFromSettings());
+                var typelist = await typeBAL.GetMedicineTypesAsync();
+                var singleUnit = typelist.Where(x => x.MedicineTypeId == _typeId).FirstOrDefault();
+                txtName.Text = singleUnit.TypeName;
+                btnRegister.Visible = false;
+                btnRegisterAddOther.Visible = false;
+
+            }
+            else
+            {
+                btnUpdate.Visible = false;
+            }
+        }
+
+        private async void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (ValidateInput())
+            {
+
+                string Name = txtName.Text;
+                var typeBAL = new BAL.MedType(Helper.GetConnectionStringFromSettings());
+                int result = await typeBAL.UpdateMedicineTypeAsync(_typeId,Name);
+                if (result == 1)
+                {
+                    Helper.Log($"Item Type Updated:Name {Name}");
+                    LoadGridDataType();
+                    MessageBox.Show("Item type updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to update Type. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

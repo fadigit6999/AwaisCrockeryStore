@@ -1,4 +1,5 @@
-﻿using PharApp.WinHelper;
+﻿using DocumentFormat.OpenXml.Office2010.PowerPoint;
+using PharApp.WinHelper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,11 +17,16 @@ namespace PharApp.Inventory
     {
         public frmMedicine _frmMedicine = null;
         private List<BML.Unit> _unitList;
+
         public IReadOnlyList<BML.Unit> UnitList => _unitList.AsReadOnly();
-        public frmRegisterUnit(Form frm)
+
+        private readonly string _unitId = null;
+
+        public frmRegisterUnit(Form frm, string unitId = null)
         {
             InitializeComponent();
             _frmMedicine = frm as frmMedicine;
+            _unitId = unitId;
         }
 
         private async void btnRegister_Click(object sender, EventArgs e)
@@ -107,5 +113,49 @@ namespace PharApp.Inventory
                 MessageBox.Show($"Error loading grid data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private async void frmregisterunit_Load(object sender, EventArgs e)
+        {
+            if (_unitId is not null)
+            {
+                var unitBAL = new BAL.Unit(Helper.GetConnectionStringFromSettings());
+                var unitlist = await unitBAL.GetUnitsAsync();
+                var singleUnit = unitlist.Where(x => x.UnitId == _unitId).FirstOrDefault();
+                txtName.Text = singleUnit.UnitName;
+                btnRegister.Visible = false;
+                btnRegisterAddOther.Visible = false;
+
+            }
+            else
+            {
+                btnUpdate.Visible = false;
+            }
+        }
+
+        private async void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (ValidateInput())
+            {
+                string Name = txtName.Text;
+                var unitBAL = new BAL.Unit(Helper.GetConnectionStringFromSettings());
+                int result = await unitBAL.UpdateUnitAsync(_unitId,Name);
+                if (result == 1)
+                {
+                    Helper.Log($"Unit updated:Name {Name}");
+                    LoadGridDataUnit();
+                    MessageBox.Show("Unit updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to update Unit. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }
+
+        
+
+
+

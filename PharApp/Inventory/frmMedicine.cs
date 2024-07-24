@@ -173,6 +173,9 @@ namespace PharApp.Inventory
             }
         }
 
+        //Menu Strip Functions
+
+        #region Item
         private void dataGridViewMedicine_MouseClick(object sender, MouseEventArgs e)
         {
             // Get the row index at the mouse position
@@ -198,7 +201,6 @@ namespace PharApp.Inventory
 
             //}
         }
-
         private async void deleteToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             // Check if a row is selected
@@ -236,7 +238,35 @@ namespace PharApp.Inventory
         {
 
         }
+        //Update by menu strip
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Check if a row is selected
+            if (dataGridViewMedicine.SelectedRows.Count > 0)
+            {
+                string name = dataGridViewMedicine.SelectedRows[0].Cells["Name"].Value.ToString();
+                // Prompt the user for confirmation
+                DialogResult result = MessageBox.Show($"Are you sure you want to Update this ## {name} ## ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+                // If the user confirms deletion
+                if (result == DialogResult.Yes)
+                {
+                    // Get the ID of the selected row
+                    string medicineId = dataGridViewMedicine.SelectedRows[0].Cells["MedicineId"].Value.ToString();
+
+                    var frm = new frmRegisterMedicine(this, medicineId);
+                    frm.ShowDialog();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a medicine to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        #endregion
+
+        #region Unit
         //Unit
         private void dataGridViewMedicineUnit_MouseClick(object sender, MouseEventArgs e)
         {
@@ -286,7 +316,34 @@ namespace PharApp.Inventory
                 MessageBox.Show("Please select a medicine Unit to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void updateUnitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Check if a row is selected
+            if (dataGridViewMedicineUnit.SelectedRows.Count > 0)
+            {
+                string name = dataGridViewMedicineUnit.SelectedRows[0].Cells["UnitName"].Value.ToString();
+                // Prompt the user for confirmation
+                DialogResult result = MessageBox.Show($"Are you sure you want to update this ## {name} ## ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+                // If the user confirms deletion
+                if (result == DialogResult.Yes)
+                {
+                    // Get the ID of the selected row
+                    string Id = dataGridViewMedicineUnit.SelectedRows[0].Cells["UnitId"].Value.ToString();
+
+                    var frm = new frmRegisterUnit(this, Id);
+                    frm.ShowDialog();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a item Unit to update.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        #endregion
+
+        #region Category
         //Category
         private async void deleteCategoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -337,6 +394,35 @@ namespace PharApp.Inventory
             }
         }
 
+
+        private async void updateCategoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Check if a row is selected
+            if (dataGridViewMedicineCategory.SelectedRows.Count > 0)
+            {
+                string name = dataGridViewMedicineCategory.SelectedRows[0].Cells["CategoryName"].Value.ToString();
+                // Prompt the user for confirmation
+                DialogResult result = MessageBox.Show($"Are you sure you want to update this ## {name} ## ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                // If the user confirms deletion
+                if (result == DialogResult.Yes)
+                {
+                    // Get the ID of the selected row
+                    string Id = dataGridViewMedicineCategory.SelectedRows[0].Cells["CategoryId"].Value.ToString();
+
+                    var frm = new frmRegisterCategory(this, Id);
+                    frm.ShowDialog();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a medicine Category to update.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        #endregion
+
+        #region Type
         //Type
         private async void deleteTypeToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -386,7 +472,33 @@ namespace PharApp.Inventory
                 contextMenuStripType.Show(dataGridViewMedicineType, e.Location);
             }
         }
+        private void updateTypeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Check if a row is selected
+            if (dataGridViewMedicineType.SelectedRows.Count > 0)
+            {
+                string name = dataGridViewMedicineType.SelectedRows[0].Cells["TypeName"].Value.ToString();
+                // Prompt the user for confirmation
+                DialogResult result = MessageBox.Show($"Are you sure you want to Update this ## {name} ## ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+                // If the user confirms deletion
+                if (result == DialogResult.Yes)
+                {
+                    // Get the ID of the selected row
+                    string Id = dataGridViewMedicineType.SelectedRows[0].Cells["MedicineTypeId"].Value.ToString();
+
+                    var frm = new frmRegisterType(this, Id);
+                    frm.ShowDialog();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a medicine Type to Update.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        #endregion
+
+        #region Search
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             string filterText = txtSearch.Text.Trim().ToLower();
@@ -418,34 +530,10 @@ namespace PharApp.Inventory
 
             dataGridViewMedicine.DataSource = filteredMedicineList;
         }
-        //Update by menu strip
-        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // Check if a row is selected
-            if (dataGridViewMedicine.SelectedRows.Count > 0)
-            {
-                string name = dataGridViewMedicine.SelectedRows[0].Cells["Name"].Value.ToString();
-                // Prompt the user for confirmation
-                DialogResult result = MessageBox.Show($"Are you sure you want to Update this ## {name} ## ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                // If the user confirms deletion
-                if (result == DialogResult.Yes)
-                {
-                    // Get the ID of the selected row
-                    string medicineId = dataGridViewMedicine.SelectedRows[0].Cells["MedicineId"].Value.ToString();
+        #endregion
 
-
-                    var medinceBal = new BAL.Medicine(Helper.GetConnectionStringFromSettings());
-                    var frm = new frmRegisterMedicine(this, medicineId);
-                    frm.ShowDialog();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please select a medicine to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
+        #region Export Excel
         private void btnExportInventory_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog
@@ -504,6 +592,8 @@ namespace PharApp.Inventory
             }
         }
 
+        #endregion
 
+        
     }
 }

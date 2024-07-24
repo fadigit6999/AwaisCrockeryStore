@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BML")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+58f8ed02238bbb4fdb6cddcdf2696a3da3d0faba")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+886bea006c7667b1038d9e980cf9b14990d72a69")]
 [assembly: System.Reflection.AssemblyProductAttribute("BML")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BML")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
