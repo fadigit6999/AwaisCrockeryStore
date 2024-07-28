@@ -303,3 +303,4 @@ D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\bin\Debug\net8.0-windows\Iron
 D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\bin\Debug\net8.0-windows\SixLabors.Fonts.dll
 D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\bin\Debug\net8.0-windows\XLParser.dll
 D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\obj\Debug\net8.0-windows\PharApp.About.frmAbout.resources
+D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\obj\Debug\net8.0-windows\PharApp.Users.FrmAssignUserRole.resources

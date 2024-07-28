@@ -20,7 +20,7 @@ namespace BAL
         {
             try
             {
-                return await _userRoleDAL.CreateRoleAsync(string.Empty,roleName,string.Empty,string.Empty);
+                return await _userRoleDAL.CreateRoleAsync(string.Empty, roleName, string.Empty, string.Empty);
             }
             catch (Exception ex)
             {
@@ -94,20 +94,6 @@ namespace BAL
             }
         }
 
-        //public async Task<List<User>> GetUsersByRoleAsync(string roleId)
-        //{
-        //    try
-        //    {
-        //        return await _userRoleDAL.GetUsersByRoleAsync(roleId);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine($"Error getting users by role: {ex.Message}");
-        //        return new List<User>(); // Or any appropriate error handling
-        //    }
-        //}
-
-        // Add other methods as needed for your specific requirements
     }
 
 

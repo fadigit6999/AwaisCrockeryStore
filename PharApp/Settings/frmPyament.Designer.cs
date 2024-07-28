@@ -39,6 +39,8 @@
             deletePayTypeToolStripMenuItem = new ToolStripMenuItem();
             btnRegisterPaymentType = new Button();
             btnClose = new Button();
+            btnUpdate = new Button();
+            btnClear = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewPaymentType).BeginInit();
             contextMenuStripPaymentType.SuspendLayout();
             SuspendLayout();
@@ -80,6 +82,7 @@
             dataGridViewPaymentType.Location = new Point(10, 79);
             dataGridViewPaymentType.Margin = new Padding(3, 2, 3, 2);
             dataGridViewPaymentType.Name = "dataGridViewPaymentType";
+            dataGridViewPaymentType.ReadOnly = true;
             dataGridViewPaymentType.RowHeadersWidth = 51;
             dataGridViewPaymentType.Size = new Size(728, 282);
             dataGridViewPaymentType.TabIndex = 3;
@@ -97,6 +100,7 @@
             updatePayTypeToolStripMenuItem.Name = "updatePayTypeToolStripMenuItem";
             updatePayTypeToolStripMenuItem.Size = new Size(158, 22);
             updatePayTypeToolStripMenuItem.Text = "Update PayType";
+            updatePayTypeToolStripMenuItem.Click += updatePayTypeToolStripMenuItem_Click;
             // 
             // deletePayTypeToolStripMenuItem
             // 
@@ -127,12 +131,36 @@
             btnClose.UseVisualStyleBackColor = true;
             btnClose.Click += btnClose_Click;
             // 
+            // btnUpdate
+            // 
+            btnUpdate.Location = new Point(248, 49);
+            btnUpdate.Margin = new Padding(3, 2, 3, 2);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(120, 25);
+            btnUpdate.TabIndex = 2;
+            btnUpdate.Text = "Update";
+            btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
+            // 
+            // btnClear
+            // 
+            btnClear.Location = new Point(618, 50);
+            btnClear.Margin = new Padding(3, 2, 3, 2);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(120, 25);
+            btnClear.TabIndex = 2;
+            btnClear.Text = "Clear";
+            btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
+            // 
             // frmPyament
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(746, 370);
             Controls.Add(btnClose);
+            Controls.Add(btnClear);
+            Controls.Add(btnUpdate);
             Controls.Add(btnRegisterPaymentType);
             Controls.Add(dataGridViewPaymentType);
             Controls.Add(txtPaymentType);
@@ -162,5 +190,7 @@
         private ToolStripMenuItem updatePayTypeToolStripMenuItem;
         private ToolStripMenuItem deletePayTypeToolStripMenuItem;
         private Button btnClose;
+        private Button btnUpdate;
+        private Button btnClear;
     }
 }

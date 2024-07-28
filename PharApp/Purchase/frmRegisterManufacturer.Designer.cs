@@ -41,6 +41,7 @@
             richTxtAddress = new RichTextBox();
             richTextDetail = new RichTextBox();
             btnClose = new Button();
+            btnUpdate = new Button();
             SuspendLayout();
             // 
             // btnRegisterAddOther
@@ -156,11 +157,23 @@
             btnClose.UseVisualStyleBackColor = true;
             btnClose.Click += btnClose_Click;
             // 
+            // btnUpdate
+            // 
+            btnUpdate.Location = new Point(25, 167);
+            btnUpdate.Margin = new Padding(3, 2, 3, 2);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(82, 22);
+            btnUpdate.TabIndex = 19;
+            btnUpdate.Text = "Update";
+            btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
+            // 
             // frmRegisterManufacturer
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(339, 228);
+            Controls.Add(btnUpdate);
             Controls.Add(richTextDetail);
             Controls.Add(richTxtAddress);
             Controls.Add(btnRegisterAddOther);
@@ -179,6 +192,7 @@
             Name = "frmRegisterManufacturer";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Register Manufacturer";
+            Load += frmRegisterManufacturer_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -196,5 +210,6 @@
         private RichTextBox richTxtAddress;
         private RichTextBox richTextDetail;
         private Button btnClose;
+        private Button btnUpdate;
     }
 }

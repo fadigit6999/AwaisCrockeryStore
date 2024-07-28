@@ -1,4 +1,5 @@
-﻿using PharApp.WinHelper;
+﻿using DocumentFormat.OpenXml.Wordprocessing;
+using PharApp.WinHelper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,15 +19,23 @@ namespace PharApp.Settings
 
         public IReadOnlyList<BML.PaymentType> paymentTypeList => _paymentTypeList.AsReadOnly();
 
+        private readonly BAL.PaymentType _paymentType;
+        private string _typeId = null;
+
         public frmPyament()
         {
             InitializeComponent();
             _paymentTypeList = new List<BML.PaymentType>();
+            _paymentType = new BAL.PaymentType(Helper.GetConnectionStringFromSettings());
         }
 
         private void frmPyament_Load(object sender, EventArgs e)
         {
             LoadGridDataPaymentType();
+            txtPaymentType.Text = "";
+            btnRegisterPaymentType.Visible = true;
+            btnClear.Visible = false;
+            btnUpdate.Visible = false;
         }
 
         private async void btnRegisterPaymentType_Click(object sender, EventArgs e)
@@ -136,6 +145,70 @@ namespace PharApp.Settings
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private async void updatePayTypeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Check if a row is selected
+            if (dataGridViewPaymentType.SelectedRows.Count > 0)
+            {
+                string name = dataGridViewPaymentType.SelectedRows[0].Cells["TypeName"].Value.ToString();
+                // Prompt the user for confirmation
+                DialogResult result = MessageBox.Show($"Are you sure you want to update this ## {name} ## ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                // If the user confirms deletion
+                if (result == DialogResult.Yes)
+                {
+                    // Get the ID of the selected row
+                    _typeId = dataGridViewPaymentType.SelectedRows[0].Cells["PaymentTypeId"].Value.ToString();
+                    var paymentType = await _paymentType.GetPaymentTypesAsync();
+                    var paymentTypeSingle = paymentType.Where(x => x.PaymentTypeId == _typeId).FirstOrDefault();
+                    if (paymentTypeSingle != null)
+                    {
+                        txtPaymentType.Text = paymentTypeSingle.TypeName;
+                        btnRegisterPaymentType.Visible = false;
+                        btnClear.Visible = true;
+                        btnUpdate.Visible = true;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a Payment Type to update.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (ValidateInput())
+            {
+                string pt = txtPaymentType.Text;
+                int result = await _paymentType.UpdatePaymentTypeAsync(_typeId,pt);
+                Helper.Log("Payment Type updateed: " + " ," + pt);
+                if (result == 1)
+                {
+                    LoadGridDataPaymentType();
+                    MessageBox.Show("Payment Type updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to update Payment type. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            Clear();
+        }
+
+        void Clear() 
+        {
+            txtPaymentType.Text = "";
+            btnRegisterPaymentType.Visible = true;
+            btnClear.Visible = false;
+            btnUpdate.Visible = false;
         }
     }
 }

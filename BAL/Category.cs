@@ -15,11 +15,11 @@ namespace BAL
             _categoryDAL = new DAL.Category(connectionString);
         }
 
-        public async Task<int> CreateCategoryAsync(string categoryName)
+        public async Task<int> CreateCategoryAsync(string categoryName, string categoryNameUrdu)
         {
             try
             {
-                return await _categoryDAL.CreateCategoryAsync(categoryName);
+                return await _categoryDAL.CreateCategoryAsync(categoryName,categoryNameUrdu);
             }
             catch (Exception ex)
             {
@@ -28,11 +28,11 @@ namespace BAL
             }
         }
 
-        public async Task<int> UpdateCategoryAsync(string categoryId, string categoryName)
+        public async Task<int> UpdateCategoryAsync(string categoryId, string categoryName,string categoryNameUrdu)
         {
             try
             {
-                return await _categoryDAL.UpdateCategoryAsync(categoryId, categoryName);
+                return await _categoryDAL.UpdateCategoryAsync(categoryId, categoryName,categoryNameUrdu);
             }
             catch (Exception ex)
             {

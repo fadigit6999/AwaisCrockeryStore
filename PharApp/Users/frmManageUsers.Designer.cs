@@ -38,6 +38,7 @@
             deleteUserToolStripMenuItem = new ToolStripMenuItem();
             enableUserToolStripMenuItem = new ToolStripMenuItem();
             disableUserToolStripMenuItem = new ToolStripMenuItem();
+            assignUserRoleToolStripMenuItem = new ToolStripMenuItem();
             label1 = new Label();
             txtSearch = new TextBox();
             btnAssignUserRole = new Button();
@@ -61,10 +62,11 @@
             tabUserControl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tabUserControl.Controls.Add(tabPageUserRegistration);
             tabUserControl.Controls.Add(tabPageUserRoles);
-            tabUserControl.Location = new Point(6, 7);
+            tabUserControl.Location = new Point(5, 5);
+            tabUserControl.Margin = new Padding(3, 2, 3, 2);
             tabUserControl.Name = "tabUserControl";
             tabUserControl.SelectedIndex = 0;
-            tabUserControl.Size = new Size(964, 596);
+            tabUserControl.Size = new Size(844, 447);
             tabUserControl.TabIndex = 1;
             // 
             // tabPageUserRegistration
@@ -75,10 +77,11 @@
             tabPageUserRegistration.Controls.Add(txtSearch);
             tabPageUserRegistration.Controls.Add(btnAssignUserRole);
             tabPageUserRegistration.Controls.Add(btnUserRegistration);
-            tabPageUserRegistration.Location = new Point(4, 29);
+            tabPageUserRegistration.Location = new Point(4, 24);
+            tabPageUserRegistration.Margin = new Padding(3, 2, 3, 2);
             tabPageUserRegistration.Name = "tabPageUserRegistration";
-            tabPageUserRegistration.Padding = new Padding(3);
-            tabPageUserRegistration.Size = new Size(956, 563);
+            tabPageUserRegistration.Padding = new Padding(3, 2, 3, 2);
+            tabPageUserRegistration.Size = new Size(836, 419);
             tabPageUserRegistration.TabIndex = 2;
             tabPageUserRegistration.Text = "Registration";
             // 
@@ -89,60 +92,71 @@
             registeredUserGrid.BackgroundColor = Color.White;
             registeredUserGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             registeredUserGrid.ContextMenuStrip = contextMenuStripUsers;
-            registeredUserGrid.Location = new Point(10, 80);
+            registeredUserGrid.Location = new Point(9, 60);
+            registeredUserGrid.Margin = new Padding(3, 2, 3, 2);
             registeredUserGrid.Name = "registeredUserGrid";
             registeredUserGrid.ReadOnly = true;
             registeredUserGrid.RowHeadersWidth = 51;
-            registeredUserGrid.Size = new Size(940, 477);
+            registeredUserGrid.Size = new Size(822, 358);
             registeredUserGrid.TabIndex = 0;
+            registeredUserGrid.MouseClick += registeredUserGrid_MouseClick;
             // 
             // contextMenuStripUsers
             // 
             contextMenuStripUsers.ImageScalingSize = new Size(20, 20);
-            contextMenuStripUsers.Items.AddRange(new ToolStripItem[] { deleteUserToolStripMenuItem, enableUserToolStripMenuItem, disableUserToolStripMenuItem });
+            contextMenuStripUsers.Items.AddRange(new ToolStripItem[] { deleteUserToolStripMenuItem, enableUserToolStripMenuItem, disableUserToolStripMenuItem, assignUserRoleToolStripMenuItem });
             contextMenuStripUsers.Name = "contextMenuStripUsers";
-            contextMenuStripUsers.Size = new Size(162, 76);
+            contextMenuStripUsers.Size = new Size(162, 92);
             // 
             // deleteUserToolStripMenuItem
             // 
             deleteUserToolStripMenuItem.Name = "deleteUserToolStripMenuItem";
-            deleteUserToolStripMenuItem.Size = new Size(161, 24);
+            deleteUserToolStripMenuItem.Size = new Size(161, 22);
             deleteUserToolStripMenuItem.Text = "Delete User";
             // 
             // enableUserToolStripMenuItem
             // 
             enableUserToolStripMenuItem.Name = "enableUserToolStripMenuItem";
-            enableUserToolStripMenuItem.Size = new Size(161, 24);
+            enableUserToolStripMenuItem.Size = new Size(161, 22);
             enableUserToolStripMenuItem.Text = "Enable User";
             // 
             // disableUserToolStripMenuItem
             // 
             disableUserToolStripMenuItem.Name = "disableUserToolStripMenuItem";
-            disableUserToolStripMenuItem.Size = new Size(161, 24);
+            disableUserToolStripMenuItem.Size = new Size(161, 22);
             disableUserToolStripMenuItem.Text = "Disable User";
+            // 
+            // assignUserRoleToolStripMenuItem
+            // 
+            assignUserRoleToolStripMenuItem.Name = "assignUserRoleToolStripMenuItem";
+            assignUserRoleToolStripMenuItem.Size = new Size(161, 22);
+            assignUserRoleToolStripMenuItem.Text = "Assign User Role";
+            assignUserRoleToolStripMenuItem.Click += assignUserRoleToolStripMenuItem_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(624, 31);
+            label1.Location = new Point(546, 23);
             label1.Name = "label1";
-            label1.Size = new Size(53, 20);
+            label1.Size = new Size(42, 15);
             label1.TabIndex = 3;
             label1.Text = "Search";
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(683, 28);
+            txtSearch.Location = new Point(598, 21);
+            txtSearch.Margin = new Padding(3, 2, 3, 2);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(243, 27);
+            txtSearch.Size = new Size(213, 23);
             txtSearch.TabIndex = 2;
             txtSearch.KeyUp += txtSearch_KeyUp;
             // 
             // btnAssignUserRole
             // 
-            btnAssignUserRole.Location = new Point(157, 27);
+            btnAssignUserRole.Location = new Point(137, 20);
+            btnAssignUserRole.Margin = new Padding(3, 2, 3, 2);
             btnAssignUserRole.Name = "btnAssignUserRole";
-            btnAssignUserRole.Size = new Size(144, 29);
+            btnAssignUserRole.Size = new Size(126, 22);
             btnAssignUserRole.TabIndex = 1;
             btnAssignUserRole.Text = "Assign User Role";
             btnAssignUserRole.UseVisualStyleBackColor = true;
@@ -150,9 +164,10 @@
             // 
             // btnUserRegistration
             // 
-            btnUserRegistration.Location = new Point(10, 28);
+            btnUserRegistration.Location = new Point(9, 21);
+            btnUserRegistration.Margin = new Padding(3, 2, 3, 2);
             btnUserRegistration.Name = "btnUserRegistration";
-            btnUserRegistration.Size = new Size(132, 29);
+            btnUserRegistration.Size = new Size(116, 22);
             btnUserRegistration.TabIndex = 1;
             btnUserRegistration.Text = "Register User";
             btnUserRegistration.UseVisualStyleBackColor = true;
@@ -162,10 +177,11 @@
             // 
             tabPageUserRoles.Controls.Add(userRolesGrid);
             tabPageUserRoles.Controls.Add(btnRegisterRoles);
-            tabPageUserRoles.Location = new Point(4, 29);
+            tabPageUserRoles.Location = new Point(4, 24);
+            tabPageUserRoles.Margin = new Padding(3, 2, 3, 2);
             tabPageUserRoles.Name = "tabPageUserRoles";
-            tabPageUserRoles.Padding = new Padding(3);
-            tabPageUserRoles.Size = new Size(956, 563);
+            tabPageUserRoles.Padding = new Padding(3, 2, 3, 2);
+            tabPageUserRoles.Size = new Size(836, 419);
             tabPageUserRoles.TabIndex = 3;
             tabPageUserRoles.Text = "User Roles";
             tabPageUserRoles.UseVisualStyleBackColor = true;
@@ -177,11 +193,12 @@
             userRolesGrid.BackgroundColor = Color.White;
             userRolesGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             userRolesGrid.ContextMenuStrip = contextMenuStripRole;
-            userRolesGrid.Location = new Point(6, 73);
+            userRolesGrid.Location = new Point(5, 55);
+            userRolesGrid.Margin = new Padding(3, 2, 3, 2);
             userRolesGrid.Name = "userRolesGrid";
             userRolesGrid.ReadOnly = true;
             userRolesGrid.RowHeadersWidth = 51;
-            userRolesGrid.Size = new Size(944, 484);
+            userRolesGrid.Size = new Size(826, 363);
             userRolesGrid.TabIndex = 0;
             // 
             // contextMenuStripRole
@@ -189,19 +206,20 @@
             contextMenuStripRole.ImageScalingSize = new Size(20, 20);
             contextMenuStripRole.Items.AddRange(new ToolStripItem[] { deleteRoleToolStripMenuItem });
             contextMenuStripRole.Name = "contextMenuStripRole";
-            contextMenuStripRole.Size = new Size(157, 28);
+            contextMenuStripRole.Size = new Size(134, 26);
             // 
             // deleteRoleToolStripMenuItem
             // 
             deleteRoleToolStripMenuItem.Name = "deleteRoleToolStripMenuItem";
-            deleteRoleToolStripMenuItem.Size = new Size(156, 24);
+            deleteRoleToolStripMenuItem.Size = new Size(133, 22);
             deleteRoleToolStripMenuItem.Text = "Delete Role";
             // 
             // btnRegisterRoles
             // 
-            btnRegisterRoles.Location = new Point(9, 20);
+            btnRegisterRoles.Location = new Point(8, 15);
+            btnRegisterRoles.Margin = new Padding(3, 2, 3, 2);
             btnRegisterRoles.Name = "btnRegisterRoles";
-            btnRegisterRoles.Size = new Size(143, 29);
+            btnRegisterRoles.Size = new Size(125, 22);
             btnRegisterRoles.TabIndex = 0;
             btnRegisterRoles.Text = "Register Roles";
             btnRegisterRoles.UseVisualStyleBackColor = true;
@@ -209,13 +227,14 @@
             // 
             // frmManageUsers
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(975, 615);
+            ClientSize = new Size(853, 461);
             Controls.Add(tabUserControl);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 2, 3, 2);
             Name = "frmManageUsers";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Sytem Users";
@@ -252,5 +271,6 @@
         private ToolStripMenuItem disableUserToolStripMenuItem;
         private ContextMenuStrip contextMenuStripRole;
         private ToolStripMenuItem deleteRoleToolStripMenuItem;
+        private ToolStripMenuItem assignUserRoleToolStripMenuItem;
     }
 }

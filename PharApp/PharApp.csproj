@@ -90,6 +90,9 @@
     <Compile Update="Sale\frmSaleReturn.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Users\FrmAssignUserRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

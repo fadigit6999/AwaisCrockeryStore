@@ -104,6 +104,7 @@ namespace PharApp.Inventory
                 dataGridViewMedicineCategory.DataSource = _categoryList;
                 dataGridViewMedicineCategory.Columns["CategoryId"].HeaderText = "Category Id";
                 dataGridViewMedicineCategory.Columns["CategoryName"].HeaderText = "Item Category";
+                dataGridViewMedicineCategory.Columns["CategoryNameUrdu"].HeaderText = "Item Category Urdu";
 
                 dataGridViewMedicineCategory.Refresh();
             }

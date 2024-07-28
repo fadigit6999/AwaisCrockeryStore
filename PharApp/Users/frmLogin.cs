@@ -129,7 +129,7 @@ namespace PharApp.Users
             if (users == null || users.Count < 1)
             {
                 this.Hide();
-                var frm = new frmRegisterUser("login");
+                var frm = new frmRegisterUser(null,"login");
                 frm.ShowDialog();
             }
             else

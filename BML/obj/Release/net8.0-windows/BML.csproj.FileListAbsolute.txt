@@ -10,3 +10,15 @@ G:\pharAppGit\PharApp\BML\obj\Release\net8.0-windows\BML.dll
 G:\pharAppGit\PharApp\BML\obj\Release\net8.0-windows\refint\BML.dll
 G:\pharAppGit\PharApp\BML\obj\Release\net8.0-windows\BML.pdb
 G:\pharAppGit\PharApp\BML\obj\Release\net8.0-windows\ref\BML.dll
+D:\AwaisPlasticStoreGit\AwaisCrockeryStore\BML\bin\Release\net8.0-windows\BML.deps.json
+D:\AwaisPlasticStoreGit\AwaisCrockeryStore\BML\bin\Release\net8.0-windows\BML.dll
+D:\AwaisPlasticStoreGit\AwaisCrockeryStore\BML\bin\Release\net8.0-windows\BML.pdb
+D:\AwaisPlasticStoreGit\AwaisCrockeryStore\BML\obj\Release\net8.0-windows\BML.GeneratedMSBuildEditorConfig.editorconfig
+D:\AwaisPlasticStoreGit\AwaisCrockeryStore\BML\obj\Release\net8.0-windows\BML.AssemblyInfoInputs.cache
+D:\AwaisPlasticStoreGit\AwaisCrockeryStore\BML\obj\Release\net8.0-windows\BML.AssemblyInfo.cs
+D:\AwaisPlasticStoreGit\AwaisCrockeryStore\BML\obj\Release\net8.0-windows\BML.csproj.CoreCompileInputs.cache
+D:\AwaisPlasticStoreGit\AwaisCrockeryStore\BML\obj\Release\net8.0-windows\BML.sourcelink.json
+D:\AwaisPlasticStoreGit\AwaisCrockeryStore\BML\obj\Release\net8.0-windows\BML.dll
+D:\AwaisPlasticStoreGit\AwaisCrockeryStore\BML\obj\Release\net8.0-windows\refint\BML.dll
+D:\AwaisPlasticStoreGit\AwaisCrockeryStore\BML\obj\Release\net8.0-windows\BML.pdb
+D:\AwaisPlasticStoreGit\AwaisCrockeryStore\BML\obj\Release\net8.0-windows\ref\BML.dll

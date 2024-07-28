@@ -15,14 +15,16 @@ namespace PharApp.Customer
     {
         private List<BML.Customer> _customerList;
         public IReadOnlyList<BML.Customer> CustomerList => _customerList.AsReadOnly();
+        
         public frmCustomers()
         {
             InitializeComponent();
         }
 
-        private void frmCustomers_Load(object sender, EventArgs e)
+        private async void frmCustomers_Load(object sender, EventArgs e)
         {
             LoadGridDataCustomer();
+           
         }
 
         private async void LoadGridDataCustomer()
@@ -109,6 +111,31 @@ namespace PharApp.Customer
 
                 // Show the context menu strip at the mouse position
                 contextMenuStripCustomer.Show(dataGridViewCustomer, e.Location);
+            }
+        }
+
+        private void updateCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Check if a row is selected
+            if (dataGridViewCustomer.SelectedRows.Count > 0)
+            {
+                string name = dataGridViewCustomer.SelectedRows[0].Cells["FullName"].Value.ToString();
+                // Prompt the user for confirmation
+                DialogResult result = MessageBox.Show($"Are you sure you want to delete this ## {name} ## ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                // If the user confirms deletion
+                if (result == DialogResult.Yes)
+                {
+                    // Get the ID of the selected row
+                    string Id = dataGridViewCustomer.SelectedRows[0].Cells["CustomerId"].Value.ToString();
+
+                    var frm = new frmRegisterCustomer(this,Id);
+                    frm.ShowDialog();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a Customer to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

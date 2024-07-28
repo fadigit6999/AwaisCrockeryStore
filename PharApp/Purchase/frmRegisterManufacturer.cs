@@ -1,4 +1,5 @@
-﻿using PharApp.Inventory;
+﻿using ClosedXML.Excel;
+using PharApp.Inventory;
 using PharApp.WinHelper;
 using System;
 using System.Collections.Generic;
@@ -19,11 +20,15 @@ namespace PharApp.Purchase
         public IReadOnlyList<BML.Manufacturer> MedicineList => _manufacturerList.AsReadOnly();
 
         public frmManufacturer _frmManufacturer = null;
-        public frmRegisterManufacturer(Form frm)
+
+        private readonly string _mfgId = null;
+
+        public frmRegisterManufacturer(Form frm, string mfgId = null)
         {
             InitializeComponent();
             _frmManufacturer = frm as frmManufacturer;
             _manufacturerList = new List<BML.Manufacturer>();
+            _mfgId = mfgId;
         }
 
         private async void btnRegister_Click(object sender, EventArgs e)
@@ -137,6 +142,56 @@ namespace PharApp.Purchase
                 else
                 {
                     MessageBox.Show("Failed to register Manufacturer. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private async void frmRegisterManufacturer_Load(object sender, EventArgs e)
+        {
+            if (_mfgId is not null)
+            {
+                var mfgBAL = new BAL.Manufacturer(Helper.GetConnectionStringFromSettings());
+                var mfglist = await mfgBAL.GetManufacturersAsync();
+                var singleMfg = mfglist.Where(x => x.ManufacturerId == _mfgId).FirstOrDefault();
+                GetFillMfg(singleMfg);
+                btnRegister.Visible = false;
+                btnRegisterAddOther.Visible = false;
+
+            }
+            else
+            {
+                btnUpdate.Visible = false;
+            }
+        }
+
+        void GetFillMfg(BML.Manufacturer mfg)
+        {
+            txtMobile.Text = mfg.ManufacturerMobile;
+            txtName.Text = mfg.ManufacturerName;
+            richTxtAddress.Text = mfg.ManufacturerAddress;
+            richTextDetail.Text = mfg.ManufacturerDetails;
+        }
+
+        private async void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (ValidateInput())
+            {
+                string mobile = txtMobile.Text;
+                string name = txtName.Text;
+                string address = richTxtAddress.Text;
+                string detail = richTextDetail.Text;
+
+                var manufacturerBAL = new BAL.Manufacturer(Helper.GetConnectionStringFromSettings());
+                int result = await manufacturerBAL.UpdateManufacturerAsync(_mfgId,name, address, mobile, detail);
+                if (result == 1)
+                {
+                    LoadGridDataManufacturer();
+                    MessageBox.Show("Manufacturer updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to update Manufacturer. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

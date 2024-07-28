@@ -40,17 +40,18 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI", 14F);
-            label11.Location = new Point(35, 28);
+            label11.Location = new Point(31, 21);
             label11.Name = "label11";
-            label11.Size = new Size(114, 32);
+            label11.Size = new Size(91, 25);
             label11.TabIndex = 0;
             label11.Text = "User Role";
             // 
             // btnRegisterRole
             // 
-            btnRegisterRole.Location = new Point(35, 135);
+            btnRegisterRole.Location = new Point(31, 107);
+            btnRegisterRole.Margin = new Padding(3, 2, 3, 2);
             btnRegisterRole.Name = "btnRegisterRole";
-            btnRegisterRole.Size = new Size(151, 29);
+            btnRegisterRole.Size = new Size(132, 22);
             btnRegisterRole.TabIndex = 2;
             btnRegisterRole.Text = "Register";
             btnRegisterRole.UseVisualStyleBackColor = true;
@@ -59,24 +60,26 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(32, 79);
+            label1.Location = new Point(28, 59);
             label1.Name = "label1";
-            label1.Size = new Size(83, 20);
+            label1.Size = new Size(65, 15);
             label1.TabIndex = 0;
             label1.Text = "Role Name";
             // 
             // txtUserRole
             // 
-            txtUserRole.Location = new Point(35, 102);
+            txtUserRole.Location = new Point(31, 76);
+            txtUserRole.Margin = new Padding(3, 2, 3, 2);
             txtUserRole.Name = "txtUserRole";
-            txtUserRole.Size = new Size(361, 27);
+            txtUserRole.Size = new Size(316, 23);
             txtUserRole.TabIndex = 1;
             // 
             // btnClose
             // 
-            btnClose.Location = new Point(384, 12);
+            btnClose.Location = new Point(336, 9);
+            btnClose.Margin = new Padding(3, 2, 3, 2);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(35, 29);
+            btnClose.Size = new Size(31, 22);
             btnClose.TabIndex = 8;
             btnClose.Text = "X";
             btnClose.UseVisualStyleBackColor = true;
@@ -84,9 +87,9 @@
             // 
             // frmRegisterRole
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(431, 211);
+            ClientSize = new Size(377, 147);
             Controls.Add(txtUserRole);
             Controls.Add(label1);
             Controls.Add(label11);
@@ -94,6 +97,7 @@
             Controls.Add(btnRegisterRole);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 2, 3, 2);
             Name = "frmRegisterRole";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "User Role";

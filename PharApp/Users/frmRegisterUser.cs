@@ -9,15 +9,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BAL;
+using PharApp.Customer;
 
 namespace PharApp.Users
 {
     public partial class frmRegisterUser : Form
     {
+        public frmManageUsers _frmManageUsers = null;
         private readonly string _login = null;
-        public frmRegisterUser(string login = null)
+        public frmRegisterUser(Form frm = null, string login = null)
         {
             InitializeComponent();
+            if (frm is not null)
+            {
+                _frmManageUsers = frm as frmManageUsers;
+            }
             _login = login;
         }
 
@@ -73,6 +79,7 @@ namespace PharApp.Users
                 if (_login is not null)
                 {
                     // Inform the user that registration was successful
+                    LoadUsersAsync();
                     MessageBox.Show("User registered successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Hide();
                     var frm = new frmLogin();
@@ -82,6 +89,7 @@ namespace PharApp.Users
                 {
                     // Inform the user that registration was successful
                     MessageBox.Show("User registered successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadUsersAsync();
                 }
                 this.Close();
             }
@@ -134,6 +142,54 @@ namespace PharApp.Users
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private async Task LoadUsersAsync()
+        {
+            try
+            {
+                var userBAL = new BAL.User(Helper.GetConnectionStringFromSettings());
+                var _userList = await userBAL.ReadUserAsync();
+                _frmManageUsers.registeredUserGrid.DataSource = _userList;
+                _frmManageUsers.registeredUserGrid.Columns["AccessFailedCount"].Visible = false;
+                _frmManageUsers.registeredUserGrid.Columns["NormalizedUserName"].Visible = false;
+                _frmManageUsers.registeredUserGrid.Columns["NormalizedEmail"].Visible = false;
+                _frmManageUsers.registeredUserGrid.Columns["PasswordHash"].Visible = false;
+                _frmManageUsers.registeredUserGrid.Columns["SecurityStamp"].Visible = false;
+                _frmManageUsers.registeredUserGrid.Columns["ConcurrencyStamp"].Visible = false;
+                _frmManageUsers.registeredUserGrid.Columns["PhoneNumberConfirmed"].Visible = false;
+                _frmManageUsers.registeredUserGrid.Columns["TwoFactorEnabled"].Visible = false;
+                _frmManageUsers.registeredUserGrid.Columns["LockoutEnd"].Visible = false;
+                _frmManageUsers.registeredUserGrid.Columns["LockoutEnabled"].Visible = false;
+                _frmManageUsers.registeredUserGrid.Columns["EmailConfirmed"].Visible = false;
+
+                _frmManageUsers.registeredUserGrid.Columns["Id"].HeaderText = "User Id";
+                _frmManageUsers.registeredUserGrid.Columns["FirstName"].HeaderText = "First Name";
+                _frmManageUsers.registeredUserGrid.Columns["LastName"].HeaderText = "Last Name";
+                _frmManageUsers.registeredUserGrid.Columns["DateCreated"].HeaderText = "Reg. Date";
+                _frmManageUsers.registeredUserGrid.Columns["UserName"].HeaderText = "Username";
+                _frmManageUsers.registeredUserGrid.Columns["Email"].HeaderText = "Email";
+                _frmManageUsers.registeredUserGrid.Columns["PhoneNumber"].HeaderText = "Phone No";
+                _frmManageUsers.registeredUserGrid.Columns["UserRole"].HeaderText = "Role";
+
+                _frmManageUsers.registeredUserGrid.Columns["Id"].DisplayIndex = 0;
+                _frmManageUsers.registeredUserGrid.Columns["FirstName"].DisplayIndex = 1;
+                _frmManageUsers.registeredUserGrid.Columns["LastName"].DisplayIndex = 2;
+                _frmManageUsers.registeredUserGrid.Columns["DateCreated"].DisplayIndex = 6;
+                _frmManageUsers.registeredUserGrid.Columns["UserName"].DisplayIndex = 3;
+                _frmManageUsers.registeredUserGrid.Columns["Email"].DisplayIndex = 4;
+                _frmManageUsers.registeredUserGrid.Columns["Status"].DisplayIndex = 7;
+                _frmManageUsers.registeredUserGrid.Columns["PhoneNumber"].DisplayIndex = 5;
+                _frmManageUsers.registeredUserGrid.Columns["UserRole"].DisplayIndex = 8;
+
+                _frmManageUsers.registeredUserGrid.Columns["DateCreated"].DefaultCellStyle.Format = "dd/MM/yyyy";
+
+                _frmManageUsers.registeredUserGrid.Refresh();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error loading users: {ex.Message}");
+            }
         }
     }
 }

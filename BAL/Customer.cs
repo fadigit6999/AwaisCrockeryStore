@@ -28,11 +28,11 @@ namespace BAL
             }
         }
 
-        public async Task<int> UpdateCustomerAsync(string customerId, string firstName, string lastName, string email, string phone, string addressLine1, DateTime entryDate, string customerType)
+        public async Task<int> UpdateCustomerAsync(string customerId, string firstName, string email, string phone, string addressLine1, string category, string customerType,string dsl)
         {
             try
             {
-                return await _customerDAL.UpdateCustomerAsync(customerId, firstName, lastName, email, phone, addressLine1, entryDate, customerType);
+                return await _customerDAL.UpdateCustomerAsync(customerId, firstName, email, phone, addressLine1, category, customerType,dsl);
             }
             catch (Exception ex)
             {

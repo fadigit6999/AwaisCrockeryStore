@@ -17,7 +17,7 @@ namespace DAL
             _connectionString = connectionString;
         }
 
-        public async Task<int> CreateCategoryAsync(string categoryName)
+        public async Task<int> CreateCategoryAsync(string categoryName,string categoryNameUrdu)
         {
             int result = 0;
 
@@ -27,6 +27,7 @@ namespace DAL
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@Operation", "Create");
                 command.Parameters.AddWithValue("@CategoryName", categoryName);
+                command.Parameters.AddWithValue("@CategoryNameUrdu", categoryNameUrdu);
 
                 await connection.OpenAsync();
                 result = await command.ExecuteNonQueryAsync();
@@ -35,7 +36,7 @@ namespace DAL
             return result;
         }
 
-        public async Task<int> UpdateCategoryAsync(string categoryId, string categoryName)
+        public async Task<int> UpdateCategoryAsync(string categoryId, string categoryName, string categoryNameUrdu)
         {
             int result = 0;
 
@@ -46,6 +47,8 @@ namespace DAL
                 command.Parameters.AddWithValue("@Operation", "Update");
                 command.Parameters.AddWithValue("@CategoryId", categoryId);
                 command.Parameters.AddWithValue("@CategoryName", categoryName);
+                command.Parameters.AddWithValue("@CategoryNameUrdu", categoryNameUrdu);
+
 
                 await connection.OpenAsync();
                 result = await command.ExecuteNonQueryAsync();
@@ -90,7 +93,9 @@ namespace DAL
                         BML.Category category = new BML.Category
                         {
                             CategoryId = reader["CategoryId"].ToString(),
-                            CategoryName = reader["CategoryName"].ToString()
+                            CategoryName = reader["CategoryName"].ToString(),
+                            CategoryNameUrdu = reader["CategoryNameUrdu"].ToString()
+
                         };
                         categories.Add(category);
                     }

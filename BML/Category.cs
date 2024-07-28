@@ -10,5 +10,7 @@ namespace BML
     {
         public string? CategoryId { get; set; }
         public string? CategoryName { get; set; }
+        public string? CategoryNameUrdu { get; set; }
+
     }
 }

@@ -105,5 +105,28 @@ namespace PharApp.Purchase
                 MessageBox.Show("Please select a Manufacturer to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void updateManufToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewManufacturer.SelectedRows.Count > 0)
+            {
+                string name = dataGridViewManufacturer.SelectedRows[0].Cells["ManufacturerName"].Value.ToString();
+                // Prompt the user for confirmation
+                DialogResult result = MessageBox.Show($"Are you sure you want to update this ## {name} ## ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                // If the user confirms deletion
+                if (result == DialogResult.Yes)
+                {
+                    // Get the ID of the selected row
+                    string Id = dataGridViewManufacturer.SelectedRows[0].Cells["ManufacturerId"].Value.ToString();
+                    var frm = new frmRegisterManufacturer(this, Id);
+                    frm.ShowDialog();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a Manufacturer to update.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

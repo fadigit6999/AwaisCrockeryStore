@@ -69,18 +69,19 @@
             contextMenuStripCustomer.ImageScalingSize = new Size(20, 20);
             contextMenuStripCustomer.Items.AddRange(new ToolStripItem[] { updateCustomerToolStripMenuItem, deleteCustomerToolStripMenuItem });
             contextMenuStripCustomer.Name = "contextMenuStripCustomer";
-            contextMenuStripCustomer.Size = new Size(168, 48);
+            contextMenuStripCustomer.Size = new Size(181, 70);
             // 
             // updateCustomerToolStripMenuItem
             // 
             updateCustomerToolStripMenuItem.Name = "updateCustomerToolStripMenuItem";
-            updateCustomerToolStripMenuItem.Size = new Size(167, 22);
+            updateCustomerToolStripMenuItem.Size = new Size(180, 22);
             updateCustomerToolStripMenuItem.Text = "Update Customer";
+            updateCustomerToolStripMenuItem.Click += updateCustomerToolStripMenuItem_Click;
             // 
             // deleteCustomerToolStripMenuItem
             // 
             deleteCustomerToolStripMenuItem.Name = "deleteCustomerToolStripMenuItem";
-            deleteCustomerToolStripMenuItem.Size = new Size(167, 22);
+            deleteCustomerToolStripMenuItem.Size = new Size(180, 22);
             deleteCustomerToolStripMenuItem.Text = "Delete Customer";
             deleteCustomerToolStripMenuItem.Click += deleteCustomerToolStripMenuItem_Click;
             // 

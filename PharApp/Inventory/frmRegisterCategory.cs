@@ -28,16 +28,15 @@ namespace PharApp.Inventory
 
         private async void btnRegister_Click(object sender, EventArgs e)
         {
-            string Name = txtName.Text;
-
-
             if (ValidateInput())
             {
+                string Name = txtName.Text;
+                string NameUrdu = txtNameUrdu.Text;
                 var unitBAL = new BAL.Category(Helper.GetConnectionStringFromSettings());
-                int result = await unitBAL.CreateCategoryAsync(Name);
+                int result = await unitBAL.CreateCategoryAsync(Name, NameUrdu);
                 if (result == 1)
                 {
-                    Helper.Log($"Category Created:Name {Name}");
+                    Helper.Log($"Category Created:Name {Name},Urdu Name: {NameUrdu}");
                     ReLoadGridDataCategory();
                     MessageBox.Show("Category registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
@@ -57,22 +56,30 @@ namespace PharApp.Inventory
                 MessageBox.Show("Please enter the Category", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+            // Check if the Name, Strength, and Generic Name fields are empty
+            if (string.IsNullOrWhiteSpace(txtNameUrdu.Text))
+            {
+                MessageBox.Show("Please enter the Category in Urdu", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
             // Validation passed
             return true;
         }
 
         private async void btnRegisterAddOther_Click(object sender, EventArgs e)
         {
-            string Name = txtName.Text;
+            
 
 
             if (ValidateInput())
             {
+                string Name = txtName.Text;
+                string NameUrdu = txtNameUrdu.Text;
                 var unitBAL = new BAL.Category(Helper.GetConnectionStringFromSettings());
-                int result = await unitBAL.CreateCategoryAsync(Name);
+                int result = await unitBAL.CreateCategoryAsync(Name,NameUrdu);
                 if (result == 1)
                 {
-                    Helper.Log($"Category Created:Name {Name}");
+                    Helper.Log($"Category Created:Name {Name}, Urdu Name: {NameUrdu}");
                     ReLoadGridDataCategory();
                     MessageBox.Show("Category registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Hide();
@@ -102,7 +109,9 @@ namespace PharApp.Inventory
                 // Bind the data to the grid
                 _frmMedicine.dataGridViewMedicineCategory.DataSource = _categoryList;
                 _frmMedicine.dataGridViewMedicineCategory.Columns["CategoryId"].HeaderText = "Category Id";
-                _frmMedicine.dataGridViewMedicineCategory.Columns["CategoryName"].HeaderText = "Medicine Category";
+                _frmMedicine.dataGridViewMedicineCategory.Columns["CategoryName"].HeaderText = "Item Category";
+                _frmMedicine.dataGridViewMedicineCategory.Columns["CategoryNameUrdu"].HeaderText = "Item Category Urdu";
+
 
                 _frmMedicine.dataGridViewMedicineCategory.Refresh();
             }
@@ -127,7 +136,7 @@ namespace PharApp.Inventory
             }
             else
             {
-                //btnUpdate.Visible = false;
+                btnUpdate.Visible = false;
             }
         }
 
@@ -136,11 +145,12 @@ namespace PharApp.Inventory
             if (ValidateInput())
             {
                 string Name = txtName.Text;
+                string NameUrdu = txtNameUrdu.Text;
                 var unitBAL = new BAL.Category(Helper.GetConnectionStringFromSettings());
-                int result = await unitBAL.UpdateCategoryAsync(_categoryId,Name);
+                int result = await unitBAL.UpdateCategoryAsync(_categoryId,Name,NameUrdu);
                 if (result == 1)
                 {
-                    Helper.Log($"Category Updated:Name {Name}");
+                    Helper.Log($"Category Updated:Name {Name},Name Urdu: {NameUrdu}");
                     ReLoadGridDataCategory();
                     MessageBox.Show("Category updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();

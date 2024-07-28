@@ -32,15 +32,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmManufacturer));
             tabManufactured = new TabControl();
             tabManageManufacturer = new TabPage();
-            btnRegister = new Button();
+            dataGridViewManufacturer = new DataGridView();
             contextMenuStripManufac = new ContextMenuStrip(components);
             updateManufToolStripMenuItem = new ToolStripMenuItem();
             deleteManufToolStripMenuItem = new ToolStripMenuItem();
-            dataGridViewManufacturer = new DataGridView();
+            btnRegister = new Button();
             tabManufactured.SuspendLayout();
             tabManageManufacturer.SuspendLayout();
-            contextMenuStripManufac.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewManufacturer).BeginInit();
+            contextMenuStripManufac.SuspendLayout();
             SuspendLayout();
             // 
             // tabManufactured
@@ -66,37 +66,6 @@
             tabManageManufacturer.Text = "Manufacturer";
             tabManageManufacturer.UseVisualStyleBackColor = true;
             // 
-            // btnRegister
-            // 
-            btnRegister.Location = new Point(8, 9);
-            btnRegister.Margin = new Padding(3, 2, 3, 2);
-            btnRegister.Name = "btnRegister";
-            btnRegister.Size = new Size(82, 22);
-            btnRegister.TabIndex = 1;
-            btnRegister.Text = "Register";
-            btnRegister.UseVisualStyleBackColor = true;
-            btnRegister.Click += btnRegister_Click;
-            // 
-            // contextMenuStripManufac
-            // 
-            contextMenuStripManufac.ImageScalingSize = new Size(20, 20);
-            contextMenuStripManufac.Items.AddRange(new ToolStripItem[] { updateManufToolStripMenuItem, deleteManufToolStripMenuItem });
-            contextMenuStripManufac.Name = "contextMenuStripManufac";
-            contextMenuStripManufac.Size = new Size(154, 48);
-            // 
-            // updateManufToolStripMenuItem
-            // 
-            updateManufToolStripMenuItem.Name = "updateManufToolStripMenuItem";
-            updateManufToolStripMenuItem.Size = new Size(153, 22);
-            updateManufToolStripMenuItem.Text = "Update Manuf.";
-            // 
-            // deleteManufToolStripMenuItem
-            // 
-            deleteManufToolStripMenuItem.Name = "deleteManufToolStripMenuItem";
-            deleteManufToolStripMenuItem.Size = new Size(153, 22);
-            deleteManufToolStripMenuItem.Text = "Delete Manuf.";
-            deleteManufToolStripMenuItem.Click += deleteManufToolStripMenuItem_Click;
-            // 
             // dataGridViewManufacturer
             // 
             dataGridViewManufacturer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -114,6 +83,38 @@
             dataGridViewManufacturer.TabIndex = 0;
             dataGridViewManufacturer.MouseClick += dataGridViewManufacturer_MouseClick;
             // 
+            // contextMenuStripManufac
+            // 
+            contextMenuStripManufac.ImageScalingSize = new Size(20, 20);
+            contextMenuStripManufac.Items.AddRange(new ToolStripItem[] { updateManufToolStripMenuItem, deleteManufToolStripMenuItem });
+            contextMenuStripManufac.Name = "contextMenuStripManufac";
+            contextMenuStripManufac.Size = new Size(181, 70);
+            // 
+            // updateManufToolStripMenuItem
+            // 
+            updateManufToolStripMenuItem.Name = "updateManufToolStripMenuItem";
+            updateManufToolStripMenuItem.Size = new Size(180, 22);
+            updateManufToolStripMenuItem.Text = "Update Mfg";
+            updateManufToolStripMenuItem.Click += updateManufToolStripMenuItem_Click;
+            // 
+            // deleteManufToolStripMenuItem
+            // 
+            deleteManufToolStripMenuItem.Name = "deleteManufToolStripMenuItem";
+            deleteManufToolStripMenuItem.Size = new Size(180, 22);
+            deleteManufToolStripMenuItem.Text = "Delete Mfg";
+            deleteManufToolStripMenuItem.Click += deleteManufToolStripMenuItem_Click;
+            // 
+            // btnRegister
+            // 
+            btnRegister.Location = new Point(8, 9);
+            btnRegister.Margin = new Padding(3, 2, 3, 2);
+            btnRegister.Name = "btnRegister";
+            btnRegister.Size = new Size(82, 22);
+            btnRegister.TabIndex = 1;
+            btnRegister.Text = "Register";
+            btnRegister.UseVisualStyleBackColor = true;
+            btnRegister.Click += btnRegister_Click;
+            // 
             // frmManufacturer
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -128,8 +129,8 @@
             Text = "Manufacturer";
             tabManufactured.ResumeLayout(false);
             tabManageManufacturer.ResumeLayout(false);
-            contextMenuStripManufac.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewManufacturer).EndInit();
+            contextMenuStripManufac.ResumeLayout(false);
             ResumeLayout(false);
         }
 

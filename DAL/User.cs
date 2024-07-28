@@ -121,7 +121,9 @@ namespace DAL
                             Email = reader["Email"].ToString(),
                             PhoneNumber = reader["PhoneNumber"].ToString(),
                             DateCreated = reader.GetDateTime(reader.GetOrdinal("DateCreated")),
-                            Status = reader["EmailConfirmed"].ToString() == "True" ? "Enabled" : "Disabled"
+                            Status = reader["EmailConfirmed"].ToString() == "True" ? "Enabled" : "Disabled",
+                            UserRole = reader["userRole"].ToString()
+
                         };
                         userList.Add(user);
                     }

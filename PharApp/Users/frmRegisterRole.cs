@@ -21,10 +21,10 @@ namespace PharApp.Users
 
         public IReadOnlyList<AspNetRole> UserRolesList => _userRolesList.AsReadOnly();
 
-        public frmRegisterRole()
+        public frmRegisterRole(Form frm = null)
         {
             InitializeComponent();
-            _frmManageUsers = new frmManageUsers();
+            _frmManageUsers = frm as frmManageUsers;
             _userRolesList = new List<AspNetRole>();
         }
 
@@ -65,17 +65,16 @@ namespace PharApp.Users
             }
         }
 
-        private async Task LoadUsersRolesAsync()
+        public async Task LoadUsersRolesAsync()
         {
             try
             {
-                _frmManageUsers.userRolesGrid.DataSource = null;
                 var userBAL = new BAL.UserRoles(Helper.GetConnectionStringFromSettings());
-                _userRolesList = await userBAL.ReadUserRolesAsync();
-                //userRolesGrid.Columns["NormalizedName"].Visible = false;
-                //userRolesGrid.Columns["ConcurrencyStamp"].Visible = false;
-                _frmManageUsers.userRolesGrid.DataSource = _userRolesList;
+                var _userRolesList = await userBAL.ReadUserRolesAsync();
 
+                _frmManageUsers.userRolesGrid.DataSource = _userRolesList;
+                _frmManageUsers.userRolesGrid.Columns["NormalizedName"].Visible = false;
+                _frmManageUsers.userRolesGrid.Columns["ConcurrencyStamp"].Visible = false;
                 _frmManageUsers.userRolesGrid.Refresh();
             }
             catch (Exception ex)

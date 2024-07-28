@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace PharApp.Inventory
 {
-    public partial class frmRegisterUnit : Form
+    public partial class frmWelcome : Form
     {
         public frmMedicine _frmMedicine = null;
         private List<BML.Unit> _unitList;
@@ -22,7 +22,7 @@ namespace PharApp.Inventory
 
         private readonly string _unitId = null;
 
-        public frmRegisterUnit(Form frm, string unitId = null)
+        public frmWelcome(Form frm, string unitId = null)
         {
             InitializeComponent();
             _frmMedicine = frm as frmMedicine;

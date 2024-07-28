@@ -1,4 +1,5 @@
 ﻿using BML;
+using PharApp.Inventory;
 using PharApp.WinHelper;
 using System;
 using System.Collections.Generic;
@@ -31,7 +32,7 @@ namespace PharApp.Users
 
         private void btnUserRegistration_Click(object sender, EventArgs e)
         {
-            var frmUserRegistration = new frmRegisterUser();
+            var frmUserRegistration = new frmRegisterUser(this);
             frmUserRegistration.ShowDialog();
 
         }
@@ -62,6 +63,8 @@ namespace PharApp.Users
                 registeredUserGrid.Columns["UserName"].HeaderText = "Username";
                 registeredUserGrid.Columns["Email"].HeaderText = "Email";
                 registeredUserGrid.Columns["PhoneNumber"].HeaderText = "Phone No";
+                registeredUserGrid.Columns["UserRole"].HeaderText = "Role";
+
 
                 registeredUserGrid.Columns["Id"].DisplayIndex = 0;
                 registeredUserGrid.Columns["FirstName"].DisplayIndex = 1;
@@ -71,6 +74,8 @@ namespace PharApp.Users
                 registeredUserGrid.Columns["Email"].DisplayIndex = 4;
                 registeredUserGrid.Columns["Status"].DisplayIndex = 7;
                 registeredUserGrid.Columns["PhoneNumber"].DisplayIndex = 5;
+                registeredUserGrid.Columns["UserRole"].DisplayIndex = 8;
+
                 registeredUserGrid.Columns["DateCreated"].DefaultCellStyle.Format = "dd/MM/yyyy";
 
                 registeredUserGrid.Refresh();
@@ -138,7 +143,7 @@ namespace PharApp.Users
 
         private void btnRegisterRoles_Click(object sender, EventArgs e)
         {
-            var frmUserRole = new frmRegisterRole();
+            var frmUserRole = new frmRegisterRole(this);
             frmUserRole.ShowDialog();
         }
 
@@ -148,7 +153,7 @@ namespace PharApp.Users
             {
                 var userBAL = new BAL.UserRoles(Helper.GetConnectionStringFromSettings());
                 _userRolesList = await userBAL.ReadUserRolesAsync();
-               
+
                 userRolesGrid.DataSource = _userRolesList;
                 userRolesGrid.Columns["NormalizedName"].Visible = false;
                 userRolesGrid.Columns["ConcurrencyStamp"].Visible = false;
@@ -160,5 +165,46 @@ namespace PharApp.Users
             }
         }
 
+        private void assignUserRoleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Check if a row is selected
+            if (registeredUserGrid.SelectedRows.Count > 0)
+            {
+                string name = registeredUserGrid.SelectedRows[0].Cells["FirstName"].Value.ToString();
+                // Prompt the user for confirmation
+                DialogResult result = MessageBox.Show($"Are you sure you want to assign a role to this ## {name} ## user ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                // If the user confirms deletion
+                if (result == DialogResult.Yes)
+                {
+                    // Get the ID of the selected row
+                    string Id = registeredUserGrid.SelectedRows[0].Cells["Id"].Value.ToString();
+
+                    var frm = new FrmAssignUserRole(this, Id);
+                    frm.ShowDialog();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select user to assign the role.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void registeredUserGrid_MouseClick(object sender, MouseEventArgs e)
+        {
+            // Get the row index at the mouse position
+            int rowIndex = registeredUserGrid.HitTest(e.X, e.Y).RowIndex;
+
+            // If a row is clicked
+            if (rowIndex >= 0)
+            {
+                // Select the clicked row
+                registeredUserGrid.ClearSelection();
+                registeredUserGrid.Rows[rowIndex].Selected = true;
+
+                // Show the context menu strip at the mouse position
+                contextMenuStripUsers.Show(registeredUserGrid, e.Location);
+            }
+        }
     }
 }

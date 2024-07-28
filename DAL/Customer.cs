@@ -40,7 +40,7 @@ namespace DAL
             return result;
         }
 
-        public async Task<int> UpdateCustomerAsync(string customerId, string firstName, string lastName, string email, string phone, string addressLine1, DateTime entryDate, string customerType)
+        public async Task<int> UpdateCustomerAsync(string customerId, string firstName, string email, string phone, string addressLine1, string  category, string customerType,string dsl)
         {
             int result = 0;
 
@@ -51,12 +51,12 @@ namespace DAL
                 command.Parameters.AddWithValue("@Operation", "Update");
                 command.Parameters.AddWithValue("@CustomerID", customerId);
                 command.Parameters.AddWithValue("@FirstName", firstName);
-                command.Parameters.AddWithValue("@LastName", lastName);
                 command.Parameters.AddWithValue("@Email", email);
                 command.Parameters.AddWithValue("@Phone", phone);
                 command.Parameters.AddWithValue("@AddressLine1", addressLine1);
-                command.Parameters.AddWithValue("@Entry_Date", entryDate);
+                command.Parameters.AddWithValue("@Category", category);
                 command.Parameters.AddWithValue("@CustomerType", customerType);
+                command.Parameters.AddWithValue("@DSL", dsl);
 
                 await connection.OpenAsync();
                 result = await command.ExecuteNonQueryAsync();
