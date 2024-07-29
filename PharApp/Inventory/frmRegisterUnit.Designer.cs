@@ -1,7 +1,7 @@
 ﻿
 namespace PharApp.Inventory
 {
-    partial class frmWelcome
+    partial class frmRegisterUnit
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace PharApp.Inventory
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmWelcome));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegisterUnit));
             btnRegisterAddOther = new Button();
             btnRegister = new Button();
             txtName = new TextBox();

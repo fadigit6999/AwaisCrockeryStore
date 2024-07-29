@@ -204,6 +204,11 @@ namespace PharApp.Inventory
         }
         private async void deleteToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            if (BML.UserSession.User.UserRole.ToUpper() == "OPERATOR")
+            {
+                MessageBox.Show("You are not authorized to perform this action. Only Admins can delete resources.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             // Check if a row is selected
             if (dataGridViewMedicine.SelectedRows.Count > 0)
             {
@@ -288,6 +293,11 @@ namespace PharApp.Inventory
 
         private async void deleteMedicineToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (BML.UserSession.User.UserRole.ToUpper() == "OPERATOR")
+            {
+                MessageBox.Show("You are not authorized to perform this action. Only Admins can delete resources.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             // Check if a row is selected
             if (dataGridViewMedicineUnit.SelectedRows.Count > 0)
             {
@@ -348,6 +358,11 @@ namespace PharApp.Inventory
         //Category
         private async void deleteCategoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (BML.UserSession.User.UserRole.ToUpper() == "OPERATOR")
+            {
+                MessageBox.Show("You are not authorized to perform this action. Only Admins can delete resources.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             // Check if a row is selected
             if (dataGridViewMedicineCategory.SelectedRows.Count > 0)
             {
@@ -427,6 +442,12 @@ namespace PharApp.Inventory
         //Type
         private async void deleteTypeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (BML.UserSession.User.UserRole.ToUpper() == "OPERATOR") 
+            {
+                MessageBox.Show("You are not authorized to perform this action. Only Admins can delete resources.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+                
             // Check if a row is selected
             if (dataGridViewMedicineType.SelectedRows.Count > 0)
             {

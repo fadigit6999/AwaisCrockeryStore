@@ -131,5 +131,25 @@ namespace PharApp.WinHelper
 
             return result;
         }
+
+
+        public static async Task<BML.AspNetUser> GetUserRole(string Username)
+        {
+            var _getRoles = new BAL.User(Helper.GetConnectionStringFromSettings());
+            var user = new BML.AspNetUser();
+            var userSession = await _getRoles.ReadUserAsync();
+            user = userSession.Where(x => x.UserName.ToLower() == Username).SingleOrDefault();
+            if (user is not null)
+                return user;
+
+            return null;
+        }
+    }
+
+
+    public enum UserRole
+    {
+        ADMIN,
+        OPERATOR
     }
 }

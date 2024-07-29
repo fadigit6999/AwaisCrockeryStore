@@ -424,15 +424,13 @@
                             <TextRun>
                               <Value>=Fields!MedName.Value</Value>
                               <Style>
-                                <FontStyle>Italic</FontStyle>
-                                <FontFamily>Calibri</FontFamily>
+                                <FontFamily>Verdana</FontFamily>
                                 <FontSize>8pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Left</TextAlign>
+                            <TextAlign>Center</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>

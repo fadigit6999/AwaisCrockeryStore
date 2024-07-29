@@ -22,7 +22,6 @@ using PharApp.Sale.Area;
 using PharApp.Settings;
 using PharApp.Users;
 using PharApp.WinHelper;
-
 namespace PharApp.Main
 {
     public partial class frmMain : Form
@@ -54,6 +53,8 @@ namespace PharApp.Main
             await LoadMetrics();
             await LoadExpiryStock();
             toolStripStatuslblVersion.Text = "Awais Plastic Store 1.0.0";
+            this.timerMain.Start();
+            SetMenuVisibility(BML.UserSession.User.UserRole.ToUpper().ToString());
         }
 
         private async Task LoadMetrics()
@@ -89,6 +90,39 @@ namespace PharApp.Main
             // Play the system alert sound
             SystemSounds.Exclamation.Play();
         }
+
+        #region Menu Strip Privileges
+        public void SetMenuVisibility(string role)
+        {
+            if (Enum.TryParse<PharApp.WinHelper.UserRole>(role, true, out PharApp.WinHelper.UserRole userRole))
+            {
+                foreach (ToolStripMenuItem item in menuStrip.Items)
+                {
+                    switch (userRole)
+                    {
+                        case PharApp.WinHelper.UserRole.ADMIN:
+                            item.Visible = true;
+                            break;
+                        case PharApp.WinHelper.UserRole.OPERATOR:
+                            if (item.Text == "&Users")
+                            {
+                                item.Visible = false;
+                            }
+                            else
+                            {
+                                item.Visible = true;
+                            }
+                            break;
+                        default:
+                            item.Visible = false;
+                            break;
+                    }
+                }
+            }
+
+        }
+
+        #endregion
 
         private void databaseConfigToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -304,5 +338,11 @@ namespace PharApp.Main
             var frm = new frmAbout();
             frm.ShowDialog();
         }
+
+        private void timerMain_Tick(object sender, EventArgs e)
+        {
+            toolStripStatusLabelLoginUser.Text = $"User: {BML.UserSession.User.UserRole.ToUpper().ToString()} ({BML.UserSession.User.FirstName.ToUpper().ToString()} {BML.UserSession.User.LastName.ToUpper().ToString()}) Time: {DateTime.Now.ToString("F")}";
+        }
     }
+
 }

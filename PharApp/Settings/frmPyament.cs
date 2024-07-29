@@ -112,6 +112,11 @@ namespace PharApp.Settings
 
         private async void deletePayTypeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (BML.UserSession.User.UserRole.ToUpper() == "OPERATOR")
+            {
+                MessageBox.Show("You are not authorized to perform this action. Only Admins can delete resources.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             // Check if a row is selected
             if (dataGridViewPaymentType.SelectedRows.Count > 0)
             {

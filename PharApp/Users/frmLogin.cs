@@ -62,11 +62,11 @@ namespace PharApp.Users
 
                                     Properties.Settings.Default.UserUsername = txtUsername.Text.ToString();
                                     Properties.Settings.Default.UserPassword = encryptedPassword.ToString();
-                                    Properties.Settings.Default.UserPassExpiry = DateTime.Today.AddDays(3).ToString();
+                                    Properties.Settings.Default.UserPassExpiry = DateTime.Today.AddDays(30).ToString();
                                     Properties.Settings.Default.Save();
                                 }
                             }
-
+                            BML.UserSession.User = await Helper.GetUserRole(txtUsername.Text.ToLower().ToString());
                             frmMain mainForm = new frmMain();
                             mainForm.Show();
 

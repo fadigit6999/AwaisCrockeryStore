@@ -46,9 +46,6 @@ namespace PharApp.Purchase
                 dataGridViewManufacturer.Columns["ManufacturerMobile"].HeaderText = "Mobile";
                 dataGridViewManufacturer.Columns["ManufacturerDetails"].HeaderText = "Details";
 
-
-
-
                 dataGridViewManufacturer.Refresh();
             }
             catch (Exception ex)
@@ -78,6 +75,11 @@ namespace PharApp.Purchase
 
         private async void deleteManufToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (BML.UserSession.User.UserRole.ToUpper() == "OPERATOR")
+            {
+                MessageBox.Show("You are not authorized to perform this action. Only Admins can delete resources.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (dataGridViewManufacturer.SelectedRows.Count > 0)
             {
                 string name = dataGridViewManufacturer.SelectedRows[0].Cells["ManufacturerName"].Value.ToString();

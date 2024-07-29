@@ -573,15 +573,13 @@
                             <TextRun>
                               <Value>=Fields!MedName.Value</Value>
                               <Style>
-                                <FontStyle>Italic</FontStyle>
-                                <FontFamily>Calibri</FontFamily>
+                                <FontFamily>Verdana</FontFamily>
                                 <FontSize>8pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Left</TextAlign>
+                            <TextAlign>Center</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -1532,7 +1530,7 @@
                   </Style>
                 </TextRun>
                 <TextRun>
-                  <Value>: 03434868677 - 0553251421</Value>
+                  <Value>: 03216405511 - 03008742308</Value>
                   <Style>
                     <FontSize>9pt</FontSize>
                   </Style>
