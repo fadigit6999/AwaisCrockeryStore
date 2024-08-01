@@ -115,5 +115,10 @@ namespace PharApp.Sale.Area
                 MessageBox.Show($"Error loading grid data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void frmRegisterArea_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
