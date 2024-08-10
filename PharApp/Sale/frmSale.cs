@@ -464,7 +464,7 @@ namespace PharApp.Sale
         {
             if (string.IsNullOrEmpty(cmbMedInformation.Text) || cmbMedInformation.Text == "Choose Item" || cmbMedInformation.SelectedIndex == -1)
             {
-                MessageBox.Show("Please select the Medicine.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please select the Item.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
@@ -492,7 +492,7 @@ namespace PharApp.Sale
             // Manufacture Price validation
             if (!decimal.TryParse(txtManfPrice.Text, out decimal manufacturePrice) || manufacturePrice <= 0)
             {
-                MessageBox.Show("Please enter a valid Manufacture Price (greater than 0).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please enter a valid Sale Price (greater than 0.00).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
@@ -518,7 +518,7 @@ namespace PharApp.Sale
 
             if (txtStockQuantity.Text == "0")
             {
-                MessageBox.Show("Medicine is out of stock!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Item is out of stock!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             // Bonus validation (optional)

@@ -38,20 +38,18 @@ namespace PharApp.RdlcReports.Purchase
             // 
             reportViewer1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             reportViewer1.Location = new Point(0, 0);
-            reportViewer1.Margin = new Padding(3, 4, 3, 4);
             reportViewer1.Name = "reportViewer1";
             reportViewer1.ServerReport.BearerToken = null;
-            reportViewer1.Size = new Size(1046, 761);
+            reportViewer1.Size = new Size(916, 571);
             reportViewer1.TabIndex = 0;
             // 
             // rptPurchase
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1046, 761);
+            ClientSize = new Size(915, 562);
             Controls.Add(reportViewer1);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(3, 4, 3, 4);
             Name = "rptPurchase";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Pruchase Report";

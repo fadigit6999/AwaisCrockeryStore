@@ -9,7 +9,10 @@
               <Width>0.64584in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.39486in</Width>
+              <Width>1.1339in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.20412in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>0.93582in</Width>
@@ -71,6 +74,41 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
+                    <Textbox Name="Textbox1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Item (English)</Value>
+                              <Style>
+                                <FontFamily>Verdana</FontFamily>
+                                <FontSize>7pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>Solid</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>1pt</PaddingLeft>
+                        <PaddingRight>1pt</PaddingRight>
+                        <PaddingTop>1pt</PaddingTop>
+                        <PaddingBottom>1pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
                     <Textbox Name="Textbox14">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -78,7 +116,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Item Name</Value>
+                              <Value>Item (Urdu)</Value>
                               <Style>
                                 <FontFamily>Verdana</FontFamily>
                                 <FontSize>7pt</FontSize>
@@ -328,6 +366,7 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
+            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -338,7 +377,7 @@
         <Top>0.14251in</Top>
         <Left>0.14636in</Left>
         <Height>0.25in</Height>
-        <Width>7.93947in</Width>
+        <Width>7.88263in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -349,10 +388,13 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>0.6687in</Width>
+              <Width>0.64584in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.3646in</Width>
+              <Width>1.1339in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.22034in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>0.9196in</Width>
@@ -415,7 +457,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="MedName">
+                    <Textbox Name="MedName1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -423,6 +465,42 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!MedName.Value</Value>
+                              <Style>
+                                <FontFamily>Verdana</FontFamily>
+                                <FontSize>7pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>MedName1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>White</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="MedNameUrdu">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!MedNameUrdu.Value</Value>
                               <Style>
                                 <FontFamily>Verdana</FontFamily>
                                 <FontSize>8pt</FontSize>
@@ -434,7 +512,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>MedName</rd:DefaultName>
+                      <rd:DefaultName>MedNameUrdu</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>White</Color>
@@ -678,6 +756,7 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
+            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -691,7 +770,7 @@
         <Top>0.51751in</Top>
         <Left>0.14636in</Left>
         <Height>0.25in</Height>
-        <Width>7.92697in</Width>
+        <Width>7.89375in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -1065,10 +1144,10 @@
       </Border>
     </Style>
   </Body>
-  <Width>8.25765in</Width>
+  <Width>8.19in</Width>
   <Page>
     <PageHeader>
-      <Height>1.60223in</Height>
+      <Height>1.6753in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1399,8 +1478,8 @@
           <Value>ID23af8142ca1d397e25b34ad0379bc345</Value>
           <Sizing>FitProportional</Sizing>
           <Top>0.01389in</Top>
-          <Height>1.15778in</Height>
-          <Width>1.11697in</Width>
+          <Height>1.59196in</Height>
+          <Width>1.70191in</Width>
           <ZIndex>9</ZIndex>
           <Style>
             <Border>
@@ -1612,10 +1691,14 @@
           <DataField>Purchase_Return</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="MedNameUrdu">
+          <DataField>MedNameUrdu</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DSPurchase</rd:DataSetName>
-        <rd:SchemaPath>G:\pharAppGit\PharApp\PharApp\RdlcReports\Purchase\DSPurchase.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\RdlcReports\Purchase\DSPurchase.xsd</rd:SchemaPath>
         <rd:TableName>DT_Purchase</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />

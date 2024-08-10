@@ -339,6 +339,8 @@ namespace PharApp.RdlcReports.Sale {
             
             private global::System.Data.DataColumn columnAreaName;
             
+            private global::System.Data.DataColumn columnMedNameUrdu;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public DT_Sale_ReturnDataTable() {
@@ -614,6 +616,14 @@ namespace PharApp.RdlcReports.Sale {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn MedNameUrduColumn {
+                get {
+                    return this.columnMedNameUrdu;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -679,7 +689,8 @@ namespace PharApp.RdlcReports.Sale {
                         string booker, 
                         string supplier, 
                         string CustomerType, 
-                        string AreaName) {
+                        string AreaName, 
+                        string MedNameUrdu) {
                 DT_Sale_ReturnRow rowDT_Sale_ReturnRow = ((DT_Sale_ReturnRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         OrderID,
@@ -711,7 +722,8 @@ namespace PharApp.RdlcReports.Sale {
                         booker,
                         supplier,
                         CustomerType,
-                        AreaName};
+                        AreaName,
+                        MedNameUrdu};
                 rowDT_Sale_ReturnRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDT_Sale_ReturnRow);
                 return rowDT_Sale_ReturnRow;
@@ -764,6 +776,7 @@ namespace PharApp.RdlcReports.Sale {
                 this.columnsupplier = base.Columns["supplier"];
                 this.columnCustomerType = base.Columns["CustomerType"];
                 this.columnAreaName = base.Columns["AreaName"];
+                this.columnMedNameUrdu = base.Columns["MedNameUrdu"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -829,6 +842,8 @@ namespace PharApp.RdlcReports.Sale {
                 base.Columns.Add(this.columnCustomerType);
                 this.columnAreaName = new global::System.Data.DataColumn("AreaName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAreaName);
+                this.columnMedNameUrdu = new global::System.Data.DataColumn("MedNameUrdu", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMedNameUrdu);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1451,6 +1466,22 @@ namespace PharApp.RdlcReports.Sale {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string MedNameUrdu {
+                get {
+                    try {
+                        return ((string)(this[this.tableDT_Sale_Return.MedNameUrduColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MedNameUrdu\' in table \'DT_Sale_Return\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDT_Sale_Return.MedNameUrduColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsOrderIDNull() {
                 return this.IsNull(this.tableDT_Sale_Return.OrderIDColumn);
             }
@@ -1807,6 +1838,18 @@ namespace PharApp.RdlcReports.Sale {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetAreaNameNull() {
                 this[this.tableDT_Sale_Return.AreaNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsMedNameUrduNull() {
+                return this.IsNull(this.tableDT_Sale_Return.MedNameUrduColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetMedNameUrduNull() {
+                this[this.tableDT_Sale_Return.MedNameUrduColumn] = global::System.Convert.DBNull;
             }
         }
         

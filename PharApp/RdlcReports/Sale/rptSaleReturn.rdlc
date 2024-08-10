@@ -9,7 +9,10 @@
               <Width>0.6349in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.32638in</Width>
+              <Width>1.25972in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.05743in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>0.92488in</Width>
@@ -78,7 +81,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Item Name</Value>
+                              <Value>Item (English)</Value>
                               <Style>
                                 <FontFamily>Verdana</FontFamily>
                                 <FontSize>8pt</FontSize>
@@ -91,6 +94,41 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox14</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>Solid</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>1pt</PaddingLeft>
+                        <PaddingRight>1pt</PaddingRight>
+                        <PaddingTop>1pt</PaddingTop>
+                        <PaddingBottom>1pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox5">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Item (Urdu)</Value>
+                              <Style>
+                                <FontFamily>Verdana</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox5</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -328,6 +366,7 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
+            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -338,7 +377,7 @@
         <Top>0.14306in</Top>
         <Left>0.19146in</Left>
         <Height>0.25in</Height>
-        <Width>7.79441in</Width>
+        <Width>7.78518in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -501,7 +540,10 @@
               <Width>0.64604in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.23953in</Width>
+              <Width>1.17647in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.04453in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>0.92848in</Width>
@@ -587,6 +629,42 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>MedName</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>White</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="MedNameUrdu">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!MedNameUrdu.Value</Value>
+                              <Style>
+                                <FontFamily>Verdana</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>MedNameUrdu</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>White</Color>
@@ -867,6 +945,7 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
+            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -880,7 +959,7 @@
         <Top>0.45362in</Top>
         <Left>0.26357in</Left>
         <Height>0.25in</Height>
-        <Width>7.80466in</Width>
+        <Width>7.78613in</Width>
         <ZIndex>6</ZIndex>
         <Style>
           <Border>
@@ -1596,14 +1675,27 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Phone</Value>
+                  <Value>Syed Sohaib Ali</Value>
                   <Style>
                     <FontSize>9pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
                 <TextRun>
-                  <Value>: 03216405511 - 03008742308</Value>
+                  <Value>: 0321640551 - </Value>
+                  <Style>
+                    <FontSize>9pt</FontSize>
+                  </Style>
+                </TextRun>
+                <TextRun>
+                  <Value>Syed Awais Ali</Value>
+                  <Style>
+                    <FontSize>9pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+                <TextRun>
+                  <Value>: 03008742308</Value>
                   <Style>
                     <FontSize>9pt</FontSize>
                   </Style>
@@ -1616,9 +1708,9 @@
           </Paragraphs>
           <rd:DefaultName>Textbox27</rd:DefaultName>
           <Top>1.12804in</Top>
-          <Left>2.92537in</Left>
+          <Left>1.92537in</Left>
           <Height>0.19167in</Height>
-          <Width>2.52702in</Width>
+          <Width>4.42046in</Width>
           <ZIndex>12</ZIndex>
           <Style>
             <Border>
@@ -1670,7 +1762,7 @@
           <Value>ID23af8142ca1d397e25b34ad0379bc345</Value>
           <Sizing>FitProportional</Sizing>
           <Height>1.31971in</Height>
-          <Width>1.3in</Width>
+          <Width>1.33125in</Width>
           <ZIndex>14</ZIndex>
           <Style>
             <Border>
@@ -1918,10 +2010,14 @@
           <DataField>AreaName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="MedNameUrdu">
+          <DataField>MedNameUrdu</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DSSaleReturn</rd:DataSetName>
-        <rd:SchemaPath>G:\pharAppGit\PharApp\PharApp\RdlcReports\Sale\DSSaleReturn.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\RdlcReports\Sale\DSSaleReturn.xsd</rd:SchemaPath>
         <rd:TableName>DT_Sale_Return</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
