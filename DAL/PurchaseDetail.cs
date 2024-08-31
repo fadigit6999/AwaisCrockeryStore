@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace DAL
 {
@@ -86,8 +87,55 @@ namespace DAL
 
             return purchaseDetails;
         }
+        public async Task<List<PurchaseReturnAuditView>> GetPurchaseReturnAuditAsync()
+        {
+            List<PurchaseReturnAuditView> purchaseReturnAudits = new List<PurchaseReturnAuditView>();
 
-        public async Task<bool> HandlePurchaseReturnAsync(string medicineId, string batchId, int quantity)
+            try
+            {
+                
+                using (var connection = new SqlConnection(_connectionString))
+                using (var command = new SqlCommand("ManagePurchaseDetails", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@Operation", "ViewReturnItems");
+                    await connection.OpenAsync();
+                    using (var reader = await command.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            var purchaseReturnAudit = new PurchaseReturnAuditView
+                            {
+                                MedName = reader["MedName"].ToString(),
+                                Name_Urdu = reader["Name_Urdu"].ToString(),
+                                BatchID = reader["BatchID"].ToString(),
+                                OriginalQuantity = Convert.ToInt32(reader["OriginalQuantity"]),
+                                ReturnQuantity = Convert.ToInt32(reader["ReturnQuantity"]),
+                                PurchasePrice = Convert.ToDecimal(reader["PurchasePrice"]),
+                                ReturnAmount = Convert.ToDecimal(reader["ReturnAmount"]),
+                                ReturnDate = Convert.ToDateTime(reader["ReturnDate"]),
+                                InvoiceNo = reader["InvoiceNo"].ToString(),
+                                SerialId = Convert.ToInt32(reader["serialid"]),
+                                TotalPriceAfterReturn = Convert.ToDecimal(reader["TotalPriceAfterReturn"]),
+                                QuantityAfterReturn = Convert.ToInt32(reader["QuantityAfterReturn"])
+                            };
+                            purchaseReturnAudits.Add(purchaseReturnAudit);
+                        }
+                    }
+                }
+
+                return purchaseReturnAudits;
+            }
+            catch (Exception ex)
+            {
+                return purchaseReturnAudits;
+                Debug.WriteLine(ex);
+            }
+      
+        }
+
+
+        public async Task<bool> HandlePurchaseReturnAsync(string purchaseOrderId, string purchaseDetialId,string medid,string batchid, int quantity)
         {
             bool result = false;
 
@@ -97,9 +145,11 @@ namespace DAL
                 command.CommandType = CommandType.StoredProcedure;
 
                 // Add parameters for the stored procedure
-                command.Parameters.AddWithValue("@Operation", "Purchase_Return");
-                command.Parameters.AddWithValue("@MedicineID", medicineId);
-                command.Parameters.AddWithValue("@BatchID", batchId);
+                command.Parameters.AddWithValue("@Operation", "Purchase_Return_New");
+                command.Parameters.AddWithValue("@PurchaseOrderId", purchaseOrderId);
+                command.Parameters.AddWithValue("@PurchaseDetailId", purchaseDetialId);
+                command.Parameters.AddWithValue("@MedicineID", medid);
+                command.Parameters.AddWithValue("@BatchID", batchid);
                 command.Parameters.AddWithValue("@Quantity", quantity);
 
                 await connection.OpenAsync();

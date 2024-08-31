@@ -40,6 +40,9 @@
     <Compile Update="Main\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Purchase\frmEditItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Purchase\frmManufacturer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -49,10 +52,16 @@
     <Compile Update="Purchase\frmRegisterManufacturer.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="RdlcReports\Purchase\rptPSR.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="RdlcReports\Purchase\rptPurchase.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="RdlcReports\Sale\rptSale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="RdlcReports\Sale\rptSSR.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Sale\Area\frmArea.cs">

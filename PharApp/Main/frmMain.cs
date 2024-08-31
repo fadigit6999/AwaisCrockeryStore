@@ -17,6 +17,8 @@ using PharApp.Backup;
 using PharApp.Customer;
 using PharApp.Inventory;
 using PharApp.Purchase;
+using PharApp.RdlcReports.Purchase;
+using PharApp.RdlcReports.Sale;
 using PharApp.Sale;
 using PharApp.Sale.Area;
 using PharApp.Settings;
@@ -342,6 +344,18 @@ namespace PharApp.Main
         private void timerMain_Tick(object sender, EventArgs e)
         {
             toolStripStatusLabelLoginUser.Text = $"User: {BML.UserSession.User.UserRole.ToUpper().ToString()} ({BML.UserSession.User.FirstName.ToUpper().ToString()} {BML.UserSession.User.LastName.ToUpper().ToString()}) Time: {DateTime.Now.ToString("F")}";
+        }
+
+        private void saleSummaryReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new rptSSR();
+            frm.ShowDialog();
+        }
+
+        private void purchaseSummaryReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new rptPSR();
+            frm.ShowDialog();
         }
     }
 

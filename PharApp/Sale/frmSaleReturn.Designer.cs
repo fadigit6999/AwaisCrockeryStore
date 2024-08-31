@@ -33,6 +33,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSaleReturn));
             tabControlPurchase = new TabControl();
             tabPagePurchase = new TabPage();
+            btnUpdateQnty = new Button();
+            txtReturnQnty = new TextBox();
+            txtOldQnty = new TextBox();
+            txtItemCode = new TextBox();
+            txtItem = new TextBox();
+            txtOrderid = new TextBox();
+            label23 = new Label();
+            label22 = new Label();
+            label21 = new Label();
+            label20 = new Label();
+            label19 = new Label();
             lblDefineInvoice = new Label();
             lblInvoiceDateDefine = new Label();
             lblInvoiceDate = new Label();
@@ -109,6 +120,17 @@
             // 
             // tabPagePurchase
             // 
+            tabPagePurchase.Controls.Add(btnUpdateQnty);
+            tabPagePurchase.Controls.Add(txtReturnQnty);
+            tabPagePurchase.Controls.Add(txtOldQnty);
+            tabPagePurchase.Controls.Add(txtItemCode);
+            tabPagePurchase.Controls.Add(txtItem);
+            tabPagePurchase.Controls.Add(txtOrderid);
+            tabPagePurchase.Controls.Add(label23);
+            tabPagePurchase.Controls.Add(label22);
+            tabPagePurchase.Controls.Add(label21);
+            tabPagePurchase.Controls.Add(label20);
+            tabPagePurchase.Controls.Add(label19);
             tabPagePurchase.Controls.Add(lblDefineInvoice);
             tabPagePurchase.Controls.Add(lblInvoiceDateDefine);
             tabPagePurchase.Controls.Add(lblInvoiceDate);
@@ -124,6 +146,102 @@
             tabPagePurchase.TabIndex = 0;
             tabPagePurchase.Text = "Sale";
             tabPagePurchase.UseVisualStyleBackColor = true;
+            // 
+            // btnUpdateQnty
+            // 
+            btnUpdateQnty.Location = new Point(932, 47);
+            btnUpdateQnty.Name = "btnUpdateQnty";
+            btnUpdateQnty.Size = new Size(164, 31);
+            btnUpdateQnty.TabIndex = 56;
+            btnUpdateQnty.Text = "Update";
+            btnUpdateQnty.UseVisualStyleBackColor = true;
+            btnUpdateQnty.Click += btnUpdateQnty_Click;
+            // 
+            // txtReturnQnty
+            // 
+            txtReturnQnty.Enabled = false;
+            txtReturnQnty.Location = new Point(748, 52);
+            txtReturnQnty.Name = "txtReturnQnty";
+            txtReturnQnty.Size = new Size(178, 23);
+            txtReturnQnty.TabIndex = 55;
+            txtReturnQnty.KeyUp += txtNewQnty_KeyUp;
+            // 
+            // txtOldQnty
+            // 
+            txtOldQnty.Location = new Point(561, 52);
+            txtOldQnty.Name = "txtOldQnty";
+            txtOldQnty.ReadOnly = true;
+            txtOldQnty.Size = new Size(178, 23);
+            txtOldQnty.TabIndex = 54;
+            // 
+            // txtItemCode
+            // 
+            txtItemCode.Location = new Point(377, 52);
+            txtItemCode.Name = "txtItemCode";
+            txtItemCode.ReadOnly = true;
+            txtItemCode.Size = new Size(178, 23);
+            txtItemCode.TabIndex = 53;
+            // 
+            // txtItem
+            // 
+            txtItem.Location = new Point(192, 52);
+            txtItem.Name = "txtItem";
+            txtItem.ReadOnly = true;
+            txtItem.Size = new Size(178, 23);
+            txtItem.TabIndex = 52;
+            // 
+            // txtOrderid
+            // 
+            txtOrderid.Location = new Point(8, 52);
+            txtOrderid.Name = "txtOrderid";
+            txtOrderid.ReadOnly = true;
+            txtOrderid.Size = new Size(178, 23);
+            txtOrderid.TabIndex = 51;
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Location = new Point(559, 34);
+            label23.Name = "label23";
+            label23.Size = new Size(57, 15);
+            label23.TabIndex = 57;
+            label23.Text = "Sale Qnty";
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Location = new Point(375, 34);
+            label22.Name = "label22";
+            label22.Size = new Size(62, 15);
+            label22.TabIndex = 58;
+            label22.Text = "Item Code";
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Location = new Point(746, 34);
+            label21.Name = "label21";
+            label21.Size = new Size(71, 15);
+            label21.TabIndex = 59;
+            label21.Text = "Return Qnty";
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new Point(190, 34);
+            label20.Name = "label20";
+            label20.Size = new Size(31, 15);
+            label20.TabIndex = 60;
+            label20.Text = "Item";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(6, 34);
+            label19.Name = "label19";
+            label19.Size = new Size(50, 15);
+            label19.TabIndex = 61;
+            label19.Text = "&Order Id";
             // 
             // lblDefineInvoice
             // 
@@ -163,11 +281,11 @@
             // 
             groupBox2.BackColor = Color.WhiteSmoke;
             groupBox2.Controls.Add(dataGridViewSaleDetails);
-            groupBox2.Location = new Point(5, 40);
+            groupBox2.Location = new Point(5, 83);
             groupBox2.Margin = new Padding(3, 2, 3, 2);
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new Padding(3, 2, 3, 2);
-            groupBox2.Size = new Size(1089, 445);
+            groupBox2.Size = new Size(1089, 402);
             groupBox2.TabIndex = 46;
             groupBox2.TabStop = false;
             groupBox2.Text = "View Details";
@@ -187,12 +305,12 @@
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
             dataGridViewSaleDetails.DefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewSaleDetails.Location = new Point(12, 20);
+            dataGridViewSaleDetails.Location = new Point(6, 20);
             dataGridViewSaleDetails.Margin = new Padding(3, 2, 3, 2);
             dataGridViewSaleDetails.Name = "dataGridViewSaleDetails";
             dataGridViewSaleDetails.ReadOnly = true;
             dataGridViewSaleDetails.RowHeadersWidth = 51;
-            dataGridViewSaleDetails.Size = new Size(1072, 421);
+            dataGridViewSaleDetails.Size = new Size(1078, 378);
             dataGridViewSaleDetails.TabIndex = 0;
             dataGridViewSaleDetails.RowsRemoved += dataGridViewPurchaseDetails_RowsRemoved;
             dataGridViewSaleDetails.MouseClick += dataGridViewPurchaseDetails_MouseClick;
@@ -786,5 +904,16 @@
         private Label lblInvoiceDateDefine;
         private Label lblInvoiceDate;
         private Label lblInvoice;
+        private Button btnUpdateQnty;
+        private TextBox txtReturnQnty;
+        private TextBox txtOldQnty;
+        private TextBox txtItemCode;
+        private TextBox txtItem;
+        private TextBox txtOrderid;
+        private Label label23;
+        private Label label22;
+        private Label label21;
+        private Label label20;
+        private Label label19;
     }
 }

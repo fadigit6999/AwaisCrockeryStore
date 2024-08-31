@@ -200,3 +200,5 @@ D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\obj\Release\net8.0-windows\re
 D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\obj\Release\net8.0-windows\PharApp.pdb
 D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\obj\Release\net8.0-windows\PharApp.genruntimeconfig.cache
 D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\obj\Release\net8.0-windows\ref\PharApp.dll
+D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\obj\Release\net8.0-windows\PharApp.RdlcReports.Purchase.rptPSR.resources
+D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\obj\Release\net8.0-windows\PharApp.RdlcReports.Sale.rptSSR.resources

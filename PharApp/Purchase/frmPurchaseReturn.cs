@@ -21,14 +21,17 @@ namespace PharApp.Purchase
 {
     public partial class frmPurchaseReturn : Form
     {
-        private BindingList<ViewPurchase> originalPurchaseList;
-        private BindingList<ViewPurchase> filteredPurchaseList;
+        private BindingList<PurchaseReturnAuditView> originalPurchaseList;
+        private BindingList<PurchaseReturnAuditView> filteredPurchaseList;
         private readonly string _invoiceid;
+        private readonly string _orderId;
         private string _orderDetailId;
-        public frmPurchaseReturn(string invoiceid = null)
+        public frmPurchaseReturn(string invoiceid = null, string orderid = null)
         {
             InitializeComponent();
             _invoiceid = invoiceid;
+            _orderId = orderid;
+
         }
 
         private void frmPurchase_Load(object sender, EventArgs e)
@@ -36,7 +39,7 @@ namespace PharApp.Purchase
             LoadGridDataViewPurchase();
             ClearDetailsGrid();
             LoadGridViewDetails(_invoiceid);
-            
+
         }
 
         private async void PopulateComboBoxManufacturer()
@@ -273,7 +276,7 @@ namespace PharApp.Purchase
 
         }
 
-        private async void LoadGridViewDetails(string invoiceid) 
+        private async void LoadGridViewDetails(string invoiceid)
         {
             var purchaseDetailBal = new BAL.PurchaseDetail(Helper.GetConnectionStringFromSettings());
             var saleDetailList = await purchaseDetailBal.GetPurchaseDetailReturnAsync(invoiceid);
@@ -302,7 +305,7 @@ namespace PharApp.Purchase
                 string total = details.Total;
 
                 // Add a new row to the DataGridView
-                dataGridViewPurchaseDetails.Rows.Add(_orderDetailId, medid, medInformation, batchid, gstTax, discountPercentage, bonus, expiryDate, quantity, manufacturePrice,total, "X");
+                dataGridViewPurchaseDetails.Rows.Add(_orderDetailId, medid, medInformation, batchid, gstTax, discountPercentage, bonus, expiryDate, quantity, manufacturePrice, total, "X");
 
                 //txtAdvTax.Text = "";
             }
@@ -339,6 +342,32 @@ namespace PharApp.Purchase
                             dataGridViewPurchaseDetails.Rows.RemoveAt(hitTestInfo.RowIndex);
                             MessageBox.Show("This item has been removed successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
+                    }
+                    else if (dataGridViewPurchaseDetails.Columns[hitTestInfo.ColumnIndex].Name == "QuantityColumn")
+                    {
+                        var selectedRow = dataGridViewPurchaseDetails.Rows[hitTestInfo.RowIndex];
+                        var itemName = selectedRow.Cells["MedInformationColumn"].Value?.ToString() ?? string.Empty;
+
+                        var confirmationResult = MessageBox.Show(
+                            $"Are you sure you want to edit the quantity for the item ## {itemName} ##?",
+                            "Confirmation",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Question
+                        );
+                        // Extract relevant data from the selected row
+                        var orderId = selectedRow.Cells["OrderDetailIdColumn"].Value?.ToString() ?? string.Empty;
+                        var batchId = selectedRow.Cells["BatchedColumn"].Value?.ToString() ?? string.Empty;
+                        var oldQuantity = selectedRow.Cells["QuantityColumn"].Value?.ToString() ?? string.Empty;
+
+                        // Populate fields with the extracted data
+                        txtOrderid.Text = orderId;
+                        txtItem.Text = itemName;
+                        txtItemCode.Text = batchId;
+                        txtOldQnty.Text = oldQuantity;
+
+                        // Enable controls for updating the quantity
+                        txtReturnQnty.Enabled = true;
+                        btnUpdateQnty.Enabled = true;
                     }
                     else
                     {
@@ -472,15 +501,16 @@ namespace PharApp.Purchase
                     {
                         string medicineId = row.Cells["MedIdColumn"].Value?.ToString();
                         string batchId = row.Cells["BatchedColumn"].Value?.ToString();
-                        _orderDetailId= row.Cells["OrderDetailIdColumn"].Value?.ToString();
+                        _orderDetailId = row.Cells["OrderDetailIdColumn"].Value?.ToString();
+                        string id = row.Cells["MedIdColumn"].Value?.ToString();
                         int quantity = Convert.ToInt32(row.Cells["QuantityColumn"].Value);
                         string invoice = lblDefineInvoice.Text;
-                        
-                        result = await purchaseOrderDetailsBAL.HandlePurchaseReturnAsync(medicineId,batchId.ToLower().ToString(),quantity);
+                        string formatOrderId = Helper.FormatGuid(_orderId);
+                        result = await purchaseOrderDetailsBAL.HandlePurchaseReturnAsync(formatOrderId, _orderDetailId, medicineId, batchId, quantity);
                         Helper.Log("Purchase Stock Return Changes: " + " ," + medicineId + " ," + batchId.ToString() + " ," + quantity);
                         if (result)
                         {
-                            result = await purchaseOrderDetailsBAL.UpdatePurchaseReturnAsync(_orderDetailId, medicineId, batchId, invoice);
+                            //result = await purchaseOrderDetailsBAL.UpdatePurchaseReturnAsync(_orderDetailId, medicineId, batchId, invoice);
                             Helper.Log("Purchase (Order-Details) Return Changes: " + " ," + _orderDetailId + " ," + medicineId + " ," + batchId.ToString() + " ," + invoice);
                         }
                         else
@@ -553,37 +583,43 @@ namespace PharApp.Purchase
             ClearAll();
         }
 
-
         private async void LoadGridDataViewPurchase()
         {
             try
             {
-                var purchaseBal = new BAL.PurchaseOrder(Helper.GetConnectionStringFromSettings());
-                var purchaseList = await purchaseBal.ViewPurchaseReturnAsync();
+                var purchaseBal = new BAL.PurchaseDetail(Helper.GetConnectionStringFromSettings());
+                var purchaseList = await purchaseBal.GetPurchaseReturnAuditAsync();
 
-                originalPurchaseList = new BindingList<ViewPurchase>(purchaseList);
-                filteredPurchaseList = new BindingList<ViewPurchase>(purchaseList);
+                originalPurchaseList = new BindingList<PurchaseReturnAuditView>(purchaseList);
+                filteredPurchaseList = new BindingList<PurchaseReturnAuditView>(purchaseList);
                 dataGridViewPurchase.DataSource = filteredPurchaseList;
 
-                dataGridViewPurchase.Columns["OrderID"].HeaderText = "Id";
-                dataGridViewPurchase.Columns["InvoiceNo"].HeaderText = "Invoice";
-                dataGridViewPurchase.Columns["MedName"].HeaderText = "Item";
-                dataGridViewPurchase.Columns["ManufacturerName"].HeaderText = "Mfg.";
-                dataGridViewPurchase.Columns["Quantity"].HeaderText = "Quantity";
-                dataGridViewPurchase.Columns["Total"].HeaderText = "Gr. Total";
-                dataGridViewPurchase.Columns["TypeName"].HeaderText = "Payment";
-                dataGridViewPurchase.Columns["ExpiryDate"].HeaderText = "Ex. Date";
-                dataGridViewPurchase.Columns["BatchId"].HeaderText = "Item Code";
+                dataGridViewPurchase.Columns["SerialId"].HeaderText = "Serial ID";
+                dataGridViewPurchase.Columns["InvoiceNo"].HeaderText = "Invoice No.";
+                dataGridViewPurchase.Columns["MedName"].HeaderText = "Medicine Name";
+                dataGridViewPurchase.Columns["Name_Urdu"].HeaderText = "Name Urdu";
+                dataGridViewPurchase.Columns["BatchID"].HeaderText = "Item Code";
+                dataGridViewPurchase.Columns["OriginalQuantity"].HeaderText = "Original Quantity";
+                dataGridViewPurchase.Columns["ReturnQuantity"].HeaderText = "Returned Quantity";
+                dataGridViewPurchase.Columns["PurchasePrice"].HeaderText = "Purchase Price";
+                dataGridViewPurchase.Columns["ReturnAmount"].HeaderText = "Return Amount";
+                dataGridViewPurchase.Columns["ReturnDate"].HeaderText = "Return Date";
+                dataGridViewPurchase.Columns["TotalPriceAfterReturn"].HeaderText = "Total After Return";
+                dataGridViewPurchase.Columns["QuantityAfterReturn"].HeaderText = "Qnty After Return";
 
-                dataGridViewPurchase.Columns["OrderID"].DisplayIndex = 0;
+
+                dataGridViewPurchase.Columns["SerialId"].DisplayIndex = 0;
                 dataGridViewPurchase.Columns["InvoiceNo"].DisplayIndex = 1;
                 dataGridViewPurchase.Columns["MedName"].DisplayIndex = 2;
-                dataGridViewPurchase.Columns["ManufacturerName"].DisplayIndex = 3;
-                dataGridViewPurchase.Columns["TypeName"].DisplayIndex = 4;
-                dataGridViewPurchase.Columns["Quantity"].DisplayIndex = 7;
-                dataGridViewPurchase.Columns["Total"].DisplayIndex = 8;
-                dataGridViewPurchase.Columns["ExpiryDate"].DisplayIndex = 5;
-                dataGridViewPurchase.Columns["BatchId"].DisplayIndex = 6;
+                dataGridViewPurchase.Columns["Name_Urdu"].DisplayIndex = 3;
+                dataGridViewPurchase.Columns["BatchID"].DisplayIndex = 4;
+                dataGridViewPurchase.Columns["OriginalQuantity"].DisplayIndex = 5;
+                dataGridViewPurchase.Columns["ReturnQuantity"].DisplayIndex = 6;
+                dataGridViewPurchase.Columns["PurchasePrice"].DisplayIndex = 7;
+                dataGridViewPurchase.Columns["ReturnAmount"].DisplayIndex = 8;
+                dataGridViewPurchase.Columns["ReturnDate"].DisplayIndex = 9;
+                dataGridViewPurchase.Columns["TotalPriceAfterReturn"].DisplayIndex =10;
+                dataGridViewPurchase.Columns["QuantityAfterReturn"].DisplayIndex =11;
 
                 dataGridViewPurchase.Refresh();
             }
@@ -599,23 +635,25 @@ namespace PharApp.Purchase
             string filterText = txtSearch.Text.Trim().ToLower();
             if (string.IsNullOrWhiteSpace(filterText))
             {
-                filteredPurchaseList = new BindingList<ViewPurchase>(originalPurchaseList);
+                filteredPurchaseList = new BindingList<PurchaseReturnAuditView>(originalPurchaseList);
             }
             else
             {
                 var filteredList = originalPurchaseList.Where(purchase =>
-                    purchase.OrderID.ToString().ToLower().Contains(filterText) ||
-                    purchase.InvoiceNo.ToLower().Contains(filterText) ||
-                    purchase.MedName.ToLower().Contains(filterText) ||
-                    purchase.ManufacturerName.ToLower().Contains(filterText) ||
-                    purchase.Quantity.ToString().ToLower().Contains(filterText) ||
-                    purchase.Total.ToString().ToLower().Contains(filterText) ||
-                    purchase.TypeName.ToLower().Contains(filterText) ||
-                    purchase.ExpiryDate.ToString().ToLower().Contains(filterText) ||
-                    purchase.BatchId.ToLower().Contains(filterText)
-                ).ToList();
+    purchase.SerialId.ToString().ToLower().Contains(filterText) ||
+    purchase.InvoiceNo.ToLower().Contains(filterText) ||
+    purchase.MedName.ToLower().Contains(filterText) ||
+    purchase.Name_Urdu.ToLower().Contains(filterText) ||
+    purchase.OriginalQuantity.ToString().ToLower().Contains(filterText) ||
+    purchase.ReturnQuantity.ToString().ToLower().Contains(filterText) ||
+    purchase.PurchasePrice.ToString().ToLower().Contains(filterText) ||
+    purchase.ReturnAmount.ToString().ToLower().Contains(filterText) ||
+    purchase.ReturnDate.ToString("dd-MM-yyyy").ToLower().Contains(filterText) || // Assuming you want to filter based on the date format
+    purchase.BatchID.ToString().ToLower().Contains(filterText)
+).ToList();
 
-                filteredPurchaseList = new BindingList<ViewPurchase>(filteredList);
+
+                filteredPurchaseList = new BindingList<PurchaseReturnAuditView>(filteredList);
             }
 
             dataGridViewPurchase.DataSource = filteredPurchaseList;
@@ -751,6 +789,108 @@ namespace PharApp.Purchase
                 MessageBox.Show("Please select a medicine to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void editItemQuantityToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Check if a row is selected
+            if (dataGridViewPurchase.SelectedRows.Count > 0)
+            {
+                string name = dataGridViewPurchase.SelectedRows[0].Cells["MedName"].Value.ToString();
+                // Prompt the user for confirmation
+                DialogResult result = MessageBox.Show($"Are you sure you want to edit Quantity for this Item ## {name} ## ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                // If the user confirms deletion
+                if (result == DialogResult.Yes)
+                {
+                    // Get the ID of the selected row
+                    string OrderId = dataGridViewPurchase.SelectedRows[0].Cells["OrderID"].Value.ToString();
+                    string item = dataGridViewPurchase.SelectedRows[0].Cells["OrderID"].Value.ToString();
+                    string itemcode = dataGridViewPurchase.SelectedRows[0].Cells["BatchId"].Value.ToString();
+                    string oldQnty = dataGridViewPurchase.SelectedRows[0].Cells["Quantity"].Value.ToString();
+                    // Code to print the purchase
+
+                    txtOrderid.Text = OrderId;
+                    txtItem.Text = name;
+                    txtItemCode.Text = itemcode;
+                    txtOldQnty.Text = oldQnty;
+                    txtNewQnty.Enabled = true;
+                    btnUpdateQnty.Enabled = true;
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a medicine to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void tabPagePurchase_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        #region Quantity Update Procedure
+        private void btnUpdateQnty_Click(object sender, EventArgs e)
+        {
+            // Retrieve the OrderDetailID from the input field
+            string orderDetailId = txtOrderid.Text;
+            // Loop through the DataGridView rows to find the matching OrderDetailID
+            foreach (DataGridViewRow row in dataGridViewPurchaseDetails.Rows)
+            {
+                // Compare the current row's OrderDetailID with the input
+                if (row.Cells["OrderDetailIdColumn"].Value != null &&
+                    row.Cells["OrderDetailIdColumn"].Value.ToString() == orderDetailId)
+                {
+
+                    row.Cells["QuantityColumn"].Value = txtReturnQnty.Text;
+
+                    ClearUpdateText();
+                    // Display success message
+                    MessageBox.Show("The item has been updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+            }
+
+            // If the OrderDetailID was not found in the grid
+            MessageBox.Show("OrderDetailID not found in the grid.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void txtNewQnty_KeyUp(object sender, KeyEventArgs e)
+        {
+            // Get the text from the TextBox
+            string inputText = txtReturnQnty.Text;
+
+            // Validate if the input is numeric
+            if (!System.Text.RegularExpressions.Regex.IsMatch(inputText, "^[0-9]*$"))
+            {
+                // If the input is not numeric, remove the invalid characters
+                MessageBox.Show("Please enter only numeric digits (0-9).", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtNewQnty.Text = new string(inputText.Where(char.IsDigit).ToArray());
+                txtNewQnty.SelectionStart = txtNewQnty.Text.Length; // Move cursor to end
+                return;
+            }
+
+            // Check if the new quantity is greater than the old quantity
+            if (int.TryParse(txtReturnQnty.Text, out int newQuantity) && int.TryParse(txtOldQnty.Text, out int oldQuantity))
+            {
+                if (newQuantity > oldQuantity)
+                {
+                    MessageBox.Show("The new quantity cannot be greater than the old quantity.", "Invalid Quantity", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtNewQnty.Text = oldQuantity.ToString(); // Reset to old quantity
+                    txtNewQnty.SelectionStart = txtNewQnty.Text.Length; // Move cursor to end
+                }
+            }
+        }
+
+        void ClearUpdateText()
+        {
+            txtOrderid.Text = "";
+            txtItem.Text = "";
+            txtItemCode.Text = "";
+            txtOldQnty.Text = "";
+            txtReturnQnty.Text = "";
+        }
+        #endregion
 
     }
 }

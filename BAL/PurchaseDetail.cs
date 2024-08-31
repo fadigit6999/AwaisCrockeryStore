@@ -41,11 +41,25 @@ namespace BAL
             }
         }
 
-        public async Task<bool> HandlePurchaseReturnAsync(string medId,string batchid,int quantity)
+        public async Task<List<BML.PurchaseReturnAuditView>> GetPurchaseReturnAuditAsync()
         {
             try
             {
-                return await _purchaseDetailDAL.HandlePurchaseReturnAsync(medId,batchid,quantity);
+                return await _purchaseDetailDAL.GetPurchaseReturnAuditAsync();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error getting purchase orders: {ex.Message}");
+                return new List<BML.PurchaseReturnAuditView>();
+            }
+        }
+
+
+        public async Task<bool> HandlePurchaseReturnAsync(string orderId,string orderDetailId,string medid,string batchid,int quantity)
+        {
+            try
+            {
+                return await _purchaseDetailDAL.HandlePurchaseReturnAsync(orderId,orderDetailId,medid,batchid,quantity);
             }
             catch (Exception ex)
             {

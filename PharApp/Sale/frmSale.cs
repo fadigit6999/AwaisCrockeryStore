@@ -1048,8 +1048,9 @@ namespace PharApp.Sale
                 {
                     // Get the ID of the selected row
                     string invoiceno = dataGridViewSale.SelectedRows[0].Cells["InvoiceNo"].Value.ToString();
+                    string OrderId = dataGridViewSale.SelectedRows[0].Cells["OrderID"].Value.ToString();
                     // Code to print the purchase
-                    var frm = new frmSaleReturn(invoiceno);
+                    var frm = new frmSaleReturn(invoiceno,OrderId);
                     frm.ShowDialog();
 
                 }

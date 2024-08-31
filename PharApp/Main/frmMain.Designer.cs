@@ -44,6 +44,10 @@
             salesToolStripMenuItem = new ToolStripMenuItem();
             registerSaleToolStripMenuItem = new ToolStripMenuItem();
             saleReturnToolStripMenuItem = new ToolStripMenuItem();
+            reportsToolStripMenuItem = new ToolStripMenuItem();
+            saleSummaryReportToolStripMenuItem = new ToolStripMenuItem();
+            purchaseSummaryReportToolStripMenuItem = new ToolStripMenuItem();
+            stockReportToolStripMenuItem = new ToolStripMenuItem();
             auditToolStripMenuItem = new ToolStripMenuItem();
             auditReportToolStripMenuItem = new ToolStripMenuItem();
             usersToolStripMenuItem = new ToolStripMenuItem();
@@ -98,7 +102,7 @@
             // 
             menuStrip.BackColor = Color.White;
             menuStrip.ImageScalingSize = new Size(20, 20);
-            menuStrip.Items.AddRange(new ToolStripItem[] { toolStripMenuItem1, customersToolStripMenuItem, inventoryToolStripMenuItem, purchaseToolStripMenuItem, salesToolStripMenuItem, auditToolStripMenuItem, usersToolStripMenuItem, backupRestoreToolStripMenuItem, databaseConfigurationToolStripMenuItem, toolsToolStripMenuItem, aboutToolStripMenuItem });
+            menuStrip.Items.AddRange(new ToolStripItem[] { toolStripMenuItem1, customersToolStripMenuItem, inventoryToolStripMenuItem, purchaseToolStripMenuItem, salesToolStripMenuItem, reportsToolStripMenuItem, auditToolStripMenuItem, usersToolStripMenuItem, backupRestoreToolStripMenuItem, databaseConfigurationToolStripMenuItem, toolsToolStripMenuItem, aboutToolStripMenuItem });
             menuStrip.Location = new Point(0, 0);
             menuStrip.Name = "menuStrip";
             menuStrip.Padding = new Padding(5, 2, 0, 2);
@@ -194,6 +198,33 @@
             saleReturnToolStripMenuItem.Size = new Size(140, 22);
             saleReturnToolStripMenuItem.Text = "Sale Return";
             saleReturnToolStripMenuItem.Click += saleReturnToolStripMenuItem_Click;
+            // 
+            // reportsToolStripMenuItem
+            // 
+            reportsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { saleSummaryReportToolStripMenuItem, purchaseSummaryReportToolStripMenuItem, stockReportToolStripMenuItem });
+            reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
+            reportsToolStripMenuItem.Size = new Size(59, 20);
+            reportsToolStripMenuItem.Text = "&Reports";
+            // 
+            // saleSummaryReportToolStripMenuItem
+            // 
+            saleSummaryReportToolStripMenuItem.Name = "saleSummaryReportToolStripMenuItem";
+            saleSummaryReportToolStripMenuItem.Size = new Size(214, 22);
+            saleSummaryReportToolStripMenuItem.Text = "Sale Summary Report";
+            saleSummaryReportToolStripMenuItem.Click += saleSummaryReportToolStripMenuItem_Click;
+            // 
+            // purchaseSummaryReportToolStripMenuItem
+            // 
+            purchaseSummaryReportToolStripMenuItem.Name = "purchaseSummaryReportToolStripMenuItem";
+            purchaseSummaryReportToolStripMenuItem.Size = new Size(214, 22);
+            purchaseSummaryReportToolStripMenuItem.Text = "Purchase Summary Report";
+            purchaseSummaryReportToolStripMenuItem.Click += purchaseSummaryReportToolStripMenuItem_Click;
+            // 
+            // stockReportToolStripMenuItem
+            // 
+            stockReportToolStripMenuItem.Name = "stockReportToolStripMenuItem";
+            stockReportToolStripMenuItem.Size = new Size(214, 22);
+            stockReportToolStripMenuItem.Text = "Stock Report";
             // 
             // auditToolStripMenuItem
             // 
@@ -645,5 +676,9 @@
         private ToolStripMenuItem aboutToolStripMenuItem;
         private ToolStripStatusLabel toolStripStatusLabelLoginUser;
         private System.Windows.Forms.Timer timerMain;
+        private ToolStripMenuItem reportsToolStripMenuItem;
+        private ToolStripMenuItem saleSummaryReportToolStripMenuItem;
+        private ToolStripMenuItem purchaseSummaryReportToolStripMenuItem;
+        private ToolStripMenuItem stockReportToolStripMenuItem;
     }
 }

@@ -110,7 +110,7 @@
             tabControlPurchase.Margin = new Padding(3, 2, 3, 2);
             tabControlPurchase.Name = "tabControlPurchase";
             tabControlPurchase.SelectedIndex = 0;
-            tabControlPurchase.Size = new Size(1110, 596);
+            tabControlPurchase.Size = new Size(1110, 635);
             tabControlPurchase.TabIndex = 27;
             // 
             // tabPagePurchase
@@ -144,7 +144,7 @@
             tabPagePurchase.Margin = new Padding(3, 2, 3, 2);
             tabPagePurchase.Name = "tabPagePurchase";
             tabPagePurchase.Padding = new Padding(3, 2, 3, 2);
-            tabPagePurchase.Size = new Size(1102, 568);
+            tabPagePurchase.Size = new Size(1102, 607);
             tabPagePurchase.TabIndex = 0;
             tabPagePurchase.Text = "Sale";
             tabPagePurchase.UseVisualStyleBackColor = true;
@@ -230,7 +230,7 @@
             // checkBoxWarranty
             // 
             checkBoxWarranty.AutoSize = true;
-            checkBoxWarranty.Location = new Point(9, 434);
+            checkBoxWarranty.Location = new Point(9, 472);
             checkBoxWarranty.Margin = new Padding(3, 2, 3, 2);
             checkBoxWarranty.Name = "checkBoxWarranty";
             checkBoxWarranty.Size = new Size(197, 19);
@@ -243,11 +243,11 @@
             // 
             groupBox2.BackColor = Color.WhiteSmoke;
             groupBox2.Controls.Add(dataGridViewSaleDetails);
-            groupBox2.Location = new Point(9, 140);
+            groupBox2.Location = new Point(9, 177);
             groupBox2.Margin = new Padding(3, 2, 3, 2);
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new Padding(3, 2, 3, 2);
-            groupBox2.Size = new Size(1086, 287);
+            groupBox2.Size = new Size(1086, 289);
             groupBox2.TabIndex = 46;
             groupBox2.TabStop = false;
             groupBox2.Text = "View Details";
@@ -267,12 +267,12 @@
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
             dataGridViewSaleDetails.DefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewSaleDetails.Location = new Point(5, 20);
+            dataGridViewSaleDetails.Location = new Point(2, 20);
             dataGridViewSaleDetails.Margin = new Padding(3, 2, 3, 2);
             dataGridViewSaleDetails.Name = "dataGridViewSaleDetails";
             dataGridViewSaleDetails.ReadOnly = true;
             dataGridViewSaleDetails.RowHeadersWidth = 51;
-            dataGridViewSaleDetails.Size = new Size(1072, 262);
+            dataGridViewSaleDetails.Size = new Size(1075, 260);
             dataGridViewSaleDetails.TabIndex = 0;
             dataGridViewSaleDetails.CellValueChanged += dataGridViewPurchaseDetails_CellValueChanged;
             dataGridViewSaleDetails.RowsAdded += dataGridViewPurchaseDetails_RowsAdded;
@@ -323,23 +323,23 @@
             groupBox1.Margin = new Padding(3, 2, 3, 2);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(3, 2, 3, 2);
-            groupBox1.Size = new Size(1086, 72);
+            groupBox1.Size = new Size(1086, 112);
             groupBox1.TabIndex = 44;
             groupBox1.TabStop = false;
             groupBox1.Text = "Sale Details";
             // 
             // txtExpiryDate
             // 
-            txtExpiryDate.Location = new Point(341, 34);
+            txtExpiryDate.Location = new Point(187, 78);
             txtExpiryDate.Margin = new Padding(3, 2, 3, 2);
             txtExpiryDate.Name = "txtExpiryDate";
             txtExpiryDate.ReadOnly = true;
-            txtExpiryDate.Size = new Size(126, 23);
+            txtExpiryDate.Size = new Size(175, 23);
             txtExpiryDate.TabIndex = 11;
             // 
             // btnClearDetails
             // 
-            btnClearDetails.Location = new Point(952, 33);
+            btnClearDetails.Location = new Point(952, 77);
             btnClearDetails.Margin = new Padding(3, 2, 3, 2);
             btnClearDetails.Name = "btnClearDetails";
             btnClearDetails.Size = new Size(28, 22);
@@ -350,7 +350,7 @@
             // 
             // btnAddDetails
             // 
-            btnAddDetails.Location = new Point(985, 16);
+            btnAddDetails.Location = new Point(985, 60);
             btnAddDetails.Margin = new Padding(3, 2, 3, 2);
             btnAddDetails.Name = "btnAddDetails";
             btnAddDetails.Size = new Size(92, 49);
@@ -362,7 +362,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(673, 16);
+            label11.Location = new Point(637, 60);
             label11.Name = "label11";
             label11.Size = new Size(57, 15);
             label11.TabIndex = 0;
@@ -371,7 +371,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(584, 16);
+            label10.Location = new Point(520, 60);
             label10.Name = "label10";
             label10.Size = new Size(53, 15);
             label10.TabIndex = 0;
@@ -379,18 +379,18 @@
             // 
             // txtManfPrice
             // 
-            txtManfPrice.Location = new Point(673, 34);
+            txtManfPrice.Location = new Point(633, 78);
             txtManfPrice.Margin = new Padding(3, 2, 3, 2);
             txtManfPrice.Name = "txtManfPrice";
-            txtManfPrice.Size = new Size(97, 23);
+            txtManfPrice.Size = new Size(109, 23);
             txtManfPrice.TabIndex = 6;
             // 
             // txtSaleQnt
             // 
-            txtSaleQnt.Location = new Point(584, 34);
+            txtSaleQnt.Location = new Point(516, 78);
             txtSaleQnt.Margin = new Padding(3, 2, 3, 2);
             txtSaleQnt.Name = "txtSaleQnt";
-            txtSaleQnt.Size = new Size(84, 23);
+            txtSaleQnt.Size = new Size(109, 23);
             txtSaleQnt.TabIndex = 4;
             txtSaleQnt.Click += txtSaleQnt_Click;
             txtSaleQnt.KeyPress += txtSaleQnt_KeyPress;
@@ -398,20 +398,20 @@
             // 
             // txtDisc
             // 
-            txtDisc.Location = new Point(774, 34);
+            txtDisc.Location = new Point(750, 78);
             txtDisc.Margin = new Padding(3, 2, 3, 2);
             txtDisc.Name = "txtDisc";
-            txtDisc.Size = new Size(89, 23);
+            txtDisc.Size = new Size(98, 23);
             txtDisc.TabIndex = 7;
             txtDisc.Click += txtDisc_Click;
             txtDisc.KeyPress += txtDisc_KeyPress;
             // 
             // txtGSTtx
             // 
-            txtGSTtx.Location = new Point(868, 34);
+            txtGSTtx.Location = new Point(857, 78);
             txtGSTtx.Margin = new Padding(3, 2, 3, 2);
             txtGSTtx.Name = "txtGSTtx";
-            txtGSTtx.Size = new Size(79, 23);
+            txtGSTtx.Size = new Size(88, 23);
             txtGSTtx.TabIndex = 8;
             txtGSTtx.Click += txtGSTtx_Click;
             txtGSTtx.KeyPress += txtGSTtx_KeyPress;
@@ -421,10 +421,10 @@
             cmbBatchId.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cmbBatchId.AutoCompleteSource = AutoCompleteSource.ListItems;
             cmbBatchId.FormattingEnabled = true;
-            cmbBatchId.Location = new Point(224, 34);
+            cmbBatchId.Location = new Point(9, 78);
             cmbBatchId.Margin = new Padding(3, 2, 3, 2);
             cmbBatchId.Name = "cmbBatchId";
-            cmbBatchId.Size = new Size(112, 23);
+            cmbBatchId.Size = new Size(170, 23);
             cmbBatchId.TabIndex = 2;
             cmbBatchId.SelectedIndexChanged += cmbBatchId_SelectedIndexChanged;
             // 
@@ -433,26 +433,26 @@
             cmbMedInformation.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cmbMedInformation.AutoCompleteSource = AutoCompleteSource.ListItems;
             cmbMedInformation.FormattingEnabled = true;
-            cmbMedInformation.Location = new Point(6, 34);
+            cmbMedInformation.Location = new Point(12, 33);
             cmbMedInformation.Margin = new Padding(3, 2, 3, 2);
             cmbMedInformation.Name = "cmbMedInformation";
-            cmbMedInformation.Size = new Size(213, 23);
+            cmbMedInformation.Size = new Size(356, 23);
             cmbMedInformation.TabIndex = 1;
             cmbMedInformation.SelectedIndexChanged += cmbMedInformation_SelectedIndexChanged;
             // 
             // txtStockQuantity
             // 
             txtStockQuantity.Enabled = false;
-            txtStockQuantity.Location = new Point(472, 33);
+            txtStockQuantity.Location = new Point(371, 77);
             txtStockQuantity.Margin = new Padding(3, 2, 3, 2);
             txtStockQuantity.Name = "txtStockQuantity";
-            txtStockQuantity.Size = new Size(103, 23);
+            txtStockQuantity.Size = new Size(137, 23);
             txtStockQuantity.TabIndex = 1;
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(472, 15);
+            label9.Location = new Point(374, 59);
             label9.Name = "label9";
             label9.Size = new Size(85, 15);
             label9.TabIndex = 0;
@@ -461,7 +461,7 @@
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(868, 16);
+            label14.Location = new Point(861, 60);
             label14.Name = "label14";
             label14.Size = new Size(41, 15);
             label14.TabIndex = 0;
@@ -470,7 +470,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(226, 16);
+            label7.Location = new Point(11, 60);
             label7.Name = "label7";
             label7.Size = new Size(62, 15);
             label7.TabIndex = 0;
@@ -479,7 +479,7 @@
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(774, 16);
+            label15.Location = new Point(754, 60);
             label15.Name = "label15";
             label15.Size = new Size(39, 15);
             label15.TabIndex = 0;
@@ -488,7 +488,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(5, 18);
+            label6.Location = new Point(15, 17);
             label6.Name = "label6";
             label6.Size = new Size(97, 15);
             label6.TabIndex = 0;
@@ -497,7 +497,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(341, 15);
+            label12.Location = new Point(191, 59);
             label12.Name = "label12";
             label12.Size = new Size(66, 15);
             label12.TabIndex = 0;
@@ -536,7 +536,7 @@
             // 
             // txtBonus
             // 
-            txtBonus.Location = new Point(24, 473);
+            txtBonus.Location = new Point(24, 511);
             txtBonus.Margin = new Padding(3, 2, 3, 2);
             txtBonus.Name = "txtBonus";
             txtBonus.Size = new Size(79, 23);
@@ -601,7 +601,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(6, 536);
+            button2.Location = new Point(6, 574);
             button2.Margin = new Padding(3, 2, 3, 2);
             button2.Name = "button2";
             button2.Size = new Size(105, 27);
@@ -612,7 +612,7 @@
             // 
             // btnPurchase
             // 
-            btnPurchase.Location = new Point(961, 515);
+            btnPurchase.Location = new Point(961, 553);
             btnPurchase.Margin = new Padding(3, 2, 3, 2);
             btnPurchase.Name = "btnPurchase";
             btnPurchase.Size = new Size(134, 46);
@@ -624,7 +624,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(24, 455);
+            label8.Location = new Point(24, 493);
             label8.Name = "label8";
             label8.Size = new Size(40, 15);
             label8.TabIndex = 0;
@@ -633,7 +633,7 @@
             // 
             // txtAdvTax
             // 
-            txtAdvTax.Location = new Point(908, 459);
+            txtAdvTax.Location = new Point(908, 497);
             txtAdvTax.Margin = new Padding(3, 2, 3, 2);
             txtAdvTax.Name = "txtAdvTax";
             txtAdvTax.Size = new Size(187, 23);
@@ -644,7 +644,7 @@
             // 
             // txtTotal
             // 
-            txtTotal.Location = new Point(908, 432);
+            txtTotal.Location = new Point(908, 470);
             txtTotal.Margin = new Padding(3, 2, 3, 2);
             txtTotal.Name = "txtTotal";
             txtTotal.ReadOnly = true;
@@ -653,7 +653,7 @@
             // 
             // txtGrandTotal
             // 
-            txtGrandTotal.Location = new Point(908, 488);
+            txtGrandTotal.Location = new Point(908, 526);
             txtGrandTotal.Margin = new Padding(3, 2, 3, 2);
             txtGrandTotal.Name = "txtGrandTotal";
             txtGrandTotal.ReadOnly = true;
@@ -663,7 +663,7 @@
             // label17
             // 
             label17.AutoSize = true;
-            label17.Location = new Point(844, 462);
+            label17.Location = new Point(844, 500);
             label17.Name = "label17";
             label17.Size = new Size(45, 15);
             label17.TabIndex = 27;
@@ -672,7 +672,7 @@
             // label16
             // 
             label16.AutoSize = true;
-            label16.Location = new Point(866, 437);
+            label16.Location = new Point(866, 475);
             label16.Name = "label16";
             label16.Size = new Size(32, 15);
             label16.TabIndex = 28;
@@ -681,7 +681,7 @@
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(828, 490);
+            label13.Location = new Point(828, 528);
             label13.Name = "label13";
             label13.Size = new Size(67, 15);
             label13.TabIndex = 29;
@@ -697,7 +697,7 @@
             tabPageViewPurchase.Margin = new Padding(3, 2, 3, 2);
             tabPageViewPurchase.Name = "tabPageViewPurchase";
             tabPageViewPurchase.Padding = new Padding(3, 2, 3, 2);
-            tabPageViewPurchase.Size = new Size(1102, 568);
+            tabPageViewPurchase.Size = new Size(1102, 607);
             tabPageViewPurchase.TabIndex = 1;
             tabPageViewPurchase.Text = "View Sale";
             tabPageViewPurchase.UseVisualStyleBackColor = true;
@@ -706,10 +706,10 @@
             // 
             btnRefresh.BackgroundImage = (Image)resources.GetObject("btnRefresh.BackgroundImage");
             btnRefresh.BackgroundImageLayout = ImageLayout.Stretch;
-            btnRefresh.Location = new Point(284, 16);
+            btnRefresh.Location = new Point(1058, 6);
             btnRefresh.Margin = new Padding(3, 2, 3, 2);
             btnRefresh.Name = "btnRefresh";
-            btnRefresh.Size = new Size(30, 22);
+            btnRefresh.Size = new Size(37, 35);
             btnRefresh.TabIndex = 3;
             btnRefresh.UseVisualStyleBackColor = true;
             btnRefresh.Click += btnRefresh_Click;
@@ -747,7 +747,7 @@
             dataGridViewSale.Name = "dataGridViewSale";
             dataGridViewSale.ReadOnly = true;
             dataGridViewSale.RowHeadersWidth = 51;
-            dataGridViewSale.Size = new Size(1096, 496);
+            dataGridViewSale.Size = new Size(1096, 556);
             dataGridViewSale.TabIndex = 0;
             dataGridViewSale.MouseClick += dataGridViewSale_MouseClick;
             // 
@@ -776,7 +776,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1121, 611);
+            ClientSize = new Size(1121, 648);
             Controls.Add(tabControlPurchase);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Icon = (Icon)resources.GetObject("$this.Icon");

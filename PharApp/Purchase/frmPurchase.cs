@@ -823,8 +823,9 @@ namespace PharApp.Purchase
             if (dataGridViewPurchase.SelectedRows.Count > 0)
             {
                 string name = dataGridViewPurchase.SelectedRows[0].Cells["InvoiceNo"].Value.ToString();
+                string OrderId = dataGridViewPurchase.SelectedRows[0].Cells["OrderID"].Value.ToString();
                 // Prompt the user for confirmation
-                var frm = new frmPurchaseReturn(name);
+                var frm = new frmPurchaseReturn(name,OrderId);
                 frm.ShowDialog();
             }
             else

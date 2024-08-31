@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BML;
+using System.Diagnostics;
 
 namespace DAL
 {
@@ -94,7 +95,7 @@ namespace DAL
 
             return result;
         }
-        public async Task<bool> HandleSaleStockReturnAsync(string medicineId, string batchId, int quantity)
+        public async Task<bool> HandleSaleStockReturnAsync(string saleOrderId, string saleDetialId, string medid, string batchid, int quantity)
         {
             bool result = false;
 
@@ -105,8 +106,10 @@ namespace DAL
 
                 // Add parameters for the stored procedure
                 command.Parameters.AddWithValue("@Operation", "Sale_Return");
-                command.Parameters.AddWithValue("@MedicineID", medicineId);
-                command.Parameters.AddWithValue("@BatchID", batchId);
+                command.Parameters.AddWithValue("@SaleOrderId", saleOrderId);
+                command.Parameters.AddWithValue("@SaleDetailId", saleDetialId);
+                command.Parameters.AddWithValue("@MedicineID", medid);
+                command.Parameters.AddWithValue("@BatchID", batchid);
                 command.Parameters.AddWithValue("@Quantity", quantity);
 
                 await connection.OpenAsync();
@@ -192,6 +195,54 @@ namespace DAL
             }
 
             return saleDetails;
+        }
+
+
+        public async Task<List<SaleReturnAuditView>> GetSaleReturnAuditAsync()
+        {
+            List<SaleReturnAuditView> saleReturnAudits = new List<SaleReturnAuditView>();
+
+            try
+            {
+
+                using (var connection = new SqlConnection(_connectionString))
+                using (var command = new SqlCommand("ManageSalesDetails", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@Operation", "ViewReturnItems");
+                    await connection.OpenAsync();
+                    using (var reader = await command.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            var purchaseReturnAudit = new SaleReturnAuditView
+                            {
+                                MedName = reader["MedName"].ToString(),
+                                Name_Urdu = reader["Name_Urdu"].ToString(),
+                                BatchID = reader["BatchID"].ToString(),
+                                OriginalQuantity = Convert.ToInt32(reader["OriginalQuantity"]),
+                                ReturnQuantity = Convert.ToInt32(reader["ReturnQuantity"]),
+                                SalePrice = Convert.ToDecimal(reader["SalePrice"]),
+                                ReturnAmount = Convert.ToDecimal(reader["ReturnAmount"]),
+                                ReturnDate = Convert.ToDateTime(reader["ReturnDate"]),
+                                InvoiceNo = reader["InvoiceNo"].ToString(),
+                                SerialId = Convert.ToInt32(reader["serialid"]),
+                                TotalPriceAfterReturn = Convert.ToDecimal(reader["TotalPriceAfterReturn"]),
+                                QuantityAfterReturn = Convert.ToInt32(reader["QuantityAfterReturn"])
+                            };
+                            saleReturnAudits.Add(purchaseReturnAudit);
+                        }
+                    }
+                }
+
+                return saleReturnAudits;
+            }
+            catch (Exception ex)
+            {
+                return saleReturnAudits;
+                Debug.WriteLine(ex);
+            }
+
         }
 
     }

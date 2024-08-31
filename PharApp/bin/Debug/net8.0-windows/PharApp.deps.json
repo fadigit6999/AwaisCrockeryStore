@@ -996,12 +996,18 @@
           "DAL": "1.0.0"
         },
         "runtime": {
-          "BAL.dll": {}
+          "BAL.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "BML/1.0.0": {
         "runtime": {
-          "BML.dll": {}
+          "BML.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "DAL/1.0.0": {
@@ -1010,7 +1016,10 @@
           "System.Data.SqlClient": "4.8.6"
         },
         "runtime": {
-          "DAL.dll": {}
+          "DAL.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

@@ -16,14 +16,16 @@ namespace PharApp.Sale
 {
     public partial class frmSaleReturn : Form
     {
-        private BindingList<ViewSale> originalBindingList;
-        private BindingList<ViewSale> filteredBindingList;
+        private BindingList<SaleReturnAuditView> originalBindingList;
+        private BindingList<SaleReturnAuditView> filteredBindingList;
         private readonly string _invoiceid;
+        private readonly string _orderId;
         private string _orderDetailId;
-        public frmSaleReturn(string invoiceid = null)
+        public frmSaleReturn(string invoiceid = null, string orderid = null)
         {
             InitializeComponent();
             _invoiceid = invoiceid;
+            _orderId = orderid;
         }
         private void frmSale_Load(object sender, EventArgs e)
         {
@@ -370,6 +372,33 @@ namespace PharApp.Sale
                             MessageBox.Show("This item has been removed successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
+                    else if (dataGridViewSaleDetails.Columns[hitTestInfo.ColumnIndex].Name == "QuantityColumn")
+                    {
+                        var selectedRow = dataGridViewSaleDetails.Rows[hitTestInfo.RowIndex];
+                        var itemName = selectedRow.Cells["MedInformationColumn"].Value?.ToString() ?? string.Empty;
+
+                        var confirmationResult = MessageBox.Show(
+                            $"Are you sure you want to edit the quantity for the item ## {itemName} ##?",
+                            "Confirmation",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Question
+                        );
+                        // Extract relevant data from the selected row
+                        var orderId = selectedRow.Cells["OrderDetailIdColumn"].Value?.ToString() ?? string.Empty;
+                        var batchId = selectedRow.Cells["BatchedColumn"].Value?.ToString() ?? string.Empty;
+                        var oldQuantity = selectedRow.Cells["QuantityColumn"].Value?.ToString() ?? string.Empty;
+
+                        // Populate fields with the extracted data
+                        txtOrderid.Text = orderId;
+                        txtItem.Text = itemName;
+                        txtItemCode.Text = batchId;
+                        txtOldQnty.Text = oldQuantity;
+
+                        // Enable controls for updating the quantity
+                        txtReturnQnty.Enabled = true;
+                        btnUpdateQnty.Enabled = true;
+                    }
+
                     else
                     {
                         MessageBox.Show("Please click on the Remove button to delete an item.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -406,12 +435,6 @@ namespace PharApp.Sale
                 return false;
             }
 
-            //// Expiry Date validation
-            //if (!DateTime.TryParse(dateTimeMedExpiry.Text, out DateTime expiryDate) || expiryDate < DateTime.Today)
-            //{
-            //    MessageBox.Show("Please enter a valid future Expiry Date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return false;
-            //}
 
             // Quantity validation
             if (!int.TryParse(txtSaleQnt.Text, out int quantity) || quantity <= 0)
@@ -508,14 +531,16 @@ namespace PharApp.Sale
                         string medicineId = row.Cells["MedIdColumn"].Value?.ToString();
                         string batchId = row.Cells["BatchedColumn"].Value?.ToString();
                         _orderDetailId = row.Cells["OrderDetailIdColumn"].Value?.ToString();
+                        string id = row.Cells["MedIdColumn"].Value?.ToString();
                         int quantity = Convert.ToInt32(row.Cells["QuantityColumn"].Value);
                         string invoice = lblDefineInvoice.Text;
+                        string formatOrderId = Helper.FormatGuid(_orderId);
 
-                        result = await SaleOrderDetailsBAL.HandleSaleStockReturnAsync(medicineId, batchId.ToLower().ToString(), quantity);
+                        result = await SaleOrderDetailsBAL.HandleSaleStockReturnAsync(formatOrderId, _orderDetailId, medicineId, batchId, quantity);
                         Helper.Log("Sale Stock Return Changes: " + " ," + medicineId + " ," + batchId.ToString() + " ," + quantity);
                         if (result)
                         {
-                            result = await SaleOrderDetailsBAL.UpdateSaleReturnAsync(_orderDetailId, medicineId, batchId, invoice);
+                            //result = await SaleOrderDetailsBAL.UpdateSaleReturnAsync(_orderDetailId, medicineId, batchId, invoice);
                             Helper.Log("Sale (Order-Details) Return Changes: " + " ," + _orderDetailId + " ," + medicineId + " ," + batchId.ToString() + " ," + invoice);
                         }
                         else
@@ -592,43 +617,39 @@ namespace PharApp.Sale
         {
             try
             {
-                var saleBal = new BAL.SaleOrder(Helper.GetConnectionStringFromSettings());
-                var saleList = await saleBal.GetSaleReturnOrdersAsync();
+                var saleBal = new BAL.SaleDetail(Helper.GetConnectionStringFromSettings());
+                var saleList = await saleBal.GetSaleDetailReturnAuditAsync();
 
-                originalBindingList = new BindingList<ViewSale>(saleList);
-                filteredBindingList = new BindingList<ViewSale>(saleList);
+                originalBindingList = new BindingList<SaleReturnAuditView>(saleList);
+                filteredBindingList = new BindingList<SaleReturnAuditView>(saleList);
                 dataGridViewSale.DataSource = filteredBindingList;
 
-                dataGridViewSale.Columns["OrderID"].HeaderText = "Id";
-                dataGridViewSale.Columns["InvoiceNo"].HeaderText = "Invoice";
-                dataGridViewSale.Columns["MedName"].HeaderText = "Item";
-                dataGridViewSale.Columns["Customer"].HeaderText = "Customer";
-                dataGridViewSale.Columns["Quantity"].HeaderText = "Quantity";
-                dataGridViewSale.Columns["Total"].HeaderText = "Gr. Total";
-                dataGridViewSale.Columns["TypeName"].HeaderText = "Payment";
-                dataGridViewSale.Columns["ExpiryDate"].HeaderText = "Ex. Date";
-                dataGridViewSale.Columns["BatchId"].HeaderText = "Item Code";
-                dataGridViewSale.Columns["InvType"].HeaderText = "Invoice Type";
+                dataGridViewSale.Columns["SerialId"].HeaderText = "Serial ID";
+                dataGridViewSale.Columns["InvoiceNo"].HeaderText = "Invoice No.";
+                dataGridViewSale.Columns["MedName"].HeaderText = "Item (En)";
+                dataGridViewSale.Columns["Name_Urdu"].HeaderText = "Item (Urdu)";
+                dataGridViewSale.Columns["BatchID"].HeaderText = "Item Code";
+                dataGridViewSale.Columns["OriginalQuantity"].HeaderText = "Original Quantity";
+                dataGridViewSale.Columns["ReturnQuantity"].HeaderText = "Returned Quantity";
+                dataGridViewSale.Columns["SalePrice"].HeaderText = "Sale Price";
+                dataGridViewSale.Columns["ReturnAmount"].HeaderText = "Return Amount";
+                dataGridViewSale.Columns["ReturnDate"].HeaderText = "Return Date";
+                dataGridViewSale.Columns["TotalPriceAfterReturn"].HeaderText = "Total After Return";
+                dataGridViewSale.Columns["QuantityAfterReturn"].HeaderText = "Qnty After Return";
 
-                dataGridViewSale.Columns["OrderID"].DisplayIndex = 0;
+
+                dataGridViewSale.Columns["SerialId"].DisplayIndex = 0;
                 dataGridViewSale.Columns["InvoiceNo"].DisplayIndex = 1;
-                dataGridViewSale.Columns["MedName"].DisplayIndex = 4;
-                dataGridViewSale.Columns["Customer"].DisplayIndex = 6;
-                dataGridViewSale.Columns["TypeName"].DisplayIndex = 7;
-                dataGridViewSale.Columns["Quantity"].DisplayIndex = 8;
-                dataGridViewSale.Columns["Total"].DisplayIndex = 9;
-                dataGridViewSale.Columns["AreaName"].DisplayIndex = 10;
-                dataGridViewSale.Columns["BookerName"].DisplayIndex = 11;
-                dataGridViewSale.Columns["SupplierName"].DisplayIndex = 12;
-                dataGridViewSale.Columns["ExpiryDate"].DisplayIndex = 5;
-                dataGridViewSale.Columns["BatchId"].DisplayIndex = 3;
-                dataGridViewSale.Columns["InvType"].DisplayIndex = 2;
-
-
-                dataGridViewSale.Columns["AreaName"].Visible = false;
-                dataGridViewSale.Columns["BookerName"].Visible = false;
-                dataGridViewSale.Columns["SupplierName"].Visible= false;
-                dataGridViewSale.Columns["InvType"].Visible= false;
+                dataGridViewSale.Columns["MedName"].DisplayIndex = 2;
+                dataGridViewSale.Columns["Name_Urdu"].DisplayIndex = 3;
+                dataGridViewSale.Columns["BatchID"].DisplayIndex = 4;
+                dataGridViewSale.Columns["OriginalQuantity"].DisplayIndex = 5;
+                dataGridViewSale.Columns["ReturnQuantity"].DisplayIndex = 6;
+                dataGridViewSale.Columns["SalePrice"].DisplayIndex = 7;
+                dataGridViewSale.Columns["ReturnAmount"].DisplayIndex = 8;
+                dataGridViewSale.Columns["ReturnDate"].DisplayIndex = 9;
+                dataGridViewSale.Columns["TotalPriceAfterReturn"].DisplayIndex = 10;
+                dataGridViewSale.Columns["QuantityAfterReturn"].DisplayIndex = 11;
 
                 dataGridViewSale.Refresh();
             }
@@ -746,27 +767,25 @@ namespace PharApp.Sale
             string filterText = txtSearch.Text.Trim().ToLower();
             if (string.IsNullOrWhiteSpace(filterText))
             {
-                filteredBindingList = new BindingList<ViewSale>(originalBindingList);
+                filteredBindingList = new BindingList<SaleReturnAuditView>(originalBindingList);
             }
             else
             {
-                var filteredList = originalBindingList.Where(sale =>
-                    sale.OrderID.ToString().ToLower().Contains(filterText) ||
-                    sale.InvoiceNo.ToLower().Contains(filterText) ||
-                    sale.MedName.ToLower().Contains(filterText) ||
-                    sale.Customer.ToLower().Contains(filterText) ||
-                    sale.Quantity.ToString().ToLower().Contains(filterText) ||
-                    sale.Total.ToString().ToLower().Contains(filterText) ||
-                    sale.TypeName.ToLower().Contains(filterText) ||
-                    sale.ExpiryDate.ToString().ToLower().Contains(filterText) ||
-                    sale.BatchId.ToLower().Contains(filterText) ||
-                    sale.InvType.ToLower().Contains(filterText) ||
-                    sale.AreaName.ToLower().Contains(filterText) ||
-                    sale.BookerName.ToLower().Contains(filterText) ||
-                    sale.SupplierName.ToLower().Contains(filterText)
-                ).ToList();
 
-                filteredBindingList = new BindingList<ViewSale>(filteredList);
+                var filteredList = originalBindingList.Where(Sale =>
+   Sale.SerialId.ToString().ToLower().Contains(filterText) ||
+   Sale.InvoiceNo.ToLower().Contains(filterText) ||
+   Sale.MedName.ToLower().Contains(filterText) ||
+   Sale.Name_Urdu.ToLower().Contains(filterText) ||
+   Sale.OriginalQuantity.ToString().ToLower().Contains(filterText) ||
+   Sale.ReturnQuantity.ToString().ToLower().Contains(filterText) ||
+   Sale.SalePrice.ToString().ToLower().Contains(filterText) ||
+   Sale.ReturnAmount.ToString().ToLower().Contains(filterText) ||
+   Sale.ReturnDate.ToString("dd-MM-yyyy").ToLower().Contains(filterText) || // Assuming you want to filter based on the date format
+   Sale.BatchID.ToString().ToLower().Contains(filterText)
+).ToList();
+
+                filteredBindingList = new BindingList<SaleReturnAuditView>(filteredList);
             }
 
             dataGridViewSale.DataSource = filteredBindingList;
@@ -883,6 +902,67 @@ namespace PharApp.Sale
             {
                 MessageBox.Show("Please select a medicine to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnUpdateQnty_Click(object sender, EventArgs e)
+        {
+            // Retrieve the OrderDetailID from the input field
+            string orderDetailId = txtOrderid.Text;
+            // Loop through the DataGridView rows to find the matching OrderDetailID
+            foreach (DataGridViewRow row in dataGridViewSaleDetails.Rows)
+            {
+                // Compare the current row's OrderDetailID with the input
+                if (row.Cells["OrderDetailIdColumn"].Value != null &&
+                    row.Cells["OrderDetailIdColumn"].Value.ToString() == orderDetailId)
+                {
+
+                    row.Cells["QuantityColumn"].Value = txtReturnQnty.Text;
+
+                    ClearUpdateText();
+                    // Display success message
+                    MessageBox.Show("The item has been updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+            }
+
+            // If the OrderDetailID was not found in the grid
+            MessageBox.Show("OrderDetailID not found in the grid.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void txtNewQnty_KeyUp(object sender, KeyEventArgs e)
+        {
+            // Get the text from the TextBox
+            string inputText = txtReturnQnty.Text;
+
+            // Validate if the input is numeric
+            if (!System.Text.RegularExpressions.Regex.IsMatch(inputText, "^[0-9]*$"))
+            {
+                // If the input is not numeric, remove the invalid characters
+                MessageBox.Show("Please enter only numeric digits (0-9).", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtReturnQnty.Text = new string(inputText.Where(char.IsDigit).ToArray());
+                txtReturnQnty.SelectionStart = txtReturnQnty.Text.Length; // Move cursor to end
+                return;
+            }
+
+            // Check if the new quantity is greater than the old quantity
+            if (int.TryParse(txtReturnQnty.Text, out int newQuantity) && int.TryParse(txtOldQnty.Text, out int oldQuantity))
+            {
+                if (newQuantity > oldQuantity)
+                {
+                    MessageBox.Show("The new quantity cannot be greater than the old quantity.", "Invalid Quantity", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtReturnQnty.Text = oldQuantity.ToString(); // Reset to old quantity
+                    txtReturnQnty.SelectionStart = txtReturnQnty.Text.Length; // Move cursor to end
+                }
+            }
+        }
+
+        void ClearUpdateText()
+        {
+            txtOrderid.Text = "";
+            txtItem.Text = "";
+            txtItemCode.Text = "";
+            txtOldQnty.Text = "";
+            txtReturnQnty.Text = "";
         }
     }
 }
