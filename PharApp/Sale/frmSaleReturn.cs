@@ -789,6 +789,35 @@ namespace PharApp.Sale
             }
 
             dataGridViewSale.DataSource = filteredBindingList;
+
+            dataGridViewSale.Columns["SerialId"].HeaderText = "Serial ID";
+            dataGridViewSale.Columns["InvoiceNo"].HeaderText = "Invoice No.";
+            dataGridViewSale.Columns["MedName"].HeaderText = "Item (En)";
+            dataGridViewSale.Columns["Name_Urdu"].HeaderText = "Item (Urdu)";
+            dataGridViewSale.Columns["BatchID"].HeaderText = "Item Code";
+            dataGridViewSale.Columns["OriginalQuantity"].HeaderText = "Original Quantity";
+            dataGridViewSale.Columns["ReturnQuantity"].HeaderText = "Returned Quantity";
+            dataGridViewSale.Columns["SalePrice"].HeaderText = "Sale Price";
+            dataGridViewSale.Columns["ReturnAmount"].HeaderText = "Return Amount";
+            dataGridViewSale.Columns["ReturnDate"].HeaderText = "Return Date";
+            dataGridViewSale.Columns["TotalPriceAfterReturn"].HeaderText = "Total After Return";
+            dataGridViewSale.Columns["QuantityAfterReturn"].HeaderText = "Qnty After Return";
+
+
+            dataGridViewSale.Columns["SerialId"].DisplayIndex = 0;
+            dataGridViewSale.Columns["InvoiceNo"].DisplayIndex = 1;
+            dataGridViewSale.Columns["MedName"].DisplayIndex = 2;
+            dataGridViewSale.Columns["Name_Urdu"].DisplayIndex = 3;
+            dataGridViewSale.Columns["BatchID"].DisplayIndex = 4;
+            dataGridViewSale.Columns["OriginalQuantity"].DisplayIndex = 5;
+            dataGridViewSale.Columns["ReturnQuantity"].DisplayIndex = 6;
+            dataGridViewSale.Columns["SalePrice"].DisplayIndex = 7;
+            dataGridViewSale.Columns["ReturnAmount"].DisplayIndex = 8;
+            dataGridViewSale.Columns["ReturnDate"].DisplayIndex = 9;
+            dataGridViewSale.Columns["TotalPriceAfterReturn"].DisplayIndex = 10;
+            dataGridViewSale.Columns["QuantityAfterReturn"].DisplayIndex = 11;
+
+            dataGridViewSale.Refresh();
         }
         private void txtSaleQnt_KeyPress(object sender, KeyPressEventArgs e)
         {

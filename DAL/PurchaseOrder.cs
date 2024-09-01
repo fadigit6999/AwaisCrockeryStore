@@ -172,7 +172,8 @@ namespace DAL
                             Quantity = reader["Quantity"].ToString(),
                             TypeName = reader["TypeName"].ToString(),
                             BatchId = reader["BatchId"].ToString().ToUpper(),
-                            ExpiryDate = Convert.ToDateTime(reader["ExpiryDate"].ToString()).ToString("dd/MM/yyyy") 
+                            ExpiryDate = Convert.ToDateTime(reader["ExpiryDate"].ToString()).ToString("dd/MM/yyyy"),
+                            PurchaseDate= Convert.ToDateTime(reader["PurchaseDate"].ToString()).ToString("dd/MM/yyyy")
                         };
                         purchaseOrders.Add(purchaseOrder);
                     }

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationIcon>23af8142ca1d397e25b34ad0379bc345.ico</ApplicationIcon>
@@ -17,6 +17,7 @@
     <None Remove="RdlcReports\Sale\rptSale.rdlc" />
     <None Remove="RdlcReports\Sale\rptSaleReturn.rdlc" />
     <None Remove="RdlcReports\Sale\rptSSR.rdlc" />
+    <None Remove="RdlcReports\Stock\Stock.rdlc" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,6 +31,7 @@
     <EmbeddedResource Include="RdlcReports\Sale\rptSaleReturn.rdlc" />
     <EmbeddedResource Include="RdlcReports\Sale\rptSale.rdlc" />
     <EmbeddedResource Include="RdlcReports\Sale\rptSSR.rdlc" />
+    <EmbeddedResource Include="RdlcReports\Stock\Stock.rdlc" />
   </ItemGroup>
 
   <ItemGroup>
@@ -88,6 +90,11 @@
     <Compile Update="RdlcReports\Sale\rptSaleReturn.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="RdlcReports\Stock\Stock.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Stock.xsd</DependentUpon>
+    </Compile>
     <Compile Update="Sale\Area\frmRegisterSupplier.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +136,10 @@
     <None Update="RdlcReports\Sale\DSSaleReturn.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DSSaleReturn.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="RdlcReports\Stock\Stock.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Stock.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
 

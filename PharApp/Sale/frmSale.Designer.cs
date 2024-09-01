@@ -29,10 +29,13 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSale));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             tabControlPurchase = new TabControl();
             tabPagePurchase = new TabPage();
+            btnReloadCP = new Button();
+            btnAddPaymentType = new Button();
+            btnAddCustomer = new Button();
             groupBox3 = new GroupBox();
             label21 = new Label();
             label20 = new Label();
@@ -115,6 +118,9 @@
             // 
             // tabPagePurchase
             // 
+            tabPagePurchase.Controls.Add(btnReloadCP);
+            tabPagePurchase.Controls.Add(btnAddPaymentType);
+            tabPagePurchase.Controls.Add(btnAddCustomer);
             tabPagePurchase.Controls.Add(groupBox3);
             tabPagePurchase.Controls.Add(checkBoxWarranty);
             tabPagePurchase.Controls.Add(groupBox2);
@@ -148,6 +154,40 @@
             tabPagePurchase.TabIndex = 0;
             tabPagePurchase.Text = "Sale";
             tabPagePurchase.UseVisualStyleBackColor = true;
+            // 
+            // btnReloadCP
+            // 
+            btnReloadCP.BackgroundImage = (Image)resources.GetObject("btnReloadCP.BackgroundImage");
+            btnReloadCP.BackgroundImageLayout = ImageLayout.Stretch;
+            btnReloadCP.Location = new Point(953, 24);
+            btnReloadCP.Margin = new Padding(3, 2, 3, 2);
+            btnReloadCP.Name = "btnReloadCP";
+            btnReloadCP.Size = new Size(26, 26);
+            btnReloadCP.TabIndex = 48;
+            btnReloadCP.UseVisualStyleBackColor = true;
+            btnReloadCP.Click += btnReloadCP_Click;
+            // 
+            // btnAddPaymentType
+            // 
+            btnAddPaymentType.Font = new Font("Verdana", 12F);
+            btnAddPaymentType.Location = new Point(769, 25);
+            btnAddPaymentType.Name = "btnAddPaymentType";
+            btnAddPaymentType.Size = new Size(29, 26);
+            btnAddPaymentType.TabIndex = 12;
+            btnAddPaymentType.Text = "+";
+            btnAddPaymentType.UseVisualStyleBackColor = true;
+            btnAddPaymentType.Click += btnAddPaymentType_Click;
+            // 
+            // btnAddCustomer
+            // 
+            btnAddCustomer.Font = new Font("Verdana", 12F);
+            btnAddCustomer.Location = new Point(568, 25);
+            btnAddCustomer.Name = "btnAddCustomer";
+            btnAddCustomer.Size = new Size(29, 26);
+            btnAddCustomer.TabIndex = 12;
+            btnAddCustomer.Text = "+";
+            btnAddCustomer.UseVisualStyleBackColor = true;
+            btnAddCustomer.Click += btnAddCustomer_Click;
             // 
             // groupBox3
             // 
@@ -293,7 +333,7 @@
             // 
             saleDate.CustomFormat = "yyyy-MM-dd";
             saleDate.Format = DateTimePickerFormat.Short;
-            saleDate.Location = new Point(290, 26);
+            saleDate.Location = new Point(199, 26);
             saleDate.Margin = new Padding(3, 2, 3, 2);
             saleDate.Name = "saleDate";
             saleDate.Size = new Size(199, 23);
@@ -508,7 +548,7 @@
             cmbPaymentType.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cmbPaymentType.AutoCompleteSource = AutoCompleteSource.ListItems;
             cmbPaymentType.FormattingEnabled = true;
-            cmbPaymentType.Location = new Point(662, 26);
+            cmbPaymentType.Location = new Point(599, 26);
             cmbPaymentType.Margin = new Padding(3, 2, 3, 2);
             cmbPaymentType.Name = "cmbPaymentType";
             cmbPaymentType.Size = new Size(168, 23);
@@ -519,7 +559,7 @@
             cmbCustomer.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cmbCustomer.AutoCompleteSource = AutoCompleteSource.ListItems;
             cmbCustomer.FormattingEnabled = true;
-            cmbCustomer.Location = new Point(494, 26);
+            cmbCustomer.Location = new Point(403, 26);
             cmbCustomer.Margin = new Padding(3, 2, 3, 2);
             cmbCustomer.Name = "cmbCustomer";
             cmbCustomer.Size = new Size(162, 23);
@@ -528,7 +568,7 @@
             // txtInvoice
             // 
             txtInvoice.Enabled = false;
-            txtInvoice.Location = new Point(104, 28);
+            txtInvoice.Location = new Point(13, 28);
             txtInvoice.Margin = new Padding(3, 2, 3, 2);
             txtInvoice.Name = "txtInvoice";
             txtInvoice.Size = new Size(181, 23);
@@ -547,7 +587,7 @@
             // 
             // txtDetail
             // 
-            txtDetail.Location = new Point(841, 26);
+            txtDetail.Location = new Point(800, 26);
             txtDetail.Margin = new Padding(3, 2, 3, 2);
             txtDetail.Name = "txtDetail";
             txtDetail.Size = new Size(149, 23);
@@ -556,7 +596,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(104, 10);
+            label4.Location = new Point(16, 10);
             label4.Name = "label4";
             label4.Size = new Size(91, 15);
             label4.TabIndex = 35;
@@ -565,7 +605,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(662, 6);
+            label3.Location = new Point(602, 8);
             label3.Name = "label3";
             label3.Size = new Size(81, 15);
             label3.TabIndex = 36;
@@ -574,7 +614,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(841, 10);
+            label5.Location = new Point(803, 10);
             label5.Name = "label5";
             label5.Size = new Size(42, 15);
             label5.TabIndex = 37;
@@ -583,7 +623,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(290, 9);
+            label2.Location = new Point(202, 9);
             label2.Name = "label2";
             label2.Size = new Size(55, 15);
             label2.TabIndex = 38;
@@ -592,7 +632,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(494, 8);
+            label1.Location = new Point(407, 8);
             label1.Name = "label1";
             label1.Size = new Size(59, 15);
             label1.TabIndex = 39;
@@ -863,5 +903,8 @@
         private ComboBox cmbSupplier;
         private ComboBox cmbBooker;
         private Button btnRefresh;
+        private Button btnAddCustomer;
+        private Button btnAddPaymentType;
+        private Button btnReloadCP;
     }
 }

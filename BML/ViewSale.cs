@@ -21,5 +21,7 @@ namespace BML
         public string? AreaName { get; set; }
         public string? BookerName { get; set; }
         public string? SupplierName { get; set; }
+        public string? SalesDate { get; set; }
+
     }
 }

@@ -17,5 +17,6 @@ namespace BML
         public string? InvoiceNo { get; set; }
         public string? Quantity { get; set; }
         public string? TypeName { get; set; }
+        public string? PurchaseDate { get; set; }
     }
 }

@@ -114,6 +114,7 @@ namespace DAL
                             BatchId= reader["BatchId"].ToString(),
                             InvType= reader["EstimateStatus"].ToString(),
                             ExpiryDate =Convert.ToDateTime(reader["ExpiryDate"]).ToString("dd/MM/yyyy"),
+                            SalesDate = Convert.ToDateTime(reader["SalesDate"]).ToString("dd/MM/yyyy"),
                             Quantity = reader["Quantity"].ToString(),
                             Total= reader["Total"].ToString(),
                             InvoiceNo = reader["InvoiceNo"].ToString(),

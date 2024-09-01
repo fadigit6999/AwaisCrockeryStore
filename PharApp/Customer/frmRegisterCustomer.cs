@@ -19,10 +19,18 @@ namespace PharApp.Customer
         private List<BML.Customer> _customerList;
         public IReadOnlyList<BML.Customer> CustomerList => _customerList.AsReadOnly();
         private readonly string _customerId = null;
-        public frmRegisterCustomer(Form frm, string customerId = null)
+        public frmRegisterCustomer(Form frm = null, string customerId = null)
         {
             InitializeComponent();
-            _frmCustomer = frm as frmCustomers;
+            if (frm != null)
+            {
+                _frmCustomer = frm as frmCustomers;
+                
+            }
+            else
+            {
+                btnRegisterAdd.Visible = false;
+            }
             _customerId = customerId;
         }
 
@@ -79,6 +87,9 @@ namespace PharApp.Customer
         {
             try
             {
+                if (_frmCustomer == null)
+                    return;
+
                 var customerBal = new BAL.Customer(Helper.GetConnectionStringFromSettings());
                 _customerList = await customerBal.GetCustomersAsync();
                 // Bind the data to the grid
@@ -199,7 +210,7 @@ namespace PharApp.Customer
                 string customerType = string.IsNullOrEmpty(txtType.Text) ? string.Empty : txtType.Text;
                 string category = cmbCustomerCategory.Text;
                 var customerBAL = new BAL.Customer(Helper.GetConnectionStringFromSettings());
-                int result = await customerBAL.UpdateCustomerAsync(_customerId,firstName,email,phone,address,category,customerType,dsl);
+                int result = await customerBAL.UpdateCustomerAsync(_customerId, firstName, email, phone, address, category, customerType, dsl);
                 if (result == 1)
                 {
                     Helper.Log("Customer Updated: " + " ," + firstName + " ," + email + " ," + address + " ," + customerType + " ," + category + " ," + dsl);

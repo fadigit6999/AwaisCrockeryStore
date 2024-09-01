@@ -19,6 +19,7 @@ using PharApp.Inventory;
 using PharApp.Purchase;
 using PharApp.RdlcReports.Purchase;
 using PharApp.RdlcReports.Sale;
+using PharApp.RdlcReports.Stock;
 using PharApp.Sale;
 using PharApp.Sale.Area;
 using PharApp.Settings;
@@ -53,8 +54,8 @@ namespace PharApp.Main
         private async void frmMain_Load(object sender, EventArgs e)
         {
             await LoadMetrics();
-            await LoadExpiryStock();
-            toolStripStatuslblVersion.Text = "Awais Plastic Store 1.0.0";
+            //await LoadExpiryStock();
+            toolStripStatuslblVersion.Text = "Awais Plastic Store 1.2.1";
             this.timerMain.Start();
             SetMenuVisibility(BML.UserSession.User.UserRole.ToUpper().ToString());
         }
@@ -355,6 +356,12 @@ namespace PharApp.Main
         private void purchaseSummaryReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var frm = new rptPSR();
+            frm.ShowDialog();
+        }
+
+        private void stockReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new frmStockReport();
             frm.ShowDialog();
         }
     }

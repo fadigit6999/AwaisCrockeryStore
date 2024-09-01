@@ -1,6 +1,8 @@
 ﻿using BML;
+using PharApp.Customer;
 using PharApp.RdlcReports.Purchase;
 using PharApp.RdlcReports.Sale;
+using PharApp.Settings;
 using PharApp.WinHelper;
 using System;
 using System.Collections.Generic;
@@ -750,27 +752,32 @@ namespace PharApp.Sale
                 dataGridViewSale.Columns["AreaName"].HeaderText = "Area";
                 dataGridViewSale.Columns["BookerName"].HeaderText = "Booker";
                 dataGridViewSale.Columns["SupplierName"].HeaderText = "Supplier";
+                dataGridViewSale.Columns["SalesDate"].HeaderText = "Sa Date";
 
 
 
                 dataGridViewSale.Columns["OrderID"].DisplayIndex = 0;
                 dataGridViewSale.Columns["InvoiceNo"].DisplayIndex = 1;
-                dataGridViewSale.Columns["MedName"].DisplayIndex = 4;
-                dataGridViewSale.Columns["Customer"].DisplayIndex = 6;
-                dataGridViewSale.Columns["TypeName"].DisplayIndex = 7;
-                dataGridViewSale.Columns["Quantity"].DisplayIndex = 8;
-                dataGridViewSale.Columns["Total"].DisplayIndex = 9;
-                dataGridViewSale.Columns["AreaName"].DisplayIndex = 10;
-                dataGridViewSale.Columns["BookerName"].DisplayIndex = 11;
-                dataGridViewSale.Columns["SupplierName"].DisplayIndex = 12;
-                dataGridViewSale.Columns["ExpiryDate"].DisplayIndex = 5;
-                dataGridViewSale.Columns["BatchId"].DisplayIndex = 3;
                 dataGridViewSale.Columns["InvType"].DisplayIndex = 2;
+                dataGridViewSale.Columns["SalesDate"].DisplayIndex = 3;
+                dataGridViewSale.Columns["MedName"].DisplayIndex = 4;
+                dataGridViewSale.Columns["Customer"].DisplayIndex = 5;
+                dataGridViewSale.Columns["TypeName"].DisplayIndex = 6;
+                dataGridViewSale.Columns["BatchId"].DisplayIndex = 7;
+                dataGridViewSale.Columns["ExpiryDate"].DisplayIndex = 8;
+                dataGridViewSale.Columns["Quantity"].DisplayIndex = 9;
+                dataGridViewSale.Columns["Total"].DisplayIndex = 10;
+                dataGridViewSale.Columns["AreaName"].DisplayIndex = 11;
+                dataGridViewSale.Columns["BookerName"].DisplayIndex = 12;
+                dataGridViewSale.Columns["SupplierName"].DisplayIndex = 13;
+
+
+
 
                 dataGridViewSale.Columns["AreaName"].Visible = false;
-                dataGridViewSale.Columns["BookerName"].Visible= false;
-                dataGridViewSale.Columns["SupplierName"].Visible= false;
-                dataGridViewSale.Columns["InvType"].Visible= false;
+                dataGridViewSale.Columns["BookerName"].Visible = false;
+                dataGridViewSale.Columns["SupplierName"].Visible = false;
+                dataGridViewSale.Columns["InvType"].Visible = false;
 
                 dataGridViewSale.Refresh();
             }
@@ -914,6 +921,48 @@ namespace PharApp.Sale
             }
 
             dataGridViewSale.DataSource = filteredBindingList;
+
+            dataGridViewSale.Columns["OrderID"].HeaderText = "Id";
+            dataGridViewSale.Columns["InvoiceNo"].HeaderText = "Invoice";
+            dataGridViewSale.Columns["MedName"].HeaderText = "Item";
+            dataGridViewSale.Columns["Customer"].HeaderText = "Customer";
+            dataGridViewSale.Columns["Quantity"].HeaderText = "Quantity";
+            dataGridViewSale.Columns["Total"].HeaderText = "Gr. Total";
+            dataGridViewSale.Columns["TypeName"].HeaderText = "Payment";
+            dataGridViewSale.Columns["ExpiryDate"].HeaderText = "Ex. Date";
+            dataGridViewSale.Columns["BatchId"].HeaderText = "Item Code";
+            dataGridViewSale.Columns["InvType"].HeaderText = "Invoice Type";
+            dataGridViewSale.Columns["AreaName"].HeaderText = "Area";
+            dataGridViewSale.Columns["BookerName"].HeaderText = "Booker";
+            dataGridViewSale.Columns["SupplierName"].HeaderText = "Supplier";
+            dataGridViewSale.Columns["SalesDate"].HeaderText = "Sa Date";
+
+
+
+            dataGridViewSale.Columns["OrderID"].DisplayIndex = 0;
+            dataGridViewSale.Columns["InvoiceNo"].DisplayIndex = 1;
+            dataGridViewSale.Columns["InvType"].DisplayIndex = 2;
+            dataGridViewSale.Columns["SalesDate"].DisplayIndex = 3;
+            dataGridViewSale.Columns["MedName"].DisplayIndex = 4;
+            dataGridViewSale.Columns["Customer"].DisplayIndex = 5;
+            dataGridViewSale.Columns["TypeName"].DisplayIndex = 6;
+            dataGridViewSale.Columns["BatchId"].DisplayIndex = 7;
+            dataGridViewSale.Columns["ExpiryDate"].DisplayIndex = 8;
+            dataGridViewSale.Columns["Quantity"].DisplayIndex = 9;
+            dataGridViewSale.Columns["Total"].DisplayIndex = 10;
+            dataGridViewSale.Columns["AreaName"].DisplayIndex = 11;
+            dataGridViewSale.Columns["BookerName"].DisplayIndex = 12;
+            dataGridViewSale.Columns["SupplierName"].DisplayIndex = 13;
+
+
+
+
+            dataGridViewSale.Columns["AreaName"].Visible = false;
+            dataGridViewSale.Columns["BookerName"].Visible = false;
+            dataGridViewSale.Columns["SupplierName"].Visible = false;
+            dataGridViewSale.Columns["InvType"].Visible = false;
+
+            dataGridViewSale.Refresh();
         }
 
         private void txtSaleQnt_KeyPress(object sender, KeyPressEventArgs e)
@@ -1050,7 +1099,7 @@ namespace PharApp.Sale
                     string invoiceno = dataGridViewSale.SelectedRows[0].Cells["InvoiceNo"].Value.ToString();
                     string OrderId = dataGridViewSale.SelectedRows[0].Cells["OrderID"].Value.ToString();
                     // Code to print the purchase
-                    var frm = new frmSaleReturn(invoiceno,OrderId);
+                    var frm = new frmSaleReturn(invoiceno, OrderId);
                     frm.ShowDialog();
 
                 }
@@ -1066,5 +1115,23 @@ namespace PharApp.Sale
             LoadGridDataViewSale();
         }
 
+        private void btnAddCustomer_Click(object sender, EventArgs e)
+        {
+            var frm = new frmRegisterCustomer();
+            frm.ShowDialog();
+
+        }
+
+        private void btnReloadCP_Click(object sender, EventArgs e)
+        {
+            PopulateComboBoxCustomer();
+            PopulateComboBoxPaymentType();
+        }
+
+        private void btnAddPaymentType_Click(object sender, EventArgs e)
+        {
+            var frm = new frmPyament();
+            frm.ShowDialog();
+        }
     }
 }

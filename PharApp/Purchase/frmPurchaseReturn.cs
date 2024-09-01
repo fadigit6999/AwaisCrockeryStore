@@ -596,8 +596,8 @@ namespace PharApp.Purchase
 
                 dataGridViewPurchase.Columns["SerialId"].HeaderText = "Serial ID";
                 dataGridViewPurchase.Columns["InvoiceNo"].HeaderText = "Invoice No.";
-                dataGridViewPurchase.Columns["MedName"].HeaderText = "Medicine Name";
-                dataGridViewPurchase.Columns["Name_Urdu"].HeaderText = "Name Urdu";
+                dataGridViewPurchase.Columns["MedName"].HeaderText = "Item (EN)";
+                dataGridViewPurchase.Columns["Name_Urdu"].HeaderText = "Item (Urdu)";
                 dataGridViewPurchase.Columns["BatchID"].HeaderText = "Item Code";
                 dataGridViewPurchase.Columns["OriginalQuantity"].HeaderText = "Original Quantity";
                 dataGridViewPurchase.Columns["ReturnQuantity"].HeaderText = "Returned Quantity";
@@ -657,6 +657,34 @@ namespace PharApp.Purchase
             }
 
             dataGridViewPurchase.DataSource = filteredPurchaseList;
+            dataGridViewPurchase.Columns["SerialId"].HeaderText = "Serial ID";
+            dataGridViewPurchase.Columns["InvoiceNo"].HeaderText = "Invoice No.";
+            dataGridViewPurchase.Columns["MedName"].HeaderText = "Item (EN)";
+            dataGridViewPurchase.Columns["Name_Urdu"].HeaderText = "Item (Urdu)";
+            dataGridViewPurchase.Columns["BatchID"].HeaderText = "Item Code";
+            dataGridViewPurchase.Columns["OriginalQuantity"].HeaderText = "Original Quantity";
+            dataGridViewPurchase.Columns["ReturnQuantity"].HeaderText = "Returned Quantity";
+            dataGridViewPurchase.Columns["PurchasePrice"].HeaderText = "Purchase Price";
+            dataGridViewPurchase.Columns["ReturnAmount"].HeaderText = "Return Amount";
+            dataGridViewPurchase.Columns["ReturnDate"].HeaderText = "Return Date";
+            dataGridViewPurchase.Columns["TotalPriceAfterReturn"].HeaderText = "Total After Return";
+            dataGridViewPurchase.Columns["QuantityAfterReturn"].HeaderText = "Qnty After Return";
+
+
+            dataGridViewPurchase.Columns["SerialId"].DisplayIndex = 0;
+            dataGridViewPurchase.Columns["InvoiceNo"].DisplayIndex = 1;
+            dataGridViewPurchase.Columns["MedName"].DisplayIndex = 2;
+            dataGridViewPurchase.Columns["Name_Urdu"].DisplayIndex = 3;
+            dataGridViewPurchase.Columns["BatchID"].DisplayIndex = 4;
+            dataGridViewPurchase.Columns["OriginalQuantity"].DisplayIndex = 5;
+            dataGridViewPurchase.Columns["ReturnQuantity"].DisplayIndex = 6;
+            dataGridViewPurchase.Columns["PurchasePrice"].DisplayIndex = 7;
+            dataGridViewPurchase.Columns["ReturnAmount"].DisplayIndex = 8;
+            dataGridViewPurchase.Columns["ReturnDate"].DisplayIndex = 9;
+            dataGridViewPurchase.Columns["TotalPriceAfterReturn"].DisplayIndex = 10;
+            dataGridViewPurchase.Columns["QuantityAfterReturn"].DisplayIndex = 11;
+
+            dataGridViewPurchase.Refresh();
         }
 
         private void txtPurchaseQnt_KeyPress(object sender, KeyPressEventArgs e)

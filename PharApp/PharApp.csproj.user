@@ -64,6 +64,9 @@
     <Compile Update="RdlcReports\Sale\rptSSR.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="RdlcReports\Stock\frmStockReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Sale\Area\frmArea.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +109,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Update="RdlcReports\Sale\DSSaleReturn.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="RdlcReports\Stock\Stock.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

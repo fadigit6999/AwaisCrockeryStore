@@ -225,6 +225,7 @@
             stockReportToolStripMenuItem.Name = "stockReportToolStripMenuItem";
             stockReportToolStripMenuItem.Size = new Size(214, 22);
             stockReportToolStripMenuItem.Text = "Stock Report";
+            stockReportToolStripMenuItem.Click += stockReportToolStripMenuItem_Click;
             // 
             // auditToolStripMenuItem
             // 

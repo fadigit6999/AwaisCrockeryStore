@@ -609,16 +609,6 @@ namespace PharApp.Purchase
                 filteredPurchaseList = new BindingList<ViewPurchase>(purchaseList);
 
                 dataGridViewPurchase.DataSource = originalPurchaseList;
-                dataGridViewPurchase.Columns["OrderID"].DisplayIndex = 0;
-                dataGridViewPurchase.Columns["InvoiceNo"].DisplayIndex = 1;
-                dataGridViewPurchase.Columns["MedName"].DisplayIndex = 2;
-                dataGridViewPurchase.Columns["ManufacturerName"].DisplayIndex = 3;
-                dataGridViewPurchase.Columns["TypeName"].DisplayIndex = 4;
-                dataGridViewPurchase.Columns["Quantity"].DisplayIndex = 7;
-                dataGridViewPurchase.Columns["Total"].DisplayIndex = 8;
-                dataGridViewPurchase.Columns["ExpiryDate"].DisplayIndex = 5;
-                dataGridViewPurchase.Columns["BatchId"].DisplayIndex = 6;
-
                 dataGridViewPurchase.Columns["OrderID"].HeaderText = "Id";
                 dataGridViewPurchase.Columns["InvoiceNo"].HeaderText = "Invoice";
                 dataGridViewPurchase.Columns["MedName"].HeaderText = "Item";
@@ -628,6 +618,20 @@ namespace PharApp.Purchase
                 dataGridViewPurchase.Columns["TypeName"].HeaderText = "Payment";
                 dataGridViewPurchase.Columns["ExpiryDate"].HeaderText = "Ex. Date";
                 dataGridViewPurchase.Columns["BatchId"].HeaderText = "Item Code";
+                dataGridViewPurchase.Columns["PurchaseDate"].HeaderText = "Pr Date";
+                //column order
+                dataGridViewPurchase.Columns["OrderID"].DisplayIndex = 0;
+                dataGridViewPurchase.Columns["PurchaseDate"].DisplayIndex = 1;
+                dataGridViewPurchase.Columns["InvoiceNo"].DisplayIndex = 2;
+                dataGridViewPurchase.Columns["MedName"].DisplayIndex = 3;
+                dataGridViewPurchase.Columns["BatchId"].DisplayIndex = 4;
+                dataGridViewPurchase.Columns["ManufacturerName"].DisplayIndex = 5;
+                dataGridViewPurchase.Columns["TypeName"].DisplayIndex = 6;
+                dataGridViewPurchase.Columns["Quantity"].DisplayIndex = 7;
+                dataGridViewPurchase.Columns["ExpiryDate"].DisplayIndex = 8;
+                dataGridViewPurchase.Columns["Total"].DisplayIndex = 9;
+
+
 
                 dataGridViewPurchase.Refresh();
             }
@@ -663,17 +667,6 @@ namespace PharApp.Purchase
             }
 
             dataGridViewPurchase.DataSource = filteredPurchaseList;
-
-            dataGridViewPurchase.Columns["OrderID"].DisplayIndex = 0;
-            dataGridViewPurchase.Columns["InvoiceNo"].DisplayIndex = 1;
-            dataGridViewPurchase.Columns["MedName"].DisplayIndex = 2;
-            dataGridViewPurchase.Columns["ManufacturerName"].DisplayIndex = 3;
-            dataGridViewPurchase.Columns["TypeName"].DisplayIndex = 4;
-            dataGridViewPurchase.Columns["Quantity"].DisplayIndex = 7;
-            dataGridViewPurchase.Columns["Total"].DisplayIndex = 8;
-            dataGridViewPurchase.Columns["ExpiryDate"].DisplayIndex = 5;
-            dataGridViewPurchase.Columns["BatchId"].DisplayIndex = 6;
-
             dataGridViewPurchase.Columns["OrderID"].HeaderText = "Id";
             dataGridViewPurchase.Columns["InvoiceNo"].HeaderText = "Invoice";
             dataGridViewPurchase.Columns["MedName"].HeaderText = "Item";
@@ -683,6 +676,20 @@ namespace PharApp.Purchase
             dataGridViewPurchase.Columns["TypeName"].HeaderText = "Payment";
             dataGridViewPurchase.Columns["ExpiryDate"].HeaderText = "Ex. Date";
             dataGridViewPurchase.Columns["BatchId"].HeaderText = "Item Code";
+            dataGridViewPurchase.Columns["PurchaseDate"].HeaderText = "Pr Date";
+            //column order
+            dataGridViewPurchase.Columns["OrderID"].DisplayIndex = 0;
+            dataGridViewPurchase.Columns["PurchaseDate"].DisplayIndex = 1;
+            dataGridViewPurchase.Columns["InvoiceNo"].DisplayIndex = 2;
+            dataGridViewPurchase.Columns["MedName"].DisplayIndex = 3;
+            dataGridViewPurchase.Columns["BatchId"].DisplayIndex = 4;
+            dataGridViewPurchase.Columns["ManufacturerName"].DisplayIndex = 5;
+            dataGridViewPurchase.Columns["TypeName"].DisplayIndex = 6;
+            dataGridViewPurchase.Columns["Quantity"].DisplayIndex = 7;
+            dataGridViewPurchase.Columns["ExpiryDate"].DisplayIndex = 8;
+            dataGridViewPurchase.Columns["Total"].DisplayIndex = 9;
+            
+            
 
             dataGridViewPurchase.Refresh();
         }
