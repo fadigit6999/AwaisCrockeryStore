@@ -11,12 +11,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("PharApp")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("APS")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f4d6dcd51e651b6ec87a6a0b6e94b57107092db2")]
-[assembly: System.Reflection.AssemblyProductAttribute("PharApp")]
-[assembly: System.Reflection.AssemblyTitleAttribute("PharApp")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3c4c8dcca77fd0880c67c332efd422b6d3bc0f84")]
+[assembly: System.Reflection.AssemblyProductAttribute("APS")]
+[assembly: System.Reflection.AssemblyTitleAttribute("APS")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 [assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows7.0")]
 [assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows7.0")]

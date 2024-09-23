@@ -96,7 +96,6 @@
             label18 = new Label();
             dataGridViewSale = new DataGridView();
             contextMenuStripSale = new ContextMenuStrip(components);
-            printReportToolStripMenuItem = new ToolStripMenuItem();
             tabControlPurchase.SuspendLayout();
             tabPagePurchase.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -104,7 +103,6 @@
             groupBox1.SuspendLayout();
             tabPageViewPurchase.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewSale).BeginInit();
-            contextMenuStripSale.SuspendLayout();
             SuspendLayout();
             // 
             // tabControlPurchase
@@ -809,16 +807,8 @@
             // contextMenuStripSale
             // 
             contextMenuStripSale.ImageScalingSize = new Size(20, 20);
-            contextMenuStripSale.Items.AddRange(new ToolStripItem[] { printReportToolStripMenuItem });
             contextMenuStripSale.Name = "contextMenuStripSale";
-            contextMenuStripSale.Size = new Size(138, 26);
-            // 
-            // printReportToolStripMenuItem
-            // 
-            printReportToolStripMenuItem.Name = "printReportToolStripMenuItem";
-            printReportToolStripMenuItem.Size = new Size(137, 22);
-            printReportToolStripMenuItem.Text = "Print Report";
-            printReportToolStripMenuItem.Click += printReportToolStripMenuItem_Click;
+            contextMenuStripSale.Size = new Size(181, 26);
             // 
             // frmSaleReturn
             // 
@@ -843,7 +833,6 @@
             tabPageViewPurchase.ResumeLayout(false);
             tabPageViewPurchase.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewSale).EndInit();
-            contextMenuStripSale.ResumeLayout(false);
             ResumeLayout(false);
         }
 

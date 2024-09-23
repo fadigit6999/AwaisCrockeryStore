@@ -36,9 +36,6 @@
               <Width>0.45817in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.44965in</Width>
-            </TablixColumn>
-            <TablixColumn>
               <Width>0.34972in</Width>
             </TablixColumn>
             <TablixColumn>
@@ -521,53 +518,6 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox77">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>Status</Value>
-                              <Style>
-                                <FontFamily>Verdana</FontFamily>
-                                <FontSize>8pt</FontSize>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox77</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>Solid</Style>
-                        </Border>
-                        <TopBorder>
-                          <Width>1pt</Width>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Width>1pt</Width>
-                        </BottomBorder>
-                        <LeftBorder>
-                          <Width>1pt</Width>
-                        </LeftBorder>
-                        <RightBorder>
-                          <Width>1pt</Width>
-                        </RightBorder>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
                     <Textbox Name="Textbox79">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -678,7 +628,6 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
-            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -688,9 +637,9 @@
         </TablixRowHierarchy>
         <DataSetName>DSPSR</DataSetName>
         <Top>0.125in</Top>
-        <Left>0.167in</Left>
+        <Left>0.542in</Left>
         <Height>0.22083in</Height>
-        <Width>7.62174in</Width>
+        <Width>7.17209in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -729,9 +678,6 @@
             </TablixColumn>
             <TablixColumn>
               <Width>0.44583in</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>0.44773in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>0.35589in</Width>
@@ -1106,42 +1052,6 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Purchase_Return">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!Purchase_Return.Value</Value>
-                              <Style>
-                                <FontFamily>Verdana</FontFamily>
-                                <FontSize>6pt</FontSize>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Purchase_Return</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>White</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
                     <Textbox Name="Price">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -1230,7 +1140,6 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
-            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -1242,9 +1151,9 @@
         </TablixRowHierarchy>
         <DataSetName>DSPSR</DataSetName>
         <Top>0.4036in</Top>
-        <Left>0.16431in</Left>
+        <Left>0.53931in</Left>
         <Height>0.21875in</Height>
-        <Width>7.6306in</Width>
+        <Width>7.18287in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -1273,7 +1182,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
         <Top>0.68277in</Top>
-        <Left>6.15158in</Left>
+        <Left>6.11408in</Left>
         <Height>0.17708in</Height>
         <Width>0.87708in</Width>
         <ZIndex>2</ZIndex>
@@ -1309,7 +1218,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
         <Top>0.67374in</Top>
-        <Left>7.12237in</Left>
+        <Left>7.08487in</Left>
         <Height>0.1875in</Height>
         <Width>0.68542in</Width>
         <ZIndex>3</ZIndex>
@@ -1345,7 +1254,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
         <Top>0.69041in</Top>
-        <Left>4.608in</Left>
+        <Left>4.983in</Left>
         <Height>0.1875in</Height>
         <Width>0.39679in</Width>
         <ZIndex>4</ZIndex>
@@ -1381,7 +1290,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
         <Top>0.69179in</Top>
-        <Left>4.0184in</Left>
+        <Left>4.3934in</Left>
         <Height>0.20208in</Height>
         <Width>0.54792in</Width>
         <ZIndex>5</ZIndex>
@@ -1481,7 +1390,6 @@
           <Source>Embedded</Source>
           <Value>ID23af8142ca1d397e25b34ad0379bc345</Value>
           <Sizing>FitProportional</Sizing>
-          <Top>0in</Top>
           <Height>1.52252in</Height>
           <Width>1.70191in</Width>
           <ZIndex>2</ZIndex>

@@ -19,7 +19,6 @@ namespace BML
             public string? StockSellPrice { get; set; } 
             public string? StockPurchasePrice { get; set; } 
             public string? BatchId { get; set; } 
-            public string? ExpiryDate { get; set; } 
          
     }
 }

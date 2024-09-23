@@ -92,7 +92,10 @@
       "System.Security.Principal.Windows/4.7.0": {},
       "BML/1.0.0": {
         "runtime": {
-          "BML.dll": {}
+          "BML.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

@@ -51,20 +51,18 @@ namespace PharApp.Inventory
                 dataGridViewStock.Columns["StockSellPrice"].HeaderText = "Stock Sell Price";
                 dataGridViewStock.Columns["StockPurchasePrice"].HeaderText = "Stock Purchase Price";
                 dataGridViewStock.Columns["BatchId"].HeaderText = "Item Code";
-                dataGridViewStock.Columns["ExpiryDate"].HeaderText = "Expiry Date";
 
                 dataGridViewStock.Columns["SL"].DisplayIndex = 0;
                 dataGridViewStock.Columns["MedName"].DisplayIndex = 1;
                 dataGridViewStock.Columns["ManufacturerName"].DisplayIndex = 2;
                 dataGridViewStock.Columns["BatchId"].DisplayIndex = 3;
-                dataGridViewStock.Columns["ExpiryDate"].DisplayIndex = 4;
-                dataGridViewStock.Columns["SalePrice"].DisplayIndex = 5;
-                dataGridViewStock.Columns["PurchasePrice"].DisplayIndex = 6;
-                dataGridViewStock.Columns["InQuantity"].DisplayIndex = 7;
-                dataGridViewStock.Columns["SoldQuantity"].DisplayIndex = 8;
-                dataGridViewStock.Columns["Stock"].DisplayIndex = 9;
-                dataGridViewStock.Columns["StockSellPrice"].DisplayIndex = 10;
-                dataGridViewStock.Columns["StockPurchasePrice"].DisplayIndex = 11;
+                dataGridViewStock.Columns["SalePrice"].DisplayIndex = 4;
+                dataGridViewStock.Columns["PurchasePrice"].DisplayIndex = 5;
+                dataGridViewStock.Columns["InQuantity"].DisplayIndex = 6;
+                dataGridViewStock.Columns["SoldQuantity"].DisplayIndex = 7;
+                dataGridViewStock.Columns["Stock"].DisplayIndex = 8;
+                dataGridViewStock.Columns["StockSellPrice"].DisplayIndex = 9;
+                dataGridViewStock.Columns["StockPurchasePrice"].DisplayIndex = 10;
 
                 dataGridViewStock.Refresh();
             }
@@ -95,8 +93,7 @@ namespace PharApp.Inventory
                     (stock.Stock != null && stock.Stock.ToLower().Contains(filterText)) ||
                     (stock.StockSellPrice != null && stock.StockSellPrice.ToLower().Contains(filterText)) ||
                     (stock.StockPurchasePrice != null && stock.StockPurchasePrice.ToLower().Contains(filterText)) ||
-                    (stock.BatchId != null && stock.BatchId.ToLower().Contains(filterText)) ||
-                    (stock.ExpiryDate != null && stock.ExpiryDate.ToLower().Contains(filterText))
+                    (stock.BatchId != null && stock.BatchId.ToLower().Contains(filterText))
                 ).ToList();
 
                 filteredStockList = new BindingList<ViewStock>(filteredList);

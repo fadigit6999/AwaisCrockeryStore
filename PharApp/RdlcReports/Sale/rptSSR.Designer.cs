@@ -66,7 +66,7 @@ namespace PharApp.RdlcReports.Sale
             // 
             // btnReport
             // 
-            btnReport.Location = new Point(615, 14);
+            btnReport.Location = new Point(618, 15);
             btnReport.Margin = new Padding(3, 2, 3, 2);
             btnReport.Name = "btnReport";
             btnReport.Size = new Size(82, 67);
@@ -118,7 +118,6 @@ namespace PharApp.RdlcReports.Sale
             cmbBooker.Name = "cmbBooker";
             cmbBooker.Size = new Size(169, 23);
             cmbBooker.TabIndex = 6;
-            cmbBooker.Visible = false;
             // 
             // cmbSupplier
             // 
@@ -130,7 +129,6 @@ namespace PharApp.RdlcReports.Sale
             cmbSupplier.Name = "cmbSupplier";
             cmbSupplier.Size = new Size(169, 23);
             cmbSupplier.TabIndex = 6;
-            cmbSupplier.Visible = false;
             // 
             // cmbArea
             // 
@@ -142,7 +140,6 @@ namespace PharApp.RdlcReports.Sale
             cmbArea.Name = "cmbArea";
             cmbArea.Size = new Size(169, 23);
             cmbArea.TabIndex = 6;
-            cmbArea.Visible = false;
             // 
             // label6
             // 
@@ -153,7 +150,6 @@ namespace PharApp.RdlcReports.Sale
             label6.Size = new Size(55, 19);
             label6.TabIndex = 5;
             label6.Text = "Booker:";
-            label6.Visible = false;
             // 
             // label7
             // 
@@ -164,7 +160,6 @@ namespace PharApp.RdlcReports.Sale
             label7.Size = new Size(61, 19);
             label7.TabIndex = 5;
             label7.Text = "Supplier:";
-            label7.Visible = false;
             // 
             // label5
             // 
@@ -185,7 +180,6 @@ namespace PharApp.RdlcReports.Sale
             label4.Size = new Size(68, 19);
             label4.TabIndex = 5;
             label4.Text = "Sale Area:";
-            label4.Visible = false;
             // 
             // label3
             // 

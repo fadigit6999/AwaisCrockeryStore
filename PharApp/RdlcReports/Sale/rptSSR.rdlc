@@ -330,14 +330,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="SaleReturnStatus1">
+                    <Textbox Name="price">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!SaleReturnStatus.Value</Value>
+                              <Value>=Fields!price.Value</Value>
                               <Style>
                                 <FontFamily>Verdana</FontFamily>
                                 <FontSize>6pt</FontSize>
@@ -345,11 +345,11 @@
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Left</TextAlign>
+                            <TextAlign>Center</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>SaleReturnStatus1</rd:DefaultName>
+                      <rd:DefaultName>price</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>White</Color>
@@ -765,7 +765,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Status</Value>
+                              <Value>Rate</Value>
                               <Style>
                                 <FontFamily>Verdana</FontFamily>
                                 <FontSize>8pt</FontSize>

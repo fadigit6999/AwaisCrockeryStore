@@ -26,9 +26,6 @@
             <TablixColumn>
               <Width>0.81925in</Width>
             </TablixColumn>
-            <TablixColumn>
-              <Width>0.76652in</Width>
-            </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
@@ -363,60 +360,12 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox81">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>Avail Stock</Value>
-                              <Style>
-                                <FontFamily>Verdana</FontFamily>
-                                <FontSize>8pt</FontSize>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox81</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>Solid</Style>
-                        </Border>
-                        <TopBorder>
-                          <Width>1pt</Width>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Width>1pt</Width>
-                        </BottomBorder>
-                        <LeftBorder>
-                          <Width>1pt</Width>
-                        </LeftBorder>
-                        <RightBorder>
-                          <Width>1pt</Width>
-                        </RightBorder>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
               </TablixCells>
             </TablixRow>
           </TablixRows>
         </TablixBody>
         <TablixColumnHierarchy>
           <TablixMembers>
-            <TablixMember />
             <TablixMember />
             <TablixMember />
             <TablixMember />
@@ -433,9 +382,9 @@
         </TablixRowHierarchy>
         <DataSetName>DTStock</DataSetName>
         <Top>0.10527in</Top>
-        <Left>0.30025in</Left>
+        <Left>0.67525in</Left>
         <Height>0.22083in</Height>
-        <Width>7.50729in</Width>
+        <Width>6.74081in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -465,9 +414,6 @@
             </TablixColumn>
             <TablixColumn>
               <Width>0.81924in</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>0.76652in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -616,7 +562,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -724,48 +669,12 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="AvailableStock">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!AvailableStock.Value</Value>
-                              <Style>
-                                <FontFamily>Verdana</FontFamily>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>AvailableStock</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>White</Color>
-                          <Style>None</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
               </TablixCells>
             </TablixRow>
           </TablixRows>
         </TablixBody>
         <TablixColumnHierarchy>
           <TablixMembers>
-            <TablixMember />
             <TablixMember />
             <TablixMember />
             <TablixMember />
@@ -784,9 +693,9 @@
         </TablixRowHierarchy>
         <DataSetName>DTStock</DataSetName>
         <Top>0.38304in</Top>
-        <Left>0.30025in</Left>
+        <Left>0.67525in</Left>
         <Height>0.25in</Height>
-        <Width>7.5073in</Width>
+        <Width>6.74074in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>

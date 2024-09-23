@@ -7,6 +7,7 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationIcon>23af8142ca1d397e25b34ad0379bc345.ico</ApplicationIcon>
+    <AssemblyName>APS</AssemblyName>
     
   </PropertyGroup>
 

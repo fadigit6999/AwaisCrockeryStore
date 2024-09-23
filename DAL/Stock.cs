@@ -134,8 +134,7 @@ namespace DAL
                             Stock = reader["Stock"].ToString(),
                             StockSellPrice = reader["StockSellPrice"].ToString(),
                             StockPurchasePrice = reader["StockPurchasePrice"].ToString(),
-                            BatchId = reader["BatchId"].ToString(),
-                            ExpiryDate = reader["ExpiryDate"].ToString()
+                            BatchId = reader["BatchId"].ToString()
                         };
                         stockList.Add(stock);
                     }

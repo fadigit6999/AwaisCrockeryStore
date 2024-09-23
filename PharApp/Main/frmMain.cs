@@ -55,7 +55,7 @@ namespace PharApp.Main
         {
             await LoadMetrics();
             //await LoadExpiryStock();
-            toolStripStatuslblVersion.Text = "Awais Plastic Store 1.2.1";
+            toolStripStatuslblVersion.Text = "Awais Plastic Store 1.3.0";
             this.timerMain.Start();
             SetMenuVisibility(BML.UserSession.User.UserRole.ToUpper().ToString());
         }
