@@ -420,7 +420,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.25in</Height>
+              <Height>0.325in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -505,7 +505,7 @@
                             <TextRun>
                               <Value>=Fields!MedNameUrdu.Value</Value>
                               <Style>
-                                <FontFamily>Verdana</FontFamily>
+                                <FontFamily>Jameel Noori Nastaleeq</FontFamily>
                                 <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
@@ -807,9 +807,9 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DSPurchaseReturn</DataSetName>
-        <Top>0.51751in</Top>
+        <Top>0.46751in</Top>
         <Left>0.14636in</Left>
-        <Height>0.25in</Height>
+        <Height>0.325in</Height>
         <Width>8.07142in</Width>
         <ZIndex>1</ZIndex>
         <Style>
@@ -819,7 +819,7 @@
         </Style>
       </Tablix>
       <Line Name="Line1">
-        <Top>0.83695in</Top>
+        <Top>0.88695in</Top>
         <Left>0.17136in</Left>
         <Height>0in</Height>
         <Width>7.92697in</Width>
@@ -850,7 +850,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>total1</rd:DefaultName>
-        <Top>0.89251in</Top>
+        <Top>0.94251in</Top>
         <Left>6.97567in</Left>
         <Height>0.18917in</Height>
         <Width>1.09766in</Width>
@@ -885,7 +885,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox13</rd:DefaultName>
-        <Top>1.18385in</Top>
+        <Top>1.23385in</Top>
         <Left>5.90362in</Left>
         <Height>0.18917in</Height>
         <Width>0.83561in</Width>
@@ -919,7 +919,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox15</rd:DefaultName>
-        <Top>1.44247in</Top>
+        <Top>1.49247in</Top>
         <Left>5.90362in</Left>
         <Height>0.2135in</Height>
         <Width>0.83561in</Width>
@@ -954,7 +954,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Adv_Tax</rd:DefaultName>
-        <Top>1.18385in</Top>
+        <Top>1.23385in</Top>
         <Left>6.97567in</Left>
         <Height>0.18917in</Height>
         <Width>1.09766in</Width>
@@ -991,7 +991,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Net_Total</rd:DefaultName>
-        <Top>1.44247in</Top>
+        <Top>1.49247in</Top>
         <Left>6.97567in</Left>
         <Height>0.2135in</Height>
         <Width>1.05777in</Width>
@@ -1026,7 +1026,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox15</rd:DefaultName>
-        <Top>0.90091in</Top>
+        <Top>0.95091in</Top>
         <Left>5.90362in</Left>
         <Height>0.2135in</Height>
         <Width>0.83561in</Width>
@@ -1059,7 +1059,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>GrandTotalInWords</rd:DefaultName>
-        <Top>1.87167in</Top>
+        <Top>1.99667in</Top>
         <Left>0.14636in</Left>
         <Height>0.23333in</Height>
         <Width>7.92697in</Width>
@@ -1091,7 +1091,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox7</rd:DefaultName>
-        <Top>2.25877in</Top>
+        <Top>2.38377in</Top>
         <Left>0.14636in</Left>
         <Height>0.25in</Height>
         <Width>1.35347in</Width>
@@ -1126,7 +1126,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox10</rd:DefaultName>
-        <Top>2.25877in</Top>
+        <Top>2.38377in</Top>
         <Left>1.53733in</Left>
         <Height>0.25in</Height>
         <Width>0.59276in</Width>
@@ -1161,7 +1161,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>0.90639in</Top>
+        <Top>0.95639in</Top>
         <Left>4.12653in</Left>
         <Height>0.20802in</Height>
         <Width>0.6625in</Width>
@@ -1197,7 +1197,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox25</rd:DefaultName>
-        <Top>1.69764in</Top>
+        <Top>1.74764in</Top>
         <Left>6.97567in</Left>
         <Height>0.17403in</Height>
         <Width>1.07365in</Width>
@@ -1214,7 +1214,7 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>2.60877in</Height>
+    <Height>2.72335in</Height>
     <Style>
       <Border>
         <Style>None</Style>

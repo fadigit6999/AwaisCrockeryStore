@@ -386,7 +386,7 @@
         </Style>
       </Tablix>
       <Line Name="Line1">
-        <Top>0.73418in</Top>
+        <Top>0.80918in</Top>
         <Left>0.2125in</Left>
         <Height>0in</Height>
         <Width>7.79623in</Width>
@@ -416,7 +416,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox13</rd:DefaultName>
-        <Top>1.04064in</Top>
+        <Top>1.11564in</Top>
         <Left>5.93522in</Left>
         <Height>0.18917in</Height>
         <Width>0.83561in</Width>
@@ -450,10 +450,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox15</rd:DefaultName>
-        <Top>1.29926in</Top>
-        <Left>5.93522in</Left>
+        <Top>1.42426in</Top>
+        <Left>5.81022in</Left>
         <Height>0.2135in</Height>
-        <Width>0.83561in</Width>
+        <Width>0.79811in</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -484,7 +484,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox15</rd:DefaultName>
-        <Top>0.7577in</Top>
+        <Top>0.8327in</Top>
         <Left>5.93522in</Left>
         <Height>0.2135in</Height>
         <Width>0.83561in</Width>
@@ -566,7 +566,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.25in</Height>
+              <Height>0.2875in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -602,7 +602,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -652,8 +651,8 @@
                             <TextRun>
                               <Value>=Fields!MedNameUrdu.Value</Value>
                               <Style>
-                                <FontFamily>Verdana</FontFamily>
-                                <FontSize>8pt</FontSize>
+                                <FontFamily>Jameel Noori Nastaleeq</FontFamily>
+                                <FontSize>9pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -919,7 +918,7 @@
         <DataSetName>DSSale</DataSetName>
         <Top>0.42862in</Top>
         <Left>0.26357in</Left>
-        <Height>0.25in</Height>
+        <Height>0.2875in</Height>
         <Width>7.6848in</Width>
         <ZIndex>6</ZIndex>
         <Style>
@@ -1016,7 +1015,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>total1</rd:DefaultName>
-        <Top>0.74807in</Top>
+        <Top>0.82307in</Top>
         <Left>7.00097in</Left>
         <Height>0.18917in</Height>
         <Width>0.9849in</Width>
@@ -1052,7 +1051,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Adv_Tax</rd:DefaultName>
-        <Top>1.02007in</Top>
+        <Top>1.09507in</Top>
         <Left>7.00097in</Left>
         <Height>0.18917in</Height>
         <Width>0.98835in</Width>
@@ -1089,7 +1088,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Net_Total</rd:DefaultName>
-        <Top>1.29926in</Top>
+        <Top>1.42426in</Top>
         <Left>6.99752in</Left>
         <Height>0.2135in</Height>
         <Width>0.98835in</Width>
@@ -1125,7 +1124,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>0.77724in</Top>
+        <Top>0.85224in</Top>
         <Left>4.06007in</Left>
         <Height>0.18302in</Height>
         <Width>0.67153in</Width>
@@ -1140,6 +1139,55 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Textbox Name="Textbox20">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Rs.</Value>
+                <Style>
+                  <FontFamily>Calibri</FontFamily>
+                  <FontSize>9pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox3</rd:DefaultName>
+        <Top>1.43326in</Top>
+        <Left>6.68056in</Left>
+        <Height>0.2in</Height>
+        <Width>0.26636in</Width>
+        <ZIndex>13</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <VerticalAlign>Middle</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Line Name="Line2">
+        <Top>1.37425in</Top>
+        <Left>5.81513in</Left>
+        <Height>0in</Height>
+        <Width>2.18972in</Width>
+        <ZIndex>14</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+        </Style>
+      </Line>
     </ReportItems>
     <Height>2.46651in</Height>
     <Style>
@@ -1148,7 +1196,7 @@
       </Border>
     </Style>
   </Body>
-  <Width>8.10248in</Width>
+  <Width>8.10485in</Width>
   <Page>
     <PageHeader>
       <Height>1.94443in</Height>
@@ -1729,7 +1777,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Soft-Team: fadig6999@gmail.com, 03279358893</Value>
+                  <Value>Soft-Team: fadig6999@gmail.com, 03279358893, 03026100646</Value>
                   <Style>
                     <FontFamily>Calibri</FontFamily>
                     <FontSize>7pt</FontSize>
@@ -1743,7 +1791,7 @@
           <Top>0.34445in</Top>
           <Left>0.21078in</Left>
           <Height>0.19028in</Height>
-          <Width>2.26402in</Width>
+          <Width>2.76479in</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
@@ -1800,6 +1848,7 @@
                 <TextRun>
                   <Value>معزز صارف اپنے سامان کی گنتی کرلیں بعد میں دوکاندار ذمہ دار نہ ہوگا بریکیج کٹوتي پندرہ پرسنٹ اور چائنہ،لکڑی،فرنیچر اور فینسی آئٹم کی واپسی نہیں ہے</Value>
                   <Style>
+                    <FontFamily />
                     <FontWeight>Bold</FontWeight>
                     <TextDecoration>None</TextDecoration>
                     <Color>#000000</Color>

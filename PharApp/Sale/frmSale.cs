@@ -85,7 +85,7 @@ namespace PharApp.Sale
 
 
                     Dictionary<string, string> MedicineDictionary = new Dictionary<string, string>();
-                    MedicineDictionary.Add("Choose Item", Guid.NewGuid().ToString());
+                    MedicineDictionary.Add("*-* Choose Item *-*", Guid.NewGuid().ToString());
 
                     foreach (var medicine in cmbMedicineList)
                     {
@@ -356,6 +356,18 @@ namespace PharApp.Sale
             var selectedStock = stockList.Where(s => s.MedicineID == selectedMedicineId);
             if (selectedMedicine != null)
             {
+                //Get Manufacturer by medicine
+                lblMfg.Text = "";
+                try
+                {
+                    lblMfg.Text = selectedMedicine.ManufacturerId;
+                }
+                catch (Exception ex)
+                {
+                    lblMfg.Text = ex.Message.ToString();
+                }
+                
+
                 Dictionary<string, string> StockDictionary = new Dictionary<string, string>();
                 StockDictionary.Add("Item Code", Guid.NewGuid().ToString());
 
@@ -464,7 +476,7 @@ namespace PharApp.Sale
         }
         private bool ValidateDetails()
         {
-            if (string.IsNullOrEmpty(cmbMedInformation.Text) || cmbMedInformation.Text == "Choose Item" || cmbMedInformation.SelectedIndex == -1)
+            if (string.IsNullOrEmpty(cmbMedInformation.Text) || cmbMedInformation.Text == "*-* Choose Item *-*" || cmbMedInformation.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select the Item.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -532,7 +544,7 @@ namespace PharApp.Sale
         public void DefaultDetails()
         {
             // Set default values for the text boxes
-            cmbMedInformation.Text = "Choose Item";
+            cmbMedInformation.Text = "*-* Choose Item *-*";
             cmbBatchId.DataSource = null;
             txtExpiryDate.Text = "MM/DD/YYYY";
             txtStockQuantity.Text = "";
@@ -541,6 +553,7 @@ namespace PharApp.Sale
             txtGSTtx.Text = "0";
             txtDisc.Text = "0";
             txtBonus.Text = "0";
+            lblMfg.Text = "";
         }
         public void ClearDetailsGrid()
         {

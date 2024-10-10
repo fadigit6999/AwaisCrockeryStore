@@ -417,7 +417,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.25in</Height>
+              <Height>0.325in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -502,8 +502,8 @@
                             <TextRun>
                               <Value>=Fields!MedNameUrdu.Value</Value>
                               <Style>
-                                <FontFamily>Verdana</FontFamily>
-                                <FontSize>8pt</FontSize>
+                                <FontFamily>Jameel Noori Nastaleeq</FontFamily>
+                                <FontSize>9pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -769,7 +769,7 @@
         <DataSetName>DSPurchase</DataSetName>
         <Top>0.51751in</Top>
         <Left>0.14636in</Left>
-        <Height>0.25in</Height>
+        <Height>0.325in</Height>
         <Width>7.89375in</Width>
         <ZIndex>1</ZIndex>
         <Style>
@@ -779,7 +779,7 @@
         </Style>
       </Tablix>
       <Line Name="Line1">
-        <Top>0.83695in</Top>
+        <Top>0.92445in</Top>
         <Left>0.19636in</Left>
         <Height>0in</Height>
         <Width>7.88947in</Width>
@@ -810,7 +810,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>total1</rd:DefaultName>
-        <Top>0.89251in</Top>
+        <Top>0.98001in</Top>
         <Left>6.97567in</Left>
         <Height>0.18917in</Height>
         <Width>1.09766in</Width>
@@ -845,7 +845,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox13</rd:DefaultName>
-        <Top>1.18385in</Top>
+        <Top>1.27135in</Top>
         <Left>5.90362in</Left>
         <Height>0.18917in</Height>
         <Width>0.83561in</Width>
@@ -879,10 +879,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox15</rd:DefaultName>
-        <Top>1.44247in</Top>
-        <Left>5.90362in</Left>
+        <Top>1.59247in</Top>
+        <Left>5.77862in</Left>
         <Height>0.2135in</Height>
-        <Width>0.83561in</Width>
+        <Width>0.77693in</Width>
         <ZIndex>5</ZIndex>
         <Style>
           <Border>
@@ -914,7 +914,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Adv_Tax</rd:DefaultName>
-        <Top>1.18385in</Top>
+        <Top>1.27135in</Top>
         <Left>6.97567in</Left>
         <Height>0.18917in</Height>
         <Width>1.09766in</Width>
@@ -951,7 +951,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Net_Total</rd:DefaultName>
-        <Top>1.44247in</Top>
+        <Top>1.59247in</Top>
         <Left>6.97567in</Left>
         <Height>0.2135in</Height>
         <Width>1.09766in</Width>
@@ -986,7 +986,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox15</rd:DefaultName>
-        <Top>0.90091in</Top>
+        <Top>0.98841in</Top>
         <Left>5.90362in</Left>
         <Height>0.2135in</Height>
         <Width>0.83561in</Width>
@@ -1121,7 +1121,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>0.90639in</Top>
+        <Top>0.99389in</Top>
         <Left>4.11403in</Left>
         <Height>0.20802in</Height>
         <Width>0.6625in</Width>
@@ -1136,6 +1136,55 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Textbox Name="Textbox3">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Rs.</Value>
+                <Style>
+                  <FontFamily>Calibri</FontFamily>
+                  <FontSize>9pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox3</rd:DefaultName>
+        <Top>1.58734in</Top>
+        <Left>6.65792in</Left>
+        <Height>0.225in</Height>
+        <Width>0.26636in</Width>
+        <ZIndex>13</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <VerticalAlign>Middle</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Line Name="Line2">
+        <Top>1.53178in</Top>
+        <Left>5.78417in</Left>
+        <Height>0in</Height>
+        <Width>2.31472in</Width>
+        <ZIndex>14</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+        </Style>
+      </Line>
     </ReportItems>
     <Height>2.5671in</Height>
     <Style>
@@ -1517,7 +1566,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Soft-Team: fadig6999@gmail.com, 03279358893</Value>
+                  <Value>Soft-Team: fadig6999@gmail.com, 03279358893, 03026100646</Value>
                   <Style>
                     <FontFamily>Calibri</FontFamily>
                     <FontSize>7pt</FontSize>
@@ -1531,7 +1580,7 @@
           <Top>0.11111in</Top>
           <Left>0.11262in</Left>
           <Height>0.15278in</Height>
-          <Width>2.26402in</Width>
+          <Width>2.78791in</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>

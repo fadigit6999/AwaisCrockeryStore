@@ -10,6 +10,8 @@ using PharApp.RdlcReports.Sale;
 using PharApp.Audit;
 using PharApp.Backup;
 using PharApp.About;
+using PharApp.Account;
+using PharApp.RdlcReports.Stock;
 
 namespace PharApp
 {

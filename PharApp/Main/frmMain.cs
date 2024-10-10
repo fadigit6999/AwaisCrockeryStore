@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PharApp.About;
+using PharApp.Account;
 using PharApp.Audit;
 using PharApp.Backup;
 using PharApp.Customer;
@@ -55,7 +56,7 @@ namespace PharApp.Main
         {
             await LoadMetrics();
             //await LoadExpiryStock();
-            toolStripStatuslblVersion.Text = "Awais Plastic Store 1.3.0";
+            toolStripStatuslblVersion.Text = "Awais Plastic Store 1.4.0";
             this.timerMain.Start();
             SetMenuVisibility(BML.UserSession.User.UserRole.ToUpper().ToString());
         }
@@ -362,6 +363,12 @@ namespace PharApp.Main
         private void stockReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var frm = new frmStockReport();
+            frm.ShowDialog();
+        }
+
+        private void accountToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var frm = new frmAccountDeposit();
             frm.ShowDialog();
         }
     }

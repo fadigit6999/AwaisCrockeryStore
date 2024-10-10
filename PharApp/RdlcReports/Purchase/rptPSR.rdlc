@@ -688,7 +688,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.21875in</Height>
+              <Height>0.28125in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -809,8 +809,8 @@
                             <TextRun>
                               <Value>=Fields!MedNameUrdu.Value</Value>
                               <Style>
-                                <FontFamily>Verdana</FontFamily>
-                                <FontSize>6pt</FontSize>
+                                <FontFamily>Jameel Noori Nastaleeq</FontFamily>
+                                <FontSize>7pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1152,7 +1152,7 @@
         <DataSetName>DSPSR</DataSetName>
         <Top>0.4036in</Top>
         <Left>0.53931in</Left>
-        <Height>0.21875in</Height>
+        <Height>0.28125in</Height>
         <Width>7.18287in</Width>
         <ZIndex>1</ZIndex>
         <Style>
@@ -1181,7 +1181,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>0.68277in</Top>
+        <Top>0.75777in</Top>
         <Left>6.11408in</Left>
         <Height>0.17708in</Height>
         <Width>0.87708in</Width>
@@ -1217,7 +1217,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
-        <Top>0.67374in</Top>
+        <Top>0.74874in</Top>
         <Left>7.08487in</Left>
         <Height>0.1875in</Height>
         <Width>0.68542in</Width>
@@ -1253,7 +1253,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
-        <Top>0.69041in</Top>
+        <Top>0.76541in</Top>
         <Left>4.983in</Left>
         <Height>0.1875in</Height>
         <Width>0.39679in</Width>
@@ -1289,9 +1289,9 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>0.69179in</Top>
+        <Top>0.75429in</Top>
         <Left>4.3934in</Left>
-        <Height>0.20208in</Height>
+        <Height>0.19306in</Height>
         <Width>0.54792in</Width>
         <ZIndex>5</ZIndex>
         <Style>
@@ -1306,7 +1306,7 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>0.93137in</Height>
+    <Height>1.06679in</Height>
     <Style />
   </Body>
   <Width>8.19723in</Width>

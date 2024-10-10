@@ -7,6 +7,15 @@
     <Compile Update="About\frmAbout.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Account\frmAccountDeposit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Account\frmDeposit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Account\frmRegisterAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Audit\AuditLog.cs">
       <SubType>Form</SubType>
     </Compile>

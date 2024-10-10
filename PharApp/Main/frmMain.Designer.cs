@@ -62,6 +62,9 @@
             calculatorToolStripMenuItem = new ToolStripMenuItem();
             notePadToolStripMenuItem = new ToolStripMenuItem();
             aboutToolStripMenuItem = new ToolStripMenuItem();
+            accountToolStripMenuItem = new ToolStripMenuItem();
+            accountToolStripMenuItem1 = new ToolStripMenuItem();
+            reportsToolStripMenuItem1 = new ToolStripMenuItem();
             statusStrip1 = new StatusStrip();
             toolStripStatuslblVersion = new ToolStripStatusLabel();
             toolStripStatusLabelLoginUser = new ToolStripStatusLabel();
@@ -102,7 +105,7 @@
             // 
             menuStrip.BackColor = Color.White;
             menuStrip.ImageScalingSize = new Size(20, 20);
-            menuStrip.Items.AddRange(new ToolStripItem[] { toolStripMenuItem1, customersToolStripMenuItem, inventoryToolStripMenuItem, purchaseToolStripMenuItem, salesToolStripMenuItem, reportsToolStripMenuItem, auditToolStripMenuItem, usersToolStripMenuItem, backupRestoreToolStripMenuItem, databaseConfigurationToolStripMenuItem, toolsToolStripMenuItem, aboutToolStripMenuItem });
+            menuStrip.Items.AddRange(new ToolStripItem[] { toolStripMenuItem1, customersToolStripMenuItem, inventoryToolStripMenuItem, purchaseToolStripMenuItem, salesToolStripMenuItem, reportsToolStripMenuItem, auditToolStripMenuItem, usersToolStripMenuItem, backupRestoreToolStripMenuItem, databaseConfigurationToolStripMenuItem, toolsToolStripMenuItem, accountToolStripMenuItem, aboutToolStripMenuItem });
             menuStrip.Location = new Point(0, 0);
             menuStrip.Name = "menuStrip";
             menuStrip.Padding = new Padding(5, 2, 0, 2);
@@ -324,6 +327,26 @@
             aboutToolStripMenuItem.Size = new Size(52, 20);
             aboutToolStripMenuItem.Text = "About";
             aboutToolStripMenuItem.Click += aboutToolStripMenuItem_Click;
+            // 
+            // accountToolStripMenuItem
+            // 
+            accountToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { accountToolStripMenuItem1, reportsToolStripMenuItem1 });
+            accountToolStripMenuItem.Name = "accountToolStripMenuItem";
+            accountToolStripMenuItem.Size = new Size(64, 20);
+            accountToolStripMenuItem.Text = "Account";
+            // 
+            // accountToolStripMenuItem1
+            // 
+            accountToolStripMenuItem1.Name = "accountToolStripMenuItem1";
+            accountToolStripMenuItem1.Size = new Size(178, 22);
+            accountToolStripMenuItem1.Text = "Accounts | Deposits";
+            accountToolStripMenuItem1.Click += accountToolStripMenuItem1_Click;
+            // 
+            // reportsToolStripMenuItem1
+            // 
+            reportsToolStripMenuItem1.Name = "reportsToolStripMenuItem1";
+            reportsToolStripMenuItem1.Size = new Size(178, 22);
+            reportsToolStripMenuItem1.Text = "Reports";
             // 
             // statusStrip1
             // 
@@ -681,5 +704,8 @@
         private ToolStripMenuItem saleSummaryReportToolStripMenuItem;
         private ToolStripMenuItem purchaseSummaryReportToolStripMenuItem;
         private ToolStripMenuItem stockReportToolStripMenuItem;
+        private ToolStripMenuItem accountToolStripMenuItem;
+        private ToolStripMenuItem accountToolStripMenuItem1;
+        private ToolStripMenuItem reportsToolStripMenuItem1;
     }
 }

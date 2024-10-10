@@ -386,7 +386,7 @@
         </Style>
       </Tablix>
       <Line Name="Line1">
-        <Top>0.75918in</Top>
+        <Top>0.84668in</Top>
         <Left>0.225in</Left>
         <Height>0in</Height>
         <Width>7.78373in</Width>
@@ -416,7 +416,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox13</rd:DefaultName>
-        <Top>1.06564in</Top>
+        <Top>1.15314in</Top>
         <Left>5.93522in</Left>
         <Height>0.18917in</Height>
         <Width>0.83561in</Width>
@@ -450,7 +450,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox15</rd:DefaultName>
-        <Top>1.32426in</Top>
+        <Top>1.41176in</Top>
         <Left>5.93522in</Left>
         <Height>0.2135in</Height>
         <Width>0.83561in</Width>
@@ -484,7 +484,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox15</rd:DefaultName>
-        <Top>0.7827in</Top>
+        <Top>0.8702in</Top>
         <Left>5.93522in</Left>
         <Height>0.2135in</Height>
         <Width>0.83561in</Width>
@@ -569,7 +569,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.25in</Height>
+              <Height>0.3125in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -958,7 +958,7 @@
         <DataSetName>DSSaleReturn</DataSetName>
         <Top>0.45362in</Top>
         <Left>0.26357in</Left>
-        <Height>0.25in</Height>
+        <Height>0.3125in</Height>
         <Width>7.78613in</Width>
         <ZIndex>6</ZIndex>
         <Style>
@@ -987,7 +987,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>0.82862in</Top>
+        <Top>0.91612in</Top>
         <Left>4.0735in</Left>
         <Height>0.20802in</Height>
         <Width>0.67153in</Width>
@@ -1090,7 +1090,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>total1</rd:DefaultName>
-        <Top>0.77307in</Top>
+        <Top>0.86057in</Top>
         <Left>7.00097in</Left>
         <Height>0.18917in</Height>
         <Width>0.9849in</Width>
@@ -1126,7 +1126,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Adv_Tax</rd:DefaultName>
-        <Top>1.04507in</Top>
+        <Top>1.13257in</Top>
         <Left>7.00097in</Left>
         <Height>0.18917in</Height>
         <Width>0.98835in</Width>
@@ -1163,7 +1163,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Net_Total</rd:DefaultName>
-        <Top>1.32426in</Top>
+        <Top>1.41176in</Top>
         <Left>7.00097in</Left>
         <Height>0.2135in</Height>
         <Width>0.98835in</Width>
@@ -1197,7 +1197,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox36</rd:DefaultName>
-        <Top>1.56554in</Top>
+        <Top>1.65304in</Top>
         <Left>7.52958in</Left>
         <Height>0.16667in</Height>
         <Width>0.49042in</Width>

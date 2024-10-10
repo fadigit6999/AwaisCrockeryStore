@@ -277,10 +277,10 @@ namespace PharApp.Purchase
                 // Get values from text boxes
                 // Extract the selected value and text from the ComboBox
                 string medInformationId = cmbMedInformation.SelectedValue?.ToString();
-                string medInformation = cmbMedInformation.Text;
+                string medInformation = cmbMedInformation.Text.Trim();
 
                 // Extract other information from the text boxes
-                string batchid = txtBatchId.Text;
+                string batchid = txtBatchId.Text.Trim();
                 string expiryDate = dateTimeMedExpiry.Text;
                 int quantity = Convert.ToInt32(txtPurchaseQnt.Text);
                 decimal manufacturePrice = Convert.ToDecimal(txtManfPrice.Text);

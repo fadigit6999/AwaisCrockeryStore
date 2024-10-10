@@ -38,7 +38,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.1875in</Height>
+              <Height>0.2875in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -159,8 +159,8 @@
                             <TextRun>
                               <Value>=Fields!MedNameUrdu.Value</Value>
                               <Style>
-                                <FontFamily>Verdana</FontFamily>
-                                <FontSize>6pt</FontSize>
+                                <FontFamily>Jameel Noori Nastaleeq</FontFamily>
+                                <FontSize>7pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -428,7 +428,7 @@
         <DataSetName>DSSSR</DataSetName>
         <Top>0.37841in</Top>
         <Left>0.21112in</Left>
-        <Height>0.1875in</Height>
+        <Height>0.2875in</Height>
         <Width>7.55205in</Width>
         <Style>
           <Border>
@@ -881,7 +881,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
-        <Top>0.64501in</Top>
+        <Top>0.77001in</Top>
         <Left>7.10067in</Left>
         <Height>0.1875in</Height>
         <Width>0.6625in</Width>
@@ -917,7 +917,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
-        <Top>0.63251in</Top>
+        <Top>0.75751in</Top>
         <Left>5.74694in</Left>
         <Height>0.1875in</Height>
         <Width>0.59026in</Width>
@@ -951,7 +951,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox7</rd:DefaultName>
-        <Top>0.63958in</Top>
+        <Top>0.76458in</Top>
         <Left>5.1775in</Left>
         <Height>0.18043in</Height>
         <Width>0.4875in</Width>
@@ -984,7 +984,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox7</rd:DefaultName>
-        <Top>0.64508in</Top>
+        <Top>0.77008in</Top>
         <Left>6.44511in</Left>
         <Height>0.18043in</Height>
         <Width>0.6125in</Width>
@@ -1000,7 +1000,7 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>0.94501in</Height>
+    <Height>1.10126in</Height>
     <Style />
   </Body>
   <Width>8.10761in</Width>

@@ -49,6 +49,7 @@
             dateTimeMedExpiry = new DateTimePicker();
             saleDate = new DateTimePicker();
             groupBox1 = new GroupBox();
+            lblMfg = new Label();
             txtExpiryDate = new TextBox();
             btnClearDetails = new Button();
             btnAddDetails = new Button();
@@ -341,6 +342,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(lblMfg);
             groupBox1.Controls.Add(txtExpiryDate);
             groupBox1.Controls.Add(btnClearDetails);
             groupBox1.Controls.Add(btnAddDetails);
@@ -367,6 +369,16 @@
             groupBox1.TabIndex = 44;
             groupBox1.TabStop = false;
             groupBox1.Text = "Sale Details";
+            // 
+            // lblMfg
+            // 
+            lblMfg.AutoSize = true;
+            lblMfg.Font = new Font("Segoe UI", 11F);
+            lblMfg.ForeColor = Color.FromArgb(0, 0, 192);
+            lblMfg.Location = new Point(377, 34);
+            lblMfg.Name = "lblMfg";
+            lblMfg.Size = new Size(0, 20);
+            lblMfg.TabIndex = 12;
             // 
             // txtExpiryDate
             // 
@@ -906,5 +918,6 @@
         private Button btnAddCustomer;
         private Button btnAddPaymentType;
         private Button btnReloadCP;
+        private Label lblMfg;
     }
 }

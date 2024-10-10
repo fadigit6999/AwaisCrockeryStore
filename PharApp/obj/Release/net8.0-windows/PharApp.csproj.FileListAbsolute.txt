@@ -153,6 +153,9 @@ D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\bin\Release\net8.0-windows\BM
 D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\bin\Release\net8.0-windows\DAL.pdb
 D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\obj\Release\net8.0-windows\PharApp.csproj.AssemblyReference.cache
 D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\obj\Release\net8.0-windows\PharApp.About.frmAbout.resources
+D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\obj\Release\net8.0-windows\PharApp.Account.frmAccountDeposit.resources
+D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\obj\Release\net8.0-windows\PharApp.Account.frmDeposit.resources
+D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\obj\Release\net8.0-windows\PharApp.Account.frmRegisterAccount.resources
 D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\obj\Release\net8.0-windows\PharApp.Audit.AuditLog.resources
 D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\obj\Release\net8.0-windows\PharApp.Backup.frmManualBackup.resources
 D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\obj\Release\net8.0-windows\PharApp.Customer.frmCustomers.resources
