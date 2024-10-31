@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9167DBF1-0067-4200-84A8-9D0D0750C132}|PharApp\\PharApp.csproj|d:\\awaisplasticstoregit\\awaiscrockerystore\\pharapp\\account\\frmdeposit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9167DBF1-0067-4200-84A8-9D0D0750C132}|PharApp\\PharApp.csproj|solutionrelative:pharapp\\account\\frmdeposit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9167DBF1-0067-4200-84A8-9D0D0750C132}|PharApp\\PharApp.csproj|d:\\awaisplasticstoregit\\awaiscrockerystore\\pharapp\\users\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9167DBF1-0067-4200-84A8-9D0D0750C132}|PharApp\\PharApp.csproj|solutionrelative:pharapp\\users\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{32F151E4-667D-423D-804E-70C42BB38FF9}|DAL\\DAL.csproj|d:\\awaisplasticstoregit\\awaiscrockerystore\\dal\\purchaseorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{32F151E4-667D-423D-804E-70C42BB38FF9}|DAL\\DAL.csproj|solutionrelative:dal\\purchaseorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9167DBF1-0067-4200-84A8-9D0D0750C132}|PharApp\\PharApp.csproj|d:\\awaisplasticstoregit\\awaiscrockerystore\\pharapp\\users\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9167DBF1-0067-4200-84A8-9D0D0750C132}|PharApp\\PharApp.csproj|solutionrelative:pharapp\\users\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,33 +18,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PurchaseOrder.cs",
-              "DocumentMoniker": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\DAL\\PurchaseOrder.cs",
-              "RelativeDocumentMoniker": "DAL\\PurchaseOrder.cs",
-              "ToolTip": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\DAL\\PurchaseOrder.cs",
-              "RelativeToolTip": "DAL\\PurchaseOrder.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "frmLogin.cs",
+              "DocumentMoniker": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\PharApp\\Users\\frmLogin.cs",
+              "RelativeDocumentMoniker": "PharApp\\Users\\frmLogin.cs",
+              "ToolTip": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\PharApp\\Users\\frmLogin.cs",
+              "RelativeToolTip": "PharApp\\Users\\frmLogin.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAiwDUAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-10T06:08:14.892Z",
+              "WhenOpened": "2024-10-31T00:46:59.621Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "frmDeposit.cs",
-              "DocumentMoniker": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\PharApp\\Account\\frmDeposit.cs",
-              "RelativeDocumentMoniker": "PharApp\\Account\\frmDeposit.cs",
-              "ToolTip": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\PharApp\\Account\\frmDeposit.cs",
-              "RelativeToolTip": "PharApp\\Account\\frmDeposit.cs",
-              "ViewState": "AgIAAFYAAAAAAAAAAAAQwF8AAABSAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "frmLogin.cs [Design]",
+              "DocumentMoniker": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\PharApp\\Users\\frmLogin.cs",
+              "RelativeDocumentMoniker": "PharApp\\Users\\frmLogin.cs",
+              "ToolTip": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\PharApp\\Users\\frmLogin.cs [Design]",
+              "RelativeToolTip": "PharApp\\Users\\frmLogin.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-10T05:11:49.985Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-31T00:46:40.6Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

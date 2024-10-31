@@ -117,3 +117,7 @@
 /.vs/PharApp/FileContentIndex/46c14e19-cc83-4f05-8d67-a65e10f543e1.vsidx
 /.vs/PharApp/FileContentIndex/8e2a48ba-f770-4335-a8d6-4178fbcfa21d.vsidx
 /.vs/PharApp/FileContentIndex/f2d4c875-922e-4448-ba35-2e6757fef6d9.vsidx
+.vs/
+PharApp\bin\
+BAL\bin\
+DAL\bin\

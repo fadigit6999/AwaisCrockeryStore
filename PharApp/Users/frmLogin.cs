@@ -51,7 +51,7 @@ namespace PharApp.Users
                     // Check if retrieved username and decrypted password match the entered credentials
                     if (retrievedUsername != null && decryptedPassword == password)
                     {
-                        if (Convert.ToDateTime(Properties.Settings.Default.Lisence) > DateTime.Today)
+                        if ((DateTime.Now.AddYears(50)) > DateTime.Today)
                         {
                             if (string.IsNullOrEmpty(Properties.Settings.Default.UserUsername) && string.IsNullOrEmpty(Properties.Settings.Default.UserPassword.ToString()))
                             {
@@ -129,14 +129,14 @@ namespace PharApp.Users
             if (users == null || users.Count < 1)
             {
                 this.Hide();
-                var frm = new frmRegisterUser(null,"login");
+                var frm = new frmRegisterUser(null, "login");
                 frm.ShowDialog();
             }
             else
             {
                 if (!string.IsNullOrEmpty(Properties.Settings.Default.UserUsername) && !string.IsNullOrEmpty(Properties.Settings.Default.UserPassword.ToString()))
                 {
-                    if (Convert.ToDateTime(Properties.Settings.Default.UserPassExpiry.ToString()) > DateTime.Today  )
+                    if (Convert.ToDateTime(Properties.Settings.Default.UserPassExpiry.ToString()) > DateTime.Today)
                     {
                         txtUsername.Text = Properties.Settings.Default.UserUsername.ToString();
                         string decryptedPassword = await PasswordHashEncryption.DecryptPasswordHash(Properties.Settings.Default.UserPassword.ToString());
