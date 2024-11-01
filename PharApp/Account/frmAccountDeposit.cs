@@ -15,10 +15,12 @@ namespace PharApp.Account
     public partial class frmAccountDeposit : Form
     {
         private List<BML.ViewAccount> _accountList;
+        private List<BML.ViewAdjustmentAccount> _accountAdjustmentList;
         private List<BML.ViewDeposit> _depositList;
 
 
         public IReadOnlyList<BML.ViewAccount> AccountList => _accountList.AsReadOnly();
+        public IReadOnlyList<BML.ViewAdjustmentAccount> AccountAdjustmentList => _accountAdjustmentList.AsReadOnly();
         public IReadOnlyList<BML.ViewDeposit> DepositList => _depositList.AsReadOnly();
 
 
@@ -28,8 +30,6 @@ namespace PharApp.Account
         {
             InitializeComponent();
 
-            LoadUsersAsync();
-            LoadDepositsAsync();
         }
 
         private async Task LoadUsersAsync()
@@ -39,6 +39,20 @@ namespace PharApp.Account
                 var accountBAL = new BAL.Account(Helper.GetConnectionStringFromSettings());
                 _accountList = await accountBAL.GetAccountsAsync();
                 accountGrid.DataSource = _accountList;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error loading users: {ex.Message}");
+            }
+        }
+
+        private async Task LoadAdjustmentAccountAsync()
+        {
+            try
+            {
+                var accountAdjustmentBAL = new BAL.AdjustmentBAL(Helper.GetConnectionStringFromSettings());
+                _accountAdjustmentList = await accountAdjustmentBAL.GetAdjustmentAccountsAsync();
+                dataGridViewAdjustementAccount.DataSource = _accountAdjustmentList;
             }
             catch (Exception ex)
             {
@@ -111,14 +125,28 @@ namespace PharApp.Account
             depositGrid.Refresh();
         }
 
-        private void btnRefresh_Click(object sender, EventArgs e)
+        private async void btnRefresh_Click(object sender, EventArgs e)
         {
-            LoadUsersAsync();
+            await LoadUsersAsync();
         }
 
-        private void btnRefreshDeposit_Click(object sender, EventArgs e)
+        private async void btnRefreshDeposit_Click(object sender, EventArgs e)
         {
-            LoadDepositsAsync();
+            await LoadDepositsAsync();
+        }
+
+        private async void frmAccountDeposit_Load(object sender, EventArgs e)
+        {
+
+            await LoadUsersAsync();
+            await LoadDepositsAsync();
+            await LoadAdjustmentAccountAsync();
+        }
+
+        private void btnRegisterAdjustmentAccount_Click(object sender, EventArgs e)
+        {
+            var frm = new frmRegisterAdjustmentAccount(this);
+            frm.ShowDialog();
         }
     }
 }
