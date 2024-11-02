@@ -17,27 +17,19 @@ namespace BAL
         }
 
         // Method to create a new AdjustmentDeposit record
-        public async Task<int> CreateAdjustmentDepositAsync(string trxId, int serialId, string accountId, string transactionId, DateTime transactionDate, decimal totalAmount,
-                                                            string paymentMethod, string bankName, string checkNo, decimal paidAmount, decimal balance, string remarks, int isPaid)
+        public async Task<int> CreateAdjustmentDepositAsync(string accountId, string transactionId, DateTime transactionDate, decimal totalAmount, string paymentMethod, string bankName, string checkNo, decimal paidAmount, decimal balance, string remarks)
         {
-            // Business logic validation
-            if (string.IsNullOrEmpty(trxId) || serialId <= 0 || string.IsNullOrEmpty(accountId))
-                throw new ArgumentException("Transaction ID, Serial ID, and Account ID are required fields.");
-
-            if (totalAmount <= 0)
-                throw new ArgumentException("Total amount must be greater than zero.");
-
             // Call DAL method
-            return await _adjustmentDal.CreateAdjustmentDepositAsync(trxId, serialId, accountId, transactionId, transactionDate, totalAmount, paymentMethod, bankName, checkNo, paidAmount, balance, remarks, isPaid);
+            return await _adjustmentDal.CreateAdjustmentDepositAsync(accountId, transactionId, transactionDate, totalAmount, paymentMethod, bankName, checkNo, paidAmount, balance, remarks);
         }
 
         // Method to read records from AdjustmentDeposit
-        public async Task<List<AdjustmentDeposit>> GetAdjustmentDepositsAsync(string trxId = null)
+        public async Task<List<ViewAdjustmentDeposit>> GetAdjustmentDepositsAsync(string trxId = null)
         {
             var deposits = await _adjustmentDal.ReadAdjustmentDepositAsync(trxId);
 
             // Additional business logic, e.g., filtering, could go here
-            return deposits ?? new List<AdjustmentDeposit>();
+            return deposits ?? new List<ViewAdjustmentDeposit>();
         }
 
         // Method to create a new AdjustmentAccount record
@@ -69,6 +61,14 @@ namespace BAL
 
             // Additional business logic, e.g., filtering, could go here
             return TransactionId;
+        }
+
+        public async Task<List<ViewTransactionIdCMB>> GetTransactionIdCMBAsync()
+        {
+            var TransactionId = await _adjustmentDal.GetTransactionIdCMB();
+
+            // Additional business logic, e.g., filtering, could go here
+            return TransactionId ?? new List<ViewTransactionIdCMB>();
         }
 
     }

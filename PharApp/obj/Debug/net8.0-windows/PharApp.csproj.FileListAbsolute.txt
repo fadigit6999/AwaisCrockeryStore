@@ -312,3 +312,4 @@ D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\obj\Debug\net8.0-windows\APS.
 D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\obj\Debug\net8.0-windows\PharApp.genruntimeconfig.cache
 D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\obj\Debug\net8.0-windows\ref\APS.dll
 D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\obj\Debug\net8.0-windows\PharApp.Account.frmRegisterAdjustmentAccount.resources
+D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\obj\Debug\net8.0-windows\PharApp.Account.frmRegisterAdjustmentDeposit.resources

@@ -96,6 +96,7 @@
             label18 = new Label();
             dataGridViewSale = new DataGridView();
             contextMenuStripSale = new ContextMenuStrip(components);
+            checkBoxBreakage = new CheckBox();
             tabControlPurchase.SuspendLayout();
             tabPagePurchase.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -113,11 +114,12 @@
             tabControlPurchase.Margin = new Padding(3, 2, 3, 2);
             tabControlPurchase.Name = "tabControlPurchase";
             tabControlPurchase.SelectedIndex = 0;
-            tabControlPurchase.Size = new Size(1110, 570);
+            tabControlPurchase.Size = new Size(1110, 592);
             tabControlPurchase.TabIndex = 27;
             // 
             // tabPagePurchase
             // 
+            tabPagePurchase.Controls.Add(checkBoxBreakage);
             tabPagePurchase.Controls.Add(btnUpdateQnty);
             tabPagePurchase.Controls.Add(txtReturnQnty);
             tabPagePurchase.Controls.Add(txtOldQnty);
@@ -140,7 +142,7 @@
             tabPagePurchase.Margin = new Padding(3, 2, 3, 2);
             tabPagePurchase.Name = "tabPagePurchase";
             tabPagePurchase.Padding = new Padding(3, 2, 3, 2);
-            tabPagePurchase.Size = new Size(1102, 542);
+            tabPagePurchase.Size = new Size(1102, 564);
             tabPagePurchase.TabIndex = 0;
             tabPagePurchase.Text = "Sale";
             tabPagePurchase.UseVisualStyleBackColor = true;
@@ -158,18 +160,18 @@
             // txtReturnQnty
             // 
             txtReturnQnty.Enabled = false;
-            txtReturnQnty.Location = new Point(748, 52);
+            txtReturnQnty.Location = new Point(652, 52);
             txtReturnQnty.Name = "txtReturnQnty";
-            txtReturnQnty.Size = new Size(178, 23);
+            txtReturnQnty.Size = new Size(136, 23);
             txtReturnQnty.TabIndex = 55;
             txtReturnQnty.KeyUp += txtNewQnty_KeyUp;
             // 
             // txtOldQnty
             // 
-            txtOldQnty.Location = new Point(561, 52);
+            txtOldQnty.Location = new Point(520, 52);
             txtOldQnty.Name = "txtOldQnty";
             txtOldQnty.ReadOnly = true;
-            txtOldQnty.Size = new Size(178, 23);
+            txtOldQnty.Size = new Size(126, 23);
             txtOldQnty.TabIndex = 54;
             // 
             // txtItemCode
@@ -177,7 +179,7 @@
             txtItemCode.Location = new Point(377, 52);
             txtItemCode.Name = "txtItemCode";
             txtItemCode.ReadOnly = true;
-            txtItemCode.Size = new Size(178, 23);
+            txtItemCode.Size = new Size(137, 23);
             txtItemCode.TabIndex = 53;
             // 
             // txtItem
@@ -199,7 +201,7 @@
             // label23
             // 
             label23.AutoSize = true;
-            label23.Location = new Point(559, 34);
+            label23.Location = new Point(518, 34);
             label23.Name = "label23";
             label23.Size = new Size(57, 15);
             label23.TabIndex = 57;
@@ -217,7 +219,7 @@
             // label21
             // 
             label21.AutoSize = true;
-            label21.Location = new Point(746, 34);
+            label21.Location = new Point(650, 34);
             label21.Name = "label21";
             label21.Size = new Size(71, 15);
             label21.TabIndex = 59;
@@ -744,7 +746,7 @@
             // 
             // btnPurchase
             // 
-            btnPurchase.Location = new Point(961, 490);
+            btnPurchase.Location = new Point(961, 511);
             btnPurchase.Margin = new Padding(3, 2, 3, 2);
             btnPurchase.Name = "btnPurchase";
             btnPurchase.Size = new Size(134, 46);
@@ -808,13 +810,23 @@
             // 
             contextMenuStripSale.ImageScalingSize = new Size(20, 20);
             contextMenuStripSale.Name = "contextMenuStripSale";
-            contextMenuStripSale.Size = new Size(181, 26);
+            contextMenuStripSale.Size = new Size(61, 4);
+            // 
+            // checkBoxBreakage
+            // 
+            checkBoxBreakage.AutoSize = true;
+            checkBoxBreakage.Location = new Point(965, 489);
+            checkBoxBreakage.Name = "checkBoxBreakage";
+            checkBoxBreakage.Size = new Size(124, 19);
+            checkBoxBreakage.TabIndex = 62;
+            checkBoxBreakage.Text = "Add 15% Breakage";
+            checkBoxBreakage.UseVisualStyleBackColor = true;
             // 
             // frmSaleReturn
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1130, 584);
+            ClientSize = new Size(1130, 606);
             Controls.Add(tabControlPurchase);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -904,5 +916,6 @@
         private Label label21;
         private Label label20;
         private Label label19;
+        private CheckBox checkBoxBreakage;
     }
 }

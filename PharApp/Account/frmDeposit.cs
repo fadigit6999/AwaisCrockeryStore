@@ -371,6 +371,7 @@ namespace PharApp.Account
             else
             {
                 lblInvoiceNotPaid.Visible = true;
+                lblInvoicePaid.Visible = false;
                 _isBalanceRemainng = false;
                 btnDeposit.Enabled = true;
                 _hardCodedBalance = 0;

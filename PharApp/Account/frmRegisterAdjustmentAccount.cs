@@ -34,18 +34,17 @@ namespace PharApp.Account
             try
             {
                 var cmbPartyBal = new BAL.Account(Helper.GetConnectionStringFromSettings());
-                List<BML.Party> cmbPartyList = await cmbPartyBal.GetPartyAsync();
+                List<BML.ViewAccount> cmbPartyList = await cmbPartyBal.GetAccountsAsync();
 
                 // Create a dictionary to hold the category names and IDs
                 Dictionary<string, string> partyDictionary = new Dictionary<string, string>();
-                partyDictionary.Add("-- Choose Party --", Guid.NewGuid().ToString());
+                partyDictionary.Add("-- Choose Account --", Guid.NewGuid().ToString());
                 // Populate the dictionary with category names and IDs
                 foreach (var category in cmbPartyList)
                 {
-                    partyDictionary.Add(category.name, category.id);
+                    partyDictionary.Add(category.Name, category.AccountName);
                 }
 
-                // Set the DataSource and DisplayMember/ValueMember for the ComboBox
                 cmbParty.DataSource = new BindingSource(partyDictionary, null);
                 cmbParty.DisplayMember = "Key"; // Display category names
                 cmbParty.ValueMember = "Value"; // Use category IDs as values
@@ -98,7 +97,7 @@ namespace PharApp.Account
                 string remarks = richtxtRemarks.Text;
 
                 var accountAdjustmentBAL = new BAL.AdjustmentBAL(Helper.GetConnectionStringFromSettings());
-                int result = await accountAdjustmentBAL.CreateAdjustmentAccountAsync(partyId, partyType, transactionid,totalAmount,DateTime.Now,remarks);
+                int result = await accountAdjustmentBAL.CreateAdjustmentAccountAsync(partyId, transactionid, partyType, totalAmount, DateTime.Now, remarks);
                 if (result == 1)
                 {
                     Helper.Log($"Transaction Id Created For the Party ## {selectedPartyText} ##");
@@ -171,7 +170,7 @@ namespace PharApp.Account
         }
 
 
-        
+
         private void txtTotalAmount_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Allow only digits, one decimal point, and control characters

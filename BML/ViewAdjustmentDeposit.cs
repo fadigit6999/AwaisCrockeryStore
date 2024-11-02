@@ -9,18 +9,19 @@ namespace BML
     public class ViewAdjustmentDeposit
     {
         public string TrxId { get; set; }
-        public int SerialId { get; set; }
+        public string SerialId { get; set; }
         public string AccountID { get; set; }
         public string TransactionID { get; set; }
-        public DateTime TransactionDate { get; set; }
-        public decimal TotalAmount { get; set; }
+        public string TransactionType { get; set; }
+        public string TransactionDate { get; set; }
+        public string TotalAmount { get; set; }
         public string PaymentMethod { get; set; }
         public string BankName { get; set; }
         public string CheckNo { get; set; }
-        public decimal PaidAmount { get; set; }
-        public decimal Balance { get; set; }
+        public string PaidAmount { get; set; }
+        public string Balance { get; set; }
         public string Remarks { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public int isPaid { get; set; }
+        public string CreatedDate { get; set; }
+        public string isPaid { get; set; }
     }
 }

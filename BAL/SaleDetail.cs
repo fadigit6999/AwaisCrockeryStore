@@ -54,11 +54,11 @@ namespace BAL
             }
         }
 
-        public async Task<bool> HandleSaleStockReturnAsync(string saleOrderId, string saleDetialId, string medid, string batchid, int quantity)
+        public async Task<bool> HandleSaleStockReturnAsync(string saleOrderId, string saleDetialId, string medid, string batchid, int quantity,int isPercent)
         {
             try
             {
-                return await _saleOrderDetailDAL.HandleSaleStockReturnAsync(saleOrderId,saleDetialId,medid,batchid,quantity);
+                return await _saleOrderDetailDAL.HandleSaleStockReturnAsync(saleOrderId,saleDetialId,medid,batchid,quantity,isPercent);
             }
             catch (Exception ex)
             {

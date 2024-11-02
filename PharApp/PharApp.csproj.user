@@ -19,6 +19,9 @@
     <Compile Update="Account\frmRegisterAdjustmentAccount.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Account\frmRegisterAdjustmentDeposit.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Audit\AuditLog.cs">
       <SubType>Form</SubType>
     </Compile>

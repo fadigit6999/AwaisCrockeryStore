@@ -17,11 +17,13 @@ namespace PharApp.Account
         private List<BML.ViewAccount> _accountList;
         private List<BML.ViewAdjustmentAccount> _accountAdjustmentList;
         private List<BML.ViewDeposit> _depositList;
+        private List<BML.ViewAdjustmentDeposit> _AdjustmentDepositList;
 
 
         public IReadOnlyList<BML.ViewAccount> AccountList => _accountList.AsReadOnly();
         public IReadOnlyList<BML.ViewAdjustmentAccount> AccountAdjustmentList => _accountAdjustmentList.AsReadOnly();
         public IReadOnlyList<BML.ViewDeposit> DepositList => _depositList.AsReadOnly();
+        public IReadOnlyList<BML.ViewAdjustmentDeposit> AdjustmentDepositList => _AdjustmentDepositList.AsReadOnly();
 
 
         //public IReadOnlyList<AspNetRole> UserRolesList => _userRolesList.AsReadOnly();
@@ -73,7 +75,19 @@ namespace PharApp.Account
                 Console.WriteLine($"Error loading users: {ex.Message}");
             }
         }
-
+        private async Task LoadAdjustmentDepositsAsync()
+        {
+            try
+            {
+                var adjustmentDepositBAL = new BAL.AdjustmentBAL(Helper.GetConnectionStringFromSettings());
+                _AdjustmentDepositList = await adjustmentDepositBAL.GetAdjustmentDepositsAsync();
+                dataGridViewAdjustmentDepositGrid.DataSource = _AdjustmentDepositList;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error loading users: {ex.Message}");
+            }
+        }
         private void btnAccount_Click(object sender, EventArgs e)
         {
             var frm = new frmRegisterAccount(this, null);
@@ -141,12 +155,64 @@ namespace PharApp.Account
             await LoadUsersAsync();
             await LoadDepositsAsync();
             await LoadAdjustmentAccountAsync();
+            await LoadAdjustmentDepositsAsync();
         }
 
         private void btnRegisterAdjustmentAccount_Click(object sender, EventArgs e)
         {
             var frm = new frmRegisterAdjustmentAccount(this);
             frm.ShowDialog();
+        }
+
+        private void txtSearchAdjustementAccount_KeyUp(object sender, KeyEventArgs e)
+        {
+            var filterList = _accountAdjustmentList.Where(item =>
+         item.AccountID.ToLower().Contains(txtSearchAdjustementAccount.Text.ToLower()) ||
+         item.TransactionID.ToLower().Contains(txtSearchAdjustementAccount.Text.ToLower()) ||
+         item.TransactionType.ToLower().Contains(txtSearchAdjustementAccount.Text.ToLower()) ||
+         item.TotalDepositAmount.Contains(txtSearchAdjustementAccount.Text.ToLower())
+         // Add conditions for other fields as needed
+         ).ToList();
+            dataGridViewAdjustementAccount.DataSource = null;
+            dataGridViewAdjustementAccount.DataSource = filterList;
+            dataGridViewAdjustementAccount.Refresh();
+        }
+
+        private void btnAdjustmentDeposit_Click(object sender, EventArgs e)
+        {
+            var frm = new frmRegisterAdjustmentDeposit(this);
+            frm.ShowDialog();
+        }
+
+        private void txtAdjustmentDepositSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            var filterList = _AdjustmentDepositList.Where(item =>
+        item.AccountID.ToLower().Contains(txtAdjustmentDepositSearch.Text.ToLower()) ||
+        item.TransactionID.ToLower().Contains(txtAdjustmentDepositSearch.Text.ToLower()) ||
+        item.TransactionType.ToLower().Contains(txtAdjustmentDepositSearch.Text.ToLower()) ||
+        item.TransactionDate.Contains(txtAdjustmentDepositSearch.Text.ToLower()) ||
+        item.TotalAmount.Contains(txtAdjustmentDepositSearch.Text.ToLower()) ||
+        item.PaymentMethod.Contains(txtAdjustmentDepositSearch.Text.ToLower()) ||
+
+        item.BankName.Contains(txtAdjustmentDepositSearch.Text.ToLower()) ||
+        item.CheckNo.Contains(txtAdjustmentDepositSearch.Text.ToLower()) ||
+        item.PaidAmount.Contains(txtAdjustmentDepositSearch.Text.ToLower()) ||
+        item.Balance.Contains(txtAdjustmentDepositSearch.Text.ToLower())
+        // Add conditions for other fields as needed
+        ).ToList();
+            dataGridViewAdjustmentDepositGrid.DataSource = null;
+            dataGridViewAdjustmentDepositGrid.DataSource = filterList;
+            dataGridViewAdjustmentDepositGrid.Refresh();
+        }
+
+        private async void btnRefreshAdjustementAccount_Click(object sender, EventArgs e)
+        {
+            await LoadAdjustmentAccountAsync();
+        }
+
+        private async void btnRefreshAdjustmentDepositGrid_Click(object sender, EventArgs e)
+        {
+            await LoadAdjustmentDepositsAsync();
         }
     }
 }

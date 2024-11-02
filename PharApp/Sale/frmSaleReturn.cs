@@ -512,6 +512,8 @@ namespace PharApp.Sale
             dataGridViewSaleDetails.Columns.Add("ManfPriceColumn", "Sale Price");
             dataGridViewSaleDetails.Columns.Add("TotalColumn", "Total");
             dataGridViewSaleDetails.Columns.Add("RemoveColumn", "Remove");
+
+            checkBoxBreakage.Checked = false;
         }
         private async void btnPurchase_Click(object sender, EventArgs e)
         {
@@ -535,8 +537,12 @@ namespace PharApp.Sale
                         int quantity = Convert.ToInt32(row.Cells["QuantityColumn"].Value);
                         string invoice = lblDefineInvoice.Text;
                         string formatOrderId = Helper.FormatGuid(_orderId);
-
-                        result = await SaleOrderDetailsBAL.HandleSaleStockReturnAsync(formatOrderId, _orderDetailId, medicineId, batchId, quantity);
+                        int isPercent = 0;
+                        if (checkBoxBreakage.Checked)
+                        {
+                            isPercent = 1;
+                        }
+                        result = await SaleOrderDetailsBAL.HandleSaleStockReturnAsync(formatOrderId, _orderDetailId, medicineId, batchId, quantity, isPercent);
                         Helper.Log("Sale Stock Return Changes: " + " ," + medicineId + " ," + batchId.ToString() + " ," + quantity);
                         if (result)
                         {

@@ -95,7 +95,7 @@ namespace DAL
 
             return result;
         }
-        public async Task<bool> HandleSaleStockReturnAsync(string saleOrderId, string saleDetialId, string medid, string batchid, int quantity)
+        public async Task<bool> HandleSaleStockReturnAsync(string saleOrderId, string saleDetialId, string medid, string batchid, int quantity,int isPercent)
         {
             bool result = false;
 
@@ -111,6 +111,10 @@ namespace DAL
                 command.Parameters.AddWithValue("@MedicineID", medid);
                 command.Parameters.AddWithValue("@BatchID", batchid);
                 command.Parameters.AddWithValue("@Quantity", quantity);
+                if (isPercent == 1)
+                {
+                    command.Parameters.AddWithValue("@PercentDiscount", 1);
+                }
 
                 await connection.OpenAsync();
 

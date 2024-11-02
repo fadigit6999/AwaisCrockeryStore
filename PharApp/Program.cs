@@ -21,7 +21,7 @@ namespace PharApp
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new frmAccountDeposit());
+            Application.Run(new frmLogin());
         }
     }
 }

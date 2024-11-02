@@ -19,9 +19,10 @@ namespace DAL
         }
 
         // Create a new record in AdjustmentDeposit
-        public async Task<int> CreateAdjustmentDepositAsync(string trxId, int serialId, string accountId, string transactionId, DateTime transactionDate, decimal totalAmount,
-                                                            string paymentMethod, string bankName, string checkNo, decimal paidAmount, decimal balance, string remarks, int isPaid)
+        public async Task<int> CreateAdjustmentDepositAsync(string accountId, string transactionId, DateTime transactionDate, decimal totalAmount,
+                                                            string paymentMethod, string bankName, string checkNo, decimal paidAmount, decimal balance, string remarks)
         {
+            int result = 0;
             using (var connection = new SqlConnection(_connectionString))
             using (var command = new SqlCommand("ManageAdjustmentRecords", connection))
             {
@@ -29,8 +30,6 @@ namespace DAL
 
                 command.Parameters.AddWithValue("@TableName", "AdjustmentDeposit");
                 command.Parameters.AddWithValue("@Operation", "Create");
-                command.Parameters.AddWithValue("@TrxId", trxId);
-                command.Parameters.AddWithValue("@SerialId", serialId);
                 command.Parameters.AddWithValue("@AccountID", accountId);
                 command.Parameters.AddWithValue("@TransactionID", transactionId);
                 command.Parameters.AddWithValue("@TransactionDate", transactionDate);
@@ -41,17 +40,16 @@ namespace DAL
                 command.Parameters.AddWithValue("@PaidAmount", paidAmount);
                 command.Parameters.AddWithValue("@Balance", balance);
                 command.Parameters.AddWithValue("@Remarks", remarks);
-                command.Parameters.AddWithValue("@isPaid", isPaid);
 
                 await connection.OpenAsync();
-                return await command.ExecuteNonQueryAsync();
+                return result = await command.ExecuteNonQueryAsync();
             }
         }
 
         // Read records from AdjustmentDeposit
-        public async Task<List<AdjustmentDeposit>> ReadAdjustmentDepositAsync(string trxId = null)
+        public async Task<List<ViewAdjustmentDeposit>> ReadAdjustmentDepositAsync(string trxId = null)
         {
-            List<AdjustmentDeposit> deposits = new List<AdjustmentDeposit>();
+            List<ViewAdjustmentDeposit> deposits = new List<ViewAdjustmentDeposit>();
 
             using (var connection = new SqlConnection(_connectionString))
             using (var command = new SqlCommand("ManageAdjustmentRecords", connection))
@@ -66,22 +64,23 @@ namespace DAL
                 {
                     while (await reader.ReadAsync())
                     {
-                        deposits.Add(new AdjustmentDeposit
+                        deposits.Add(new ViewAdjustmentDeposit
                         {
                             TrxId = reader["TrxId"].ToString(),
-                            SerialId = (int)reader["SerialId"],
+                            SerialId = reader["SerialId"].ToString(),
                             AccountID = reader["AccountID"].ToString(),
                             TransactionID = reader["TransactionID"].ToString(),
-                            TransactionDate = (DateTime)reader["TransactionDate"],
-                            TotalAmount = (decimal)reader["TotalAmount"],
+                            TransactionType = reader["TransactionType"].ToString(),
+                            TransactionDate = reader["TransactionDate"].ToString(),
+                            TotalAmount = reader["TotalAmount"].ToString(),
                             PaymentMethod = reader["PaymentMethod"].ToString(),
                             BankName = reader["BankName"].ToString(),
                             CheckNo = reader["CheckNo"].ToString(),
-                            PaidAmount = (decimal)reader["PaidAmount"],
-                            Balance = (decimal)reader["Balance"],
+                            PaidAmount = reader["PaidAmount"].ToString(),
+                            Balance = reader["Balance"].ToString(),
                             Remarks = reader["Remarks"].ToString(),
-                            CreatedDate = (DateTime)reader["CreatedDate"],
-                            isPaid = (int)reader["isPaid"]
+                            CreatedDate = reader["CreatedDate"].ToString(),
+                            isPaid = reader["isPaid"].ToString()
                         });
                     }
                 }
@@ -132,10 +131,12 @@ namespace DAL
                         accounts.Add(new ViewAdjustmentAccount
                         {
                             AccountID = reader["AccountID"].ToString(),
+                            AccountHolder = reader["AccountHolder"].ToString(),
+
                             TransactionID = reader["TransactionID"].ToString(),
                             TransactionType = reader["TransactionType"].ToString(),
-                            DepositDate = (DateTime)reader["DepositDate"],
-                            TotalDepositAmount = (decimal)reader["TotalDepositAmount"],
+                            DepositDate = reader["DepositDate"].ToString(),
+                            TotalDepositAmount = reader["TotalDepositAmount"].ToString(),
                             Remarks = reader["Remarks"].ToString()
                         });
                     }
@@ -166,6 +167,34 @@ namespace DAL
             }
 
             return transactionId;
+        }
+
+        public async Task<List<ViewTransactionIdCMB>> GetTransactionIdCMB()
+        {
+            List<ViewTransactionIdCMB> transactionIdCMBs = new List<ViewTransactionIdCMB>();
+
+            using (var connection = new SqlConnection(_connectionString))
+            using (var command = new SqlCommand("ManageAdjustmentRecords", connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@TableName", "AdjustmentAccount");
+                command.Parameters.AddWithValue("@Operation", "GetTransactionIdCMB");   
+
+                await connection.OpenAsync();
+                using (var reader = await command.ExecuteReaderAsync())
+                {
+                    while (await reader.ReadAsync())
+                    {
+                        transactionIdCMBs.Add(new ViewTransactionIdCMB
+                        {
+                            AccountID = reader["AccountID"].ToString(),
+                            TransactionID = reader["TransactionID"].ToString()
+                        });
+                    }
+                }
+            }
+
+            return transactionIdCMBs;
         }
 
     }

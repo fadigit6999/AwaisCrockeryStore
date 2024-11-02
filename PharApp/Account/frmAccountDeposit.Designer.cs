@@ -253,6 +253,7 @@
             btnRefreshAdjustementAccount.Size = new Size(30, 25);
             btnRefreshAdjustementAccount.TabIndex = 11;
             btnRefreshAdjustementAccount.UseVisualStyleBackColor = true;
+            btnRefreshAdjustementAccount.Click += btnRefreshAdjustementAccount_Click;
             // 
             // dataGridViewAdjustementAccount
             // 
@@ -287,6 +288,7 @@
             txtSearchAdjustementAccount.Name = "txtSearchAdjustementAccount";
             txtSearchAdjustementAccount.Size = new Size(213, 23);
             txtSearchAdjustementAccount.TabIndex = 9;
+            txtSearchAdjustementAccount.KeyUp += txtSearchAdjustementAccount_KeyUp;
             // 
             // btnRegisterAdjustmentAccount
             // 
@@ -323,6 +325,7 @@
             btnRefreshAdjustmentDepositGrid.Size = new Size(30, 25);
             btnRefreshAdjustmentDepositGrid.TabIndex = 12;
             btnRefreshAdjustmentDepositGrid.UseVisualStyleBackColor = true;
+            btnRefreshAdjustmentDepositGrid.Click += btnRefreshAdjustmentDepositGrid_Click;
             // 
             // label4
             // 
@@ -342,6 +345,7 @@
             txtAdjustmentDepositSearch.Name = "txtAdjustmentDepositSearch";
             txtAdjustmentDepositSearch.Size = new Size(213, 23);
             txtAdjustmentDepositSearch.TabIndex = 10;
+            txtAdjustmentDepositSearch.KeyUp += txtAdjustmentDepositSearch_KeyUp;
             // 
             // dataGridViewAdjustmentDepositGrid
             // 
@@ -367,6 +371,7 @@
             btnAdjustmentDeposit.TabIndex = 9;
             btnAdjustmentDeposit.Text = "Register Adjustment Deposit";
             btnAdjustmentDeposit.UseVisualStyleBackColor = true;
+            btnAdjustmentDeposit.Click += btnAdjustmentDeposit_Click;
             // 
             // frmAccountDeposit
             // 
