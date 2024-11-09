@@ -16,6 +16,7 @@ using System.CodeDom.Compiler;
 using BML;
 using PharApp.RdlcReports.Purchase;
 using PharApp.RdlcReports.Sale;
+using DocumentFormat.OpenXml.Wordprocessing;
 
 namespace PharApp.Purchase
 {
@@ -23,19 +24,20 @@ namespace PharApp.Purchase
     {
         private BindingList<ViewPurchase> originalPurchaseList;
         private BindingList<ViewPurchase> filteredPurchaseList;
+        private int pageSize = 300;
         public frmPurchase()
         {
             InitializeComponent();
         }
 
-        private void frmPurchase_Load(object sender, EventArgs e)
+        private async void frmPurchase_Load(object sender, EventArgs e)
         {
             PopulateComboBoxManufacturer();
             PopulateComboBoxPaymentType();
             LoadFutureInvoice();
             DefaultDetails();
             ClearDetailsGrid();
-            LoadGridDataViewPurchase();
+            LoadGridData();
         }
 
         private async void PopulateComboBoxManufacturer()
@@ -124,14 +126,14 @@ namespace PharApp.Purchase
 
                     Dictionary<string, string> pTypeDictionary = new Dictionary<string, string>();
                     pTypeDictionary.Add("Choose Payment Type", Guid.NewGuid().ToString());
-                    if (cmbPaymentTypeList != null && cmbPaymentTypeList.Count>0)
+                    if (cmbPaymentTypeList != null && cmbPaymentTypeList.Count > 0)
                     {
                         foreach (var pt in cmbPaymentTypeList)
                         {
                             pTypeDictionary.Add(pt.TypeName, pt.PaymentTypeId);
                         }
                     }
-                
+
 
                     cmbPaymentType.DataSource = new BindingSource(pTypeDictionary, null);
                     cmbPaymentType.DisplayMember = "Key";
@@ -523,7 +525,7 @@ namespace PharApp.Purchase
                             DefaultDetails();
                             ClearOrderValues();
                             ClearDetailsGrid();
-                            LoadGridDataViewPurchase();
+                            LoadGridData();
                             // Display success message
                             DialogResult msg = MessageBox.Show("Purchase registered successfully. Do you want to print the purchase?",
                                       "Success",
@@ -598,42 +600,16 @@ namespace PharApp.Purchase
         }
 
 
-        private async void LoadGridDataViewPurchase()
+        private async Task LoadGridPurchaseData()
         {
             try
             {
                 var purchaseBal = new BAL.PurchaseOrder(Helper.GetConnectionStringFromSettings());
                 var purchaseList = await purchaseBal.ViewPurchaseAsync();
-
+                lbltotalRecordloaded.Text = $"Total Record: {purchaseList.Count.ToString()}";
                 originalPurchaseList = new BindingList<ViewPurchase>(purchaseList);
                 filteredPurchaseList = new BindingList<ViewPurchase>(purchaseList);
 
-                dataGridViewPurchase.DataSource = originalPurchaseList;
-                dataGridViewPurchase.Columns["OrderID"].HeaderText = "Id";
-                dataGridViewPurchase.Columns["InvoiceNo"].HeaderText = "Invoice";
-                dataGridViewPurchase.Columns["MedName"].HeaderText = "Item";
-                dataGridViewPurchase.Columns["ManufacturerName"].HeaderText = "Mgf.";
-                dataGridViewPurchase.Columns["Quantity"].HeaderText = "Quantity";
-                dataGridViewPurchase.Columns["Total"].HeaderText = "Gr. Total";
-                dataGridViewPurchase.Columns["TypeName"].HeaderText = "Payment";
-                dataGridViewPurchase.Columns["ExpiryDate"].HeaderText = "Ex. Date";
-                dataGridViewPurchase.Columns["BatchId"].HeaderText = "Item Code";
-                dataGridViewPurchase.Columns["PurchaseDate"].HeaderText = "Pr Date";
-                //column order
-                dataGridViewPurchase.Columns["OrderID"].DisplayIndex = 0;
-                dataGridViewPurchase.Columns["PurchaseDate"].DisplayIndex = 1;
-                dataGridViewPurchase.Columns["InvoiceNo"].DisplayIndex = 2;
-                dataGridViewPurchase.Columns["MedName"].DisplayIndex = 3;
-                dataGridViewPurchase.Columns["BatchId"].DisplayIndex = 4;
-                dataGridViewPurchase.Columns["ManufacturerName"].DisplayIndex = 5;
-                dataGridViewPurchase.Columns["TypeName"].DisplayIndex = 6;
-                dataGridViewPurchase.Columns["Quantity"].DisplayIndex = 7;
-                dataGridViewPurchase.Columns["ExpiryDate"].DisplayIndex = 8;
-                dataGridViewPurchase.Columns["Total"].DisplayIndex = 9;
-
-
-
-                dataGridViewPurchase.Refresh();
             }
             catch (Exception ex)
             {
@@ -688,8 +664,8 @@ namespace PharApp.Purchase
             dataGridViewPurchase.Columns["Quantity"].DisplayIndex = 7;
             dataGridViewPurchase.Columns["ExpiryDate"].DisplayIndex = 8;
             dataGridViewPurchase.Columns["Total"].DisplayIndex = 9;
-            
-            
+
+
 
             dataGridViewPurchase.Refresh();
         }
@@ -832,7 +808,7 @@ namespace PharApp.Purchase
                 string name = dataGridViewPurchase.SelectedRows[0].Cells["InvoiceNo"].Value.ToString();
                 string OrderId = dataGridViewPurchase.SelectedRows[0].Cells["OrderID"].Value.ToString();
                 // Prompt the user for confirmation
-                var frm = new frmPurchaseReturn(name,OrderId);
+                var frm = new frmPurchaseReturn(name, OrderId);
                 frm.ShowDialog();
             }
             else
@@ -844,7 +820,79 @@ namespace PharApp.Purchase
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            LoadGridDataViewPurchase();
+            LoadGridData();
+            txtSearch.Text = "";
+        }
+
+        #region Data View Grid Responsibility
+        private async void LoadGridData()
+        {
+            await LoadGridPurchaseData();
+            InitializePaginationDropdown(originalPurchaseList.Count, pageSize);
+            LoadPaginatedData(1);
+            txtSearch.Text = "";
+        }
+        private void InitializePaginationDropdown(int totalRecords, int pageSize)
+        {
+            int totalPages = (int)Math.Ceiling((double)totalRecords / pageSize);
+            comboBoxPage.Items.Clear();
+            for (int i = 1; i <= totalPages; i++)
+            {
+                comboBoxPage.Items.Add(i);
+            }
+            comboBoxPage.SelectedIndex = 0; // Start with the first page selected
+        }
+
+        private void comboBoxPage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectedPage = comboBoxPage.SelectedIndex + 1;
+            LoadPaginatedData(selectedPage);
+        }
+        // Helper method to get data for the specified page
+        private List<ViewPurchase> GetPage(List<ViewPurchase> list, int pageNumber, int pageSize)
+        {
+            return list.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+        }
+        // Paginate data based on current page number
+        private void LoadPaginatedData(int pageNumber)
+        {
+            var paginatedData = GetPage(originalPurchaseList.ToList(), pageNumber, pageSize);
+            var bindingList = new BindingList<ViewPurchase>(paginatedData);
+
+            dataGridViewPurchase.DataSource = bindingList;
+            dataGridViewPurchase.Columns["OrderID"].HeaderText = "Id";
+            dataGridViewPurchase.Columns["InvoiceNo"].HeaderText = "Invoice";
+            dataGridViewPurchase.Columns["MedName"].HeaderText = "Item";
+            dataGridViewPurchase.Columns["ManufacturerName"].HeaderText = "Mgf.";
+            dataGridViewPurchase.Columns["Quantity"].HeaderText = "Quantity";
+            dataGridViewPurchase.Columns["Total"].HeaderText = "Gr. Total";
+            dataGridViewPurchase.Columns["TypeName"].HeaderText = "Payment";
+            dataGridViewPurchase.Columns["ExpiryDate"].HeaderText = "Ex. Date";
+            dataGridViewPurchase.Columns["BatchId"].HeaderText = "Item Code";
+            dataGridViewPurchase.Columns["PurchaseDate"].HeaderText = "Pr Date";
+            //column order
+            dataGridViewPurchase.Columns["OrderID"].DisplayIndex = 0;
+            dataGridViewPurchase.Columns["PurchaseDate"].DisplayIndex = 1;
+            dataGridViewPurchase.Columns["InvoiceNo"].DisplayIndex = 2;
+            dataGridViewPurchase.Columns["MedName"].DisplayIndex = 3;
+            dataGridViewPurchase.Columns["BatchId"].DisplayIndex = 4;
+            dataGridViewPurchase.Columns["ManufacturerName"].DisplayIndex = 5;
+            dataGridViewPurchase.Columns["TypeName"].DisplayIndex = 6;
+            dataGridViewPurchase.Columns["Quantity"].DisplayIndex = 7;
+            dataGridViewPurchase.Columns["ExpiryDate"].DisplayIndex = 8;
+            dataGridViewPurchase.Columns["Total"].DisplayIndex = 9;
+
+
+
+            dataGridViewPurchase.Refresh();
+        }
+        #endregion
+
+
+        private void comboBoxPage_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            int selectedPage = comboBoxPage.SelectedIndex + 1;
+            LoadPaginatedData(selectedPage);
         }
     }
 }

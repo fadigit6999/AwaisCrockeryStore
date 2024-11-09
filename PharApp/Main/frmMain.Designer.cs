@@ -61,10 +61,10 @@
             toolsToolStripMenuItem = new ToolStripMenuItem();
             calculatorToolStripMenuItem = new ToolStripMenuItem();
             notePadToolStripMenuItem = new ToolStripMenuItem();
-            aboutToolStripMenuItem = new ToolStripMenuItem();
             accountToolStripMenuItem = new ToolStripMenuItem();
             accountToolStripMenuItem1 = new ToolStripMenuItem();
             reportsToolStripMenuItem1 = new ToolStripMenuItem();
+            aboutToolStripMenuItem = new ToolStripMenuItem();
             statusStrip1 = new StatusStrip();
             toolStripStatuslblVersion = new ToolStripStatusLabel();
             toolStripStatusLabelLoginUser = new ToolStripStatusLabel();
@@ -87,6 +87,8 @@
             lblTotalCustomer = new Label();
             lblTotalInventory = new Label();
             timerMain = new System.Windows.Forms.Timer(components);
+            accountLedgerToolStripMenuItem = new ToolStripMenuItem();
+            adjustmentAccountLedgerToolStripMenuItem = new ToolStripMenuItem();
             menuStrip.SuspendLayout();
             statusStrip1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
@@ -321,13 +323,6 @@
             notePadToolStripMenuItem.Text = "Note Pad";
             notePadToolStripMenuItem.Click += notePadToolStripMenuItem_Click;
             // 
-            // aboutToolStripMenuItem
-            // 
-            aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            aboutToolStripMenuItem.Size = new Size(52, 20);
-            aboutToolStripMenuItem.Text = "About";
-            aboutToolStripMenuItem.Click += aboutToolStripMenuItem_Click;
-            // 
             // accountToolStripMenuItem
             // 
             accountToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { accountToolStripMenuItem1, reportsToolStripMenuItem1 });
@@ -338,15 +333,23 @@
             // accountToolStripMenuItem1
             // 
             accountToolStripMenuItem1.Name = "accountToolStripMenuItem1";
-            accountToolStripMenuItem1.Size = new Size(178, 22);
+            accountToolStripMenuItem1.Size = new Size(180, 22);
             accountToolStripMenuItem1.Text = "Accounts | Deposits";
             accountToolStripMenuItem1.Click += accountToolStripMenuItem1_Click;
             // 
             // reportsToolStripMenuItem1
             // 
+            reportsToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { accountLedgerToolStripMenuItem, adjustmentAccountLedgerToolStripMenuItem });
             reportsToolStripMenuItem1.Name = "reportsToolStripMenuItem1";
-            reportsToolStripMenuItem1.Size = new Size(178, 22);
+            reportsToolStripMenuItem1.Size = new Size(180, 22);
             reportsToolStripMenuItem1.Text = "Reports";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            aboutToolStripMenuItem.Size = new Size(52, 20);
+            aboutToolStripMenuItem.Text = "About";
+            aboutToolStripMenuItem.Click += aboutToolStripMenuItem_Click;
             // 
             // statusStrip1
             // 
@@ -608,6 +611,19 @@
             timerMain.Interval = 1000;
             timerMain.Tick += timerMain_Tick;
             // 
+            // accountLedgerToolStripMenuItem
+            // 
+            accountLedgerToolStripMenuItem.Name = "accountLedgerToolStripMenuItem";
+            accountLedgerToolStripMenuItem.Size = new Size(223, 22);
+            accountLedgerToolStripMenuItem.Text = "Account Ledger";
+            accountLedgerToolStripMenuItem.Click += accountLedgerToolStripMenuItem_Click;
+            // 
+            // adjustmentAccountLedgerToolStripMenuItem
+            // 
+            adjustmentAccountLedgerToolStripMenuItem.Name = "adjustmentAccountLedgerToolStripMenuItem";
+            adjustmentAccountLedgerToolStripMenuItem.Size = new Size(223, 22);
+            adjustmentAccountLedgerToolStripMenuItem.Text = "Adjustment Account Ledger";
+            // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -707,5 +723,7 @@
         private ToolStripMenuItem accountToolStripMenuItem;
         private ToolStripMenuItem accountToolStripMenuItem1;
         private ToolStripMenuItem reportsToolStripMenuItem1;
+        private ToolStripMenuItem accountLedgerToolStripMenuItem;
+        private ToolStripMenuItem adjustmentAccountLedgerToolStripMenuItem;
     }
 }

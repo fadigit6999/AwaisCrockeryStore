@@ -1810,7 +1810,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>="Page" &amp; Globals.PageNumber &amp; " of " &amp; Globals.TotalPages</Value>
+                  <Value>="Page " &amp; Globals.PageNumber &amp; " of " &amp; Globals.TotalPages</Value>
                   <Style>
                     <FontFamily>Verdana</FontFamily>
                     <FontSize>6pt</FontSize>

@@ -18,6 +18,7 @@ using PharApp.Backup;
 using PharApp.Customer;
 using PharApp.Inventory;
 using PharApp.Purchase;
+using PharApp.RdlcReports.Account;
 using PharApp.RdlcReports.Purchase;
 using PharApp.RdlcReports.Sale;
 using PharApp.RdlcReports.Stock;
@@ -369,6 +370,12 @@ namespace PharApp.Main
         private void accountToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             var frm = new frmAccountDeposit();
+            frm.ShowDialog();
+        }
+
+        private void accountLedgerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new rptAccountLedger();
             frm.ShowDialog();
         }
     }

@@ -12,6 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="RdlcReports\Account\rptGeneralAccountLedger.rdlc" />
     <None Remove="RdlcReports\Purchase\rptPSR.rdlc" />
     <None Remove="RdlcReports\Purchase\rptPurchase.rdlc" />
     <None Remove="RdlcReports\Purchase\rptPurchaseReturn.rdlc" />
@@ -26,6 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="RdlcReports\Account\rptGeneralAccountLedger.rdlc" />
     <EmbeddedResource Include="RdlcReports\Purchase\rptPSR.rdlc" />
     <EmbeddedResource Include="RdlcReports\Purchase\rptPurchaseReturn.rdlc" />
     <EmbeddedResource Include="RdlcReports\Purchase\rptPurchase.rdlc" />
@@ -63,6 +65,14 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Purchase\frmPurchaseReturn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="RdlcReports\Account\Account.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Account.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="RdlcReports\Account\rptAccountLedger.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="RdlcReports\Purchase\DSPurchase.Designer.cs">
@@ -121,6 +131,10 @@
     <None Update="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="RdlcReports\Account\Account.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Account.Designer.cs</LastGenOutput>
     </None>
     <None Update="RdlcReports\Purchase\DSPurchase.xsd">
       <Generator>MSDataSetGenerator</Generator>

@@ -20,6 +20,7 @@ namespace PharApp.Sale
     {
         private BindingList<ViewSale> originalBindingList;
         private BindingList<ViewSale> filteredBindingList;
+        private int pageSize = 1000;
         public frmSale()
         {
             InitializeComponent();
@@ -35,7 +36,7 @@ namespace PharApp.Sale
             LoadFutureInvoice();
             DefaultDetails();
             ClearDetailsGrid();
-            LoadGridDataViewSale();
+            LoadGridSaleData();
         }
         private async void PopulateComboBoxCustomer()
         {
@@ -366,7 +367,7 @@ namespace PharApp.Sale
                 {
                     lblMfg.Text = ex.Message.ToString();
                 }
-                
+
 
                 Dictionary<string, string> StockDictionary = new Dictionary<string, string>();
                 StockDictionary.Add("Item Code", Guid.NewGuid().ToString());
@@ -652,7 +653,7 @@ namespace PharApp.Sale
                             DefaultDetails();
                             ClearOrderValues();
                             ClearDetailsGrid();
-                            LoadGridDataViewSale();
+                            LoadGridSaleData();
                             DialogResult msg = MessageBox.Show("Sale registered successfully. Do you want to print the Sale?",
                                     "Success",
                                     MessageBoxButtons.YesNo,
@@ -741,58 +742,18 @@ namespace PharApp.Sale
         {
             ClearAll();
         }
-        private async void LoadGridDataViewSale()
+        private async Task LoadSaleList()
         {
             try
             {
                 var saleBal = new BAL.SaleOrder(Helper.GetConnectionStringFromSettings());
                 var saleList = await saleBal.GetSaleOrdersAsync();
 
+                lbltotalRecordloaded.Text = $"Total Record: {saleList.Count.ToString()}";
+
                 originalBindingList = new BindingList<ViewSale>(saleList);
                 filteredBindingList = new BindingList<ViewSale>(saleList);
-                dataGridViewSale.DataSource = originalBindingList;
 
-                dataGridViewSale.Columns["OrderID"].HeaderText = "Id";
-                dataGridViewSale.Columns["InvoiceNo"].HeaderText = "Invoice";
-                dataGridViewSale.Columns["MedName"].HeaderText = "Item";
-                dataGridViewSale.Columns["Customer"].HeaderText = "Customer";
-                dataGridViewSale.Columns["Quantity"].HeaderText = "Quantity";
-                dataGridViewSale.Columns["Total"].HeaderText = "Gr. Total";
-                dataGridViewSale.Columns["TypeName"].HeaderText = "Payment";
-                dataGridViewSale.Columns["ExpiryDate"].HeaderText = "Ex. Date";
-                dataGridViewSale.Columns["BatchId"].HeaderText = "Item Code";
-                dataGridViewSale.Columns["InvType"].HeaderText = "Invoice Type";
-                dataGridViewSale.Columns["AreaName"].HeaderText = "Area";
-                dataGridViewSale.Columns["BookerName"].HeaderText = "Booker";
-                dataGridViewSale.Columns["SupplierName"].HeaderText = "Supplier";
-                dataGridViewSale.Columns["SalesDate"].HeaderText = "Sa Date";
-
-
-
-                dataGridViewSale.Columns["OrderID"].DisplayIndex = 0;
-                dataGridViewSale.Columns["InvoiceNo"].DisplayIndex = 1;
-                dataGridViewSale.Columns["InvType"].DisplayIndex = 2;
-                dataGridViewSale.Columns["SalesDate"].DisplayIndex = 3;
-                dataGridViewSale.Columns["MedName"].DisplayIndex = 4;
-                dataGridViewSale.Columns["Customer"].DisplayIndex = 5;
-                dataGridViewSale.Columns["TypeName"].DisplayIndex = 6;
-                dataGridViewSale.Columns["BatchId"].DisplayIndex = 7;
-                dataGridViewSale.Columns["ExpiryDate"].DisplayIndex = 8;
-                dataGridViewSale.Columns["Quantity"].DisplayIndex = 9;
-                dataGridViewSale.Columns["Total"].DisplayIndex = 10;
-                dataGridViewSale.Columns["AreaName"].DisplayIndex = 11;
-                dataGridViewSale.Columns["BookerName"].DisplayIndex = 12;
-                dataGridViewSale.Columns["SupplierName"].DisplayIndex = 13;
-
-
-
-
-                dataGridViewSale.Columns["AreaName"].Visible = false;
-                dataGridViewSale.Columns["BookerName"].Visible = false;
-                dataGridViewSale.Columns["SupplierName"].Visible = false;
-                dataGridViewSale.Columns["InvType"].Visible = false;
-
-                dataGridViewSale.Refresh();
             }
             catch (Exception ex)
             {
@@ -1125,7 +1086,7 @@ namespace PharApp.Sale
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            LoadGridDataViewSale();
+           LoadGridSaleData();
         }
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
@@ -1146,5 +1107,87 @@ namespace PharApp.Sale
             var frm = new frmPyament();
             frm.ShowDialog();
         }
+
+
+        #region Data View Grid Responsibility
+        private async void LoadGridSaleData()
+        {
+            await LoadSaleList();
+            InitializePaginationDropdown(originalBindingList.Count, pageSize);
+            LoadPaginatedData(1);
+            txtSearch.Text = "";
+        }
+        private void InitializePaginationDropdown(int totalRecords, int pageSize)
+        {
+            int totalPages = (int)Math.Ceiling((double)totalRecords / pageSize);
+            comboBoxPage.Items.Clear();
+            for (int i = 1; i <= totalPages; i++)
+            {
+                comboBoxPage.Items.Add(i);
+            }
+            comboBoxPage.SelectedIndex = 0; // Start with the first page selected
+        }
+
+        private void comboBoxPage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectedPage = comboBoxPage.SelectedIndex + 1;
+            LoadPaginatedData(selectedPage);
+        }
+        // Helper method to get data for the specified page
+        private List<ViewSale> GetPage(List<ViewSale> list, int pageNumber, int pageSize)
+        {
+            return list.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+        }
+        // Paginate data based on current page number
+        private void LoadPaginatedData(int pageNumber)
+        {
+            var paginatedData = GetPage(originalBindingList.ToList(), pageNumber, pageSize);
+            var bindingList = new BindingList<ViewSale>(paginatedData);
+            dataGridViewSale.DataSource = bindingList;
+
+            dataGridViewSale.Columns["OrderID"].HeaderText = "Id";
+            dataGridViewSale.Columns["InvoiceNo"].HeaderText = "Invoice";
+            dataGridViewSale.Columns["MedName"].HeaderText = "Item";
+            dataGridViewSale.Columns["Customer"].HeaderText = "Customer";
+            dataGridViewSale.Columns["Quantity"].HeaderText = "Quantity";
+            dataGridViewSale.Columns["Total"].HeaderText = "Gr. Total";
+            dataGridViewSale.Columns["TypeName"].HeaderText = "Payment";
+            dataGridViewSale.Columns["ExpiryDate"].HeaderText = "Ex. Date";
+            dataGridViewSale.Columns["BatchId"].HeaderText = "Item Code";
+            dataGridViewSale.Columns["InvType"].HeaderText = "Invoice Type";
+            dataGridViewSale.Columns["AreaName"].HeaderText = "Area";
+            dataGridViewSale.Columns["BookerName"].HeaderText = "Booker";
+            dataGridViewSale.Columns["SupplierName"].HeaderText = "Supplier";
+            dataGridViewSale.Columns["SalesDate"].HeaderText = "Sa Date";
+
+
+
+            dataGridViewSale.Columns["OrderID"].DisplayIndex = 0;
+            dataGridViewSale.Columns["InvoiceNo"].DisplayIndex = 1;
+            dataGridViewSale.Columns["InvType"].DisplayIndex = 2;
+            dataGridViewSale.Columns["SalesDate"].DisplayIndex = 3;
+            dataGridViewSale.Columns["MedName"].DisplayIndex = 4;
+            dataGridViewSale.Columns["Customer"].DisplayIndex = 5;
+            dataGridViewSale.Columns["TypeName"].DisplayIndex = 6;
+            dataGridViewSale.Columns["BatchId"].DisplayIndex = 7;
+            dataGridViewSale.Columns["ExpiryDate"].DisplayIndex = 8;
+            dataGridViewSale.Columns["Quantity"].DisplayIndex = 9;
+            dataGridViewSale.Columns["Total"].DisplayIndex = 10;
+            dataGridViewSale.Columns["AreaName"].DisplayIndex = 11;
+            dataGridViewSale.Columns["BookerName"].DisplayIndex = 12;
+            dataGridViewSale.Columns["SupplierName"].DisplayIndex = 13;
+
+
+
+
+            dataGridViewSale.Columns["AreaName"].Visible = false;
+            dataGridViewSale.Columns["BookerName"].Visible = false;
+            dataGridViewSale.Columns["SupplierName"].Visible = false;
+            dataGridViewSale.Columns["InvType"].Visible = false;
+
+            dataGridViewSale.Refresh();
+        }
+        #endregion
+
     }
 }

@@ -1440,7 +1440,6 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox31</rd:DefaultName>
-          <Top>0in</Top>
           <Left>0.17798in</Left>
           <Height>0.15278in</Height>
           <Width>2.08902in</Width>
@@ -1462,7 +1461,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>="Page" &amp; Globals.PageNumber &amp; " of " &amp; Globals.TotalPages</Value>
+                  <Value>="Page " &amp; Globals.PageNumber &amp; " of " &amp; Globals.TotalPages</Value>
                   <Style>
                     <FontFamily>Verdana</FontFamily>
                     <FontSize>6pt</FontSize>
@@ -1475,7 +1474,6 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox32</rd:DefaultName>
-          <Top>0in</Top>
           <Left>7.11369in</Left>
           <Height>0.17639in</Height>
           <Width>0.70417in</Width>

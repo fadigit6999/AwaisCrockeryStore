@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPurchase));
             tabControlPurchase = new TabControl();
             tabPagePurchase = new TabPage();
@@ -75,6 +75,9 @@
             label2 = new Label();
             label13 = new Label();
             tabPageViewPurchase = new TabPage();
+            lbltotalRecordloaded = new Label();
+            comboBoxPage = new ComboBox();
+            label22 = new Label();
             btnRefresh = new Button();
             txtSearch = new TextBox();
             label18 = new Label();
@@ -174,14 +177,14 @@
             dataGridViewPurchaseDetails.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewPurchaseDetails.BackgroundColor = Color.White;
             dataGridViewPurchaseDetails.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dataGridViewPurchaseDetails.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridViewPurchaseDetails.DefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewPurchaseDetails.Location = new Point(5, 16);
             dataGridViewPurchaseDetails.Margin = new Padding(3, 2, 3, 2);
             dataGridViewPurchaseDetails.Name = "dataGridViewPurchaseDetails";
@@ -573,6 +576,9 @@
             // 
             // tabPageViewPurchase
             // 
+            tabPageViewPurchase.Controls.Add(lbltotalRecordloaded);
+            tabPageViewPurchase.Controls.Add(comboBoxPage);
+            tabPageViewPurchase.Controls.Add(label22);
             tabPageViewPurchase.Controls.Add(btnRefresh);
             tabPageViewPurchase.Controls.Add(txtSearch);
             tabPageViewPurchase.Controls.Add(label18);
@@ -586,14 +592,44 @@
             tabPageViewPurchase.Text = "View Purchase";
             tabPageViewPurchase.UseVisualStyleBackColor = true;
             // 
+            // lbltotalRecordloaded
+            // 
+            lbltotalRecordloaded.AutoSize = true;
+            lbltotalRecordloaded.ForeColor = Color.RoyalBlue;
+            lbltotalRecordloaded.Location = new Point(9, 492);
+            lbltotalRecordloaded.Name = "lbltotalRecordloaded";
+            lbltotalRecordloaded.Size = new Size(0, 15);
+            lbltotalRecordloaded.TabIndex = 8;
+            // 
+            // comboBoxPage
+            // 
+            comboBoxPage.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            comboBoxPage.AutoCompleteSource = AutoCompleteSource.ListItems;
+            comboBoxPage.FormattingEnabled = true;
+            comboBoxPage.Location = new Point(455, 12);
+            comboBoxPage.Margin = new Padding(3, 2, 3, 2);
+            comboBoxPage.Name = "comboBoxPage";
+            comboBoxPage.Size = new Size(46, 23);
+            comboBoxPage.TabIndex = 7;
+            comboBoxPage.SelectedIndexChanged += comboBoxPage_SelectedIndexChanged_1;
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Location = new Point(294, 16);
+            label22.Name = "label22";
+            label22.Size = new Size(154, 15);
+            label22.TabIndex = 6;
+            label22.Text = "&Page (Per Page 300 Record):";
+            // 
             // btnRefresh
             // 
             btnRefresh.BackgroundImage = (Image)resources.GetObject("btnRefresh.BackgroundImage");
             btnRefresh.BackgroundImageLayout = ImageLayout.Stretch;
-            btnRefresh.Location = new Point(286, 12);
+            btnRefresh.Location = new Point(1066, 12);
             btnRefresh.Margin = new Padding(3, 2, 3, 2);
             btnRefresh.Name = "btnRefresh";
-            btnRefresh.Size = new Size(30, 22);
+            btnRefresh.Size = new Size(30, 28);
             btnRefresh.TabIndex = 5;
             btnRefresh.UseVisualStyleBackColor = true;
             btnRefresh.Click += btnRefresh_Click;
@@ -631,7 +667,7 @@
             dataGridViewPurchase.Name = "dataGridViewPurchase";
             dataGridViewPurchase.ReadOnly = true;
             dataGridViewPurchase.RowHeadersWidth = 51;
-            dataGridViewPurchase.Size = new Size(1096, 463);
+            dataGridViewPurchase.Size = new Size(1096, 435);
             dataGridViewPurchase.TabIndex = 0;
             dataGridViewPurchase.MouseClick += dataGridViewPurchase_MouseClick;
             // 
@@ -743,5 +779,8 @@
         private ToolStripMenuItem printReportToolStripMenuItem;
         private ToolStripMenuItem returnPurchaseToolStripMenuItem;
         private Button btnRefresh;
+        private ComboBox comboBoxPage;
+        private Label label22;
+        private Label lbltotalRecordloaded;
     }
 }

@@ -40,6 +40,7 @@ namespace PharApp.Account
                 // Populate the dictionary with category names and IDs
                 foreach (var category in cmbPartyList)
                 {
+
                     partyDictionary.Add(category.name, category.id);
                 }
 

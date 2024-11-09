@@ -12,6 +12,7 @@ using PharApp.Backup;
 using PharApp.About;
 using PharApp.Account;
 using PharApp.RdlcReports.Stock;
+using PharApp.RdlcReports.Account;
 
 namespace PharApp
 {
@@ -21,6 +22,7 @@ namespace PharApp
         static void Main()
         {
             ApplicationConfiguration.Initialize();
+            //Application.Run(new rptAccountLedger());
             Application.Run(new frmLogin());
         }
     }

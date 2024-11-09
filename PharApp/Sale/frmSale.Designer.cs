@@ -88,8 +88,11 @@
             label16 = new Label();
             label13 = new Label();
             tabPageViewPurchase = new TabPage();
+            comboBoxPage = new ComboBox();
+            lbltotalRecordloaded = new Label();
             btnRefresh = new Button();
             txtSearch = new TextBox();
+            label22 = new Label();
             label18 = new Label();
             dataGridViewSale = new DataGridView();
             contextMenuStripSale = new ContextMenuStrip(components);
@@ -741,8 +744,11 @@
             // 
             // tabPageViewPurchase
             // 
+            tabPageViewPurchase.Controls.Add(comboBoxPage);
+            tabPageViewPurchase.Controls.Add(lbltotalRecordloaded);
             tabPageViewPurchase.Controls.Add(btnRefresh);
             tabPageViewPurchase.Controls.Add(txtSearch);
+            tabPageViewPurchase.Controls.Add(label22);
             tabPageViewPurchase.Controls.Add(label18);
             tabPageViewPurchase.Controls.Add(dataGridViewSale);
             tabPageViewPurchase.Location = new Point(4, 24);
@@ -753,6 +759,27 @@
             tabPageViewPurchase.TabIndex = 1;
             tabPageViewPurchase.Text = "View Sale";
             tabPageViewPurchase.UseVisualStyleBackColor = true;
+            // 
+            // comboBoxPage
+            // 
+            comboBoxPage.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            comboBoxPage.AutoCompleteSource = AutoCompleteSource.ListItems;
+            comboBoxPage.FormattingEnabled = true;
+            comboBoxPage.Location = new Point(447, 16);
+            comboBoxPage.Margin = new Padding(3, 2, 3, 2);
+            comboBoxPage.Name = "comboBoxPage";
+            comboBoxPage.Size = new Size(46, 23);
+            comboBoxPage.TabIndex = 5;
+            comboBoxPage.SelectedIndexChanged += comboBoxPage_SelectedIndexChanged;
+            // 
+            // lbltotalRecordloaded
+            // 
+            lbltotalRecordloaded.AutoSize = true;
+            lbltotalRecordloaded.ForeColor = Color.RoyalBlue;
+            lbltotalRecordloaded.Location = new Point(13, 581);
+            lbltotalRecordloaded.Name = "lbltotalRecordloaded";
+            lbltotalRecordloaded.Size = new Size(0, 15);
+            lbltotalRecordloaded.TabIndex = 4;
             // 
             // btnRefresh
             // 
@@ -775,10 +802,19 @@
             txtSearch.TabIndex = 2;
             txtSearch.TextChanged += txtSearch_TextChanged;
             // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Location = new Point(286, 20);
+            label22.Name = "label22";
+            label22.Size = new Size(149, 15);
+            label22.TabIndex = 1;
+            label22.Text = "&Page (Per Page 1K Record):";
+            // 
             // label18
             // 
             label18.AutoSize = true;
-            label18.Location = new Point(7, 18);
+            label18.Location = new Point(6, 20);
             label18.Name = "label18";
             label18.Size = new Size(42, 15);
             label18.TabIndex = 1;
@@ -799,7 +835,7 @@
             dataGridViewSale.Name = "dataGridViewSale";
             dataGridViewSale.ReadOnly = true;
             dataGridViewSale.RowHeadersWidth = 51;
-            dataGridViewSale.Size = new Size(1096, 556);
+            dataGridViewSale.Size = new Size(1096, 521);
             dataGridViewSale.TabIndex = 0;
             dataGridViewSale.MouseClick += dataGridViewSale_MouseClick;
             // 
@@ -919,5 +955,8 @@
         private Button btnAddPaymentType;
         private Button btnReloadCP;
         private Label lblMfg;
+        private Label lbltotalRecordloaded;
+        private ComboBox comboBoxPage;
+        private Label label22;
     }
 }
