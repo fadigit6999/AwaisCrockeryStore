@@ -64,6 +64,8 @@
             accountToolStripMenuItem = new ToolStripMenuItem();
             accountToolStripMenuItem1 = new ToolStripMenuItem();
             reportsToolStripMenuItem1 = new ToolStripMenuItem();
+            accountLedgerToolStripMenuItem = new ToolStripMenuItem();
+            adjustmentAccountLedgerToolStripMenuItem = new ToolStripMenuItem();
             aboutToolStripMenuItem = new ToolStripMenuItem();
             statusStrip1 = new StatusStrip();
             toolStripStatuslblVersion = new ToolStripStatusLabel();
@@ -87,8 +89,6 @@
             lblTotalCustomer = new Label();
             lblTotalInventory = new Label();
             timerMain = new System.Windows.Forms.Timer(components);
-            accountLedgerToolStripMenuItem = new ToolStripMenuItem();
-            adjustmentAccountLedgerToolStripMenuItem = new ToolStripMenuItem();
             menuStrip.SuspendLayout();
             statusStrip1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
@@ -343,6 +343,20 @@
             reportsToolStripMenuItem1.Name = "reportsToolStripMenuItem1";
             reportsToolStripMenuItem1.Size = new Size(180, 22);
             reportsToolStripMenuItem1.Text = "Reports";
+            // 
+            // accountLedgerToolStripMenuItem
+            // 
+            accountLedgerToolStripMenuItem.Name = "accountLedgerToolStripMenuItem";
+            accountLedgerToolStripMenuItem.Size = new Size(223, 22);
+            accountLedgerToolStripMenuItem.Text = "Account Ledger";
+            accountLedgerToolStripMenuItem.Click += accountLedgerToolStripMenuItem_Click;
+            // 
+            // adjustmentAccountLedgerToolStripMenuItem
+            // 
+            adjustmentAccountLedgerToolStripMenuItem.Name = "adjustmentAccountLedgerToolStripMenuItem";
+            adjustmentAccountLedgerToolStripMenuItem.Size = new Size(223, 22);
+            adjustmentAccountLedgerToolStripMenuItem.Text = "Adjustment Account Ledger";
+            adjustmentAccountLedgerToolStripMenuItem.Click += adjustmentAccountLedgerToolStripMenuItem_Click;
             // 
             // aboutToolStripMenuItem
             // 
@@ -610,19 +624,6 @@
             // 
             timerMain.Interval = 1000;
             timerMain.Tick += timerMain_Tick;
-            // 
-            // accountLedgerToolStripMenuItem
-            // 
-            accountLedgerToolStripMenuItem.Name = "accountLedgerToolStripMenuItem";
-            accountLedgerToolStripMenuItem.Size = new Size(223, 22);
-            accountLedgerToolStripMenuItem.Text = "Account Ledger";
-            accountLedgerToolStripMenuItem.Click += accountLedgerToolStripMenuItem_Click;
-            // 
-            // adjustmentAccountLedgerToolStripMenuItem
-            // 
-            adjustmentAccountLedgerToolStripMenuItem.Name = "adjustmentAccountLedgerToolStripMenuItem";
-            adjustmentAccountLedgerToolStripMenuItem.Size = new Size(223, 22);
-            adjustmentAccountLedgerToolStripMenuItem.Text = "Adjustment Account Ledger";
             // 
             // frmMain
             // 

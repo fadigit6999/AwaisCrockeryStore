@@ -37,6 +37,8 @@
             updateManufToolStripMenuItem = new ToolStripMenuItem();
             deleteManufToolStripMenuItem = new ToolStripMenuItem();
             btnRegister = new Button();
+            txtSearch = new TextBox();
+            label18 = new Label();
             tabManufactured.SuspendLayout();
             tabManageManufacturer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewManufacturer).BeginInit();
@@ -45,6 +47,7 @@
             // 
             // tabManufactured
             // 
+            tabManufactured.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tabManufactured.Controls.Add(tabManageManufacturer);
             tabManufactured.Location = new Point(3, 4);
             tabManufactured.Margin = new Padding(3, 2, 3, 2);
@@ -55,6 +58,8 @@
             // 
             // tabManageManufacturer
             // 
+            tabManageManufacturer.Controls.Add(txtSearch);
+            tabManageManufacturer.Controls.Add(label18);
             tabManageManufacturer.Controls.Add(dataGridViewManufacturer);
             tabManageManufacturer.Controls.Add(btnRegister);
             tabManageManufacturer.Location = new Point(4, 24);
@@ -68,6 +73,7 @@
             // 
             // dataGridViewManufacturer
             // 
+            dataGridViewManufacturer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridViewManufacturer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewManufacturer.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewManufacturer.BackgroundColor = Color.White;
@@ -88,19 +94,19 @@
             contextMenuStripManufac.ImageScalingSize = new Size(20, 20);
             contextMenuStripManufac.Items.AddRange(new ToolStripItem[] { updateManufToolStripMenuItem, deleteManufToolStripMenuItem });
             contextMenuStripManufac.Name = "contextMenuStripManufac";
-            contextMenuStripManufac.Size = new Size(181, 70);
+            contextMenuStripManufac.Size = new Size(138, 48);
             // 
             // updateManufToolStripMenuItem
             // 
             updateManufToolStripMenuItem.Name = "updateManufToolStripMenuItem";
-            updateManufToolStripMenuItem.Size = new Size(180, 22);
+            updateManufToolStripMenuItem.Size = new Size(137, 22);
             updateManufToolStripMenuItem.Text = "Update Mfg";
             updateManufToolStripMenuItem.Click += updateManufToolStripMenuItem_Click;
             // 
             // deleteManufToolStripMenuItem
             // 
             deleteManufToolStripMenuItem.Name = "deleteManufToolStripMenuItem";
-            deleteManufToolStripMenuItem.Size = new Size(180, 22);
+            deleteManufToolStripMenuItem.Size = new Size(137, 22);
             deleteManufToolStripMenuItem.Text = "Delete Mfg";
             deleteManufToolStripMenuItem.Click += deleteManufToolStripMenuItem_Click;
             // 
@@ -115,20 +121,41 @@
             btnRegister.UseVisualStyleBackColor = true;
             btnRegister.Click += btnRegister_Click;
             // 
+            // txtSearch
+            // 
+            txtSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            txtSearch.Location = new Point(460, 10);
+            txtSearch.Margin = new Padding(3, 2, 3, 2);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(221, 23);
+            txtSearch.TabIndex = 8;
+            txtSearch.KeyUp += txtSearch_KeyUp;
+            // 
+            // label18
+            // 
+            label18.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label18.AutoSize = true;
+            label18.Font = new Font("Calibri", 12F);
+            label18.Location = new Point(402, 12);
+            label18.Name = "label18";
+            label18.Size = new Size(56, 19);
+            label18.TabIndex = 7;
+            label18.Text = "&Search:";
+            // 
             // frmManufacturer
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(700, 338);
             Controls.Add(tabManufactured);
-            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "frmManufacturer";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Manufacturer";
+            Text = "Manage Company Manufacturer";
             tabManufactured.ResumeLayout(false);
             tabManageManufacturer.ResumeLayout(false);
+            tabManageManufacturer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewManufacturer).EndInit();
             contextMenuStripManufac.ResumeLayout(false);
             ResumeLayout(false);
@@ -143,5 +170,7 @@
         private ToolStripMenuItem updateManufToolStripMenuItem;
         private ToolStripMenuItem deleteManufToolStripMenuItem;
         public DataGridView dataGridViewManufacturer;
+        private TextBox txtSearch;
+        private Label label18;
     }
 }

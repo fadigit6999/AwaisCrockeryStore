@@ -130,5 +130,44 @@ namespace PharApp.Purchase
                 MessageBox.Show("Please select a Manufacturer to update.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private async void txtSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            string filterText = txtSearch.Text.Trim().ToLower();
+            if (string.IsNullOrWhiteSpace(filterText))
+            {
+                var cmbManufacturerBal = new BAL.Manufacturer(Helper.GetConnectionStringFromSettings());
+                _manufacturerList = await cmbManufacturerBal.GetManufacturersAsync();
+                dataGridViewManufacturer.DataSource = _manufacturerList;
+
+                dataGridViewManufacturer.Columns["ManufacturerId"].HeaderText = "Id";
+                dataGridViewManufacturer.Columns["ManufacturerName"].HeaderText = "Name";
+                dataGridViewManufacturer.Columns["ManufacturerAddress"].HeaderText = "Address";
+                dataGridViewManufacturer.Columns["ManufacturerMobile"].HeaderText = "Mobile";
+                dataGridViewManufacturer.Columns["ManufacturerDetails"].HeaderText = "Details";
+            }
+            else
+            {
+                var filteredList = _manufacturerList.Where(purchase =>
+                    purchase.ManufacturerId.ToString().ToLower().Contains(filterText) ||
+                    purchase.ManufacturerName.ToLower().Contains(filterText) ||
+                    purchase.ManufacturerMobile.ToLower().Contains(filterText) ||
+                    purchase.ManufacturerAddress.ToLower().Contains(filterText)
+                ).ToList();
+
+                _manufacturerList = new List<BML.Manufacturer>(filteredList);
+            }
+
+            dataGridViewManufacturer.DataSource = _manufacturerList;
+
+            dataGridViewManufacturer.Columns["ManufacturerId"].HeaderText = "Id";
+            dataGridViewManufacturer.Columns["ManufacturerName"].HeaderText = "Name";
+            dataGridViewManufacturer.Columns["ManufacturerAddress"].HeaderText = "Address";
+            dataGridViewManufacturer.Columns["ManufacturerMobile"].HeaderText = "Mobile";
+            dataGridViewManufacturer.Columns["ManufacturerDetails"].HeaderText = "Details";
+
+
+            dataGridViewManufacturer.Refresh();
+        }
     }
 }

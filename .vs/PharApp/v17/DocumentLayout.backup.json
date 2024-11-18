@@ -1,12 +1,70 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9167DBF1-0067-4200-84A8-9D0D0750C132}|PharApp\\PharApp.csproj|d:\\awaisplasticstoregit\\awaiscrockerystore\\pharapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9167DBF1-0067-4200-84A8-9D0D0750C132}|PharApp\\PharApp.csproj|solutionrelative:pharapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9167DBF1-0067-4200-84A8-9D0D0750C132}|PharApp\\PharApp.csproj|d:\\awaisplasticstoregit\\awaiscrockerystore\\pharapp\\main\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9167DBF1-0067-4200-84A8-9D0D0750C132}|PharApp\\PharApp.csproj|solutionrelative:pharapp\\main\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9167DBF1-0067-4200-84A8-9D0D0750C132}|PharApp\\PharApp.csproj|d:\\awaisplasticstoregit\\awaiscrockerystore\\pharapp\\main\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9167DBF1-0067-4200-84A8-9D0D0750C132}|PharApp\\PharApp.csproj|solutionrelative:pharapp\\main\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\PharApp\\Program.cs",
+              "RelativeDocumentMoniker": "PharApp\\Program.cs",
+              "ToolTip": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\PharApp\\Program.cs",
+              "RelativeToolTip": "PharApp\\Program.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAiwBkAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T08:56:42.921Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmMain.cs",
+              "DocumentMoniker": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\PharApp\\Main\\frmMain.cs",
+              "RelativeDocumentMoniker": "PharApp\\Main\\frmMain.cs",
+              "ToolTip": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\PharApp\\Main\\frmMain.cs",
+              "RelativeToolTip": "PharApp\\Main\\frmMain.cs",
+              "ViewState": "AgIAAHYBAAAAAAAAAAAewH8BAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T08:56:12.786Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmMain.cs [Design]",
+              "DocumentMoniker": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\PharApp\\Main\\frmMain.cs",
+              "RelativeDocumentMoniker": "PharApp\\Main\\frmMain.cs",
+              "ToolTip": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\PharApp\\Main\\frmMain.cs [Design]",
+              "RelativeToolTip": "PharApp\\Main\\frmMain.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T08:55:52.354Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

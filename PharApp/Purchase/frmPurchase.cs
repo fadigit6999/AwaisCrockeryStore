@@ -458,7 +458,7 @@ namespace PharApp.Purchase
             {
                 if (dataGridViewPurchaseDetails.Rows.Count == 0)
                 {
-                    MessageBox.Show("Please ensure there is at least one Medicine in the purchase details grid before proceeding.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Please ensure there is at least one Item in the purchase details grid before proceeding.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 else

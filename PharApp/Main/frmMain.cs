@@ -378,6 +378,12 @@ namespace PharApp.Main
             var frm = new rptAccountLedger();
             frm.ShowDialog();
         }
+
+        private void adjustmentAccountLedgerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new rptAdjustmentAccountLedger();
+            frm.ShowDialog();
+        }
     }
 
 }

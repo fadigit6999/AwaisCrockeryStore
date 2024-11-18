@@ -1,4 +1,5 @@
-﻿using PharApp.WinHelper;
+﻿using BML;
+using PharApp.WinHelper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +16,7 @@ namespace PharApp.Customer
     {
         private List<BML.Customer> _customerList;
         public IReadOnlyList<BML.Customer> CustomerList => _customerList.AsReadOnly();
-        
+
         public frmCustomers()
         {
             InitializeComponent();
@@ -24,7 +25,7 @@ namespace PharApp.Customer
         private async void frmCustomers_Load(object sender, EventArgs e)
         {
             LoadGridDataCustomer();
-           
+
         }
 
         private async void LoadGridDataCustomer()
@@ -134,7 +135,7 @@ namespace PharApp.Customer
                     // Get the ID of the selected row
                     string Id = dataGridViewCustomer.SelectedRows[0].Cells["CustomerId"].Value.ToString();
 
-                    var frm = new frmRegisterCustomer(this,Id);
+                    var frm = new frmRegisterCustomer(this, Id);
                     frm.ShowDialog();
                 }
             }
@@ -142,6 +143,65 @@ namespace PharApp.Customer
             {
                 MessageBox.Show("Please select a Customer to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private async void txtSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            string filterText = txtSearch.Text.Trim().ToLower();
+            if (string.IsNullOrWhiteSpace(filterText))
+            {
+                var customerBal = new BAL.Customer(Helper.GetConnectionStringFromSettings());
+                _customerList = await customerBal.GetCustomersAsync();
+                dataGridViewCustomer.DataSource = _customerList;
+
+                dataGridViewCustomer.Columns["CustomerID"].HeaderText = "Id";
+                dataGridViewCustomer.Columns["FullName"].HeaderText = "Name";
+                dataGridViewCustomer.Columns["Email"].HeaderText = "Email";
+                dataGridViewCustomer.Columns["Phone"].HeaderText = "Phone No";
+                dataGridViewCustomer.Columns["CustomerType"].HeaderText = "Type";
+                dataGridViewCustomer.Columns["AddressLine1"].HeaderText = "Address";
+
+                dataGridViewCustomer.Columns["CustomerID"].DisplayIndex = 1;
+                dataGridViewCustomer.Columns["FullName"].DisplayIndex = 2;
+                dataGridViewCustomer.Columns["Email"].DisplayIndex = 3;
+                dataGridViewCustomer.Columns["Phone"].DisplayIndex = 4;
+                dataGridViewCustomer.Columns["CustomerType"].DisplayIndex = 5;
+                dataGridViewCustomer.Columns["AddressLine1"].DisplayIndex = 6;
+
+                dataGridViewCustomer.Columns["FirstName"].Visible = false;
+            }
+            else
+            {
+                var filteredList = _customerList.Where(purchase =>
+                    purchase.CustomerID.ToString().ToLower().Contains(filterText) ||
+                    purchase.FullName.ToLower().Contains(filterText) ||
+                    purchase.Email.ToLower().Contains(filterText) ||
+                    purchase.Phone.ToLower().Contains(filterText) ||
+                    purchase.AddressLine1.ToLower().Contains(filterText)
+                ).ToList();
+
+                _customerList = new List<BML.Customer>(filteredList);
+            }
+
+            dataGridViewCustomer.DataSource = _customerList;
+            dataGridViewCustomer.Columns["CustomerID"].HeaderText = "Id";
+            dataGridViewCustomer.Columns["FullName"].HeaderText = "Name";
+            dataGridViewCustomer.Columns["Email"].HeaderText = "Email";
+            dataGridViewCustomer.Columns["Phone"].HeaderText = "Phone No";
+            dataGridViewCustomer.Columns["CustomerType"].HeaderText = "Type";
+            dataGridViewCustomer.Columns["AddressLine1"].HeaderText = "Address";
+
+            dataGridViewCustomer.Columns["CustomerID"].DisplayIndex = 1;
+            dataGridViewCustomer.Columns["FullName"].DisplayIndex = 2;
+            dataGridViewCustomer.Columns["Email"].DisplayIndex = 3;
+            dataGridViewCustomer.Columns["Phone"].DisplayIndex = 4;
+            dataGridViewCustomer.Columns["CustomerType"].DisplayIndex = 5;
+            dataGridViewCustomer.Columns["AddressLine1"].DisplayIndex = 6;
+
+            dataGridViewCustomer.Columns["FirstName"].Visible = false;
+
+
+            dataGridViewCustomer.Refresh();
         }
     }
 }
