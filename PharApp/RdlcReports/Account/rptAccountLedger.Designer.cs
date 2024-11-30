@@ -167,7 +167,7 @@ namespace PharApp.RdlcReports.Account
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "rptAccountLedger";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Pruchase Report";
+            Text = "General Account Ledger Report";
             Load += rptPurchase_Load;
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
