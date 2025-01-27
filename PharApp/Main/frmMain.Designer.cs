@@ -63,9 +63,6 @@
             notePadToolStripMenuItem = new ToolStripMenuItem();
             accountToolStripMenuItem = new ToolStripMenuItem();
             accountToolStripMenuItem1 = new ToolStripMenuItem();
-            reportsToolStripMenuItem1 = new ToolStripMenuItem();
-            accountLedgerToolStripMenuItem = new ToolStripMenuItem();
-            adjustmentAccountLedgerToolStripMenuItem = new ToolStripMenuItem();
             aboutToolStripMenuItem = new ToolStripMenuItem();
             statusStrip1 = new StatusStrip();
             toolStripStatuslblVersion = new ToolStripStatusLabel();
@@ -325,7 +322,7 @@
             // 
             // accountToolStripMenuItem
             // 
-            accountToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { accountToolStripMenuItem1, reportsToolStripMenuItem1 });
+            accountToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { accountToolStripMenuItem1 });
             accountToolStripMenuItem.Name = "accountToolStripMenuItem";
             accountToolStripMenuItem.Size = new Size(64, 20);
             accountToolStripMenuItem.Text = "Account";
@@ -336,27 +333,6 @@
             accountToolStripMenuItem1.Size = new Size(180, 22);
             accountToolStripMenuItem1.Text = "Accounts | Deposits";
             accountToolStripMenuItem1.Click += accountToolStripMenuItem1_Click;
-            // 
-            // reportsToolStripMenuItem1
-            // 
-            reportsToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { accountLedgerToolStripMenuItem, adjustmentAccountLedgerToolStripMenuItem });
-            reportsToolStripMenuItem1.Name = "reportsToolStripMenuItem1";
-            reportsToolStripMenuItem1.Size = new Size(180, 22);
-            reportsToolStripMenuItem1.Text = "Reports";
-            // 
-            // accountLedgerToolStripMenuItem
-            // 
-            accountLedgerToolStripMenuItem.Name = "accountLedgerToolStripMenuItem";
-            accountLedgerToolStripMenuItem.Size = new Size(223, 22);
-            accountLedgerToolStripMenuItem.Text = "Account Ledger";
-            accountLedgerToolStripMenuItem.Click += accountLedgerToolStripMenuItem_Click;
-            // 
-            // adjustmentAccountLedgerToolStripMenuItem
-            // 
-            adjustmentAccountLedgerToolStripMenuItem.Name = "adjustmentAccountLedgerToolStripMenuItem";
-            adjustmentAccountLedgerToolStripMenuItem.Size = new Size(223, 22);
-            adjustmentAccountLedgerToolStripMenuItem.Text = "Adjustment Account Ledger";
-            adjustmentAccountLedgerToolStripMenuItem.Click += adjustmentAccountLedgerToolStripMenuItem_Click;
             // 
             // aboutToolStripMenuItem
             // 
@@ -723,8 +699,5 @@
         private ToolStripMenuItem stockReportToolStripMenuItem;
         private ToolStripMenuItem accountToolStripMenuItem;
         private ToolStripMenuItem accountToolStripMenuItem1;
-        private ToolStripMenuItem reportsToolStripMenuItem1;
-        private ToolStripMenuItem accountLedgerToolStripMenuItem;
-        private ToolStripMenuItem adjustmentAccountLedgerToolStripMenuItem;
     }
 }

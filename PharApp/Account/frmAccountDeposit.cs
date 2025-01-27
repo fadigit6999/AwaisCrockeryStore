@@ -1,4 +1,6 @@
 ﻿using BML;
+using DocumentFormat.OpenXml.Office2010.Excel;
+using PharApp.RdlcReports.Account;
 using PharApp.WinHelper;
 using System;
 using System.Collections.Generic;
@@ -15,13 +17,19 @@ namespace PharApp.Account
     public partial class frmAccountDeposit : Form
     {
         private List<BML.ViewAccount> _accountList;
+        private List<BML.ViewAdjustmentAccount> _accountTransactionList;
+
         private List<BML.ViewAdjustmentAccount> _accountAdjustmentList;
         private List<BML.ViewDeposit> _depositList;
         private List<BML.ViewAdjustmentDeposit> _AdjustmentDepositList;
 
 
         public IReadOnlyList<BML.ViewAccount> AccountList => _accountList.AsReadOnly();
+
+        public IReadOnlyList<BML.ViewAdjustmentAccount> AccountTransactionList => _accountTransactionList.AsReadOnly();
+
         public IReadOnlyList<BML.ViewAdjustmentAccount> AccountAdjustmentList => _accountAdjustmentList.AsReadOnly();
+
         public IReadOnlyList<BML.ViewDeposit> DepositList => _depositList.AsReadOnly();
         public IReadOnlyList<BML.ViewAdjustmentDeposit> AdjustmentDepositList => _AdjustmentDepositList.AsReadOnly();
 
@@ -52,9 +60,23 @@ namespace PharApp.Account
         {
             try
             {
-                var accountAdjustmentBAL = new BAL.AdjustmentBAL(Helper.GetConnectionStringFromSettings());
-                _accountAdjustmentList = await accountAdjustmentBAL.GetAdjustmentAccountsAsync();
-                dataGridViewAdjustementAccount.DataSource = _accountAdjustmentList;
+                //    var accountAdjustmentBAL = new BAL.AdjustmentBAL(Helper.GetConnectionStringFromSettings());
+                //    _accountAdjustmentList = await accountAdjustmentBAL.GetAdjustmentAccountsAsync();
+                //    dataGridViewAdjustementAccount.DataSource = _accountAdjustmentList;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error loading users: {ex.Message}");
+            }
+        }
+
+        private async Task LoadTransactionAccountAsync()
+        {
+            try
+            {
+                var accountAdjustmentBAL = new BAL.Account(Helper.GetConnectionStringFromSettings());
+                _accountTransactionList = await accountAdjustmentBAL.GetTransactionAccountsAsync();
+                dataGridViewTransactionAccount.DataSource = _accountTransactionList;
             }
             catch (Exception ex)
             {
@@ -79,9 +101,9 @@ namespace PharApp.Account
         {
             try
             {
-                var adjustmentDepositBAL = new BAL.AdjustmentBAL(Helper.GetConnectionStringFromSettings());
-                _AdjustmentDepositList = await adjustmentDepositBAL.GetAdjustmentDepositsAsync();
-                dataGridViewAdjustmentDepositGrid.DataSource = _AdjustmentDepositList;
+                //var adjustmentDepositBAL = new BAL.AdjustmentBAL(Helper.GetConnectionStringFromSettings());
+                //_AdjustmentDepositList = await adjustmentDepositBAL.GetAdjustmentDepositsAsync();
+                //dataGridViewAdjustmentDepositGrid.DataSource = _AdjustmentDepositList;
             }
             catch (Exception ex)
             {
@@ -124,14 +146,8 @@ namespace PharApp.Account
         {
             var filterList = _depositList.Where(item =>
           item.AccountID.ToLower().Contains(txtSearchDeposit.Text.ToLower()) ||
-          item.TransactionID.ToLower().Contains(txtSearchDeposit.Text.ToLower()) ||
           item.AccountID.ToLower().Contains(txtSearchDeposit.Text.ToLower()) ||
-          item.TransactionType.ToLower().Contains(txtSearchDeposit.Text.ToLower()) ||
-          item.TransactionDate.ToLower().Contains(txtSearchDeposit.Text.ToLower()) ||
-          item.InvoiceNo.ToLower().Contains(txtSearchDeposit.Text.ToLower()) ||
-          item.CheckNo.ToLower().Contains(txtSearchDeposit.Text.ToLower()) ||
-          item.BankName.ToLower().Contains(txtSearchDeposit.Text.ToLower()) ||
-          item.PaymentMethod.ToLower().Contains(txtSearchDeposit.Text.ToLower())
+          item.TransactionType.ToLower().Contains(txtSearchDeposit.Text.ToLower())
           // Add conditions for other fields as needed
           ).ToList();
             depositGrid.DataSource = null;
@@ -156,6 +172,7 @@ namespace PharApp.Account
             await LoadDepositsAsync();
             await LoadAdjustmentAccountAsync();
             await LoadAdjustmentDepositsAsync();
+            await LoadTransactionAccountAsync();
         }
 
         private void btnRegisterAdjustmentAccount_Click(object sender, EventArgs e)
@@ -169,8 +186,7 @@ namespace PharApp.Account
             var filterList = _accountAdjustmentList.Where(item =>
          item.AccountID.ToLower().Contains(txtSearchAdjustementAccount.Text.ToLower()) ||
          item.TransactionID.ToLower().Contains(txtSearchAdjustementAccount.Text.ToLower()) ||
-         item.TransactionType.ToLower().Contains(txtSearchAdjustementAccount.Text.ToLower()) ||
-         item.TotalDepositAmount.Contains(txtSearchAdjustementAccount.Text.ToLower())
+         item.TransactionType.ToLower().Contains(txtSearchAdjustementAccount.Text.ToLower())
          // Add conditions for other fields as needed
          ).ToList();
             dataGridViewAdjustementAccount.DataSource = null;
@@ -213,6 +229,76 @@ namespace PharApp.Account
         private async void btnRefreshAdjustmentDepositGrid_Click(object sender, EventArgs e)
         {
             await LoadAdjustmentDepositsAsync();
+        }
+
+        private void btnRegisterAccountTransaction_Click(object sender, EventArgs e)
+        {
+            var frm = new frmAccountTransaction(this);
+            frm.ShowDialog();
+        }
+
+        private async void btnAccountTransactionRefresh_Click(object sender, EventArgs e)
+        {
+            await LoadTransactionAccountAsync();
+        }
+
+        private void depositGrid_MouseClick(object sender, MouseEventArgs e)
+        {
+            // Get the row index at the mouse position
+            int rowIndex = depositGrid.HitTest(e.X, e.Y).RowIndex;
+
+            // If a row is clicked
+            if (rowIndex >= 0)
+            {
+                // Select the clicked row
+                depositGrid.ClearSelection();
+                depositGrid.Rows[rowIndex].Selected = true;
+
+                // Show the context menu strip at the mouse position
+                contextMenuStripDeposit.Show(depositGrid, e.Location);
+            }
+        }
+
+        private void generalLedgerReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Check if a row is selected
+            if (depositGrid.SelectedRows.Count > 0)
+            {
+                string name = depositGrid.SelectedRows[0].Cells["AccountID"].Value.ToString();
+                // Prompt the user for confirmation
+                DialogResult result = MessageBox.Show($"Are you sure to generate account ledger report of ## {name} ## ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                // If the user confirms deletion
+                if (result == DialogResult.Yes)
+                {
+                    // Get the ID of the selected row
+                    string Id = depositGrid.SelectedRows[0].Cells["TrxAccountId"].Value.ToString();
+
+                    var rpt = new rptAccountLedger(Id);
+                    rpt.ShowDialog();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a account Trx Id to view Report.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void viewDepositToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Check if a row is selected
+            if (depositGrid.SelectedRows.Count > 0)
+            {
+                // Get the ID of the selected row
+                string Id = depositGrid.SelectedRows[0].Cells["TrxAccountId"].Value.ToString();
+
+                var rpt = new frmViewDeposits(Id);
+                rpt.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select a Trx Account ID", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

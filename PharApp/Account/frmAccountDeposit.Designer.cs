@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAccountDeposit));
             tabAccountControl = new TabControl();
             tabAccount = new TabPage();
@@ -36,42 +37,37 @@
             label1 = new Label();
             txtSearchAccount = new TextBox();
             btnAccount = new Button();
+            tabTransactionAccount = new TabPage();
+            txtAccountTransactionSearch = new TextBox();
+            label5 = new Label();
+            dataGridViewTransactionAccount = new DataGridView();
+            btnAccountTransactionRefresh = new Button();
+            btnRegisterAccountTransaction = new Button();
             tabDeposit = new TabPage();
             btnRefreshDeposit = new Button();
             label2 = new Label();
             txtSearchDeposit = new TextBox();
             depositGrid = new DataGridView();
             btnDeposit = new Button();
-            tabPageAdjustmentAccount = new TabPage();
-            btnRefreshAdjustementAccount = new Button();
-            dataGridViewAdjustementAccount = new DataGridView();
-            label3 = new Label();
-            txtSearchAdjustementAccount = new TextBox();
-            btnRegisterAdjustmentAccount = new Button();
-            tabPageAdjustmentDeposit = new TabPage();
-            btnRefreshAdjustmentDepositGrid = new Button();
-            label4 = new Label();
-            txtAdjustmentDepositSearch = new TextBox();
-            dataGridViewAdjustmentDepositGrid = new DataGridView();
-            btnAdjustmentDeposit = new Button();
+            contextMenuStripDeposit = new ContextMenuStrip(components);
+            generalLedgerReportToolStripMenuItem = new ToolStripMenuItem();
+            viewDepositToolStripMenuItem = new ToolStripMenuItem();
             tabAccountControl.SuspendLayout();
             tabAccount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)accountGrid).BeginInit();
+            tabTransactionAccount.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewTransactionAccount).BeginInit();
             tabDeposit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)depositGrid).BeginInit();
-            tabPageAdjustmentAccount.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewAdjustementAccount).BeginInit();
-            tabPageAdjustmentDeposit.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewAdjustmentDepositGrid).BeginInit();
+            contextMenuStripDeposit.SuspendLayout();
             SuspendLayout();
             // 
             // tabAccountControl
             // 
             tabAccountControl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tabAccountControl.Controls.Add(tabAccount);
+            tabAccountControl.Controls.Add(tabTransactionAccount);
             tabAccountControl.Controls.Add(tabDeposit);
-            tabAccountControl.Controls.Add(tabPageAdjustmentAccount);
-            tabAccountControl.Controls.Add(tabPageAdjustmentDeposit);
             tabAccountControl.Location = new Point(1, 1);
             tabAccountControl.Margin = new Padding(3, 2, 3, 2);
             tabAccountControl.Name = "tabAccountControl";
@@ -154,6 +150,78 @@
             btnAccount.UseVisualStyleBackColor = true;
             btnAccount.Click += btnAccount_Click;
             // 
+            // tabTransactionAccount
+            // 
+            tabTransactionAccount.Controls.Add(txtAccountTransactionSearch);
+            tabTransactionAccount.Controls.Add(label5);
+            tabTransactionAccount.Controls.Add(dataGridViewTransactionAccount);
+            tabTransactionAccount.Controls.Add(btnAccountTransactionRefresh);
+            tabTransactionAccount.Controls.Add(btnRegisterAccountTransaction);
+            tabTransactionAccount.Location = new Point(4, 24);
+            tabTransactionAccount.Name = "tabTransactionAccount";
+            tabTransactionAccount.Padding = new Padding(3);
+            tabTransactionAccount.Size = new Size(925, 461);
+            tabTransactionAccount.TabIndex = 6;
+            tabTransactionAccount.Text = "Account Transaction";
+            tabTransactionAccount.UseVisualStyleBackColor = true;
+            // 
+            // txtAccountTransactionSearch
+            // 
+            txtAccountTransactionSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            txtAccountTransactionSearch.Location = new Point(704, 7);
+            txtAccountTransactionSearch.Margin = new Padding(3, 2, 3, 2);
+            txtAccountTransactionSearch.Name = "txtAccountTransactionSearch";
+            txtAccountTransactionSearch.Size = new Size(213, 23);
+            txtAccountTransactionSearch.TabIndex = 16;
+            // 
+            // label5
+            // 
+            label5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label5.AutoSize = true;
+            label5.Location = new Point(656, 11);
+            label5.Name = "label5";
+            label5.Size = new Size(42, 15);
+            label5.TabIndex = 15;
+            label5.Text = "Search";
+            // 
+            // dataGridViewTransactionAccount
+            // 
+            dataGridViewTransactionAccount.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridViewTransactionAccount.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewTransactionAccount.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewTransactionAccount.BackgroundColor = Color.White;
+            dataGridViewTransactionAccount.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewTransactionAccount.Location = new Point(5, 34);
+            dataGridViewTransactionAccount.Margin = new Padding(3, 2, 3, 2);
+            dataGridViewTransactionAccount.Name = "dataGridViewTransactionAccount";
+            dataGridViewTransactionAccount.ReadOnly = true;
+            dataGridViewTransactionAccount.RowHeadersWidth = 51;
+            dataGridViewTransactionAccount.Size = new Size(915, 422);
+            dataGridViewTransactionAccount.TabIndex = 14;
+            // 
+            // btnAccountTransactionRefresh
+            // 
+            btnAccountTransactionRefresh.BackgroundImage = (Image)resources.GetObject("btnAccountTransactionRefresh.BackgroundImage");
+            btnAccountTransactionRefresh.BackgroundImageLayout = ImageLayout.Stretch;
+            btnAccountTransactionRefresh.Location = new Point(200, 5);
+            btnAccountTransactionRefresh.Margin = new Padding(3, 2, 3, 2);
+            btnAccountTransactionRefresh.Name = "btnAccountTransactionRefresh";
+            btnAccountTransactionRefresh.Size = new Size(30, 25);
+            btnAccountTransactionRefresh.TabIndex = 13;
+            btnAccountTransactionRefresh.UseVisualStyleBackColor = true;
+            btnAccountTransactionRefresh.Click += btnAccountTransactionRefresh_Click;
+            // 
+            // btnRegisterAccountTransaction
+            // 
+            btnRegisterAccountTransaction.Location = new Point(7, 5);
+            btnRegisterAccountTransaction.Margin = new Padding(3, 2, 3, 2);
+            btnRegisterAccountTransaction.Name = "btnRegisterAccountTransaction";
+            btnRegisterAccountTransaction.Size = new Size(188, 25);
+            btnRegisterAccountTransaction.TabIndex = 12;
+            btnRegisterAccountTransaction.Text = "Register Account Transaction";
+            btnRegisterAccountTransaction.UseVisualStyleBackColor = true;
+            btnRegisterAccountTransaction.Click += btnRegisterAccountTransaction_Click;
+            // 
             // tabDeposit
             // 
             tabDeposit.Controls.Add(btnRefreshDeposit);
@@ -216,6 +284,7 @@
             depositGrid.RowHeadersWidth = 51;
             depositGrid.Size = new Size(917, 424);
             depositGrid.TabIndex = 0;
+            depositGrid.MouseClick += depositGrid_MouseClick;
             // 
             // btnDeposit
             // 
@@ -228,150 +297,25 @@
             btnDeposit.UseVisualStyleBackColor = true;
             btnDeposit.Click += btnDeposit_Click;
             // 
-            // tabPageAdjustmentAccount
+            // contextMenuStripDeposit
             // 
-            tabPageAdjustmentAccount.Controls.Add(btnRefreshAdjustementAccount);
-            tabPageAdjustmentAccount.Controls.Add(dataGridViewAdjustementAccount);
-            tabPageAdjustmentAccount.Controls.Add(label3);
-            tabPageAdjustmentAccount.Controls.Add(txtSearchAdjustementAccount);
-            tabPageAdjustmentAccount.Controls.Add(btnRegisterAdjustmentAccount);
-            tabPageAdjustmentAccount.Location = new Point(4, 24);
-            tabPageAdjustmentAccount.Name = "tabPageAdjustmentAccount";
-            tabPageAdjustmentAccount.Padding = new Padding(3);
-            tabPageAdjustmentAccount.Size = new Size(925, 461);
-            tabPageAdjustmentAccount.TabIndex = 4;
-            tabPageAdjustmentAccount.Text = "Adjustment Account";
-            tabPageAdjustmentAccount.UseVisualStyleBackColor = true;
+            contextMenuStripDeposit.Items.AddRange(new ToolStripItem[] { generalLedgerReportToolStripMenuItem, viewDepositToolStripMenuItem });
+            contextMenuStripDeposit.Name = "contextMenuStripDeposit";
+            contextMenuStripDeposit.Size = new Size(196, 70);
             // 
-            // btnRefreshAdjustementAccount
+            // generalLedgerReportToolStripMenuItem
             // 
-            btnRefreshAdjustementAccount.BackgroundImage = (Image)resources.GetObject("btnRefreshAdjustementAccount.BackgroundImage");
-            btnRefreshAdjustementAccount.BackgroundImageLayout = ImageLayout.Stretch;
-            btnRefreshAdjustementAccount.Location = new Point(199, 5);
-            btnRefreshAdjustementAccount.Margin = new Padding(3, 2, 3, 2);
-            btnRefreshAdjustementAccount.Name = "btnRefreshAdjustementAccount";
-            btnRefreshAdjustementAccount.Size = new Size(30, 25);
-            btnRefreshAdjustementAccount.TabIndex = 11;
-            btnRefreshAdjustementAccount.UseVisualStyleBackColor = true;
-            btnRefreshAdjustementAccount.Click += btnRefreshAdjustementAccount_Click;
+            generalLedgerReportToolStripMenuItem.Name = "generalLedgerReportToolStripMenuItem";
+            generalLedgerReportToolStripMenuItem.Size = new Size(195, 22);
+            generalLedgerReportToolStripMenuItem.Text = "General Ledger Report";
+            generalLedgerReportToolStripMenuItem.Click += generalLedgerReportToolStripMenuItem_Click;
             // 
-            // dataGridViewAdjustementAccount
+            // viewDepositToolStripMenuItem
             // 
-            dataGridViewAdjustementAccount.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridViewAdjustementAccount.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewAdjustementAccount.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewAdjustementAccount.BackgroundColor = Color.White;
-            dataGridViewAdjustementAccount.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewAdjustementAccount.Location = new Point(3, 34);
-            dataGridViewAdjustementAccount.Margin = new Padding(3, 2, 3, 2);
-            dataGridViewAdjustementAccount.Name = "dataGridViewAdjustementAccount";
-            dataGridViewAdjustementAccount.ReadOnly = true;
-            dataGridViewAdjustementAccount.RowHeadersWidth = 51;
-            dataGridViewAdjustementAccount.Size = new Size(915, 422);
-            dataGridViewAdjustementAccount.TabIndex = 7;
-            // 
-            // label3
-            // 
-            label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label3.AutoSize = true;
-            label3.Location = new Point(659, 10);
-            label3.Name = "label3";
-            label3.Size = new Size(42, 15);
-            label3.TabIndex = 10;
-            label3.Text = "Search";
-            // 
-            // txtSearchAdjustementAccount
-            // 
-            txtSearchAdjustementAccount.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtSearchAdjustementAccount.Location = new Point(708, 6);
-            txtSearchAdjustementAccount.Margin = new Padding(3, 2, 3, 2);
-            txtSearchAdjustementAccount.Name = "txtSearchAdjustementAccount";
-            txtSearchAdjustementAccount.Size = new Size(213, 23);
-            txtSearchAdjustementAccount.TabIndex = 9;
-            txtSearchAdjustementAccount.KeyUp += txtSearchAdjustementAccount_KeyUp;
-            // 
-            // btnRegisterAdjustmentAccount
-            // 
-            btnRegisterAdjustmentAccount.Location = new Point(6, 5);
-            btnRegisterAdjustmentAccount.Margin = new Padding(3, 2, 3, 2);
-            btnRegisterAdjustmentAccount.Name = "btnRegisterAdjustmentAccount";
-            btnRegisterAdjustmentAccount.Size = new Size(188, 25);
-            btnRegisterAdjustmentAccount.TabIndex = 8;
-            btnRegisterAdjustmentAccount.Text = "Register Adjustment Account";
-            btnRegisterAdjustmentAccount.UseVisualStyleBackColor = true;
-            btnRegisterAdjustmentAccount.Click += btnRegisterAdjustmentAccount_Click;
-            // 
-            // tabPageAdjustmentDeposit
-            // 
-            tabPageAdjustmentDeposit.Controls.Add(btnRefreshAdjustmentDepositGrid);
-            tabPageAdjustmentDeposit.Controls.Add(label4);
-            tabPageAdjustmentDeposit.Controls.Add(txtAdjustmentDepositSearch);
-            tabPageAdjustmentDeposit.Controls.Add(dataGridViewAdjustmentDepositGrid);
-            tabPageAdjustmentDeposit.Controls.Add(btnAdjustmentDeposit);
-            tabPageAdjustmentDeposit.Location = new Point(4, 24);
-            tabPageAdjustmentDeposit.Name = "tabPageAdjustmentDeposit";
-            tabPageAdjustmentDeposit.Size = new Size(925, 461);
-            tabPageAdjustmentDeposit.TabIndex = 5;
-            tabPageAdjustmentDeposit.Text = "Adjustment Deposit";
-            tabPageAdjustmentDeposit.UseVisualStyleBackColor = true;
-            // 
-            // btnRefreshAdjustmentDepositGrid
-            // 
-            btnRefreshAdjustmentDepositGrid.BackgroundImage = (Image)resources.GetObject("btnRefreshAdjustmentDepositGrid.BackgroundImage");
-            btnRefreshAdjustmentDepositGrid.BackgroundImageLayout = ImageLayout.Stretch;
-            btnRefreshAdjustmentDepositGrid.Location = new Point(191, 4);
-            btnRefreshAdjustmentDepositGrid.Margin = new Padding(3, 2, 3, 2);
-            btnRefreshAdjustmentDepositGrid.Name = "btnRefreshAdjustmentDepositGrid";
-            btnRefreshAdjustmentDepositGrid.Size = new Size(30, 25);
-            btnRefreshAdjustmentDepositGrid.TabIndex = 12;
-            btnRefreshAdjustmentDepositGrid.UseVisualStyleBackColor = true;
-            btnRefreshAdjustmentDepositGrid.Click += btnRefreshAdjustmentDepositGrid_Click;
-            // 
-            // label4
-            // 
-            label4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label4.AutoSize = true;
-            label4.Location = new Point(656, 10);
-            label4.Name = "label4";
-            label4.Size = new Size(42, 15);
-            label4.TabIndex = 11;
-            label4.Text = "Search";
-            // 
-            // txtAdjustmentDepositSearch
-            // 
-            txtAdjustmentDepositSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtAdjustmentDepositSearch.Location = new Point(705, 6);
-            txtAdjustmentDepositSearch.Margin = new Padding(3, 2, 3, 2);
-            txtAdjustmentDepositSearch.Name = "txtAdjustmentDepositSearch";
-            txtAdjustmentDepositSearch.Size = new Size(213, 23);
-            txtAdjustmentDepositSearch.TabIndex = 10;
-            txtAdjustmentDepositSearch.KeyUp += txtAdjustmentDepositSearch_KeyUp;
-            // 
-            // dataGridViewAdjustmentDepositGrid
-            // 
-            dataGridViewAdjustmentDepositGrid.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridViewAdjustmentDepositGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewAdjustmentDepositGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewAdjustmentDepositGrid.BackgroundColor = Color.White;
-            dataGridViewAdjustmentDepositGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewAdjustmentDepositGrid.Location = new Point(4, 33);
-            dataGridViewAdjustmentDepositGrid.Margin = new Padding(3, 2, 3, 2);
-            dataGridViewAdjustmentDepositGrid.Name = "dataGridViewAdjustmentDepositGrid";
-            dataGridViewAdjustmentDepositGrid.ReadOnly = true;
-            dataGridViewAdjustmentDepositGrid.RowHeadersWidth = 51;
-            dataGridViewAdjustmentDepositGrid.Size = new Size(917, 424);
-            dataGridViewAdjustmentDepositGrid.TabIndex = 8;
-            // 
-            // btnAdjustmentDeposit
-            // 
-            btnAdjustmentDeposit.Location = new Point(8, 5);
-            btnAdjustmentDeposit.Margin = new Padding(3, 2, 3, 2);
-            btnAdjustmentDeposit.Name = "btnAdjustmentDeposit";
-            btnAdjustmentDeposit.Size = new Size(178, 24);
-            btnAdjustmentDeposit.TabIndex = 9;
-            btnAdjustmentDeposit.Text = "Register Adjustment Deposit";
-            btnAdjustmentDeposit.UseVisualStyleBackColor = true;
-            btnAdjustmentDeposit.Click += btnAdjustmentDeposit_Click;
+            viewDepositToolStripMenuItem.Name = "viewDepositToolStripMenuItem";
+            viewDepositToolStripMenuItem.Size = new Size(195, 22);
+            viewDepositToolStripMenuItem.Text = "View Account Deposits";
+            viewDepositToolStripMenuItem.Click += viewDepositToolStripMenuItem_Click;
             // 
             // frmAccountDeposit
             // 
@@ -388,15 +332,13 @@
             tabAccount.ResumeLayout(false);
             tabAccount.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)accountGrid).EndInit();
+            tabTransactionAccount.ResumeLayout(false);
+            tabTransactionAccount.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewTransactionAccount).EndInit();
             tabDeposit.ResumeLayout(false);
             tabDeposit.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)depositGrid).EndInit();
-            tabPageAdjustmentAccount.ResumeLayout(false);
-            tabPageAdjustmentAccount.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewAdjustementAccount).EndInit();
-            tabPageAdjustmentDeposit.ResumeLayout(false);
-            tabPageAdjustmentDeposit.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewAdjustmentDepositGrid).EndInit();
+            contextMenuStripDeposit.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -428,5 +370,14 @@
         private TextBox txtAdjustmentDepositSearch;
         public DataGridView dataGridViewAdjustmentDepositGrid;
         private Button btnAdjustmentDeposit;
+        private TabPage tabTransactionAccount;
+        private TextBox txtAccountTransactionSearch;
+        private Label label5;
+        public DataGridView dataGridViewTransactionAccount;
+        private Button btnAccountTransactionRefresh;
+        private Button btnRegisterAccountTransaction;
+        private ContextMenuStrip contextMenuStripDeposit;
+        private ToolStripMenuItem generalLedgerReportToolStripMenuItem;
+        private ToolStripMenuItem viewDepositToolStripMenuItem;
     }
 }

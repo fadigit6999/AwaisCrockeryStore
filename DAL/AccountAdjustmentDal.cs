@@ -136,7 +136,6 @@ namespace DAL
                             TransactionID = reader["TransactionID"].ToString(),
                             TransactionType = reader["TransactionType"].ToString(),
                             DepositDate = reader["DepositDate"].ToString(),
-                            TotalDepositAmount = reader["TotalDepositAmount"].ToString(),
                             Remarks = reader["Remarks"].ToString()
                         });
                     }

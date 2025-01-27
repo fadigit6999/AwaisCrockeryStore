@@ -316,31 +316,23 @@ namespace PharApp.RdlcReports.Account {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class InvoiceAccountLedgerDataTable : global::System.Data.TypedTableBase<InvoiceAccountLedgerRow> {
             
-            private global::System.Data.DataColumn columnSerialId;
+            private global::System.Data.DataColumn columnVrNo;
             
-            private global::System.Data.DataColumn columnTransactionID;
+            private global::System.Data.DataColumn columnTransactionDate;
             
-            private global::System.Data.DataColumn columnAccountID;
+            private global::System.Data.DataColumn columnNarration;
+            
+            private global::System.Data.DataColumn columnTrxAccountId;
             
             private global::System.Data.DataColumn columnAccountName;
             
-            private global::System.Data.DataColumn columnInvoiceName;
-            
-            private global::System.Data.DataColumn columnInvoiceNo;
-            
             private global::System.Data.DataColumn columnTransactionType;
             
-            private global::System.Data.DataColumn columnPaymentMethod;
+            private global::System.Data.DataColumn columnCreditAmount;
             
-            private global::System.Data.DataColumn columnTotalAmount;
-            
-            private global::System.Data.DataColumn columnPaidAmount;
-            
-            private global::System.Data.DataColumn columnBalanceImpact;
+            private global::System.Data.DataColumn columnDebitAmount;
             
             private global::System.Data.DataColumn columnRunningBalance;
-            
-            private global::System.Data.DataColumn columnTransactionDate;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -379,25 +371,33 @@ namespace PharApp.RdlcReports.Account {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn SerialIdColumn {
+            public global::System.Data.DataColumn VrNoColumn {
                 get {
-                    return this.columnSerialId;
+                    return this.columnVrNo;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn TransactionIDColumn {
+            public global::System.Data.DataColumn TransactionDateColumn {
                 get {
-                    return this.columnTransactionID;
+                    return this.columnTransactionDate;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn AccountIDColumn {
+            public global::System.Data.DataColumn NarrationColumn {
                 get {
-                    return this.columnAccountID;
+                    return this.columnNarration;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TrxAccountIdColumn {
+                get {
+                    return this.columnTrxAccountId;
                 }
             }
             
@@ -411,22 +411,6 @@ namespace PharApp.RdlcReports.Account {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn InvoiceNameColumn {
-                get {
-                    return this.columnInvoiceName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn InvoiceNoColumn {
-                get {
-                    return this.columnInvoiceNo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn TransactionTypeColumn {
                 get {
                     return this.columnTransactionType;
@@ -435,33 +419,17 @@ namespace PharApp.RdlcReports.Account {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn PaymentMethodColumn {
+            public global::System.Data.DataColumn CreditAmountColumn {
                 get {
-                    return this.columnPaymentMethod;
+                    return this.columnCreditAmount;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn TotalAmountColumn {
+            public global::System.Data.DataColumn DebitAmountColumn {
                 get {
-                    return this.columnTotalAmount;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn PaidAmountColumn {
-                get {
-                    return this.columnPaidAmount;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn BalanceImpactColumn {
-                get {
-                    return this.columnBalanceImpact;
+                    return this.columnDebitAmount;
                 }
             }
             
@@ -470,14 +438,6 @@ namespace PharApp.RdlcReports.Account {
             public global::System.Data.DataColumn RunningBalanceColumn {
                 get {
                     return this.columnRunningBalance;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn TransactionDateColumn {
-                get {
-                    return this.columnTransactionDate;
                 }
             }
             
@@ -518,22 +478,18 @@ namespace PharApp.RdlcReports.Account {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public InvoiceAccountLedgerRow AddInvoiceAccountLedgerRow(string SerialId, string TransactionID, string AccountID, string AccountName, string InvoiceName, string InvoiceNo, string TransactionType, string PaymentMethod, string TotalAmount, string PaidAmount, string BalanceImpact, string RunningBalance, string TransactionDate) {
+            public InvoiceAccountLedgerRow AddInvoiceAccountLedgerRow(string VrNo, string TransactionDate, string Narration, string TrxAccountId, string AccountName, string TransactionType, string CreditAmount, string DebitAmount, string RunningBalance) {
                 InvoiceAccountLedgerRow rowInvoiceAccountLedgerRow = ((InvoiceAccountLedgerRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        SerialId,
-                        TransactionID,
-                        AccountID,
+                        VrNo,
+                        TransactionDate,
+                        Narration,
+                        TrxAccountId,
                         AccountName,
-                        InvoiceName,
-                        InvoiceNo,
                         TransactionType,
-                        PaymentMethod,
-                        TotalAmount,
-                        PaidAmount,
-                        BalanceImpact,
-                        RunningBalance,
-                        TransactionDate};
+                        CreditAmount,
+                        DebitAmount,
+                        RunningBalance};
                 rowInvoiceAccountLedgerRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowInvoiceAccountLedgerRow);
                 return rowInvoiceAccountLedgerRow;
@@ -556,63 +512,39 @@ namespace PharApp.RdlcReports.Account {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnSerialId = base.Columns["SerialId"];
-                this.columnTransactionID = base.Columns["TransactionID"];
-                this.columnAccountID = base.Columns["AccountID"];
-                this.columnAccountName = base.Columns["AccountName"];
-                this.columnInvoiceName = base.Columns["InvoiceName"];
-                this.columnInvoiceNo = base.Columns["InvoiceNo"];
-                this.columnTransactionType = base.Columns["TransactionType"];
-                this.columnPaymentMethod = base.Columns["PaymentMethod"];
-                this.columnTotalAmount = base.Columns["TotalAmount"];
-                this.columnPaidAmount = base.Columns["PaidAmount"];
-                this.columnBalanceImpact = base.Columns["BalanceImpact"];
-                this.columnRunningBalance = base.Columns["RunningBalance"];
+                this.columnVrNo = base.Columns["VrNo"];
                 this.columnTransactionDate = base.Columns["TransactionDate"];
+                this.columnNarration = base.Columns["Narration"];
+                this.columnTrxAccountId = base.Columns["TrxAccountId"];
+                this.columnAccountName = base.Columns["AccountName"];
+                this.columnTransactionType = base.Columns["TransactionType"];
+                this.columnCreditAmount = base.Columns["CreditAmount"];
+                this.columnDebitAmount = base.Columns["DebitAmount"];
+                this.columnRunningBalance = base.Columns["RunningBalance"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnSerialId = new global::System.Data.DataColumn("SerialId", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSerialId);
-                this.columnTransactionID = new global::System.Data.DataColumn("TransactionID", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTransactionID);
-                this.columnAccountID = new global::System.Data.DataColumn("AccountID", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAccountID);
-                this.columnAccountName = new global::System.Data.DataColumn("AccountName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAccountName);
-                this.columnInvoiceName = new global::System.Data.DataColumn("InvoiceName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnInvoiceName);
-                this.columnInvoiceNo = new global::System.Data.DataColumn("InvoiceNo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnInvoiceNo);
-                this.columnTransactionType = new global::System.Data.DataColumn("TransactionType", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTransactionType);
-                this.columnPaymentMethod = new global::System.Data.DataColumn("PaymentMethod", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPaymentMethod);
-                this.columnTotalAmount = new global::System.Data.DataColumn("TotalAmount", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTotalAmount);
-                this.columnPaidAmount = new global::System.Data.DataColumn("PaidAmount", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPaidAmount);
-                this.columnBalanceImpact = new global::System.Data.DataColumn("BalanceImpact", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBalanceImpact);
-                this.columnRunningBalance = new global::System.Data.DataColumn("RunningBalance", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRunningBalance);
+                this.columnVrNo = new global::System.Data.DataColumn("VrNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVrNo);
                 this.columnTransactionDate = new global::System.Data.DataColumn("TransactionDate", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTransactionDate);
-                this.columnSerialId.Caption = "serialid";
-                this.columnTransactionID.Caption = "Purchase_Return";
-                this.columnAccountID.Caption = "ManufacturerName";
-                this.columnAccountName.Caption = "TypeName";
-                this.columnInvoiceName.Caption = "Total";
-                this.columnInvoiceNo.Caption = "Grand_Total";
-                this.columnTransactionType.Caption = "Adv_Tax";
-                this.columnPaymentMethod.Caption = "batch";
-                this.columnTotalAmount.Caption = "Quantity";
-                this.columnPaidAmount.Caption = "Gst_tax";
-                this.columnBalanceImpact.Caption = "Bonus";
-                this.columnRunningBalance.Caption = "Dist_disc";
-                this.columnTransactionDate.Caption = "Purchase_Return";
+                this.columnNarration = new global::System.Data.DataColumn("Narration", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNarration);
+                this.columnTrxAccountId = new global::System.Data.DataColumn("TrxAccountId", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTrxAccountId);
+                this.columnAccountName = new global::System.Data.DataColumn("AccountName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAccountName);
+                this.columnTransactionType = new global::System.Data.DataColumn("TransactionType", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTransactionType);
+                this.columnCreditAmount = new global::System.Data.DataColumn("CreditAmount", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCreditAmount);
+                this.columnDebitAmount = new global::System.Data.DataColumn("DebitAmount", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDebitAmount);
+                this.columnRunningBalance = new global::System.Data.DataColumn("RunningBalance", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRunningBalance);
+                this.columnVrNo.Caption = "serialid";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1140,194 +1072,17 @@ namespace PharApp.RdlcReports.Account {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string SerialId {
+            public string VrNo {
                 get {
                     try {
-                        return ((string)(this[this.tableInvoiceAccountLedger.SerialIdColumn]));
+                        return ((string)(this[this.tableInvoiceAccountLedger.VrNoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'SerialId\' in table \'InvoiceAccountLedger\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'VrNo\' in table \'InvoiceAccountLedger\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableInvoiceAccountLedger.SerialIdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string TransactionID {
-                get {
-                    try {
-                        return ((string)(this[this.tableInvoiceAccountLedger.TransactionIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TransactionID\' in table \'InvoiceAccountLedger\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoiceAccountLedger.TransactionIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string AccountID {
-                get {
-                    try {
-                        return ((string)(this[this.tableInvoiceAccountLedger.AccountIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AccountID\' in table \'InvoiceAccountLedger\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoiceAccountLedger.AccountIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string AccountName {
-                get {
-                    try {
-                        return ((string)(this[this.tableInvoiceAccountLedger.AccountNameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AccountName\' in table \'InvoiceAccountLedger\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoiceAccountLedger.AccountNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string InvoiceName {
-                get {
-                    try {
-                        return ((string)(this[this.tableInvoiceAccountLedger.InvoiceNameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'InvoiceName\' in table \'InvoiceAccountLedger\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoiceAccountLedger.InvoiceNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string InvoiceNo {
-                get {
-                    try {
-                        return ((string)(this[this.tableInvoiceAccountLedger.InvoiceNoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'InvoiceNo\' in table \'InvoiceAccountLedger\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoiceAccountLedger.InvoiceNoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string TransactionType {
-                get {
-                    try {
-                        return ((string)(this[this.tableInvoiceAccountLedger.TransactionTypeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TransactionType\' in table \'InvoiceAccountLedger\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoiceAccountLedger.TransactionTypeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string PaymentMethod {
-                get {
-                    try {
-                        return ((string)(this[this.tableInvoiceAccountLedger.PaymentMethodColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PaymentMethod\' in table \'InvoiceAccountLedger\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoiceAccountLedger.PaymentMethodColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string TotalAmount {
-                get {
-                    try {
-                        return ((string)(this[this.tableInvoiceAccountLedger.TotalAmountColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TotalAmount\' in table \'InvoiceAccountLedger\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoiceAccountLedger.TotalAmountColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string PaidAmount {
-                get {
-                    try {
-                        return ((string)(this[this.tableInvoiceAccountLedger.PaidAmountColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PaidAmount\' in table \'InvoiceAccountLedger\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoiceAccountLedger.PaidAmountColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string BalanceImpact {
-                get {
-                    try {
-                        return ((string)(this[this.tableInvoiceAccountLedger.BalanceImpactColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'BalanceImpact\' in table \'InvoiceAccountLedger\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoiceAccountLedger.BalanceImpactColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string RunningBalance {
-                get {
-                    try {
-                        return ((string)(this[this.tableInvoiceAccountLedger.RunningBalanceColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'RunningBalance\' in table \'InvoiceAccountLedger\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoiceAccountLedger.RunningBalanceColumn] = value;
+                    this[this.tableInvoiceAccountLedger.VrNoColumn] = value;
                 }
             }
             
@@ -1350,38 +1105,163 @@ namespace PharApp.RdlcReports.Account {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsSerialIdNull() {
-                return this.IsNull(this.tableInvoiceAccountLedger.SerialIdColumn);
+            public string Narration {
+                get {
+                    try {
+                        return ((string)(this[this.tableInvoiceAccountLedger.NarrationColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Narration\' in table \'InvoiceAccountLedger\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInvoiceAccountLedger.NarrationColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetSerialIdNull() {
-                this[this.tableInvoiceAccountLedger.SerialIdColumn] = global::System.Convert.DBNull;
+            public string TrxAccountId {
+                get {
+                    try {
+                        return ((string)(this[this.tableInvoiceAccountLedger.TrxAccountIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TrxAccountId\' in table \'InvoiceAccountLedger\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInvoiceAccountLedger.TrxAccountIdColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsTransactionIDNull() {
-                return this.IsNull(this.tableInvoiceAccountLedger.TransactionIDColumn);
+            public string AccountName {
+                get {
+                    try {
+                        return ((string)(this[this.tableInvoiceAccountLedger.AccountNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AccountName\' in table \'InvoiceAccountLedger\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInvoiceAccountLedger.AccountNameColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetTransactionIDNull() {
-                this[this.tableInvoiceAccountLedger.TransactionIDColumn] = global::System.Convert.DBNull;
+            public string TransactionType {
+                get {
+                    try {
+                        return ((string)(this[this.tableInvoiceAccountLedger.TransactionTypeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TransactionType\' in table \'InvoiceAccountLedger\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableInvoiceAccountLedger.TransactionTypeColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsAccountIDNull() {
-                return this.IsNull(this.tableInvoiceAccountLedger.AccountIDColumn);
+            public string CreditAmount {
+                get {
+                    try {
+                        return ((string)(this[this.tableInvoiceAccountLedger.CreditAmountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CreditAmount\' in table \'InvoiceAccountLedger\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInvoiceAccountLedger.CreditAmountColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetAccountIDNull() {
-                this[this.tableInvoiceAccountLedger.AccountIDColumn] = global::System.Convert.DBNull;
+            public string DebitAmount {
+                get {
+                    try {
+                        return ((string)(this[this.tableInvoiceAccountLedger.DebitAmountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DebitAmount\' in table \'InvoiceAccountLedger\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInvoiceAccountLedger.DebitAmountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string RunningBalance {
+                get {
+                    try {
+                        return ((string)(this[this.tableInvoiceAccountLedger.RunningBalanceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RunningBalance\' in table \'InvoiceAccountLedger\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInvoiceAccountLedger.RunningBalanceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsVrNoNull() {
+                return this.IsNull(this.tableInvoiceAccountLedger.VrNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetVrNoNull() {
+                this[this.tableInvoiceAccountLedger.VrNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTransactionDateNull() {
+                return this.IsNull(this.tableInvoiceAccountLedger.TransactionDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTransactionDateNull() {
+                this[this.tableInvoiceAccountLedger.TransactionDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsNarrationNull() {
+                return this.IsNull(this.tableInvoiceAccountLedger.NarrationColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetNarrationNull() {
+                this[this.tableInvoiceAccountLedger.NarrationColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTrxAccountIdNull() {
+                return this.IsNull(this.tableInvoiceAccountLedger.TrxAccountIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTrxAccountIdNull() {
+                this[this.tableInvoiceAccountLedger.TrxAccountIdColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1398,30 +1278,6 @@ namespace PharApp.RdlcReports.Account {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsInvoiceNameNull() {
-                return this.IsNull(this.tableInvoiceAccountLedger.InvoiceNameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetInvoiceNameNull() {
-                this[this.tableInvoiceAccountLedger.InvoiceNameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsInvoiceNoNull() {
-                return this.IsNull(this.tableInvoiceAccountLedger.InvoiceNoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetInvoiceNoNull() {
-                this[this.tableInvoiceAccountLedger.InvoiceNoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsTransactionTypeNull() {
                 return this.IsNull(this.tableInvoiceAccountLedger.TransactionTypeColumn);
             }
@@ -1434,50 +1290,26 @@ namespace PharApp.RdlcReports.Account {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsPaymentMethodNull() {
-                return this.IsNull(this.tableInvoiceAccountLedger.PaymentMethodColumn);
+            public bool IsCreditAmountNull() {
+                return this.IsNull(this.tableInvoiceAccountLedger.CreditAmountColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetPaymentMethodNull() {
-                this[this.tableInvoiceAccountLedger.PaymentMethodColumn] = global::System.Convert.DBNull;
+            public void SetCreditAmountNull() {
+                this[this.tableInvoiceAccountLedger.CreditAmountColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsTotalAmountNull() {
-                return this.IsNull(this.tableInvoiceAccountLedger.TotalAmountColumn);
+            public bool IsDebitAmountNull() {
+                return this.IsNull(this.tableInvoiceAccountLedger.DebitAmountColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetTotalAmountNull() {
-                this[this.tableInvoiceAccountLedger.TotalAmountColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsPaidAmountNull() {
-                return this.IsNull(this.tableInvoiceAccountLedger.PaidAmountColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetPaidAmountNull() {
-                this[this.tableInvoiceAccountLedger.PaidAmountColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsBalanceImpactNull() {
-                return this.IsNull(this.tableInvoiceAccountLedger.BalanceImpactColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetBalanceImpactNull() {
-                this[this.tableInvoiceAccountLedger.BalanceImpactColumn] = global::System.Convert.DBNull;
+            public void SetDebitAmountNull() {
+                this[this.tableInvoiceAccountLedger.DebitAmountColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1490,18 +1322,6 @@ namespace PharApp.RdlcReports.Account {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetRunningBalanceNull() {
                 this[this.tableInvoiceAccountLedger.RunningBalanceColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsTransactionDateNull() {
-                return this.IsNull(this.tableInvoiceAccountLedger.TransactionDateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetTransactionDateNull() {
-                this[this.tableInvoiceAccountLedger.TransactionDateColumn] = global::System.Convert.DBNull;
             }
         }
         

@@ -193,7 +193,7 @@ namespace PharApp.Account
 
             var getSingleInvoiceTotal = cmbDepositInvoiceList.Where(x => x.TransactionID.ToLower() == invoice.ToLower()).FirstOrDefault();
 
-            txtTotalAmount.Text = getSingleInvoiceTotal.TotalDepositAmount;
+            
 
             txtTransactionType.Text = getSingleInvoiceTotal.TransactionType;
 

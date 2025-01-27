@@ -1,12 +1,102 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9167DBF1-0067-4200-84A8-9D0D0750C132}|PharApp\\PharApp.csproj|d:\\awaisplasticstoregit\\awaiscrockerystore\\pharapp\\account\\frmaccountdeposit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9167DBF1-0067-4200-84A8-9D0D0750C132}|PharApp\\PharApp.csproj|solutionrelative:pharapp\\account\\frmaccountdeposit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9167DBF1-0067-4200-84A8-9D0D0750C132}|PharApp\\PharApp.csproj|d:\\awaisplasticstoregit\\awaiscrockerystore\\pharapp\\account\\frmaccountdeposit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9167DBF1-0067-4200-84A8-9D0D0750C132}|PharApp\\PharApp.csproj|solutionrelative:pharapp\\account\\frmaccountdeposit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9167DBF1-0067-4200-84A8-9D0D0750C132}|PharApp\\PharApp.csproj|d:\\awaisplasticstoregit\\awaiscrockerystore\\pharapp\\account\\frmdeposit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9167DBF1-0067-4200-84A8-9D0D0750C132}|PharApp\\PharApp.csproj|solutionrelative:pharapp\\account\\frmdeposit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9167DBF1-0067-4200-84A8-9D0D0750C132}|PharApp\\PharApp.csproj|d:\\awaisplasticstoregit\\awaiscrockerystore\\pharapp\\account\\frmdeposit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9167DBF1-0067-4200-84A8-9D0D0750C132}|PharApp\\PharApp.csproj|solutionrelative:pharapp\\account\\frmdeposit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9167DBF1-0067-4200-84A8-9D0D0750C132}|PharApp\\PharApp.csproj|d:\\awaisplasticstoregit\\awaiscrockerystore\\pharapp\\account\\frmregisteradjustmentdeposit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9167DBF1-0067-4200-84A8-9D0D0750C132}|PharApp\\PharApp.csproj|solutionrelative:pharapp\\account\\frmregisteradjustmentdeposit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmAccountDeposit.cs",
+              "DocumentMoniker": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\PharApp\\Account\\frmAccountDeposit.cs",
+              "RelativeDocumentMoniker": "PharApp\\Account\\frmAccountDeposit.cs",
+              "ToolTip": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\PharApp\\Account\\frmAccountDeposit.cs",
+              "RelativeToolTip": "PharApp\\Account\\frmAccountDeposit.cs",
+              "ViewState": "AgIAAFIAAAAAAAAAAAAswFsAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-12T21:08:02.73Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmAccountDeposit.cs [Design]",
+              "DocumentMoniker": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\PharApp\\Account\\frmAccountDeposit.cs",
+              "RelativeDocumentMoniker": "PharApp\\Account\\frmAccountDeposit.cs",
+              "ToolTip": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\PharApp\\Account\\frmAccountDeposit.cs [Design]",
+              "RelativeToolTip": "PharApp\\Account\\frmAccountDeposit.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-12T21:07:58.48Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmDeposit.cs",
+              "DocumentMoniker": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\PharApp\\Account\\frmDeposit.cs",
+              "RelativeDocumentMoniker": "PharApp\\Account\\frmDeposit.cs",
+              "ToolTip": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\PharApp\\Account\\frmDeposit.cs",
+              "RelativeToolTip": "PharApp\\Account\\frmDeposit.cs",
+              "ViewState": "AgIAAK4AAAAAAAAAAADwv7kAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-12T21:03:57.621Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "frmDeposit.cs [Design]",
+              "DocumentMoniker": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\PharApp\\Account\\frmDeposit.cs",
+              "RelativeDocumentMoniker": "PharApp\\Account\\frmDeposit.cs",
+              "ToolTip": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\PharApp\\Account\\frmDeposit.cs [Design]",
+              "RelativeToolTip": "PharApp\\Account\\frmDeposit.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-12T21:03:46.524Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frmRegisterAdjustmentDeposit.cs [Design]",
+              "DocumentMoniker": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\PharApp\\Account\\frmRegisterAdjustmentDeposit.cs",
+              "RelativeDocumentMoniker": "PharApp\\Account\\frmRegisterAdjustmentDeposit.cs",
+              "ToolTip": "D:\\AwaisPlasticStoreGit\\AwaisCrockeryStore\\PharApp\\Account\\frmRegisterAdjustmentDeposit.cs [Design]",
+              "RelativeToolTip": "PharApp\\Account\\frmRegisterAdjustmentDeposit.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-12T21:01:12.807Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -110,6 +110,7 @@ namespace PharApp.RdlcReports.Account
             // 
             // btnReport
             // 
+            btnReport.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnReport.Location = new Point(938, 12);
             btnReport.Margin = new Padding(3, 2, 3, 2);
             btnReport.Name = "btnReport";
@@ -121,6 +122,7 @@ namespace PharApp.RdlcReports.Account
             // 
             // btnClear
             // 
+            btnClear.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnClear.Location = new Point(817, 12);
             btnClear.Margin = new Padding(3, 2, 3, 2);
             btnClear.Name = "btnClear";

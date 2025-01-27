@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BML;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -92,6 +93,43 @@ namespace BAL
                 return new List<BML.CmbDepositInvoice>();
             }
         }
+
+        // Method to create a new AdjustmentAccount record
+        public async Task<int> CreateAdjustmentAccountAsync(string accountId, string transactionId, string transactionType, decimal totalDepositAmount, DateTime? depositDate = null, string remarks = null)
+        {
+            // Business logic validation
+            if (string.IsNullOrEmpty(accountId) || string.IsNullOrEmpty(transactionId) || string.IsNullOrEmpty(transactionType))
+                throw new ArgumentException("Account ID, Transaction ID, and Transaction Type are required fields.");
+
+            // Call DAL method
+            return await _account.CreateAdjustmentAccountAsync(accountId, transactionId, transactionType, totalDepositAmount, depositDate, remarks);
+        }
+
+        // Method to read records from AdjustmentAccount
+        public async Task<List<ViewAdjustmentAccount>> GetTransactionAccountsAsync()
+        {
+            var accounts = await _account.ReadTransactionAccountAsync();
+
+            // Additional business logic, e.g., filtering, could go here
+            return accounts ?? new List<ViewAdjustmentAccount>();
+        }
+
+        public async Task<string> GetUniqueTransactionIdAsync()
+        {
+            var TransactionId = await _account.GetUniqueTransactionIdAsync();
+
+            // Additional business logic, e.g., filtering, could go here
+            return TransactionId;
+        }
+
+        public async Task<List<ViewTransactionIdCMB>> GetTransactionIdCMBAsync()
+        {
+            var TransactionId = await _account.GetTransactionIdCMB();
+
+            // Additional business logic, e.g., filtering, could go here
+            return TransactionId ?? new List<ViewTransactionIdCMB>();
+        }
+
 
     }
 }

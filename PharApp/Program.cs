@@ -22,7 +22,7 @@ namespace PharApp
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            //Application.Run(new rptAdjustmentAccountLedger());
+            //Application.Run(new frmViewDeposits());
             Application.Run(new frmLogin());
         }
     }

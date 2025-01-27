@@ -15,11 +15,11 @@ namespace BAL
             _deposit = new DAL.Deposit(connectionString);
         }
 
-        public async Task<int> CreateDepositAsync(DateTime depositDate,string accountId, string invoiceNo, string transactionType, decimal totalAmount, string paymentMethod, decimal paidAmount, decimal balance, string bankName = "", string checkNo = "", string remarks = "")
+        public async Task<int> CreateDepositAsync(DateTime depositDate,string accountId, string invoiceNo, string transactionType, decimal totalAmount, string paymentMethod, decimal credit, decimal debit, string bankName = "", string checkNo = "", string remarks = "")
         {
             try
             {
-                return await _deposit.CreateDepositAsync(depositDate, accountId, invoiceNo, transactionType, totalAmount, paymentMethod, paidAmount, balance, bankName, checkNo, remarks);
+                return await _deposit.CreateDepositAsync(depositDate, accountId, invoiceNo, transactionType, totalAmount, paymentMethod, credit, debit, bankName, checkNo, remarks);
             }
             catch (Exception ex)
             {
@@ -51,6 +51,19 @@ namespace BAL
             {
                 Console.WriteLine($"Error getting deposits: {ex.Message}");
                 return new List<BML.ViewDeposit>();
+            }
+        }
+
+        public async Task<List<BML.ViewAccountDeposit>> ViewAccountDepositsAsync()
+        {
+            try
+            {
+                return await _deposit.ViewAccountDepositsAsync();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error getting deposits: {ex.Message}");
+                return new List<BML.ViewAccountDeposit>();
             }
         }
     }

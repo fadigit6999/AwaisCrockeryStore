@@ -14,7 +14,6 @@ namespace BML
         public string TransactionID { get; set; }
         public string TransactionType { get; set; }
         public string DepositDate { get; set; }
-        public string TotalDepositAmount { get; set; }
         public string Remarks { get; set; }
     }
 }

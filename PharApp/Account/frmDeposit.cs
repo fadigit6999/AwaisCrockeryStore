@@ -44,7 +44,7 @@ namespace PharApp.Account
             try
             {
                 var cmbPartyBal = new BAL.Account(Helper.GetConnectionStringFromSettings());
-                List<BML.ViewAccount> cmbPartyList = await cmbPartyBal.GetAccountsAsync();
+                var cmbPartyList = await cmbPartyBal.GetTransactionAccountsAsync();
 
                 // Create a dictionary to hold the category names and IDs
                 Dictionary<string, string> partyDictionary = new Dictionary<string, string>();
@@ -52,7 +52,9 @@ namespace PharApp.Account
                 // Populate the dictionary with category names and IDs
                 foreach (var category in cmbPartyList)
                 {
-                    partyDictionary.Add(category.Name, category.AccountID);
+                    if (partyDictionary.ContainsKey(category.AccountHolder))
+                        continue;
+                    partyDictionary.Add(category.AccountHolder, category.AccountID);
                 }
 
                 cmbAccountId.DataSource = new BindingSource(partyDictionary, null);
@@ -80,20 +82,20 @@ namespace PharApp.Account
             {
                 return;
             }
-            string getMfgId = await GetMFGByAccountID(getAccountId);
+            //string getMfgId = await GetMFGByAccountID(getAccountId);
             //find the manufacture or customer with its all invoices
             var cmbDepositInvoiceBal = new BAL.Account(Helper.GetConnectionStringFromSettings());
-            List<BML.CmbDepositInvoice> cmbDepositInvoiceList = await cmbDepositInvoiceBal.GetInvoicesAsync();
+            var cmbDepositInvoiceList = await cmbDepositInvoiceBal.GetTransactionAccountsAsync();
             //Filter by mfg
-            var cmbList = cmbDepositInvoiceList.Where(x => x.MfgId == getMfgId).ToList();
+            var cmbList = cmbDepositInvoiceList.Where(x => x.AccountID == getAccountId).ToList();
             //Combo box Code
             Dictionary<string, string> invoiceDictionary = new Dictionary<string, string>();
-            invoiceDictionary.Add("-- Choose Invoice --", Guid.NewGuid().ToString());
+            invoiceDictionary.Add("-- Choose TRXACID --", Guid.NewGuid().ToString());
 
             // Populate the dictionary with category names and IDs
             foreach (var invoiceList in cmbList)
             {
-                invoiceDictionary.Add(invoiceList.InvoiceNo, invoiceList.Orderid);
+                invoiceDictionary.Add(invoiceList.TransactionID, invoiceList.AccountID);
             }
 
             cmbInvoiceno.DataSource = new BindingSource(invoiceDictionary, null);
@@ -154,15 +156,26 @@ namespace PharApp.Account
             {
                 // Retrieve the values from the TextBox controls
                 string bankName = txtBankName.Text.Trim();
-                decimal totalAmount = Convert.ToDecimal(txtTotalAmount.Text.Trim().ToString());
                 string checkNo = txtCheckNo.Text.Trim();
-                decimal paidAmount = Convert.ToDecimal(txtPaidAmount.Text.Trim().ToString());
-                decimal balance = Convert.ToDecimal(txtBalance.Text.Trim().ToString());
+                decimal debit = 0;
+
+                if (!string.IsNullOrWhiteSpace(txtDebit.Text.Trim()) && decimal.TryParse(txtDebit.Text.Trim(), out decimal parsedValue))
+                {
+                    debit = parsedValue;
+                }
+
+                decimal credit = 0;
+
+                if (!string.IsNullOrWhiteSpace(txtCredit.Text.Trim()) && decimal.TryParse(txtCredit.Text.Trim(), out decimal parsedValueCredit))
+                {
+                    credit = parsedValueCredit;
+                }
+
                 string remarks = richtxtRemarks.Text.Trim();
 
                 // Retrieve the selected values from ComboBox controls
                 string accountId = cmbAccountId.SelectedValue?.ToString();
-                string invoiceNo = cmbInvoiceno.SelectedValue?.ToString();
+                string invoiceNo = cmbInvoiceno.Text?.ToString();
                 string paymentMethod = cmbPaymentMethod.Text?.ToString();
                 string depositType = cmbDepositType.Text?.ToString();
 
@@ -170,15 +183,14 @@ namespace PharApp.Account
                 DateTime depositDate = dateTimeDeposit.Value;
 
                 var accountBal = new BAL.Deposit(Helper.GetConnectionStringFromSettings());
-                int result = await accountBal.CreateDepositAsync(depositDate, accountId, invoiceNo, depositType, totalAmount, paymentMethod, paidAmount, balance, bankName, checkNo, remarks);
+                int result = await accountBal.CreateDepositAsync(depositDate, accountId, invoiceNo, depositType, 0, paymentMethod, credit, debit, bankName, checkNo, remarks);
 
                 if (result >= 1)
                 {
-                    Helper.Log($"Deposited Invoice:AccountID: {accountId},Invoice: {invoiceNo},Deposit Type: {depositType},Total Amount: {totalAmount},Paid Amount: {paidAmount},Balance {balance},Bank Name: {bankName},Check {checkNo}, Remarks {remarks}");
+                    Helper.Log($"Deposited Invoice:AccountID: {accountId},Invoice: {invoiceNo},Deposit Type: {depositType},Total Amount: {0},Credit: {credit},Debit {debit},Bank Name: {bankName},Check {checkNo}, Remarks {remarks}");
                     //ReLoadGridDataMedicine();
                     MessageBox.Show("Amount Deposited Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    InvoiceInformation();
 
                     LoadGridDataDeposit();
 
@@ -194,12 +206,7 @@ namespace PharApp.Account
 
         private bool ValidateInput()
         {
-            // Check if the Name, Strength, and Generic Name fields are empty
-            if (string.IsNullOrEmpty(txtPaidAmount.Text))
-            {
-                MessageBox.Show("Please enter Paid Amount!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
+           
 
             // Check if the Manufacturer, Mnf Price, and Sell Price fields are valid
             if (string.IsNullOrEmpty(cmbAccountId.Text) || cmbAccountId.Text == "-- Choose Account --" || cmbAccountId.SelectedIndex == -1)
@@ -208,7 +215,7 @@ namespace PharApp.Account
                 return false;
             }
 
-            if (string.IsNullOrEmpty(cmbInvoiceno.Text) || cmbInvoiceno.Text == "-- Choose Invoice --" || cmbInvoiceno.SelectedIndex == -1)
+            if (string.IsNullOrEmpty(cmbInvoiceno.Text) || cmbInvoiceno.Text == "-- Choose TRXACID --" || cmbInvoiceno.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select Invoice!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -238,146 +245,9 @@ namespace PharApp.Account
 
         private async void cmbInvoiceno_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (_isInitializingInvoice)
-            {
-                _isInitializingInvoice = false;
-                return;
-            }
 
-            if (string.IsNullOrEmpty(cmbInvoiceno.Text) || cmbInvoiceno.Text == "-- Choose Invoice --" || cmbInvoiceno.SelectedIndex == -1)
-            {
-                return;
-            }
-            //get invoice
-            string invoice = cmbInvoiceno.Text;
-
-            var cmbDepositInvoiceBal = new BAL.Account(Helper.GetConnectionStringFromSettings());
-            List<BML.CmbDepositInvoice> cmbDepositInvoiceList = await cmbDepositInvoiceBal.GetInvoicesAsync();
-
-            var getSingleInvoiceTotal = cmbDepositInvoiceList.Where(x => x.InvoiceNo.ToLower() == invoice.ToLower()).FirstOrDefault();
-
-            txtTotalAmount.Text = getSingleInvoiceTotal.Total;
-
-            InvoiceInformation();
         }
 
-        private void txtPaidAmount_KeyUp(object sender, KeyEventArgs e)
-        {
-            // Assuming that _isBalanceRemaining is a flag that indicates if there's an existing balance
-            if (_isBalanceRemainng)
-            {
-                if (!string.IsNullOrEmpty(txtBalance.Text))
-                {
-                    // Ensure the input is a valid decimal number
-                    if (decimal.TryParse(txtPaidAmount.Text, out decimal paidAmount))
-                    {
-                        // Calculate the new remaining balance based on the existing balance
-                        decimal newRemainingBalance = _hardCodedBalance - paidAmount;
-
-                        // Ensure the remaining balance doesn't go below zero (overpayment)
-                        if (newRemainingBalance >= 0)
-                        {
-                            txtBalance.Text = newRemainingBalance.ToString();
-                        }
-                        else
-                        {
-                            // Handle overpayment
-                            MessageBox.Show("Overpayment detected. Please check the amount entered.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            txtPaidAmount.Text = _hardCodedBalance.ToString(); // Reset to the maximum possible amount
-                        }
-                    }
-                    else
-                    {
-                        // Reset the display if input is invalid
-                        txtBalance.Text = _hardCodedBalance.ToString();
-                    }
-                }
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(txtTotalAmount.Text))
-                {
-                    decimal totalInvoiceAmount = Convert.ToDecimal(txtTotalAmount.Text);
-                    // Ensure the input is a valid decimal number
-                    if (decimal.TryParse(txtPaidAmount.Text, out decimal paidAmount))
-                    {
-                        // Calculate the new remaining balance
-                        decimal newRemainingBalance = totalInvoiceAmount - paidAmount;
-
-                        // Ensure the remaining balance doesn't go below zero (overpayment)
-                        if (newRemainingBalance >= 0)
-                        {
-                            txtBalance.Text = newRemainingBalance.ToString("F2");
-                        }
-                        else
-                        {
-                            // Handle overpayment
-                            MessageBox.Show("Overpayment detected. Please check the amount entered.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            txtPaidAmount.Text = totalInvoiceAmount.ToString("F2"); // Reset to the maximum possible amount
-                        }
-                    }
-                    else
-                    {
-                        // Reset the display if input is invalid
-                        txtBalance.Text = totalInvoiceAmount.ToString("F2");
-                    }
-                }
-            }
-        }
-
-        private void txtPaidAmount_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // Allow only digits, one decimal point, and control characters
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
-            {
-                e.Handled = true; // Invalid character, don't process further
-            }
-
-            // If user enters a decimal point, ensure it's the only one
-            if (e.KeyChar == '.' && (sender as TextBox).Text.IndexOf('.') > -1)
-            {
-                e.Handled = true; // Disallow a second decimal point
-            }
-        }
-
-        async void InvoiceInformation()
-        {
-            string orderidInvoice = cmbInvoiceno.SelectedValue.ToString();
-
-
-            var depositBal = new BAL.Deposit(Helper.GetConnectionStringFromSettings());
-            List<BML.Deposit> depositList = await depositBal.GetDepositsAsync();
-
-            var getSingleDeposit = depositList.Where(x => x.InvoiceNo == orderidInvoice).FirstOrDefault();
-            if (getSingleDeposit != null)
-            {
-                txtBalance.Text = getSingleDeposit.Balance.ToString();
-                _hardCodedBalance = Convert.ToDecimal(getSingleDeposit.Balance);
-                _isBalanceRemainng = true;
-                if (getSingleDeposit.IsPaid == 1)
-                {
-                    lblInvoicePaid.Visible = true;
-                    _isBalanceRemainng = false;
-                    lblInvoiceNotPaid.Visible = false;
-                    btnDeposit.Enabled = false;
-                }
-                else
-                {
-                    lblInvoiceNotPaid.Visible = true;
-                    lblInvoicePaid.Visible = false;
-                    btnDeposit.Enabled = true;
-                }
-            }
-            else
-            {
-                lblInvoiceNotPaid.Visible = true;
-                lblInvoicePaid.Visible = false;
-                _isBalanceRemainng = false;
-                btnDeposit.Enabled = true;
-                _hardCodedBalance = 0;
-                txtBalance.Text = "0.00";
-            }
-        }
 
         private async void LoadGridDataDeposit()
         {
@@ -400,10 +270,8 @@ namespace PharApp.Account
         {
             // Reset TextBox controls
             txtBankName.Text = string.Empty;
-            txtTotalAmount.Text = string.Empty;
             txtCheckNo.Text = string.Empty;
-            txtPaidAmount.Text = string.Empty;
-            txtBalance.Text = string.Empty;
+            txtDebit.Text = string.Empty;
 
             // Reset RichTextBox control
             richtxtRemarks.Text = string.Empty;
@@ -416,11 +284,39 @@ namespace PharApp.Account
 
             // Reset DateTimePicker control
             dateTimeDeposit.Value = DateTime.Now; // Set to the current date or any default date
-            lblInvoiceNotPaid.Visible = false;
-            lblInvoicePaid.Visible = false;
+
             // Optionally, reset focus to the first control (optional)
             txtBankName.Focus();
         }
 
+        private void txtDebit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Reference the TextBox control
+            TextBox textBox = sender as TextBox;
+
+            // Allow control keys, numeric digits, and only one decimal point
+            if (!char.IsControl(e.KeyChar) &&
+                !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.') ||
+                (e.KeyChar == '.' && textBox.Text.Contains(".")))
+            {
+                e.Handled = true; // Block invalid input
+            }
+        }
+
+        private void txtCredit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Reference the TextBox control
+            TextBox textBox = sender as TextBox;
+
+            // Allow control keys, numeric digits, and only one decimal point
+            if (!char.IsControl(e.KeyChar) &&
+                !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.') ||
+                (e.KeyChar == '.' && textBox.Text.Contains(".")))
+            {
+                e.Handled = true; // Block invalid input
+            }
+        }
     }
 }

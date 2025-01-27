@@ -18,7 +18,7 @@ namespace DAL
         }
 
         // Create a new deposit (transaction)
-        public async Task<int> CreateDepositAsync(DateTime depositdate,string accountId, string invoiceNo, string transactionType, decimal totalAmount, string paymentMethod, decimal paidAmount, decimal balance, string bankName = "", string checkNo = "", string remarks = "")
+        public async Task<int> CreateDepositAsync(DateTime depositdate,string accountId, string invoiceNo, string transactionType, decimal totalAmount, string paymentMethod, decimal credit, decimal debit, string bankName = "", string checkNo = "", string remarks = "")
         {
             int result = 0;
 
@@ -32,10 +32,9 @@ namespace DAL
                 command.Parameters.AddWithValue("@AccountID", accountId);
                 command.Parameters.AddWithValue("@InvoiceNo", invoiceNo);
                 command.Parameters.AddWithValue("@TransactionType", transactionType);
-                command.Parameters.AddWithValue("@TotalAmount", totalAmount);
                 command.Parameters.AddWithValue("@PaymentMethod", paymentMethod);
-                command.Parameters.AddWithValue("@PaidAmount", paidAmount);
-                command.Parameters.AddWithValue("@Balance", balance);
+                command.Parameters.AddWithValue("@DebitAmount", debit);
+                command.Parameters.AddWithValue("@CreditAmount", credit);
                 command.Parameters.AddWithValue("@BankName", bankName);
                 command.Parameters.AddWithValue("@CheckNo", checkNo);
                 command.Parameters.AddWithValue("@Remarks", remarks);
@@ -118,18 +117,59 @@ namespace DAL
                         {
                             BML.ViewDeposit deposit = new BML.ViewDeposit
                             {
-                                TransactionID = reader["TransactionID"].ToString(),
+                                TrxAccountId = reader["TrxAccountId"].ToString(),
                                 AccountID = reader["AccountID"].ToString(),
-                                InvoiceNo = reader["InvoiceNo"].ToString(),
+                                TransactionType = reader["TransactionType"].ToString(),
+                                Total= reader["Credit"].ToString(),
+                                Paid= reader["Debit"].ToString(),
+                                Balanace= reader["Balanace"].ToString()
+                            };
+                            deposits.Add(deposit);
+                        }
+                    }
+                }
+
+                return deposits;
+            }
+            catch (Exception ex)
+            {
+
+                string message = ex.ToString();
+                return null;
+            }
+
+        }
+
+        public async Task<List<BML.ViewAccountDeposit>> ViewAccountDepositsAsync()
+        {
+            try
+            {
+                List<BML.ViewAccountDeposit> deposits = new List<BML.ViewAccountDeposit>();
+
+                using (var connection = new SqlConnection(_connectionString))
+                using (var command = new SqlCommand("ManageAccountAndDeposit", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@Operation", "ViewAccountDeposit");
+
+                    await connection.OpenAsync();
+                    using (var reader = await command.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            BML.ViewAccountDeposit deposit = new BML.ViewAccountDeposit
+                            {
+                                AccountID = reader["AccountID"].ToString(),
+                                SerialId = reader["SerialId"].ToString(),
+                                TrxAccountId = reader["TrxAccountId"].ToString(),
                                 TransactionType = reader["TransactionType"].ToString(),
                                 TransactionDate = reader["TransactionDate"].ToString(),
-                                TotalAmount = (decimal)reader["TotalAmount"],
+                                DebitAmount = reader["DebitAmount"].ToString(),
+                                CreditAmount = reader["CreditAmount"].ToString(),
                                 PaymentMethod = reader["PaymentMethod"].ToString(),
-                                PaidAmount = (decimal)reader["PaidAmount"],
-                                Balance = (decimal)reader["Balance"],
                                 BankName = reader["BankName"].ToString(),
                                 CheckNo = reader["CheckNo"].ToString(),
-                                Remarks = reader["Remarks"].ToString()
+                                Remarks= reader["Remarks"].ToString(),
                             };
                             deposits.Add(deposit);
                         }

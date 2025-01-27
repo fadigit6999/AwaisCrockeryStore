@@ -211,3 +211,4 @@ D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\obj\Release\net8.0-windows\Ph
 D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\obj\Release\net8.0-windows\PharApp.Account.frmRegisterAdjustmentDeposit.resources
 D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\obj\Release\net8.0-windows\PharApp.RdlcReports.Account.rptAccountLedger.resources
 D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\obj\Release\net8.0-windows\PharApp.RdlcReports.Account.rptAdjustmentAccountLedger.resources
+D:\AwaisPlasticStoreGit\AwaisCrockeryStore\PharApp\obj\Release\net8.0-windows\PharApp.Account.frmAccountTransaction.resources
